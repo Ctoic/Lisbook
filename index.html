@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">    <title>My Favorite Books Music App</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Podify</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+        </div>
+      </nav>
+    <div class="container">
+        <h1>God Delusion</h1>
+        <h3>By Richard Dawkins</h3>
+
+        <!--image insert -->
+        <img id="img" src="./Images/GD.jpeg" alt="bookify logo" width="200" height="200">
+
+        <h2>My Favorite Books</h2>
+        <ul id="playlist">
+            <li data-src="audio/part1.mp3">Part 1</li>
+            <li data-src="audio/part2.mp3">Part 2</li>
+            <li data-src="audio/part3.mp3">Part 3</li>
+            <li data-src="audio/part4.mp3">Part 4</li>
+            <li data-src="audio/part5.mp3">Part 5</li>
+            <li data-src="audio/part6.mp3">Part 6</li>
+            <li data-src="audio/part7.mp3">Part 7</li>
+            <li data-src="audio/part8.mp3">Part 8</li>
+            <li data-src="audio/part9.mp3">Part 9</li>
+            <li data-src="audio/part10.mp3">Part 10</li>
+            <li data-src="audio/part11.mp3">Part 11</li>
+            <li data-src="audio/part12.mp3">Part 12</li>
+            <li data-src="audio/part13.mp3">Part 13</li>
+            <li data-src="audio/part14.mp3">Part 14</li>
+            <!-- Add more entries for your favorite books -->
+        </ul>
+        <audio id="audio-player" controls></audio>
+    </div>
+
+    <div class="comments-section">
+        <h2>Share Your Thoughts</h2>
+        <form id="comment-form">
+            <label for="username">Your Name:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="comment">Your Comment:</label>
+            <textarea id="comment" name="comment" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div id="comments-list"></div>
+    </div>
+   
+
+    <script src="app.js"></script>
+</body>
+<!-- Footer -->
+<footer class="bg-body-tertiary text-center">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Form -->
+    <section class="">
+      <form action="">
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+          <!--Grid column-->
+          <div class="col-auto">
+            <p class="pt-2">
+              <strong>Sign up for our newsletter</strong>
+            </p>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-5 col-12">
+            <!-- Email input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="email" id="form5Example24" class="form-control" />
+              <label class="form-label" for="form5Example24">Email address</label>
+            </div>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-auto">
+            <!-- Submit button -->
+            <button data-mdb-ripple-init type="submit" class="btn btn-outline mb-4">
+              Subscribe
+            </button>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </form>
+    </section>
+    <!-- Section: Form -->
+
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam eum
+        harum corrupti dicta, aliquam sequi voluptate quas.
+      </p>
+    </section>
+    <!-- Section: Text -->
+
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a class="text-body" href="#!">Link 1</a>
+            </li>
+            <li>
+              <a class="text-body" href="#!">Link 2</a>
+            </li>
+            <li>
+              <a class="text-body" href="#!">Link 3</a>
+            </li>
+            <li>
+              <a class="text-body" href="#!">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a class="text-body" href="#!">Link 1</a>
+            </li>
+            <li>
+              <a class="text-body" href="#!">Link 2</a>
+            </li>
+            <li>
+              <a class="text-body" href="#!">Link 3</a>
+            </li>
+            <li>
+              <a class="text-body" href="#!">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a class="text-body" href="#!">Link 1</a>
+            </li>
+            <li>
+              <a class="text-body" href="#!">Link 2</a>
+            </li>
+            <li>
+              <a class="text-body" href="#!">Link 3</a>
+            </li>
+            <li>
+              <a class="text-body" href="#!">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a class="text-body" href="#!">Link 1</a>
+            </li>
+            <li>
+              <a class="text-body" href="#!">Link 2</a>
+            </li>
+            <li>
+              <a class="text-body" href="#!">Link 3</a>
+            </li>
+            <li>
+              <a class="text-body" href="#!">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2020 Copyright:
+    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+</html>
