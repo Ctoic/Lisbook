@@ -12,11 +12,7 @@ LisBook is a simple audio book player that allows you to listen to your favorite
   
 ## Screenshots from images folder
 
-
-( ![App Screenshot]( images/SC2.png )
-
-
-
+![LisBook](SC2.png)
 
 
 # License
