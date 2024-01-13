@@ -15,7 +15,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #f0f0f0; /* Green */
     border: none;
     color: white;
     padding: 10px 20px;
@@ -40,7 +40,7 @@ h1 {
 #playlist li {
     cursor: pointer;
     padding: 15px;
-    background-color: #ffffff;
+    background-color: #59db6b;
     border-radius: 8px;
     margin-bottom: 10px;
     transition: background-color 0.3s ease;
