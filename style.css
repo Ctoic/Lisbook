@@ -15,14 +15,21 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .button {
-    background-color: #f0f0f0; /* Green */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center
+
 }
 
 
@@ -175,10 +182,6 @@ h1 {
 }
 
 /*Add style nav-link */
-.nav-link {
-    
-}
-
 
 .footer a {
     color: #fff;
