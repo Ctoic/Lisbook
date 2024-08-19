@@ -28,6 +28,14 @@ body {
 
 }
 
+.image
+{
+    width: 100px;
+    height: 100px;
+    align-self: center;
+    margin-right: 100px;
+}
+
 
 h1 {
     text-align: center;
