@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>My Favorite Books Music App</title>
 
     <style>
@@ -13,64 +14,23 @@
             font-family: 'Helvetica Neue', Arial, sans-serif;
         }
 
-        h1, h2, h3, p {
+        h1, h2, h3 {
             color: #fff;
         }
 
-        .navbar {
-            background-color: #191414;
-        }
-
-        .navbar-brand {
-            color: #1DB954;
-        }
-
-        .nav-link {
-            color: #b3b3b3;
-        }
-
-        .nav-link:hover {
-            color: #1DB954;
-        }
-
-        .container {
-            margin-top: 30px;
-        }
-
-        .image img {
-            width: 200px;
-            border-radius: 20px;
-            margin: 20px auto;
-            display: block;
-            height: 100px;
-        }
-
-        #playlist .list-group-item {
-            background-color: #181818;
-            border: none;
-            color: #b3b3b3;
-        }
-
-        #playlist .list-group-item:hover {
+        #playlist li:hover {
             background-color: #282828;
             color: #1DB954;
             cursor: pointer;
         }
 
         #audio-player {
-            width: 100%;
             background-color: #282828;
             color: #1DB954;
-            margin-top: 20px;
         }
 
         button {
-            background-color: #1DB954;
-            border: none;
-            padding: 10px 20px;
-            color: white;
-            border-radius: 50px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
 
         button:hover {
@@ -80,128 +40,114 @@
         footer {
             background-color: #191414;
             color: #b3b3b3;
-            padding: 20px 0;
         }
 
-        footer a {
+        footer a:hover {
             color: #1DB954;
-        }
-
-        .comments-section {
-            margin-top: 50px;
-            background-color: #181818;
-            padding: 20px;
-            border-radius: 20px;
-        }
-
-        .form-control, .form-label {
-            background-color: #282828;
-            border: none;
-            color: #fff;
-        }
-
-        .form-control {
-            border-radius: 50px;
-        }
-
-        .form-control:focus {
-            background-color: #1DB954;
-            border: none;
-            color: white;
-        }
-
-        .comment-box {
-            background-color: #282828;
-            color: white;
-            padding: 10px;
-            border-radius: 20px;
-            margin-bottom: 10px;
         }
     </style>
 </head>
 
-<body>
+<body class="bg-gray-900 text-gray-300">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Lisbook</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./pbd.html">Next</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.html">Previous</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <nav class="bg-gray-800 p-4">
+      <div class="container mx-auto flex justify-between items-center">
+          <!-- Logo -->
+          <a class="text-green-500 text-2xl font-bold" href="#">Lisbook</a>
+  
+          <!-- Mobile Menu Toggle Button -->
+          <button id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden ">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+          </button>
+  
+          <!-- Menu Links -->
+          <div id="menu" class="hidden lg:flex space-x-4">
+              <a href="#" class="text-gray-300 hover:text-green-500">Home</a>
+              <a href="./pbd.html" class="text-gray-300 hover:text-green-500">Next</a>
+              <a href="./index.html" class="text-gray-300 hover:text-green-500">Previous</a>
+          </div>
+      </div>
+  </nav>
 
     <!-- Image -->
-    <div class="container text-center">
-        <img id="img" src="./Images/GD.jpeg" alt="bookify logo">
+    <div class="container mx-auto mt-10 text-center">
+        <img id="img" src="./Images/GD.jpeg" alt="bookify logo" class="w-48 h-48 rounded-lg shadow-lg mx-auto">
     </div>
 
     <!-- Book Details and Playlist -->
-    <div class="container text-center">
-        <h1>God Delusion</h1>
-        <h3>By Richard Dawkins</h3>
-        <ul id="playlist" class="list-group">
-            <li class="list-group-item" data-src="audio/part1.mp3">Introduction: God Delusion</li>
-            <li class="list-group-item" data-src="audio/part2.mp3">Part 2</li>
-            <li class="list-group-item" data-src="audio/part3.mp3">Part 3</li>
-            <!-- More list items here -->
+    <div class="container mx-auto mt-10 text-center">
+        <h1 class="text-3xl font-bold">God Delusion</h1>
+        <h3 class="text-xl mt-2">By Richard Dawkins</h3>
+        <ul id="playlist" class="list-none mt-5 bg-gray-800 rounded-lg shadow-lg p-4">
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part1.mp3">Introduction: God Delusion</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part2.mp3">Part 2</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part3.mp3">Part 3</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part4.mp3">Part 4</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part5.mp3">Part 5</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part6.mp3">Part 6</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part7.mp3">Part 7</li>
+
         </ul>
 
         <!-- Audio Player -->
-        <audio id="audio-player" class="w-100 mt-3" controls></audio>
+        <div class="mt-5 flex justify-center">
+            <audio id="audio-player" class="w-full max-w-lg" controls></audio>
+        </div>
     </div>
 
     <!-- Comment Section -->
-    <div class="container comments-section">
-        <h2>Share Your Thoughts</h2>
-        <form id="comment-form" class="mb-4">
-            <div class="mb-3">
-                <label for="username" class="form-label">Your Name:</label>
-                <input type="text" id="username" class="form-control" required>
+    <div class="container mx-auto mt-16 bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h2 class="text-center text-2xl mb-6">Share Your Thoughts</h2>
+        <form id="comment-form" class="space-y-4">
+            <div>
+                <label for="username" class="block text-sm font-medium">Your Name:</label>
+                <input type="text" id="username" class="w-full p-2 rounded-lg bg-gray-700 text-white" required>
             </div>
-            <div class="mb-3">
-                <label for="comment" class="form-label">Your Comment:</label>
-                <textarea id="comment" class="form-control" rows="4" required></textarea>
+            <div>
+                <label for="comment" class="block text-sm font-medium">Your Comment:</label>
+                <textarea id="comment" class="w-full p-2 rounded-lg bg-gray-700 text-white" rows="4" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="text-center">
+                <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600">Submit</button>
+            </div>
         </form>
 
-        <div id="comments-list"></div>
+        <div id="comments-list" class="mt-10 space-y-4"></div>
     </div>
+
+    <!-- Footer -->
+    <footer class="mt-20 py-6 text-center">
+        <div class="flex justify-center space-x-4">
+            <a href="https://www.facebook.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-linkedin"></i></a>
+            <a href="https://www.twitter.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-twitter"></i></a>
+        </div>
+        <p class="mt-4 text-gray-400">&copy; 2020 Developed by Najam Ali Abass aka ctoic</p>
+    </footer>
 
     <!-- JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const playlistItems = document.querySelectorAll('#playlist li');
             const audioPlayer = document.getElementById('audio-player');
 
             playlistItems.forEach(item => {
-                item.addEventListener('click', function() {
+                item.addEventListener('click', function () {
                     audioPlayer.src = item.getAttribute('data-src');
                     audioPlayer.play();
                 });
             });
 
             // Comment Submission
-            document.getElementById('comment-form').addEventListener('submit', function(e) {
+            document.getElementById('comment-form').addEventListener('submit', function (e) {
                 e.preventDefault();
                 const username = document.getElementById('username').value;
                 const comment = document.getElementById('comment').value;
 
-                const commentHTML = `<div class="comment-box">
+                const commentHTML = `<div class="bg-gray-700 text-white p-4 rounded-lg">
                     <strong>${username}:</strong>
                     <p>${comment}</p>
                 </div>`;
@@ -212,16 +158,18 @@
                 document.getElementById('comment-form').reset();
             });
         });
+
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+    
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6hKNly4PSm3ky9GPy3QeSOE4eVo5aa7eNzxaTA9w/SlMQAPJhg6" crossorigin="anonymous"></script>
 </body>
 
-<!-- Footer -->
-<footer class="bg-dark text-center text-white p-4 mt-5">
-    <div class="container">
-        <p>Developed by: Najam Ali Abass aka ctoic</p>
-        <a href="https://www.linkedin.com/in/ctoic/">LinkedIn</a>
-    </div>
-</footer>
 </html>
