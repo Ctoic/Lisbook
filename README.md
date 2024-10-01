@@ -63,3 +63,11 @@ with open(file_path, 'w') as file:
     file.write(readme_content)
 
 file_path
+
+## Contributors ✨
+
+Thanks to everyone who has contributed to this project! 😊
+
+| Name/Username | GitHub Profile |
+| ------------- | -------------- |
+| [@VaradJadhav](https://github.com/VaradJadhav) | ![@VaradJadhav](https://avatars.githubusercontent.com/VaradJadhav?s=50) |
