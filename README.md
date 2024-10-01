@@ -1,6 +1,3 @@
-# Let's create the README markup as requested by the user
-
-readme_content = """
 # LisBook - A Simple Audio Book Player
 
 ## Description
