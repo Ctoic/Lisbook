@@ -45,41 +45,81 @@
         footer a:hover {
             color: #1DB954;
         }
+
+        .book-card {
+            background-color: #181818;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .book-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .favorite-button {
+            transition: color 0.3s;
+        }
+
+        .favorite-button.active {
+            color: #1DB954;
+        }
+
+        .favorite-button:hover {
+            color: #1DB954;
+        }
     </style>
 </head>
 
 <body class="bg-gray-900 text-gray-300">
     <!-- Navbar -->
     <nav class="bg-gray-800 p-4">
-      <div class="container mx-auto flex justify-between items-center">
-          <!-- Logo -->
-          <a class="text-green-500 text-2xl font-bold" href="#">Lisbook</a>
-  
-          <!-- Mobile Menu Toggle Button -->
-          <button id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden ">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-              </svg>
-          </button>
-  
-          <!-- Menu Links -->
-          <div id="menu" class="hidden lg:flex space-x-4">
-              <a href="#" class="text-gray-300 hover:text-green-500">Home</a>
-              <a href="./pbd.html" class="text-gray-300 hover:text-green-500">Next</a>
-              <a href="./index.html" class="text-gray-300 hover:text-green-500">Previous</a>
-          </div>
-      </div>
-  </nav>
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a class="text-green-500 text-2xl font-bold" href="#">Lisbook</a>
 
-    <!-- Image -->
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+
+            <!-- Menu Links -->
+            <div id="menu" class="hidden lg:flex space-x-4">
+                <a href="#" class="text-gray-300 hover:text-green-500">Home</a>
+                <a href="./pbd.html" class="text-gray-300 hover:text-green-500">Next</a>
+                <a href="./index.html" class="text-gray-300 hover:text-green-500">Previous</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Book Card Display -->
     <div class="container mx-auto mt-10 text-center">
-        <img id="img" src="./Images/GD.jpeg" alt="bookify logo" class="w-48 h-48 rounded-lg shadow-lg mx-auto">
+        <div class="book-card p-6 rounded-lg shadow-lg max-w-xs mx-auto">
+            <!-- Cover Image -->
+            <img id="img" src="./Images/GD.jpeg" alt="God Delusion Cover" class="w-full h-64 object-cover rounded-lg">
+
+            <!-- Book Details -->
+            <div class="mt-4">
+                <h1 class="text-2xl font-bold">God Delusion</h1>
+                <h3 class="text-lg mt-2">By Richard Dawkins</h3>
+                <p class="text-sm mt-2">The God Delusion is a book by English biologist Richard Dawkins that argues against the existence of a supernatural creator.</p>
+            </div>
+
+            <!-- Favorite Button -->
+            <div class="mt-4 flex justify-center">
+                <button id="favorite-button" class="favorite-button text-gray-300 text-xl focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 20.121L12 15.243l6.879 4.878A7.502 7.502 0 0019 10.75C19 6.917 15.777 3 12 3S5 6.917 5 10.75c0 3.62 3.323 6.852 7.121 9.37z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
     </div>
 
-    <!-- Book Details and Playlist -->
+    <!-- Playlist Section -->
     <div class="container mx-auto mt-10 text-center">
-        <h1 class="text-3xl font-bold">God Delusion</h1>
-        <h3 class="text-xl mt-2">By Richard Dawkins</h3>
         <ul id="playlist" class="list-none mt-5 bg-gray-800 rounded-lg shadow-lg p-4">
             <li class="p-2 hover:bg-gray-700" data-src="audio/part1.mp3">Introduction: God Delusion</li>
             <li class="p-2 hover:bg-gray-700" data-src="audio/part2.mp3">Part 2</li>
@@ -88,7 +128,6 @@
             <li class="p-2 hover:bg-gray-700" data-src="audio/part5.mp3">Part 5</li>
             <li class="p-2 hover:bg-gray-700" data-src="audio/part6.mp3">Part 6</li>
             <li class="p-2 hover:bg-gray-700" data-src="audio/part7.mp3">Part 7</li>
-
         </ul>
 
         <!-- Audio Player -->
@@ -134,6 +173,7 @@
             const playlistItems = document.querySelectorAll('#playlist li');
             const audioPlayer = document.getElementById('audio-player');
 
+            // Playlist interaction
             playlistItems.forEach(item => {
                 item.addEventListener('click', function () {
                     audioPlayer.src = item.getAttribute('data-src');
@@ -147,29 +187,27 @@
                 const username = document.getElementById('username').value;
                 const comment = document.getElementById('comment').value;
 
-                const commentHTML = `<div class="bg-gray-700 text-white p-4 rounded-lg">
-                    <strong>${username}:</strong>
-                    <p>${comment}</p>
-                </div>`;
-
+                const commentHTML = `<div class="bg-gray-700 p-4 rounded-lg">
+                                        <h3 class="font-bold">${username}</h3>
+                                        <p>${comment}</p>
+                                    </div>`;
                 document.getElementById('comments-list').insertAdjacentHTML('beforeend', commentHTML);
-
-                // Reset form
                 document.getElementById('comment-form').reset();
             });
+
+            // Favorite Button interaction
+            const favoriteButton = document.getElementById('favorite-button');
+            favoriteButton.addEventListener('click', function () {
+                favoriteButton.classList.toggle('active');
+            });
+
+            // Mobile menu toggle
+            document.getElementById('menu-toggle').addEventListener('click', function () {
+                const menu = document.getElementById('menu');
+                menu.classList.toggle('hidden');
+            });
         });
-
-
-        const menuToggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('menu');
-    
-        menuToggle.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        
     </script>
-
 </body>
 
 </html>
