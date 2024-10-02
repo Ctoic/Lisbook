@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>My Favorite Books Music App</title>
+
+    <style>
+      body {
+        background-color: #121212;
+        color: #b3b3b3;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #fff;
+      }
+
+      #playlist li:hover {
+        background-color: #282828;
+        color: #1db954;
+        cursor: pointer;
+      }
+
+      #audio-player {
+        background-color: #282828;
+        color: #1db954;
+      }
+
+      button {
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #1ed760;
+      }
+
+      footer {
+        background-color: #191414;
+        color: #b3b3b3;
+      }
+
+      footer a:hover {
+        color: #1db954;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-900 text-gray-300">
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <a class="text-green-500 text-2xl font-bold" href="#">Lisbook</a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+
+        <!-- Menu Links -->
+        <div id="menu" class="hidden lg:flex space-x-4">
+          <a href="#" class="text-gray-300 hover:text-green-500">Home</a>
+          <a href="./pbd.html" class="text-gray-300 hover:text-green-500"
+            >Next</a
+          >
+          <a href="./index.html" class="text-gray-300 hover:text-green-500"
+            >Previous</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Image -->
+    <div class="container mx-auto mt-10 text-center">
+      <img
+        id="img"
+        src="./img/GD.jpeg"
+        alt="bookify logo"
+        class="w-48 h-48 rounded-lg shadow-lg mx-auto"
+      />
+    </div>
+
+    <!-- Book Details and Playlist -->
+    <div class="container mx-auto mt-10 text-center">
+      <h1 class="text-3xl font-bold">God Delusion</h1>
+      <h3 class="text-xl mt-2">By Richard Dawkins</h3>
+      <ul
+        id="playlist"
+        class="list-none mt-5 bg-gray-800 rounded-lg shadow-lg p-4"
+      >
+        <li class="p-2 hover:bg-gray-700" data-src="../assets/media/audio/part1.mp3">
+          Introduction: God Delusion
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="../assets/media/audio/part2.mp3">Part 2</li>
+        <li class="p-2 hover:bg-gray-700" data-src="../assets/media/audio/part3.mp3">Part 3</li>
+        <li class="p-2 hover:bg-gray-700" data-src="../assets/media/audio/part4.mp3">Part 4</li>
+        <li class="p-2 hover:bg-gray-700" data-src="../assets/media/audio/part5.mp3">Part 5</li>
+        <li class="p-2 hover:bg-gray-700" data-src="../assets/media/audio/part6.mp3">Part 6</li>
+        <li class="p-2 hover:bg-gray-700" data-src="../assets/media/audio/part7.mp3">Part 7</li>
+      </ul>
+
+      <!-- Audio Player -->
+      <div class="mt-5 flex justify-center">
+        <audio id="audio-player" class="w-full max-w-lg" controls></audio>
+      </div>
+    </div>
+
+    <!-- Comment Section -->
+    <div class="container mx-auto mt-16 bg-gray-800 p-6 rounded-lg shadow-lg">
+      <h2 class="text-center text-2xl mb-6">Share Your Thoughts</h2>
+      <form id="comment-form" class="space-y-4">
+        <div>
+          <label for="username" class="block text-sm font-medium"
+            >Your Name:</label
+          >
+          <input
+            type="text"
+            id="username"
+            class="w-full p-2 rounded-lg bg-gray-700 text-white"
+            required
+          />
+        </div>
+        <div>
+          <label for="comment" class="block text-sm font-medium"
+            >Your Comment:</label
+          >
+          <textarea
+            id="comment"
+            class="w-full p-2 rounded-lg bg-gray-700 text-white"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+        <div class="text-center">
+          <button
+            type="submit"
+            class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+
+      <div id="comments-list" class="mt-10 space-y-4"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-20 py-6 text-center">
+      <div class="flex justify-center space-x-4">
+        <a
+          href="https://www.facebook.com"
+          class="text-gray-300 hover:text-green-500"
+          ><i class="fa fa-facebook"></i
+        ></a>
+        <a
+          href="https://www.instagram.com"
+          class="text-gray-300 hover:text-green-500"
+          ><i class="fa fa-instagram"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com"
+          class="text-gray-300 hover:text-green-500"
+          ><i class="fa fa-linkedin"></i
+        ></a>
+        <a
+          href="https://www.twitter.com"
+          class="text-gray-300 hover:text-green-500"
+          ><i class="fa fa-twitter"></i
+        ></a>
+      </div>
+      <p class="mt-4 text-gray-400">
+        &copy; 2020 Developed by Najam Ali Abass aka ctoic
+      </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const playlistItems = document.querySelectorAll("#playlist li");
+        const audioPlayer = document.getElementById("audio-player");
+
+        playlistItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            audioPlayer.src = item.getAttribute("data-src");
+            audioPlayer.play();
+          });
+        });
+
+        // Comment Submission
+        document
+          .getElementById("comment-form")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            const username = document.getElementById("username").value;
+            const comment = document.getElementById("comment").value;
+
+            const commentHTML = `<div class="bg-gray-700 text-white p-4 rounded-lg">
+                    <strong>${username}:</strong>
+                    <p>${comment}</p>
+                </div>`;
+
+            document
+              .getElementById("comments-list")
+              .insertAdjacentHTML("beforeend", commentHTML);
+
+            // Reset form
+            document.getElementById("comment-form").reset();
+          });
+      });
+
+      const menuToggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("menu");
+
+      menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
