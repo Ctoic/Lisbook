@@ -1,5 +1,8 @@
 # LisBook - A Simple Audio Book Player
 
+![Purple Abstract A Letter Free Logo](https://github.com/user-attachments/assets/3d283391-9e0c-4e34-b302-eb96ea4d159c)
+
+
 ## Description
 LisBook is a straightforward audiobook player designed for simplicity and ease of use. With LisBook, you can listen to your favorite books in MP3 format. The app provides essential playback features such as play, pause, stop, and the ability to skip chapters. You can also adjust playback speed and volume to suit your listening preferences. 
 
