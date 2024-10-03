@@ -10,12 +10,28 @@
 
     <style>
         body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        body.dark-mode {
             background-color: #121212;
             color: #b3b3b3;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
 
         h1, h2, h3 {
+            transition: color 0.3s;
+        }
+
+        body.light-mode h1, body.light-mode h2, body.light-mode h3 {
+            color: #333333;
+        }
+
+        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
             color: #fff;
         }
 
@@ -39,6 +55,15 @@
         }
 
         footer {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-mode footer {
+            background-color: #f1f1f1;
+            color: #333333;
+        }
+
+        body.dark-mode footer {
             background-color: #191414;
             color: #b3b3b3;
         }
@@ -46,10 +71,117 @@
         footer a:hover {
             color: #1DB954;
         }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #1DB954;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* New styles for light mode */
+        body.light-mode nav {
+            background-color: #f1f1f1;
+            color: #333333;
+        }
+
+        body.light-mode #playlist {
+            background-color: #e0e0e0;
+        }
+
+        body.light-mode #playlist li:hover {
+            background-color: #d0d0d0;
+            color: #1DB954;
+        }
+
+        body.light-mode .bg-gray-800 {
+            background-color: #f1f1f1;
+        }
+
+        body.light-mode .text-gray-300 {
+            color: #333333;
+        }
+
+        body.light-mode .hover\:bg-gray-700:hover {
+            background-color: #d0d0d0;
+        }
+
+        body.light-mode #audio-player {
+            background-color: #e0e0e0;
+            color: #1DB954;
+        }
+
+        body.light-mode .bg-gray-700 {
+            background-color: #f1f1f1;
+            color: #333333;
+        }
+
+        body.light-mode input[type="text"],
+        body.light-mode textarea {
+            background-color: #ffffff;
+            color: #333333;
+            border: 1px solid #d0d0d0;
+        }
+
+        body.light-mode .bg-gray-900 {
+            background-color: #ffffff;
+        }
+
+        body.light-mode .container {
+            color: #333333;
+        }
+
+        body.light-mode #comment-form label {
+            color: #333333;
+        }
+
+        body.light-mode #comments-list .bg-gray-700 {
+            background-color: #f1f1f1;
+            color: #333333;
+        }
     </style>
 </head>
 
-<body class="bg-gray-900 text-gray-300">
+
+<body class="bg-gray-900 text-gray-300 dark-mode">
     <!-- Navbar -->
     <nav class="bg-gray-800 p-4">
         <div class="container mx-auto flex justify-between items-center">
@@ -58,6 +190,10 @@
                 <a href="index.html" class="text-gray-300 hover:text-green-500">Home</a>
                 <a href="fs.html" class="text-gray-300 hover:text-green-500">Next Book</a>
                 <a href="#" class="text-gray-300 hover:text-green-500">Previous Book</a>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider"></span>
+                </label>
             </div>
         </div>
     </nav>
@@ -122,7 +258,8 @@
             <a href="https://www.linkedin.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-linkedin"></i></a>
             <a href="https://www.twitter.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-twitter"></i></a>
         </div>
-        <p class="mt-4 text-gray-400">&copy; 2020 Developed by Najam Ali Abass aka ctoic</p>
+
+        <p class="mt-4 text-gray-400">© 2020 Developed by Najam Ali Abass aka ctoic</p>
     </footer>
 
     <!-- JavaScript -->
@@ -130,6 +267,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             const playlistItems = document.querySelectorAll('#playlist li');
             const audioPlayer = document.getElementById('audio-player');
+            const themeToggle = document.getElementById('theme-toggle');
 
             playlistItems.forEach(item => {
                 item.addEventListener('click', function () {
@@ -153,6 +291,17 @@
 
                 // Reset form
                 document.getElementById('comment-form').reset();
+            });
+
+            // Theme Toggle
+            themeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    document.body.classList.remove('dark-mode');
+                    document.body.classList.add('light-mode');
+                } else {
+                    document.body.classList.remove('light-mode');
+                    document.body.classList.add('dark-mode');
+                }
             });
         });
     </script>
