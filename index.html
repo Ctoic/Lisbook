@@ -9,13 +9,21 @@
 
     <style>
         body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-theme {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        body.dark-theme {
             background-color: #121212;
             color: #b3b3b3;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
 
         h1, h2, h3 {
-            color: #fff;
+            color: inherit;
         }
 
         #playlist li:hover {
@@ -68,28 +76,47 @@
         .favorite-button:hover {
             color: #1DB954;
         }
+
+        .light-theme .book-card,
+        .light-theme #playlist,
+        .light-theme .bg-gray-800 {
+            background-color: #f8f8f8;
+        }
+
+        .light-theme .text-gray-300 {
+            color: #333;
+        }
+
+        .light-theme .bg-gray-700 {
+            background-color: #e0e0e0;
+        }
     </style>
 </head>
 
-<body class="bg-gray-900 text-gray-300">
+<body class="bg-gray-900 text-gray-300 dark-theme">
     <!-- Navbar -->
     <nav class="bg-gray-800 p-4">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
             <a class="text-green-500 text-2xl font-bold" href="#">Lisbook</a>
 
-            <!-- Mobile Menu Toggle Button -->
-            <button id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
-
-            <!-- Menu Links -->
-            <div id="menu" class="hidden lg:flex space-x-4">
+            <!-- Menu Links and Theme Toggle -->
+            <div class="flex items-center space-x-4">
                 <a href="#" class="text-gray-300 hover:text-green-500">Home</a>
                 <a href="./pbd.html" class="text-gray-300 hover:text-green-500">Next</a>
                 <a href="./index.html" class="text-gray-300 hover:text-green-500">Previous</a>
+                <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
             </div>
         </div>
     </nav>
@@ -164,7 +191,7 @@
             <a href="https://www.linkedin.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-linkedin"></i></a>
             <a href="https://www.twitter.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-twitter"></i></a>
         </div>
-        <p class="mt-4 text-gray-400">&copy; 2020 Developed by Najam Ali Abass aka ctoic</p>
+        <p class="mt-4 text-gray-400">© 2020 Developed by Najam Ali Abass aka ctoic</p>
     </footer>
 
     <!-- JavaScript -->
@@ -172,6 +199,14 @@
         document.addEventListener('DOMContentLoaded', function () {
             const playlistItems = document.querySelectorAll('#playlist li');
             const audioPlayer = document.getElementById('audio-player');
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            // Theme toggle
+            themeToggle.addEventListener('click', function() {
+                body.classList.toggle('light-theme');
+                body.classList.toggle('dark-theme');
+            });
 
             // Playlist interaction
             playlistItems.forEach(item => {
