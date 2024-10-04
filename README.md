@@ -70,11 +70,3 @@ MIT License
 <a  href="https://github.com/code100x/cms/graphs/contributors">
 <img  src="https://contrib.rocks/image?repo=Ctoic/Lisbook&max=400&columns=20"  />
 </a>
-
-## Contributors 
-
-### CONTRIBUTORS
-
-<a href="https://github.com/Ctoic/Lisbook/blob/master/Contributors.md">
-  <img src="https://contributors-img.web.app/image?repo=Ctoic/Lisbook"/>
-</a>
