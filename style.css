@@ -5,7 +5,6 @@ body {
     background-color: #333;
 }
 
-
 .container {
     max-width: 600px;
     margin: 50px auto;
@@ -14,6 +13,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .button {
     display: flex;
     justify-content: center;
@@ -24,18 +24,14 @@ body {
     margin-right: 100px;
     padding: 10px;
     background-color: #007bff;
-    
-
 }
 
-.image
-{
+.image {
     width: 100px;
     height: 100px;
     align-self: center;
     margin-right: 100px;
 }
-
 
 h1 {
     text-align: center;
@@ -112,7 +108,8 @@ h1 {
     color: #333;
     font-size: 20px;
 }
-#img{
+
+#img {
     width: 100%;
     height: 100%;
 }
@@ -182,11 +179,9 @@ h1 {
     bottom: 0;
     left: 100px;
     width: 100%;
-
 }
 
-/*Add style nav-link */
-
+/* Add style nav-link */
 .footer a {
     color: #fff;
     text-decoration: none;
@@ -196,3 +191,49 @@ h1 {
     text-decoration: underline;
 }
 
+/* Play/Pause Button Styles */
+#playPauseBtn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: none;
+    position: relative;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto; /* Center the button */
+}
+
+#playPauseBtn::before,
+#playPauseBtn::after {
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+#playPauseBtn::before {
+    width: 15px;
+    height: 50px;
+    left: 10px;
+}
+
+#playPauseBtn::after {
+    width: 15px;
+    height: 50px;
+    right: 10px;
+}
+
+/* Play State (Triangle) */
+#playPauseBtn.play::before {
+    transform: rotate(45deg);
+    width: 20px;
+    height: 20px;
+    left: 15px;
+}
+
+#playPauseBtn.play::after {
+    transform: rotate(-45deg);
+    width: 20px;
+    height: 20px;
+    right: 15px;
+}

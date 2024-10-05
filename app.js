@@ -1,14 +1,33 @@
 document.addEventListener("DOMContentLoaded", function () {
     const audioPlayer = document.getElementById("audio-player");
     const playlistItems = document.querySelectorAll("#playlist li");
+    const playPauseBtn = document.getElementById('playPauseBtn'); // Play/Pause button
 
+    // Playlist functionality: Play the clicked audio
     playlistItems.forEach((item) => {
         item.addEventListener("click", function () {
             const audioSource = this.getAttribute("data-src");
             audioPlayer.src = audioSource;
             audioPlayer.play();
+            playPauseBtn.classList.remove('play');  // Update the button to pause when playing
+            playPauseBtn.classList.add('pause');
         });
     });
+
+    // Play/Pause button functionality
+    playPauseBtn.addEventListener('click', () => {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            playPauseBtn.classList.remove('play');
+            playPauseBtn.classList.add('pause');
+        } else {
+            audioPlayer.pause();
+            playPauseBtn.classList.remove('pause');
+            playPauseBtn.classList.add('play');
+        }
+    });
+
+    // Comment submission functionality
     const commentForm = document.getElementById("comment-form");
     const commentsList = document.getElementById("comments-list");
 
@@ -29,11 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    document.addEventListener("DOMContentLoaded", function () {
+    // Page navigation buttons functionality
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
 
-    // Define the pages
+    // Define the pages for navigation
     const pages = ['index.html', 'genres.html', 'about.html'];
     let currentPageIndex = pages.indexOf(window.location.pathname);
 
@@ -54,10 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Event listener for "Next" button
-    nextBtn.addEventListener("click", nextPage);
+    if (nextBtn) nextBtn.addEventListener("click", nextPage);
 
     // Event listener for "Previous" button
-    prevBtn.addEventListener("click", prevPage);
-});
-
+    if (prevBtn) prevBtn.addEventListener("click", prevPage);
 });

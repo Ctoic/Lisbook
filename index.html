@@ -90,6 +90,45 @@
         .light-theme .bg-gray-700 {
             background-color: #e0e0e0;
         }
+
+        /* Play/Pause button animation */
+        .play-pause-button {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: #1DB954;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+
+        .play-pause-button.play::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-style: solid;
+            border-width: 10px 0 10px 18px;
+            border-color: transparent transparent transparent #fff;
+        }
+
+        .play-pause-button.pause::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 24px;
+            background-color: #fff;
+            box-shadow: 16px 0 0 #fff;
+        }
+
+        .play-pause-button:hover {
+            background-color: #1ed760;
+        }
     </style>
 </head>
 
@@ -161,106 +200,111 @@
             <li class="p-2 hover:bg-gray-700" data-src="audio/part6.mp3">Part 6</li>
             <li class="p-2 hover:bg-gray-700" data-src="audio/part7.mp3">Part 7</li>
         </ul>
+        <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
 
-        <!-- Audio Player -->
-        <div class="mt-5 flex justify-center">
-            <audio id="audio-player" class="w-full max-w-lg" controls></audio>
+        <!-- Play/Pause Button with Animation -->
+        <div class="mt-4 flex justify-center">
+            <button id="playPauseBtn" class="play"></button> <!-- Added Play/Pause button here -->
         </div>
     </div>
 
-    <!-- Comment Section -->
-    <div class="container mx-auto mt-16 bg-gray-800 p-6 rounded-lg shadow-lg">
-        <h2 class="text-center text-2xl mb-6">Share Your Thoughts</h2>
-        <form id="comment-form" class="space-y-4">
-            <div>
-                <label for="username" class="block text-sm font-medium">Your Name:</label>
-                <input type="text" id="username" class="w-full p-2 rounded-lg bg-gray-700 text-white" required>
-            </div>
-            <div>
-                <label for="comment" class="block text-sm font-medium">Your Comment:</label>
-                <textarea id="comment" class="w-full p-2 rounded-lg bg-gray-700 text-white" rows="4" required></textarea>
-            </div>
-            <div class="text-center">
-                <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600">Submit</button>
-            </div>
+    <!-- Comments Section -->
+    <div class="container mx-auto mt-10 text-center">
+        <h2 class="text-xl font-bold">Leave a Comment</h2>
+        <form id="comment-form" class="mt-4">
+            <input type="text" id="name" placeholder="Your Name" class="w-full p-2 bg-gray-700 rounded mb-2">
+            <textarea id="comment" placeholder="Your Comment" class="w-full p-2 bg-gray-700 rounded mb-2"></textarea>
+            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Submit</button>
         </form>
 
-        <div id="comments-list" class="mt-10 space-y-4"></div>
+        <!-- Display comments -->
+        <div id="comment-section" class="mt-4 space-y-2">
+            <!-- New comments will appear here -->
+        </div>
     </div>
 
     <!-- Footer -->
-    <footer class="mt-20 py-6 text-center">
-        <div class="flex justify-center space-x-4">
-            <a href="https://www.facebook.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-facebook"></i></a>
-            <a href="https://www.instagram.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-instagram"></i></a>
-            <a href="https://www.linkedin.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-linkedin"></i></a>
-            <a href="https://www.twitter.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-twitter"></i></a>
+    <footer class="bg-gray-900 p-4 text-center mt-10">
+        <div class="text-gray-500">
+            &copy; 2024 Your Website Name | All Rights Reserved
         </div>
-        <p class="mt-4 text-gray-400">© 2020 Developed by Najam Ali Abass aka ctoic</p>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JS Scripts -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const playlistItems = document.querySelectorAll('#playlist li');
-            const audioPlayer = document.getElementById('audio-player');
-            const themeToggle = document.getElementById('theme-toggle');
-            const menuToggle = document.getElementById("menu-toggle");
-            const menuClose = document.getElementById("menu-close");
-            const menu = document.getElementById("menu");
-            const body = document.body;
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const favoriteButton = document.getElementById('favorite-button');
+        const audioPlayer = document.getElementById('audio-player');
+        const playlist = document.getElementById('playlist');
+        const playPauseButton = document.getElementById('playPauseBtn');  // Updated ID for Play/Pause button
 
-            // Theme toggle
-            themeToggle.addEventListener('click', function() {
-                body.classList.toggle('light-theme');
-                body.classList.toggle('dark-theme');
-                if (body.classList.contains("light-theme")) {
-                  menu.classList.remove("bg-gray-900", "text-gray-300");
-                  menu.classList.add("bg-gray-100", "text-gray-800");
-                } else {
-                  menu.classList.remove("bg-gray-100", "text-gray-800");
-                  menu.classList.add("bg-gray-900", "text-gray-300");
-                }
-            });
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            body.classList.toggle('light-theme');
+        });
 
-            // Playlist interaction
-            playlistItems.forEach(item => {
-                item.addEventListener('click', function () {
-                    audioPlayer.src = item.getAttribute('data-src');
-                    audioPlayer.play();
-                });
-            });
+        // Toggle favorite button
+        favoriteButton.addEventListener('click', () => {
+            favoriteButton.classList.toggle('active');
+        });
 
-            // Comment Submission
-            document.getElementById('comment-form').addEventListener('submit', function (e) {
-                e.preventDefault();
-                const username = document.getElementById('username').value;
-                const comment = document.getElementById('comment').value;
+        // Playlist functionality
+        playlist.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LI') {
+                const src = event.target.getAttribute('data-src');
+                audioPlayer.src = src;
+                audioPlayer.play();
+            }
+        });
 
-                const commentHTML = `<div class="bg-gray-700 p-4 rounded-lg">
-                                        <h3 class="font-bold">${username}</h3>
-                                        <p>${comment}</p>
-                                    </div>`;
-                document.getElementById('comments-list').insertAdjacentHTML('beforeend', commentHTML);
-                document.getElementById('comment-form').reset();
-            });
+        // Play/Pause button functionality
+        playPauseButton.addEventListener('click', () => {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playPauseButton.classList.remove('play');
+                playPauseButton.classList.add('pause');
+            } else {
+                audioPlayer.pause();
+                playPauseButton.classList.remove('pause');
+                playPauseButton.classList.add('play');
+            }
+        });
 
-            // Favorite Button interaction
-            const favoriteButton = document.getElementById('favorite-button');
-            favoriteButton.addEventListener('click', function () {
-                favoriteButton.classList.toggle('active');
-            });
+        // Handle comment submission
+        const commentForm = document.getElementById('comment-form');
+        const commentSection = document.getElementById('comment-section');
 
-            // Mobile menu toggle
-            menuToggle.addEventListener("click", () => {
-                menu.classList.remove("scale-0");
-                menu.classList.add("scale-100");
-            });
+        commentForm.addEventListener('submit', (event) => {
+            event.preventDefault();
 
-            menuClose.addEventListener("click", () => {
-                menu.classList.add("scale-0");
-                menu.classList.remove("scale-100");
-            });
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+
+            if (name && comment) {
+                const newComment = document.createElement('div');
+                newComment.classList.add('bg-gray-700', 'p-2', 'rounded');
+                newComment.innerHTML = `<strong>${name}:</strong> ${comment}`;
+                commentSection.appendChild(newComment);
+
+                // Clear the form
+                document.getElementById('name').value = '';
+                document.getElementById('comment').value = '';
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+        const menuClose = document.getElementById('menu-close');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('scale-0');
+        });
+
+        menuClose.addEventListener('click', () => {
+            menu.classList.toggle('scale-0');
         });
     </script>
 </body>
