@@ -185,15 +185,30 @@
     <!-- Navbar -->
     <nav class="bg-gray-800 p-4">
         <div class="container mx-auto flex justify-between items-center">
-            <a class="text-green-500 text-2xl font-bold" href="#">Lisbook</a>
-            <div class="space-x-4">
-                <a href="index.html" class="text-gray-300 hover:text-green-500">Home</a>
-                <a href="fs.html" class="text-gray-300 hover:text-green-500">Next Book</a>
-                <a href="#" class="text-gray-300 hover:text-green-500">Previous Book</a>
+            <!-- Logo -->
+            <a class="text-green-500 text-2xl font-bold" href="./index.html">Lisbook</a>
+
+            <!-- Menu Links and Theme Toggle -->
+            <div id="menu" class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20">
+                <div id="menu-close" class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </div>
+                <a href="./index.html" class="text-gray-300 hover:text-green-500">Home</a>
+                <a href="./fs.html" class="text-gray-300 hover:text-green-500">Next</a>
+                <a href="./index.html" class="text-gray-300 hover:text-green-500">Previous</a>
                 <label class="toggle-switch">
                     <input type="checkbox" id="theme-toggle">
                     <span class="slider"></span>
                 </label>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
             </div>
         </div>
     </nav>
@@ -226,8 +241,8 @@
 
     <!-- Buttons -->
     <div class="mt-10 text-center">
-        <a href="index.html" class="text-gray-300 hover:text-green-500 p-3">Previous Book</a>
-        <a href="fs.html" class="text-gray-300 hover:text-green-500 p-3">Next Book</a>
+        <a href="./index.html" class="text-gray-300 hover:text-green-500 p-3">Previous</a>
+        <a href="./fs.html" class="text-gray-300 hover:text-green-500 p-3">Next</a>
     </div>
 
     <!-- Comments Section -->
@@ -268,6 +283,9 @@
             const playlistItems = document.querySelectorAll('#playlist li');
             const audioPlayer = document.getElementById('audio-player');
             const themeToggle = document.getElementById('theme-toggle');
+            const menuToggle = document.getElementById("menu-toggle");
+            const menuClose = document.getElementById("menu-close");
+            const menu = document.getElementById("menu");
 
             playlistItems.forEach(item => {
                 item.addEventListener('click', function () {
@@ -292,7 +310,6 @@
                 // Reset form
                 document.getElementById('comment-form').reset();
             });
-
             // Theme Toggle
             themeToggle.addEventListener('change', function() {
                 if (this.checked) {
@@ -302,6 +319,17 @@
                     document.body.classList.remove('light-mode');
                     document.body.classList.add('dark-mode');
                 }
+            });
+
+            //Mobile menu toggle
+            menuToggle.addEventListener("click", () => {
+                menu.classList.remove("scale-0");
+                menu.classList.add("scale-100");
+            });
+
+            menuClose.addEventListener("click", () => {
+                menu.classList.add("scale-0");
+                menu.classList.remove("scale-100");
             });
         });
     </script>
