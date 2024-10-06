@@ -11,6 +11,10 @@ on:
 jobs:
   add-contributors:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
 
     steps:
       - name: Checkout repository content
@@ -19,12 +23,12 @@ jobs:
       - name: Add contributors to README
         uses: BobAnkh/add-contributors@master
         with:
-          REPO_NAME: ''
+          REPO_NAME: 'Ctoic/Lisbook'
           CONTRIBUTOR: '### Contributors'
           COLUMN_PER_ROW: '6'
           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           IMG_WIDTH: '100'
           FONT_SIZE: '14'
-          PATH: '/README.md'
+          PATH: 'README.md'
           COMMIT_MESSAGE: 'docs(README): update contributors'
           AVATAR_SHAPE: 'round'
