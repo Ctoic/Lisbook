@@ -61,8 +61,11 @@ MIT License
 - Twitter - [@Ct0ic](https://twitter.com/Ct0ic)
 - GitHub - [ctoic](https://github.com/ctoic)
 - LinkedIn - [Ct0ic](https://www.linkedin.com/in/ct0ic/)
-"""
 
 
-### Contributors
+## Contributors
+
+<a href="https://github.com/Ctoic/Lisbook/blob/master/Contributors.md">
+  <img src="https://contributors-img.web.app/image?repo=Ctoic/Lisbook"/>
+</a>
 
