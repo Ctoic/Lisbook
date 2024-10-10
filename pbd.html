@@ -4,180 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>My Favorite Books Music App</title>
 
-    <style>
-        body {
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body.light-mode {
-            background-color: #ffffff;
-            color: #333333;
-        }
-
-        body.dark-mode {
-            background-color: #121212;
-            color: #b3b3b3;
-        }
-
-        h1, h2, h3 {
-            transition: color 0.3s;
-        }
-
-        body.light-mode h1, body.light-mode h2, body.light-mode h3 {
-            color: #333333;
-        }
-
-        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
-            color: #fff;
-        }
-
-        #playlist li:hover {
-            background-color: #282828;
-            color: #1DB954;
-            cursor: pointer;
-        }
-
-        #audio-player {
-            background-color: #282828;
-            color: #1DB954;
-        }
-
-        button {
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #1ed760;
-        }
-
-        footer {
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body.light-mode footer {
-            background-color: #f1f1f1;
-            color: #333333;
-        }
-
-        body.dark-mode footer {
-            background-color: #191414;
-            color: #b3b3b3;
-        }
-
-        footer a:hover {
-            color: #1DB954;
-        }
-
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
-        }
-
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-        input:checked + .slider {
-            background-color: #1DB954;
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-
-        /* New styles for light mode */
-        body.light-mode nav {
-            background-color: #f1f1f1;
-            color: #333333;
-        }
-
-        body.light-mode #playlist {
-            background-color: #e0e0e0;
-        }
-
-        body.light-mode #playlist li:hover {
-            background-color: #d0d0d0;
-            color: #1DB954;
-        }
-
-        body.light-mode .bg-gray-800 {
-            background-color: #f1f1f1;
-        }
-
-        body.light-mode .text-gray-300 {
-            color: #333333;
-        }
-
-        body.light-mode .hover\:bg-gray-700:hover {
-            background-color: #d0d0d0;
-        }
-
-        body.light-mode #audio-player {
-            background-color: #e0e0e0;
-            color: #1DB954;
-        }
-
-        body.light-mode .bg-gray-700 {
-            background-color: #f1f1f1;
-            color: #333333;
-        }
-
-        body.light-mode input[type="text"],
-        body.light-mode textarea {
-            background-color: #ffffff;
-            color: #333333;
-            border: 1px solid #d0d0d0;
-        }
-
-        body.light-mode .bg-gray-900 {
-            background-color: #ffffff;
-        }
-
-        body.light-mode .container {
-            color: #333333;
-        }
-
-        body.light-mode #comment-form label {
-            color: #333333;
-        }
-
-        body.light-mode #comments-list .bg-gray-700 {
-            background-color: #f1f1f1;
-            color: #333333;
-        }
-    </style>
 </head>
 
 
@@ -196,7 +27,7 @@
                     </svg>
                 </div>
                 <a href="./index.html" class="text-gray-300 hover:text-green-500">Home</a>
-                <a href="./pbd.html" class="text-gray-300 hover:text-green-500">Next</a>
+                <a href="./fs.html" class="text-gray-300 hover:text-green-500">Next</a>
                 <a href="./index.html" class="text-gray-300 hover:text-green-500">Previous</a>
                 <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -299,60 +130,8 @@
     </footer>
 
     <!-- JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const playlistItems = document.querySelectorAll('#playlist li');
-            const audioPlayer = document.getElementById('audio-player');
-            const themeToggle = document.getElementById('theme-toggle');
-            const menuToggle = document.getElementById("menu-toggle");
-            const menuClose = document.getElementById("menu-close");
-            const menu = document.getElementById("menu");
-
-            playlistItems.forEach(item => {
-                item.addEventListener('click', function () {
-                    audioPlayer.src = item.getAttribute('data-src');
-                    audioPlayer.play();
-                });
-            });
-
-            // Comment Submission
-            document.getElementById('comment-form').addEventListener('submit', function (e) {
-                e.preventDefault();
-                const username = document.getElementById('username').value;
-                const comment = document.getElementById('comment').value;
-
-                const commentHTML = `<div class="bg-gray-700 text-white p-4 rounded-lg">
-                    <strong>${username}:</strong>
-                    <p>${comment}</p>
-                </div>`;
-
-                document.getElementById('comments-list').insertAdjacentHTML('beforeend', commentHTML);
-
-                // Reset form
-                document.getElementById('comment-form').reset();
-            });
-            // Theme Toggle
-            themeToggle.addEventListener('change', function() {
-                if (this.checked) {
-                    document.body.classList.remove('dark-mode');
-                    document.body.classList.add('light-mode');
-                } else {
-                    document.body.classList.remove('light-mode');
-                    document.body.classList.add('dark-mode');
-                }
-            });
-
-            //Mobile menu toggle
-            menuToggle.addEventListener("click", () => {
-                menu.classList.remove("scale-0");
-                menu.classList.add("scale-100");
-            });
-
-            menuClose.addEventListener("click", () => {
-                menu.classList.add("scale-0");
-                menu.classList.remove("scale-100");
-            });
-        });
+    <script src="script.js">
+        
     </script>
 </body>
 
