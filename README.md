@@ -21,7 +21,7 @@ LisBook is all about simplicity and convenience, making your audiobook experienc
 
 ## Screenshots
 
-![LisBook Screenshot](images/SC2.png)
+![LisBook Screenshot](Images/SC2.png)
 
 ## How to Contribute to LisBook During Hacktoberfest 🎉
 
