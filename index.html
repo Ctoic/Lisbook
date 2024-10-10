@@ -190,35 +190,59 @@
     </div>
 
     <!-- Playlist Section -->
-    <div class="container mx-auto mt-10 text-center">
-        <ul id="playlist" class="list-none mt-5 bg-gray-800 rounded-lg shadow-lg p-4">
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part1.mp3">Introduction: God Delusion</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part2.mp3">Part 2</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part3.mp3">Part 3</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part4.mp3">Part 4</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part5.mp3">Part 5</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part6.mp3">Part 6</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part7.mp3">Part 7</li>
+    <div class="w-full mt-10 text-center bg-gray-800 p-8 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-bold text-green-500 mb-6">Audio Playlist</h2>
+        <ul id="playlist" class="list-none mt-5 bg-gray-900 rounded-lg shadow-lg p-4 space-y-2">
+            <li class="p-4 hover:bg-gray-700 cursor-pointer transition duration-300 ease-in-out" data-src="audio/part1.mp3">Introduction: God Delusion</li>
+            <li class="p-4 hover:bg-gray-700 cursor-pointer transition duration-300 ease-in-out" data-src="audio/part2.mp3">Part 2</li>
+            <li class="p-4 hover:bg-gray-700 cursor-pointer transition duration-300 ease-in-out" data-src="audio/part3.mp3">Part 3</li>
+            <li class="p-4 hover:bg-gray-700 cursor-pointer transition duration-300 ease-in-out" data-src="audio/part4.mp3">Part 4</li>
+            <li class="p-4 hover:bg-gray-700 cursor-pointer transition duration-300 ease-in-out" data-src="audio/part5.mp3">Part 5</li>
+            <li class="p-4 hover:bg-gray-700 cursor-pointer transition duration-300 ease-in-out" data-src="audio/part6.mp3">Part 6</li>
+            <li class="p-4 hover:bg-gray-700 cursor-pointer transition duration-300 ease-in-out" data-src="audio/part7.mp3">Part 7</li>
         </ul>
-        <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
-
+        
+        <audio id="audio-player" controls class="mt-6 mx-auto bg-gray-700 rounded-lg"></audio>
+    
         <!-- Play/Pause Button with Animation -->
         <div class="mt-4 flex justify-center">
-            <button id="playPauseBtn" class="play"></button> <!-- Added Play/Pause button here -->
+            <button id="playPauseBtn" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+                Play/Pause
+            </button>
         </div>
     </div>
 
     <!-- Comments Section -->
-    <div class="container mx-auto mt-10 text-center">
-        <h2 class="text-xl font-bold">Leave a Comment</h2>
-        <form id="comment-form" class="mt-4">
-            <input type="text" id="name" placeholder="Your Name" class="w-full p-2 bg-gray-700 rounded mb-2">
-            <textarea id="comment" placeholder="Your Comment" class="w-full p-2 bg-gray-700 rounded mb-2"></textarea>
-            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+    <div class="w-full mt-10 text-center bg-gray-800 p-8 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-bold text-green-500 mb-6">Leave a Comment</h2>
+        <form id="comment-form" class="space-y-4">
+            <!-- Name input -->
+            <input 
+                type="text" 
+                id="name" 
+                placeholder="Your Name" 
+                class="w-full p-4 bg-gray-700 text-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-300 ease-in-out"
+            >
+    
+            <!-- Comment textarea -->
+            <textarea 
+                id="comment" 
+                placeholder="Your Comment" 
+                class="w-full p-4 bg-gray-700 text-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-300 ease-in-out"
+                rows="5"
+            ></textarea>
+    
+            <!-- Submit button placed at the end, aligned to the right -->
+            <div class="mt-6 flex justify-end">
+                <button type="submit" 
+                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+                    Submit
+                </button>
+            </div>
         </form>
-
-        <!-- Display comments -->
-        <div id="comment-section" class="mt-4 space-y-2">
+    
+        <!-- Display comments section -->
+        <div id="comment-section" class="mt-8 space-y-4">
             <!-- New comments will appear here -->
         </div>
     </div>
