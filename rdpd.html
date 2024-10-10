@@ -3,369 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>My Favorite Books Music App</title>
     <style>
-        /* Default theme */
         body {
-            background-color: #f8f9fa;
-            color: #212529;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Dark theme */
+        body.light-theme {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
         body.dark-theme {
             background-color: #121212;
-            color: #e0e0e0;
+            color: #b3b3b3;
         }
 
-        .dark-theme h1, .dark-theme h2, .dark-theme h3,
-        .dark-theme .navbar, .dark-theme .container,
-        .dark-theme .comments-section, .dark-theme footer {
-            color: #e0e0e0;
-            background-color: #1e1e1e;
+        h1, h2, h3 {
+            color: inherit;
         }
 
-        .dark-theme .navbar-light .navbar-brand,
-        .dark-theme .navbar-light .navbar-nav .nav-link,
-        .dark-theme .btn-outline,
-        .dark-theme .text-body {
-            color: #e0e0e0 !important;
-        }
-
-        .dark-theme .form-control,
-        .dark-theme .btn-outline {
-            background-color: #333;
-            border-color: #555;
-            color: #e0e0e0;
-        }
-
-        .dark-theme .bg-body-tertiary {
-            background-color: #1e1e1e !important;
-        }
-
-        /* Toggle switch styles */
-        .theme-switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
-        }
-
-        .theme-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
+        #playlist li:hover {
+            background-color: #282828;
+            color: #1DB954;
             cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
         }
 
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
+        #audio-player {
+            background-color: #282828;
+            color: #1DB954;
+        }
+
+        button {
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1ed760;
+        }
+
+        footer {
+            background-color: #191414;
+            color: #b3b3b3;
+        }
+
+        footer a:hover {
+            color: #1DB954;
+        }
+
+        .book-card {
+            background-color: #181818;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .book-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .favorite-button {
+            transition: color 0.3s;
+        }
+
+        .favorite-button.active {
+            color: #1DB954;
+        }
+
+        .favorite-button:hover {
+            color: #1DB954;
+        }
+
+        .light-theme .book-card,
+        .light-theme #playlist,
+        .light-theme .bg-gray-800 {
+            background-color: #f8f8f8;
+        }
+
+        .light-theme .text-gray-300 {
+            color: #333;
+        }
+
+        .light-theme .bg-gray-700 {
+            background-color: #e0e0e0;
+        }
+
+        /* Play/Pause button animation */
+        .play-pause-button {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: #1DB954;
             border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s;
         }
 
-        input:checked + .slider {
-            background-color: #2196F3;
+        .play-pause-button.play::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-style: solid;
+            border-width: 10px 0 10px 18px;
+            border-color: transparent transparent transparent #fff;
         }
 
-        input:checked + .slider:before {
-            transform: translateX(26px);
+        .play-pause-button.pause::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 24px;
+            background-color: #fff;
+            box-shadow: 16px 0 0 #fff;
+        }
+
+        .play-pause-button:hover {
+            background-color: #1ed760;
         }
     </style>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">lisbook</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./pbd.html">Next</a>
-            </li>
-            <li class ="nav-item">
-              <a class="nav-link" href="./index.html">Previous</a>
-            </li>
-          </ul>
-          <label class="theme-switch">
-            <input type="checkbox" id="themeToggle">
-            <span class="slider"></span>
-          </label>
+<body class="bg-gray-900 text-gray-300 dark-theme">
+      <!-- Navbar -->
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a class="text-green-500 text-2xl font-bold" href="./index.html">Lisbook</a>
+
+            <!-- Menu Links and Theme Toggle -->
+            <div id="menu" class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20">
+                <div id="menu-close" class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </div>
+                <a href="./index.html" class="text-gray-300 hover:text-green-500">Home</a>
+                <a href="./index.html" class="text-gray-300 hover:text-green-500">Next</a>
+                <a href="./fs.html" class="text-gray-300 hover:text-green-500">Previous</a>
+                <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </div>
         </div>
     </nav>
-    <div class="container">
-        <h1>God Delusion</h1>
-        <h3>By Richard Dawkins</h3>
 
-        <!--image insert -->
-        <img id="img" src="./Images/GD.jpeg" alt="bookify logo" width="200" height="200">
+     <!-- Book Card Display -->
+    <div class="container mx-auto mt-10 text-center">
+        <div class="book-card p-6 rounded-lg shadow-lg max-w-xs mx-auto">
+            <!-- Cover Image -->
+            <img id="img" src="./Images/GD.jpeg" alt="God Delusion Cover" class="w-full h-64 object-cover rounded-lg">
 
-        <h2>My Favorite Books</h2>
-        <ul id="playlist">
-          <li data-src="audio/part1.mp3">Introduction: God Delusion </li>
-          <li data-src="audio/part2.mp3">Part 2</li>
-            <li data-src="audio/part3.mp3">Part 3</li>
-            <li data-src="audio/part4.mp3">Part 4</li>
-            <li data-src="audio/part5.mp3">Part 5</li>
-            <li data-src="audio/part6.mp3">Part 6</li>
-            <li data-src="audio/part7.mp3">Part 7</li>
-            <li data-src="audio/part8.mp3">Part 8</li>
-            <li data-src="audio/part9.mp3">Part 9</li>
-            <li data-src="audio/part10.mp3">Part 10</li>
-            <li data-src="audio/part11.mp3">Part 11</li>
-            <li data-src="audio/part12.mp3">Part 12</li>
-            <li data-src="audio/part13.mp3">Part 13</li>
-            <li data-src="audio/part14.mp3">Part 14</li>
+            <!-- Book Details -->
+            <div class="mt-4">
+                <h1 class="text-2xl font-bold">Sapiens: A Brief History of Humankind</h1>
+                <h3 class="text-lg mt-2">By Yuval Noah Harari</h3>
+                <p class="text-sm mt-2">Sapiens explores the history of humankind, from the emergence of Homo sapiens in the Stone Age to the political and technological ... 
+                </p>
+            </div>
+
+
+            <!-- Favorite Button -->
+            <div class="mt-4 flex justify-center">
+                <button id="favorite-button" class="favorite-button text-gray-300 text-xl focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 20.121L12 15.243l6.879 4.878A7.502 7.502 0 0019 10.75C19 6.917 15.777 3 12 3S5 6.917 5 10.75c0 3.62 3.323 6.852 7.121 9.37z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+     <!-- Playlist Section -->
+    <div class="container mx-auto mt-10 text-center">
+        <ul id="playlist" class="list-none mt-5 bg-gray-800 rounded-lg shadow-lg p-4">
+            
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part1.mp3">Introduction: God Delusion </li>
+          <li class="p-2 hover:bg-gray-700" data-src="audio/part2.mp3">Part 2</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part3.mp3">Part 3</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part4.mp3">Part 4</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part5.mp3">Part 5</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part6.mp3">Part 6</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part7.mp3">Part 7</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part8.mp3">Part 8</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part9.mp3">Part 9</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part10.mp3">Part 10</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part11.mp3">Part 11</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part12.mp3">Part 12</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part13.mp3">Part 13</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part14.mp3">Part 14</li>
         </ul>
-        <audio id="audio-player" controls></audio>
+        <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
+
+        <!-- Play/Pause Button with Animation -->
+        <div class="mt-4 flex justify-center">
+            <button id="playPauseBtn" class="play"></button> <!-- Added Play/Pause button here -->
+        </div>
     </div>
-    <div class="button"
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="./pbd.html">Next Book</a>
-      </li>
-      <li class ="nav-item">
-        <a class="nav-link" href="./index.html">Previous Book</a>
-      </li>
-      </ul>
-    <div class="comments-section">
-        <h2>Share Your Thoughts</h2>
-        <form id="comment-form">
-            <label for="username">Your Name:</label>
-            <input type="text" id="username" name="username" required>
 
-            <label for="comment">Your Comment:</label>
-            <textarea id="comment" name="comment" rows="4" required></textarea>
-
-            <button type="submit">Submit</button>
+ <!-- Comments Section -->
+    <div class="container mx-auto mt-10 text-center">
+        <h2 class="text-xl font-bold">Leave a Comment</h2>
+        <form id="comment-form" class="mt-4">
+            <input type="text" id="name" placeholder="Your Name" class="w-full p-2 bg-gray-700 rounded mb-2">
+            <textarea id="comment" placeholder="Your Comment" class="w-full p-2 bg-gray-700 rounded mb-2"></textarea>
+            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Submit</button>
         </form>
-        <div id="comments-list"></div>
-    </div>
-   
 
-    <script src="app.js"></script>
+        <!-- Display comments -->
+        <div id="comment-section" class="mt-4 space-y-2">
+            <!-- New comments will appear here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 p-4 text-center mt-10">
+        <div class="text-gray-500">
+            &copy; 2024 Your Lisbook | All Rights Reserved
+        </div>
+    </footer>
+
+    <!-- JS Scripts -->
     <script>
-        document.getElementById('themeToggle').addEventListener('change', function() {
-            document.body.classList.toggle('dark-theme');
-            localStorage.setItem('darkTheme', document.body.classList.contains('dark-theme'));
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const favoriteButton = document.getElementById('favorite-button');
+        const audioPlayer = document.getElementById('audio-player');
+        const playlist = document.getElementById('playlist');
+        const playPauseButton = document.getElementById('playPauseBtn');  // Updated ID for Play/Pause button
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            body.classList.toggle('light-theme');
         });
 
-        // Check for saved theme preference
-        if (localStorage.getItem('darkTheme') === 'true') {
-            document.body.classList.add('dark-theme');
-            document.getElementById('themeToggle').checked = true;
-        }
+        // Toggle favorite button
+        favoriteButton.addEventListener('click', () => {
+            favoriteButton.classList.toggle('active');
+        });
+
+        // Playlist functionality
+        playlist.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LI') {
+                const src = event.target.getAttribute('data-src');
+                audioPlayer.src = src;
+                audioPlayer.play();
+            }
+        });
+
+        // Play/Pause button functionality
+        playPauseButton.addEventListener('click', () => {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playPauseButton.classList.remove('play');
+                playPauseButton.classList.add('pause');
+            } else {
+                audioPlayer.pause();
+                playPauseButton.classList.remove('pause');
+                playPauseButton.classList.add('play');
+            }
+        });
+
+        // Handle comment submission
+        const commentForm = document.getElementById('comment-form');
+        const commentSection = document.getElementById('comment-section');
+
+        commentForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+
+            if (name && comment) {
+                const newComment = document.createElement('div');
+                newComment.classList.add('bg-gray-700', 'p-2', 'rounded');
+                newComment.innerHTML = `<strong>${name}:</strong> ${comment}`;
+                commentSection.appendChild(newComment);
+
+                // Clear the form
+                document.getElementById('name').value = '';
+                document.getElementById('comment').value = '';
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+        const menuClose = document.getElementById('menu-close');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('scale-0');
+        });
+
+        menuClose.addEventListener('click', () => {
+            menu.classList.toggle('scale-0');
+        });
     </script>
 </body>
-<!-- Footer -->
-<footer class="bg-body-tertiary text-center">
-  <!-- Grid container -->
-  <div class="container p-4">
-    <!-- Section: Social media -->
-    <section class="mb-4">
-      <!-- Facebook -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
 
-      <!-- Twitter -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-twitter"></i
-      ></a>
-
-      <!-- Google -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-google"></i
-      ></a>
-
-      <!-- Instagram -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-instagram"></i
-      ></a>
-
-      <!-- Linkedin -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-linkedin-in"></i
-      ></a>
-
-      <!-- Github -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-github"></i
-      ></a>
-    </section>
-    <!-- Section: Social media -->
-
-    <!-- Section: Form -->
-    <section class="">
-      <form action="">
-        <!--Grid row-->
-        <div class="row d-flex justify-content-center">
-          <!--Grid column-->
-          <div class="col-auto">
-            <p class="pt-2">
-              <strong>Sign up for our newsletter</strong>
-            </p>
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-md-5 col-12">
-            <!-- Email input -->
-            <div data-mdb-input-init class="form-outline mb-4">
-              <input type="email" id="form5Example24" class="form-control" />
-              <label class="form-label" for="form5Example24">Email address</label>
-            </div>
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-auto">
-            <!-- Submit button -->
-            <button data-mdb-ripple-init type="submit" class="btn btn-outline mb-4">
-              Subscribe
-            </button>
-          </div>
-          <!--Grid column-->
-        </div>
-        <!--Grid row-->
-      </form>
-    </section>
-    <!-- Section: Form -->
-
-    <!-- Section: Text -->
-    <section class="mb-4">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam eum
-        harum corrupti dicta, aliquam sequi voluptate quas.
-      </p>
-    </section>
-    <!-- Section: Text -->
-
-    <!-- Section: Links -->
-    <section class="">
-      <!--Grid row-->
-      <div class="row">
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="text-body" href="https://www.linkedin.com/in/ctoic/">Linkedin</a>
-            </li>
-            <li>
-              <a class="text-body" href="https://www.linkedin.com/in/ctoic/">Instagram/a>
-            </li>
-            <li>
-              <a class="text-body" href="https://www.linkedin.com/in/ctoic/">Github</a>
-            </li>
-            <li>
-              <a class="text-body" href="https://www.linkedin.com/in/ctoic/">Website</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Calhub</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="text-body" href="#!">Todo Apps</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">C3akademia</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">Talis Adventure</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">FoodWeb</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="text-body" href="#!">Link 1</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">Link 2</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">Link 3</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">Link 4</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="text-body" href="#!">Link 1</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">Link 2</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">Link 3</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">Link 4</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-      </div>
-      <!--Grid row-->
-    </section>
-    <!-- Section: Links -->
-  </div>
-  <!-- Grid container -->
-
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2020 Copyright:
-    <a class="text-reset fw-bold" href="https://www.linkedin.com/in/ctoic/"> Developed By : Najam Ali Abass aka ctoic</a>
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
 </html>

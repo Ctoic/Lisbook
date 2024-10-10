@@ -196,12 +196,13 @@
                     </svg>
                 </div>
                 <a href="./index.html" class="text-gray-300 hover:text-green-500">Home</a>
-                <a href="./fs.html" class="text-gray-300 hover:text-green-500">Next</a>
+                <a href="./pbd.html" class="text-gray-300 hover:text-green-500">Next</a>
                 <a href="./index.html" class="text-gray-300 hover:text-green-500">Previous</a>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="theme-toggle">
-                    <span class="slider"></span>
-                </label>
+                <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
             </div>
 
             <!-- Mobile Menu Toggle Button -->
@@ -213,31 +214,51 @@
         </div>
     </nav>
 
-    <!-- Content -->
-    <div class="container mx-auto mt-10">
-        <h1 class="text-center text-3xl font-bold">Pale Blue Dot</h1>
-        <h3 class="text-center text-xl mt-2">By Carl Sagan</h3>
+    <!-- Book Card Display -->
+    <div class="container mx-auto mt-10 text-center">
+        <div class="book-card p-6 rounded-lg shadow-lg max-w-xs mx-auto">
+            <!-- Cover Image -->
+            <img id="img" src="./Images/cs.jpg" alt="God Delusion Cover" class="w-full h-64 object-cover rounded-lg">
 
-        <!-- Image -->
-        <div class="flex justify-center mt-5">
-            <img id="img" src="./Images/cs.jpg" alt="bookify logo" class="w-48 h-48 rounded-lg shadow-lg">
+            <!-- Book Details -->
+            <div class="mt-4">
+                <h1 class="text-2xl font-bold">Pale Blue Dot</h1>
+                <h3 class="text-lg mt-2">By Carl Sagan</h3>
+                <p class="text-sm mt-2">No Description</p>
+            </div>
+
+            <!-- Favorite Button -->
+            <div class="mt-4 flex justify-center">
+                <button id="favorite-button" class="favorite-button text-gray-300 text-xl focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 20.121L12 15.243l6.879 4.878A7.502 7.502 0 0019 10.75C19 6.917 15.777 3 12 3S5 6.917 5 10.75c0 3.62 3.323 6.852 7.121 9.37z" />
+                    </svg>
+                </button>
+            </div>
         </div>
+    </div>
 
-        <!-- Playlist -->
-        <h2 class="text-center text-2xl mt-10">My Favorite Books</h2>
+    
+
+    <!-- Playlist Section -->
+    <div class="container mx-auto mt-10 text-center">
         <ul id="playlist" class="list-none mt-5 bg-gray-800 rounded-lg shadow-lg p-4">
+            <li class="p-2 hover:bg-gray-700" data-src="audio/part1.mp3">Introduction: Pale Blue Dot</li>
             <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/Introduction.mp3">Introduction: Pale Blue Dot</li>
             <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/chap-1.mp3">Chapter 1: The Shores of the Cosmic Ocean</li>
             <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/Chap-2.mp3">Chapter 2: One Voice in the Cosmic Fugue</li>
             <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/chap-3.mp3">Chapter 3: The Harmony of the Worlds</li>
             <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/chap-4.mp3">Chapter 4: Heaven and Hell</li>
         </ul>
+        <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
 
-        <!-- Audio Player -->
-        <div class="mt-5 flex justify-center">
-            <audio id="audio-player" class="w-full max-w-lg" controls></audio>
+        <!-- Play/Pause Button with Animation -->
+        <div class="mt-4 flex justify-center">
+            <button id="playPauseBtn" class="play"></button> <!-- Added Play/Pause button here -->
         </div>
     </div>
+
+
 
     <!-- Buttons -->
     <div class="mt-10 text-center">
