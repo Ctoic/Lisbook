@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.leave-comment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Adjust to your layout */
+    background: #f0f2f5;
+    padding: 20px;
+}
+
+.leave-comment-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    text-align: center;
+    color: #ba24c2;
+    margin-bottom: 20px;
+}
+
+.input-box {
+    position: relative;
+    margin: 15px 0;
+}
+
+.input-box input,
+.message-box textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-box input:focus,
+.message-box textarea:focus {
+    border-color: #ba24c2;
+}
+
+.input-box label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #636c72;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label,
+.message-box textarea:focus ~ label {
+    top: -10px;
+    font-size: 14px;
+    color: #ba24c2;
+}
+
+.message-box {
+    min-height: 100px;
+}
+
+.message-box textarea {
+    resize: none;
+}
+
+.input-box input[type="submit"] {
+    background: #ba24c2;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.input-box input[type="submit"]:hover {
+    background: #d43ddb;
+}
+
+@media (max-width: 500px) {
+    .leave-comment-content {
+        padding: 15px;
+    }
+}
