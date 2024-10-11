@@ -98,24 +98,7 @@ h1 {
 /* Add style for the comments section */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
-}
-
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  width: 100%;
-  padding: 0 10px;
-  background: url("https://www.codingnepalweb.com/demos/create-glassmorphism-login-form-html-css/hero-bg.jpg") no-repeat center;
-  background-size: cover;
-}
-
+/* Scoped styles for the leave comment section only */
 .comment-wrapper {
   width: 450px;
   border-radius: 10px;
@@ -126,26 +109,23 @@ body {
   -webkit-backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
+  margin: 20px auto;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-h2 {
+.comment-wrapper h2 {
   font-size: 2rem;
   margin-bottom: 20px;
   color: #fff;
 }
 
-.input-field {
+.comment-wrapper .input-field {
   position: relative;
   margin: 20px 0;
   border-bottom: 2px solid #ccc;
 }
 
-.input-field input, .input-field textarea {
+.comment-wrapper .input-field input,
+.comment-wrapper .input-field textarea {
   width: 100%;
   padding: 10px;
   background: transparent;
@@ -156,7 +136,7 @@ h2 {
   resize: none;
 }
 
-.input-field label {
+.comment-wrapper .input-field label {
   position: absolute;
   top: 50%;
   left: 0;
@@ -167,16 +147,16 @@ h2 {
   transition: 0.3s ease;
 }
 
-.input-field input:focus~label,
-.input-field input:valid~label,
-.input-field textarea:focus~label,
-.input-field textarea:valid~label {
+.comment-wrapper .input-field input:focus~label,
+.comment-wrapper .input-field input:valid~label,
+.comment-wrapper .input-field textarea:focus~label,
+.comment-wrapper .input-field textarea:valid~label {
   font-size: 0.8rem;
   top: 0;
   transform: translateY(-100%);
 }
 
-button {
+.comment-wrapper button {
   background: #fff;
   color: #000;
   font-weight: 600;
@@ -190,11 +170,12 @@ button {
   margin-top: 20px;
 }
 
-button:hover {
+.comment-wrapper button:hover {
   color: #fff;
   border-color: #fff;
   background: rgba(255, 255, 255, 0.15);
 }
+
 
 
 /* Add style for the footer */
