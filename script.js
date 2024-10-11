@@ -13,6 +13,54 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  //Keyboard Shortcuts buttons
+  document.addEventListener("keydown", function (e) {
+    switch (e.code) {
+      case "Space": // Play / Pause
+        e.preventDefault(); // Prevents page scrolling when Space is pressed
+        if (audioPlayer.paused) {
+          audioPlayer.play();
+        } else {
+          audioPlayer.pause();
+        }
+        break;
+
+      case "ArrowRight": // Jump forward 30 seconds
+        audioPlayer.currentTime += 30;
+        break;
+
+      case "ArrowLeft": // Go back 30 seconds
+        audioPlayer.currentTime -= 30;
+        break;
+
+      case "Equal": // Increase volume
+        if (audioPlayer.volume < 1) {
+          audioPlayer.volume = Math.min(audioPlayer.volume + 0.1, 1);
+        }
+        break;
+
+      case "NumpadAdd": // Augmenter le volume avec le pavé numérique
+        if (audioPlayer.volume < 1) {
+          audioPlayer.volume = Math.min(audioPlayer.volume + 0.1, 1);
+        }
+        break;
+
+      case "Minus": // Reduce volume
+        if (audioPlayer.volume > 0) {
+          audioPlayer.volume = Math.max(audioPlayer.volume - 0.1, 0);
+        }
+        break;
+      case "NumpadSubtract": // Diminuer le volume avec le pavé numérique
+        if (audioPlayer.volume > 0) {
+          audioPlayer.volume = Math.max(audioPlayer.volume - 0.1, 0);
+        }
+        break;
+
+      default:
+        break;
+    }
+  });
+
   // Comment Submission
   document
     .getElementById("comment-form")
