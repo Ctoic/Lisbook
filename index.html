@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="leaveComment.css">
     <title>My Favorite Books Music App</title>
 
     <style>
@@ -209,24 +210,28 @@
     </div>
 
     <!-- Comments Section -->
-  <div class="comment-wrapper">
-    <form action="#">
-      <h2>Leave a Comment</h2>
-      <div class="input-field">
-        <input type="text" required>
-        <label>Enter your name</label>
-      </div>
-      <div class="input-field">
-        <input type="email" required>
-        <label>Enter your email</label>
-      </div>
-      <div class="input-field">
-        <textarea required></textarea>
-        <label>Write your comment</label>
-      </div>
-      <button type="submit">Submit Comment</button>
-    </form>
-  </div>
+  <div class="leave-comment-container">
+        <div class="leave-comment-content">
+            <h2>Leave a Comment</h2>
+            <form action="#" method="post">
+                <div class="input-box">
+                    <input type="text" required>
+                    <label>Name</label>
+                </div>
+                <div class="input-box">
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="message-box">
+                    <textarea required></textarea>
+                    <label>Message</label>
+                </div>
+                <div class="input-box">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
 
 
     <!-- Footer -->
