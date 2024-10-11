@@ -96,78 +96,106 @@ h1 {
 }
 
 /* Add style for the comments section */
-.comments-section {
-    margin-top: 30px;
-    text-align: center;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
-.comments-section h2 {
-    color: #333;
-    font-size: 20px;
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 10px;
+  background: url("https://www.codingnepalweb.com/demos/create-glassmorphism-login-form-html-css/hero-bg.jpg") no-repeat center;
+  background-size: cover;
 }
 
-#img {
-    width: 100%;
-    height: 100%;
+.comment-wrapper {
+  width: 450px;
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
-#comment-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+form {
+  display: flex;
+  flex-direction: column;
 }
 
-#comment-form label {
-    margin-top: 10px;
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
 }
 
-#comment-form input,
-#comment-form textarea {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-    box-sizing: border-box;
+.input-field {
+  position: relative;
+  margin: 20px 0;
+  border-bottom: 2px solid #ccc;
 }
 
-#comment-form button {
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.input-field input, .input-field textarea {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+  resize: none;
 }
 
-#comment-form button:hover {
-    background-color: #0056b3;
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.3s ease;
 }
 
-#comments-list {
-    margin-top: 20px;
-    text-align: left; /* Align comments to the left */
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+.input-field input:focus~label,
+.input-field input:valid~label,
+.input-field textarea:focus~label,
+.input-field textarea:valid~label {
+  font-size: 0.8rem;
+  top: 0;
+  transform: translateY(-100%);
 }
 
-.comment {
-    margin-bottom: 15px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
+button {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+  margin-top: 20px;
 }
 
-.comment strong {
-    color: #007bff;
+button:hover {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.15);
 }
 
-.comment p {
-    margin: 0;
-}
 
 /* Add style for the footer */
 .footer {
@@ -237,3 +265,4 @@ h1 {
     height: 20px;
     right: 15px;
 }
+
