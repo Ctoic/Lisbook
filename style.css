@@ -11,6 +11,10 @@ body.dark-theme {
   background-color: #121212;
   color: #b3b3b3;
 }
+body.dark-theme .playlist-card {
+  background-color: #121212;
+  color: #b3b3b3;
+}
 
 h1,
 h2,
@@ -60,10 +64,13 @@ footer a:hover {
   cursor: pointer;
 }
 
-.playlist-card {
+body.dark-theme .playlist-card {
   width: 100%;
   background-color: #181818;
   transition: transform 0.3s, box-shadow 0.3s;
+}
+body.light-theme .playlist-card {
+  background-color: #ffffff;
 }
 .playlist-card:hover {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
