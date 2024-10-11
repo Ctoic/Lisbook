@@ -1,121 +1,154 @@
- body {
-            transition: background-color 0.3s, color 0.3s;
-        }
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
 
-        body.light-theme {
-            background-color: #f0f0f0;
-            color: #333;
-        }
+body.light-theme {
+  background-color: #f0f0f0;
+  color: #333;
+}
 
-        body.dark-theme {
-            background-color: #121212;
-            color: #b3b3b3;
-        }
+body.dark-theme {
+  background-color: #121212;
+  color: #b3b3b3;
+}
+body.dark-theme .playlist-card {
+  background-color: #121212;
+  color: #b3b3b3;
+}
 
-        h1, h2, h3 {
-            color: inherit;
-        }
+h1,
+h2,
+h3 {
+  color: inherit;
+}
 
-        #playlist li:hover {
-            background-color: #282828;
-            color: #1DB954;
-            cursor: pointer;
-        }
+#playlist li:hover {
+  background-color: #282828;
+  color: #1db954;
+  cursor: pointer;
+}
 
-        #audio-player {
-            background-color: #282828;
-            color: #1DB954;
-        }
+#audio-player {
+  background-color: #282828;
+  color: #1db954;
+}
 
-        button {
-            transition: background-color 0.3s;
-        }
+button {
+  transition: background-color 0.3s;
+}
 
-        button:hover {
-            background-color: #1ed760;
-        }
+button:hover {
+  background-color: #1ed760;
+}
 
-        footer {
-            background-color: #191414;
-            color: #b3b3b3;
-        }
+footer {
+  background-color: #191414;
+  color: #b3b3b3;
+}
 
-        footer a:hover {
-            color: #1DB954;
-        }
+footer a:hover {
+  color: #1db954;
+}
 
-        .book-card {
-            background-color: #181818;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
+.book-card {
+  background-color: #181818;
+  transition: transform 0.3s, box-shadow 0.3s;
+  /* cursor: pointer; */
+}
 
-        .book-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
+.book-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
 
-        .favorite-button {
-            transition: color 0.3s;
-        }
+.bi {
+  cursor: pointer;
+}
 
-        .favorite-button.active {
-            color: #1DB954;
-        }
+body.dark-theme .playlist-card {
+  width: 100%;
+  background-color: #181818;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+body.light-theme .playlist-card {
+  background-color: #ffffff;
+}
+.playlist-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
 
-        .favorite-button:hover {
-            color: #1DB954;
-        }
+.playlist-card ul {
+  height: 85%;
+}
 
-        .light-theme .book-card,
-        .light-theme #playlist,
-        .light-theme .bg-gray-800 {
-            background-color: #f8f8f8;
-        }
+.playlist {
+  max-height: 50vh;
+}
 
-        .light-theme .text-gray-300 {
-            color: #333;
-        }
+.favorite-button-container {
+  margin-top: 30px;
+}
 
-        .light-theme .bg-gray-700 {
-            background-color: #e0e0e0;
-        }
+.favorite-button {
+  transition: color 0.3s;
+}
 
-        /* Play/Pause button animation */
-        .play-pause-button {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background-color: #1DB954;
-            border-radius: 50%;
-            cursor: pointer;
-            position: relative;
-            transition: background-color 0.3s;
-        }
+.favorite-button.active {
+  color: #1db954;
+}
 
-        .play-pause-button.play::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border-style: solid;
-            border-width: 10px 0 10px 18px;
-            border-color: transparent transparent transparent #fff;
-        }
+.favorite-button:hover {
+  color: #1db954;
+}
 
-        .play-pause-button.pause::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 10px;
-            height: 24px;
-            background-color: #fff;
-            box-shadow: 16px 0 0 #fff;
-        }
+.light-theme .book-card,
+.light-theme #playlist,
+.light-theme .bg-gray-800 {
+  background-color: #f8f8f8;
+}
 
-        .play-pause-button:hover {
-            background-color: #1ed760;
-        }
+.light-theme .text-gray-300 {
+  color: #333;
+}
+
+.light-theme .bg-gray-700 {
+  background-color: #e0e0e0;
+}
+
+/* Play/Pause button animation */
+.play-pause-button {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: #1db954;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.play-pause-button.play::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 10px 0 10px 18px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.play-pause-button.pause::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 24px;
+  background-color: #fff;
+  box-shadow: 16px 0 0 #fff;
+}
+
+.play-pause-button:hover {
+  background-color: #1ed760;
+}

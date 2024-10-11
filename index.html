@@ -1,142 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
     <title>My Favorite Books Music App</title>
+  </head>
 
-    
-</head>
-
-<body class="bg-gray-900 text-gray-300 dark-theme">
+  <body class="dark-theme bg-gray-900 text-gray-300">
     <!-- Navbar -->
-    <nav class="bg-gray-800 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <!-- Logo -->
-            <a class="text-green-500 text-2xl font-bold" href="./index.html">Lisbook</a>
+    <nav class="sticky top-0 z-20 bg-gray-800 p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <a class="text-green-500 text-2xl font-bold" href="./index.html"
+          >Lisbook</a
+        >
 
-            <!-- Menu Links and Theme Toggle -->
-            <div id="menu" class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20">
-                <div id="menu-close" class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </div>
-                <a href="./index.html" class="text-gray-300 hover:text-green-500">Home</a>
-                <a href="./pbd.html" class="text-gray-300 hover:text-green-500">Next</a>
-                <a href="./index.html" class="text-gray-300 hover:text-green-500">Previous</a>
-                <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                    </svg>
-                </button>
-            </div>
+        <!-- Menu Links and Theme Toggle -->
+        <div
+          id="menu"
+          class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20"
+        >
+          <div
+            id="menu-close"
+            class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </div>
+          <a href="./index.html" class="text-gray-300 hover:text-green-500"
+            >Home</a
+          >
 
-            <!-- Mobile Menu Toggle Button -->
-            <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </div>
+          <a href="./index.html" class="text-gray-300 hover:text-green-500"
+            >Previous</a
+          >
+          <a href="./pbd.html" class="text-gray-300 hover:text-green-500"
+            >Next</a
+          >
+          <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              />
+            </svg>
+          </button>
         </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div
+          id="menu-toggle"
+          title="Menu"
+          class="text-gray-300 lg:hidden cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </div>
+      </div>
     </nav>
 
     <!-- Book Card Display -->
-    <div class="container mx-auto mt-10 text-center">
-        <div class="book-card p-6 rounded-lg shadow-lg max-w-xs mx-auto">
-            <!-- Cover Image -->
-            <img id="img" src="./Images/GD.jpeg" alt="God Delusion Cover" class="w-full h-64 object-cover rounded-lg">
+    <div
+      class="container flex flex-col md:flex-row mx-auto mt-10 p-6 text-center"
+    >
+      <div
+        class="book-card flex-auto p-6 rounded-lg shadow-lg md:max-w-sm mx-auto md:w-1/3 mb-6 md:mb-0"
+      >
+        <!-- Cover Image -->
+        <img
+          id="img"
+          src="./Images/GD.jpeg"
+          alt="God Delusion Cover"
+          class="w-full h-64 object-cover rounded-lg"
+        />
 
-            <!-- Book Details -->
-            <div class="mt-4">
-                <h1 class="text-2xl font-bold">God Delusion</h1>
-                <h3 class="text-lg mt-2">By Richard Dawkins</h3>
-                <p class="text-sm mt-2">The God Delusion is a book by English biologist Richard Dawkins that argues against the existence of a supernatural creator.</p>
-            </div>
-
-            <!-- Favorite Button -->
-            <div class="mt-4 flex justify-center">
-                <button id="favorite-button" class="favorite-button text-gray-300 text-xl focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 20.121L12 15.243l6.879 4.878A7.502 7.502 0 0019 10.75C19 6.917 15.777 3 12 3S5 6.917 5 10.75c0 3.62 3.323 6.852 7.121 9.37z" />
-                    </svg>
-                </button>
-            </div>
+        <!-- Book Details -->
+        <div class="mt-4">
+          <h1 class="text-2xl font-bold text-green-500">God Delusion</h1>
+          <h3 class="text-lg mt-2">By Richard Dawkins</h3>
+          <p class="text-sm mt-2">
+            The God Delusion is a book by English biologist Richard Dawkins that
+            argues against the existence of a supernatural creator.
+          </p>
         </div>
-    </div>
 
-    <!-- Playlist Section -->
-    <div class="w-full mt-10 text-center bg-gray-800 p-8 rounded-lg shadow-lg">
-        <h2 class="text-2xl font-bold text-green-500 mb-6">Audio Playlist</h2>
-        <ul id="playlist" class="list-none mt-5 bg-gray-900 rounded-lg shadow-lg p-4 space-y-2">
-            <li class="p-4 hover:bg-gray-700 cursor-pointer transition duration-300 ease-in-out" data-src="audio/part1.mp3">Introduction: God Delusion</li>
-            <li class="p-4 hover:bg-gray-700 cursor-pointer transition duration-300 ease-in-out" data-src="audio/part2.mp3">Part 2</li>
-            <li class="p-4 hover:bg-gray-700 cursor-pointer transition duration-300 ease-in-out" data-src="audio/part3.mp3">Part 3</li>
-            <li class="p-4 hover:bg-gray-700 cursor-pointer transition duration-300 ease-in-out" data-src="audio/part4.mp3">Part 4</li>
-            <li class="p-4 hover:bg-gray-700 cursor-pointer transition duration-300 ease-in-out" data-src="audio/part5.mp3">Part 5</li>
-            <li class="p-4 hover:bg-gray-700 cursor-pointer transition duration-300 ease-in-out" data-src="audio/part6.mp3">Part 6</li>
-            <li class="p-4 hover:bg-gray-700 cursor-pointer transition duration-300 ease-in-out" data-src="audio/part7.mp3">Part 7</li>
+        <!-- Favorite Button -->
+        <div class="mt-4 flex justify-center favorite-button-container">
+          <i class="bi bi-heart mx-4 favorite-button"></i>
+          <i class="bi bi-share mx-4 favorite-button"></i>
+          <i class="bi bi-chat mx-4 favorite-button"></i>
+        </div>
+      </div>
+      <!-- playlist -->
+      <div
+        class="playlist-card flex-auto md:ml-7 p-6 min-h-full rounded-lg mx-auto shadow-lg md:w-2/3"
+      >
+        <ul
+          id="playlist"
+          class="playlist list-none rounded-lg text-left overflow-auto"
+        >
+          <li class="p-2 hover:bg-gray-700" data-src="audio/part1.mp3">
+            Introduction: God Delusion
+          </li>
+          <li class="p-2 hover:bg-gray-700" data-src="audio/part2.mp3">
+            Part 2
+          </li>
+          <li class="p-2 hover:bg-gray-700" data-src="audio/part3.mp3">
+            Part 3
+          </li>
+          <li class="p-2 hover:bg-gray-700" data-src="audio/part4.mp3">
+            Part 4
+          </li>
+          <li class="p-2 hover:bg-gray-700" data-src="audio/part5.mp3">
+            Part 5
+          </li>
+          <li class="p-2 hover:bg-gray-700" data-src="audio/part6.mp3">
+            Part 6
+          </li>
+          <li class="p-2 hover:bg-gray-700" data-src="audio/part7.mp3">
+            Part 7
+          </li>
         </ul>
-        
-        <audio id="audio-player" controls class="mt-6 mx-auto bg-gray-700 rounded-lg"></audio>
-    
+
+        <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
+
         <!-- Play/Pause Button with Animation -->
         <div class="mt-4 flex justify-center">
-            <button id="playPauseBtn" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
-                Play/Pause
-            </button>
+          <button id="playPauseBtn" class="play"></button>
+          <!-- Added Play/Pause button here -->
         </div>
+      </div>
     </div>
 
     <!-- Comments Section -->
-    <div class="w-full mt-10 text-center bg-gray-800 p-8 rounded-lg shadow-lg">
-        <h2 class="text-2xl font-bold text-green-500 mb-6">Leave a Comment</h2>
-        <form id="comment-form" class="space-y-4">
-            <!-- Name input -->
-            <input 
-                type="text" 
-                id="name" 
-                placeholder="Your Name" 
-                class="w-full p-4 bg-gray-700 text-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-300 ease-in-out"
-            >
-    
-            <!-- Comment textarea -->
-            <textarea 
-                id="comment" 
-                placeholder="Your Comment" 
-                class="w-full p-4 bg-gray-700 text-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-300 ease-in-out"
-                rows="5"
-            ></textarea>
-    
-            <!-- Submit button placed at the end, aligned to the right -->
-            <div class="mt-6 flex justify-end">
-                <button type="submit" 
-                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
-                    Submit
-                </button>
-            </div>
-        </form>
-    
-        <!-- Display comments section -->
-        <div id="comment-section" class="mt-8 space-y-4">
-            <!-- New comments will appear here -->
+    <div class="container mx-auto mt-16 bg-gray-800 p-6 rounded-lg shadow-lg">
+      <h2 class="text-center text-2xl mb-6">Share Your Thoughts</h2>
+      <form id="comment-form" class="space-y-4">
+        <div>
+          <label for="username" class="block text-sm font-medium"
+            >Your Name:</label
+          >
+          <input
+            type="text"
+            id="username"
+            class="w-full p-2 rounded-lg bg-gray-700 text-white"
+            required
+          />
         </div>
+        <div>
+          <label for="comment" class="block text-sm font-medium"
+            >Your Comment:</label
+          >
+          <textarea
+            id="comment"
+            class="w-full p-2 rounded-lg bg-gray-700 text-white"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+        <div class="text-center">
+          <button
+            type="submit"
+            class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+
+      <div id="comments-list" class="mt-10 space-y-4"></div>
     </div>
 
     <!-- Footer -->
     <footer class="bg-gray-900 p-4 text-center mt-10">
-        <div class="text-gray-500">
-            &copy; 2024 Your Website Name | All Rights Reserved
-        </div>
+      <div class="text-gray-500">&copy; 2024 Lisbook | All Rights Reserved</div>
     </footer>
 
     <!-- JS Scripts -->
-    <script src="script.js">
-        
-    </script>
-</body>
-
+    <script src="./script.js"></script>
+  </body>
 </html>
