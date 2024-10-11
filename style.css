@@ -1,239 +1,121 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #333;
-}
+ body {
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+        body.light-theme {
+            background-color: #f0f0f0;
+            color: #333;
+        }
 
-.button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 100px;
-    margin-right: 100px;
-    padding: 10px;
-    background-color: #007bff;
-}
+        body.dark-theme {
+            background-color: #121212;
+            color: #b3b3b3;
+        }
 
-.image {
-    width: 100px;
-    height: 100px;
-    align-self: center;
-    margin-right: 100px;
-}
+        h1, h2, h3 {
+            color: inherit;
+        }
 
-h1 {
-    text-align: center;
-    color: #333;
-}
+        #playlist li:hover {
+            background-color: #282828;
+            color: #1DB954;
+            cursor: pointer;
+        }
 
-#playlist {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
+        #audio-player {
+            background-color: #282828;
+            color: #1DB954;
+        }
 
-#playlist li {
-    cursor: pointer;
-    padding: 15px;
-    background-color: #59db6b;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    transition: background-color 0.3s ease;
-}
+        button {
+            transition: background-color 0.3s;
+        }
 
-#playlist li:hover {
-    background-color: #ccc;
-}
+        button:hover {
+            background-color: #1ed760;
+        }
 
-#audio-player {
-    width: 100%;
-    margin-top: 20px;
-}
+        footer {
+            background-color: #191414;
+            color: #b3b3b3;
+        }
 
-/* Styling for the play button */
-#audio-player::-webkit-media-controls-start-playback-button {
-    display: none;
-}
+        footer a:hover {
+            color: #1DB954;
+        }
 
-#audio-player {
-    appearance: none;
-    background-color: transparent;
-    border: none;
-    outline: none;
-}
+        .book-card {
+            background-color: #181818;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
 
-#audio-player::-webkit-media-controls-panel {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .book-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
 
-#audio-player::-webkit-media-controls-play-button {
-    width: 50px;
-    height: 50px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 20px;
-    cursor: pointer;
-}
+        .favorite-button {
+            transition: color 0.3s;
+        }
 
-#audio-player::-webkit-media-controls-play-button:hover {
-    background-color: #0056b3;
-}
+        .favorite-button.active {
+            color: #1DB954;
+        }
 
-/* Add style for the comments section */
-.comments-section {
-    margin-top: 30px;
-    text-align: center;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
+        .favorite-button:hover {
+            color: #1DB954;
+        }
 
-.comments-section h2 {
-    color: #333;
-    font-size: 20px;
-}
+        .light-theme .book-card,
+        .light-theme #playlist,
+        .light-theme .bg-gray-800 {
+            background-color: #f8f8f8;
+        }
 
-#img {
-    width: 100%;
-    height: 100%;
-}
+        .light-theme .text-gray-300 {
+            color: #333;
+        }
 
-#comment-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-}
+        .light-theme .bg-gray-700 {
+            background-color: #e0e0e0;
+        }
 
-#comment-form label {
-    margin-top: 10px;
-}
+        /* Play/Pause button animation */
+        .play-pause-button {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: #1DB954;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s;
+        }
 
-#comment-form input,
-#comment-form textarea {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-    box-sizing: border-box;
-}
+        .play-pause-button.play::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-style: solid;
+            border-width: 10px 0 10px 18px;
+            border-color: transparent transparent transparent #fff;
+        }
 
-#comment-form button {
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        .play-pause-button.pause::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 24px;
+            background-color: #fff;
+            box-shadow: 16px 0 0 #fff;
+        }
 
-#comment-form button:hover {
-    background-color: #0056b3;
-}
-
-#comments-list {
-    margin-top: 20px;
-    text-align: left; /* Align comments to the left */
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.comment {
-    margin-bottom: 15px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-}
-
-.comment strong {
-    color: #007bff;
-}
-
-.comment p {
-    margin: 0;
-}
-
-/* Add style for the footer */
-.footer {
-    text-align: center;
-    background-color: #000000;
-    color: #fff;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    left: 100px;
-    width: 100%;
-}
-
-/* Add style nav-link */
-.footer a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}
-
-/* Play/Pause Button Styles */
-#playPauseBtn {
-    width: 50px;
-    height: 50px;
-    border: none;
-    background: none;
-    position: relative;
-    cursor: pointer;
-    display: block;
-    margin: 0 auto; /* Center the button */
-}
-
-#playPauseBtn::before,
-#playPauseBtn::after {
-    content: '';
-    position: absolute;
-    background-color: #fff;
-    transition: all 0.3s ease;
-}
-
-#playPauseBtn::before {
-    width: 15px;
-    height: 50px;
-    left: 10px;
-}
-
-#playPauseBtn::after {
-    width: 15px;
-    height: 50px;
-    right: 10px;
-}
-
-/* Play State (Triangle) */
-#playPauseBtn.play::before {
-    transform: rotate(45deg);
-    width: 20px;
-    height: 20px;
-    left: 15px;
-}
-
-#playPauseBtn.play::after {
-    transform: rotate(-45deg);
-    width: 20px;
-    height: 20px;
-    right: 15px;
-}
+        .play-pause-button:hover {
+            background-color: #1ed760;
+        }
