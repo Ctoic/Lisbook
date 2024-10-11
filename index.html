@@ -209,19 +209,25 @@
     </div>
 
     <!-- Comments Section -->
-    <div class="container mx-auto mt-10 text-center">
-        <h2 class="text-xl font-bold">Leave a Comment</h2>
-        <form id="comment-form" class="mt-4">
-            <input type="text" id="name" placeholder="Your Name" class="w-full p-2 bg-gray-700 rounded mb-2">
-            <textarea id="comment" placeholder="Your Comment" class="w-full p-2 bg-gray-700 rounded mb-2"></textarea>
-            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Submit</button>
-        </form>
+  <div class="comment-wrapper">
+    <form action="#">
+      <h2>Leave a Comment</h2>
+      <div class="input-field">
+        <input type="text" required>
+        <label>Enter your name</label>
+      </div>
+      <div class="input-field">
+        <input type="email" required>
+        <label>Enter your email</label>
+      </div>
+      <div class="input-field">
+        <textarea required></textarea>
+        <label>Write your comment</label>
+      </div>
+      <button type="submit">Submit Comment</button>
+    </form>
+  </div>
 
-        <!-- Display comments -->
-        <div id="comment-section" class="mt-4 space-y-2">
-            <!-- New comments will appear here -->
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-900 p-4 text-center mt-10">
