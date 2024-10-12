@@ -1,3 +1,12 @@
+:root {
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Customize your shadow here */
+  --transition-transform: transform 0.6s ease-in-out 0.3s;
+}
+
+* {
+  margin: 0;
+}
+
 body {
   transition: background-color 0.3s, color 0.3s;
 }
@@ -16,10 +25,37 @@ body.dark-theme .playlist-card {
   color: #b3b3b3;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: lightgrey;
+  border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gray;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #1ed760;
+}
+
 h1,
 h2,
 h3 {
   color: inherit;
+}
+
+.page-title {
+  color: #1db954;
+  font-weight: bold;
 }
 
 #playlist li:hover {
@@ -31,6 +67,10 @@ h3 {
 #audio-player {
   background-color: #282828;
   color: #1db954;
+}
+
+section {
+  box-shadow: var(--shadow);
 }
 
 button {
@@ -50,6 +90,31 @@ footer a:hover {
   color: #1db954;
 }
 
+/* About page  */
+body.dark-theme section {
+  width: 100%;
+  background-color: #181818;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+body.light-theme section {
+  background-color: #ffffff;
+}
+
+.features-title {
+  color: #1db954 !important;
+}
+
+.features-card {
+  transition: var(--transition-transform);
+  will-change: transform;
+}
+
+.features-card:hover {
+  transform: scale(1.03);
+}
+
+/*  about page end */
+
 .book-card {
   background-color: #181818;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -57,12 +122,12 @@ footer a:hover {
 }
 
 .book-card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow);
 }
 
 .bi {
   cursor: pointer;
-  transition: transform 0.6s ease-in-out 0.3s;
+  transition: var(--transition-transform);
   will-change: transform;
 }
 
@@ -78,7 +143,7 @@ body.light-theme .playlist-card {
   background-color: #ffffff;
 }
 .playlist-card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow);
 }
 
 .playlist-card ul {
@@ -157,3 +222,93 @@ body.light-theme .playlist-card {
 .play-pause-button:hover {
   background-color: #1ed760;
 }
+
+.tooltip-parent {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  margin: 28px;
+  border-radius: 8px;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 150px;
+  background-color: rgba(43, 42, 42, 0.7);
+  position: absolute;
+  padding: 4px;
+  color: white;
+  z-index: 1;
+  transition: opactiy 2s;
+  text-decoration: none;
+  font-style: normal;
+}
+
+.tooltip-parent:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-left .tooltip {
+  top: 50%;
+  right: 100%;
+  margin-right: 5px;
+  transform: translateY(-50%);
+}
+
+.tooltip-right .tooltip {
+  top: 50%;
+  left: 100%;
+  margin-left: 5px;
+  transform: translateY(-50%);
+}
+
+.tooltip-bottom .tooltip {
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+  margin-top: 5px;
+}
+
+.tooltip-top .tooltip {
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  margin-bottom: 5px;
+}
+
+.adiobk-sub-item {
+  padding: 12px 8px;
+  border-radius: 8px;
+}
+
+.player {
+  position: relative;
+  background-color: white;
+}
+
+.player audio {
+  width: 100%;
+  outline: none;
+}
+
+audio {
+  background-color: transparent;
+  background-image: none;
+}
+
+#audio-book-list-item:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#audio-book-list-item {
+  cursor: pointer;
+  list-style: none;
+}
+
+/* @media screen and (max-width: 1000px) {
+  #audio-book-list-item {
+    display: inline-flex;
+    flex-direction: column;
+  }
+} */

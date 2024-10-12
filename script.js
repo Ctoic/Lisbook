@@ -5,11 +5,74 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("menu-toggle");
   const menuClose = document.getElementById("menu-close");
   const menu = document.getElementById("menu");
+  const commentForm = document.getElementById("comment-form");
 
+  // Function to display error popup
+  function showErrorPopup(message) {
+    const overlay = document.createElement("div");
+    overlay.id = "overlay";
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+    overlay.style.zIndex = "9998";
+    overlay.style.backdropFilter = "blur(5px)";
+    document.body.appendChild(overlay);
+
+    // Create the error popup
+    const errorPopup = document.createElement("div");
+    errorPopup.id = "errorPopup";
+    errorPopup.style.position = "fixed";
+    errorPopup.style.top = "50%";
+    errorPopup.style.left = "50%";
+    errorPopup.style.transform = "translate(-50%, -50%)";
+    errorPopup.style.backgroundColor = "#fff";
+    errorPopup.style.padding = "20px";
+    errorPopup.style.border = "1px solid #ccc";
+    errorPopup.style.zIndex = "9999";
+    errorPopup.innerHTML = `
+      <h2 style="color: red; font-weight: 600; margin-bottom: 5px;">Error</h2>
+      <p>${message}</p>
+      <button style="margin-top: 10px; padding: 5px 10px; float: right;">Close</button>
+    `;
+
+    document.body.appendChild(errorPopup);
+
+    // Attach event listener to the close button directly via DOM element
+    const closeButton = errorPopup.querySelector("button");
+    closeButton.addEventListener("click", () => {
+      errorPopup.remove();
+      overlay.remove();
+    });
+  }
+
+  // Playlist item click event
   playlistItems.forEach((item) => {
     item.addEventListener("click", function () {
-      audioPlayer.src = item.getAttribute("data-src");
-      audioPlayer.play();
+      const audioSource = item.getAttribute("data-src");
+
+      // Check if the file exists before playing
+      if (audioSource) {
+        audioPlayer.src = audioSource;
+
+        // Handle playback errors
+        audioPlayer.play().catch((error) => {
+          console.error("Audio playback error:", error);
+          if (error.name === "NotSupportedError") {
+            showErrorPopup(
+              "Failed to play audio. Unsupported format or file missing."
+            );
+          } else {
+            showErrorPopup(
+              "Failed to play audio. There was an issue with playback."
+            );
+          }
+        });
+      } else {
+        showErrorPopup("Audio source not available.");
+      }
     });
   });
 
@@ -62,9 +125,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Comment Submission
-  document
-    .getElementById("comment-form")
-    .addEventListener("submit", function (e) {
+  if (commentForm) {
+    commentForm.addEventListener("submit", function (e) {
       e.preventDefault();
       const username = document.getElementById("username").value;
       const comment = document.getElementById("comment").value;
@@ -81,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Reset form
       document.getElementById("comment-form").reset();
     });
-
+  }
   // Theme Toggle
   themeToggle.addEventListener("click", function () {
     if (document.body.classList.contains("dark-theme")) {
@@ -105,4 +167,18 @@ document.addEventListener("DOMContentLoaded", function () {
     menu.classList.add("scale-0");
     menu.classList.remove("scale-100");
   });
+
+  fetch("/data/books.json")
+    .then((response) => response.json())
+    .then((response) => {
+      const template = document.getElementById("book-card-template");
+      response.forEach((book) => {
+        const element = document.importNode(template.content, true);
+        element.getElementById("book-title").textContent = book.title;
+        element.getElementById("book-author").textContent = `By ${book.author}`;
+        element.getElementById("img").src = `https://picsum.photos/200`;
+        element.getElementById("img").alt = `Cover of ${book.title}`;
+        bookList.appendChild(element);
+      });
+    });
 });
