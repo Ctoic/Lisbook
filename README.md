@@ -1,4 +1,8 @@
 # LisBook - A Simple Audio Book Player
+
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
+
 <div align="center">
 
   
