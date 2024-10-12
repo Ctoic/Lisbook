@@ -102,8 +102,7 @@
 
       <p class="text-2xl mt-3 pb-5 ps-3 font-bold">Top Audio Books</p>
 
-      <ul id="audio-books-list" class="space-x-2 space-y-2 flex flex-wrap w-full mx-auto">
-      </ul>
+      <ul id="audio-books-list" class="space-x-2 space-y-2 flex flex-wrap w-full mx-auto"></ul>
     </div>
 
     <!-- Book Card Display -->
@@ -228,22 +227,29 @@
     
     <!-- Template for the book card -->
     <template id="book-card-template">
-      <li id="audio-book-list-item" class="w-fit">
-        <div class="book-card flex-auto p-4 rounded-lg shadow-lg w-full h-full">
+
+
+      <li id="audio-book-list-item flex-row items-center" class="md:w-60 w-full">
+        <div class="book-card flex flex-row p-4 sm:p-3 rounded-lg shadow-lg w-full h-full md:flex-col items-center md:items-start">
           <!-- Cover Image -->
-          <img
-            id="img"
-            src=""
-            alt=""
-            class="w-40 object-cover rounded-lg aspect-square"
-          />
+           <div class="container w-14 md:w-40 md:h-40 flex items-center md:w-full"
+           >
+             <img
+               id="img"
+               src=""
+               alt=""
+               class="rounded-lg w-full h-full aspect-square object-cover"
+             />
+           </div>
+
           <!-- Book Details -->
-          <div class="mt-4">
-            <h1 class="text-lg font-bold text-green-500 w-32 line-clamp-2" id="book-title"></h1>
-            <h3 class="text-sm mt-1 truncate" id="book-author"></h3>
+          <div class="md:mt-2 ps-4 md:px-1 text-wrap flex-col items-center" id="text-content">
+            <p class="md:text-lg text-sm font-medium text-green-500 w-32 truncate sm:w-full align-middle" id="book-title"></p>
+            <p class="text-sm truncate align-middle" id="book-author"></p>
           </div>
         </div>
       </li>
+
     </template>
 
     
