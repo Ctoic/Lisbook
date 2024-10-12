@@ -1,244 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
-    <title>My Favorite Books Music App</title>
-  </head>
-  <body class="bg-gray-900 text-gray-300 dark-theme">
-    <!-- Navbar -->
-    <nav class="sticky top-0 z-20 bg-gray-800 p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <!-- Logo -->
-        <a class="text-green-500 text-2xl font-bold" href="./index.html"
-          >Lisbook</a
-        >
 
-        <!-- Menu Links and Theme Toggle -->
-        <div
-          id="menu"
-          class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20"
-        >
-          <div
-            id="menu-close"
-            class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </div>
-          <a href="./index.html" class="text-gray-300 hover:text-green-500"
-            >Home</a
-          >
-          <a href="./fs.html" class="text-gray-300 hover:text-green-500"
-            >Previous</a
-          >
-          <a href="./index.html" class="text-gray-300 hover:text-green-500"
-            >Next</a
-          >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <title>My Favorite Books Music App</title>
+</head>
 
-          <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-              />
-            </svg>
-          </button>
+<body class="bg-gray-900 text-gray-300 dark-theme">
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-20 bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <a class="text-green-500 text-2xl font-bold" href="./index.html">Lisbook</a>
+
+      <!-- Menu Links and Theme Toggle -->
+      <div id="menu"
+    class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20">
+    
+    <div id="menu-close" class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </div>
+    
+    <a href="./index.html" class="text-gray-300 hover:text-green-500" id="homeLink">Home</a>
+    <a href="./fs.html" class="text-gray-300 hover:text-green-500" id="previousLink">Previous</a>
+    <a href="./index.html" class="text-gray-300 hover:text-green-500" id="nextLink">Next</a>
+
+    <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </button>
+
+    <div class="relative inline-block text-left">
+        <div>
+            <button style="background-color: #1ed760;" type="button"
+                class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-white hover:text-gray-900"
+                id="menu-button" aria-expanded="false" aria-haspopup="true">
+                <span id="selectLanguage">Select Language</span>
+                <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                        clip-rule="evenodd" />
+                </svg>
+            </button>
         </div>
 
-        <!-- Mobile Menu Toggle Button -->
-        <div
-          id="menu-toggle"
-          title="Menu"
-          class="text-gray-300 lg:hidden cursor-pointer"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
+        <div style="background-color: #1ed760;"
+            class="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md shadow-lg hidden"
+            role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+            <div class="py-1" role="none">
+              <a href="#" onclick="changeLanguage('en')" class="block px-4 py-2 text-sm text-gray-700"
+              role="menuitem" tabindex="-1" id="menu-item-en">English</a>
+          <a href="#" onclick="changeLanguage('fr')" class="block px-4 py-2 text-sm text-gray-700"
+              role="menuitem" tabindex="-1" id="menu-item-fr">Français</a>
+            </div>
         </div>
-      </div>
-    </nav>
+    </div>
+</div>
 
-    <!-- Book Card Display -->
-    <div
-      class="container flex flex-col md:flex-row mx-auto mt-10 p-6 text-center"
-    >
-      <div
-        class="book-card flex-auto p-6 rounded-lg shadow-lg md:max-w-sm mx-auto md:w-1/3 mb-6 md:mb-0"
-      >
-        <!-- Cover Image -->
-        <img
-          id="img"
-          src="./Images/Sapiens.jpg"
-          alt="God Delusion Cover"
-          class="w-full h-64 object-cover rounded-lg"
-        />
 
-        <!-- Book Details -->
-        <div class="mt-4">
-          <h1 class="text-2xl font-bold text-green-500">
-            Sapiens: A Brief History of Humankind
-          </h1>
-          <h3 class="text-lg mt-2">By Yuval Noah Harari</h3>
-          <p class="text-sm mt-2">
-            Sapiens explores the history and evolution of humanity, from early
-            Homo sapiens to modern society.
-          </p>
-        </div>
-
-        <!-- Favorite Button -->
-        <div class="mt-4 flex justify-center favorite-button-container">
-          <i class="bi bi-heart mx-4 favorite-button"></i>
-          <i class="bi bi-share mx-4 favorite-button"></i>
-          <i class="bi bi-chat mx-4 favorite-button"></i>
-        </div>
       </div>
 
-      <!-- Playlist Section -->
-      <div
-        class="playlist-card flex-auto md:ml-7 p-6 min-h-full rounded-lg mx-auto shadow-lg md:w-2/3"
-      >
-        <ul
-          id="playlist"
-          class="playlist list-none rounded-lg text-left overflow-auto"
-        >
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part1.mp3">
-            Introduction: God Delusion
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part2.mp3">
-            Part 2
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part3.mp3">
-            Part 3
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part4.mp3">
-            Part 4
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part5.mp3">
-            Part 5
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part6.mp3">
-            Part 6
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part7.mp3">
-            Part 7
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part8.mp3">
-            Part 8
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part9.mp3">
-            Part 9
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part10.mp3">
-            Part 10
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part11.mp3">
-            Part 11
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part12.mp3">
-            Part 12
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part13.mp3">
-            Part 13
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part14.mp3">
-            Part 14
-          </li>
-        </ul>
-        <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
+      <!-- Mobile Menu Toggle Button -->
+      <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </div>
+    </div>
+  </nav>
 
-        <!-- Play/Pause Button with Animation -->
-        <div class="mt-4 flex justify-center">
-          <button id="playPauseBtn" class="play"></button>
-          <!-- Added Play/Pause button here -->
-        </div>
+  <!-- Book Card Display -->
+  <div class="container flex flex-col md:flex-row mx-auto mt-10 p-6 text-center">
+    <div class="book-card flex-auto p-6 rounded-lg shadow-lg md:max-w-sm mx-auto md:w-1/3 mb-6 md:mb-0">
+      <!-- Cover Image -->
+      <img id="img" src="./Images/Sapiens.jpg" alt="God Delusion Cover" class="w-full h-64 object-cover rounded-lg" />
+
+      <!-- Book Details -->
+      <div class="mt-4">
+        <h1 class="text-2xl font-bold text-green-500">
+          Sapiens: A Brief History of Humankind
+        </h1>
+        <h3 class="text-lg mt-2">By Yuval Noah Harari</h3>
+        <p class="text-sm mt-2">
+          Sapiens explores the history and evolution of humanity, from early
+          Homo sapiens to modern society.
+        </p>
+      </div>
+
+      <!-- Favorite Button -->
+      <div class="mt-4 flex justify-center favorite-button-container">
+        <i class="bi bi-heart mx-4 favorite-button"></i>
+        <i class="bi bi-share mx-4 favorite-button"></i>
+        <i class="bi bi-chat mx-4 favorite-button"></i>
       </div>
     </div>
 
-    <!-- Comments Section -->
-    <div class="container mx-auto mt-16 bg-gray-800 p-6 rounded-lg shadow-lg">
-      <h2 class="text-center text-2xl mb-6">Share Your Thoughts</h2>
-      <form id="comment-form" class="space-y-4">
+    <!-- Playlist Section -->
+    <div class="playlist-card flex-auto md:ml-7 p-6 min-h-full rounded-lg mx-auto shadow-lg md:w-2/3">
+      <ul id="playlist" class="playlist list-none rounded-lg text-left overflow-auto">
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part1.mp3">
+          Introduction: God Delusion
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part2.mp3">
+          Part 2
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part3.mp3">
+          Part 3
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part4.mp3">
+          Part 4
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part5.mp3">
+          Part 5
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part6.mp3">
+          Part 6
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part7.mp3">
+          Part 7
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part8.mp3">
+          Part 8
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part9.mp3">
+          Part 9
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part10.mp3">
+          Part 10
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part11.mp3">
+          Part 11
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part12.mp3">
+          Part 12
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part13.mp3">
+          Part 13
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part14.mp3">
+          Part 14
+        </li>
+      </ul>
+      <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
+
+      <!-- Play/Pause Button with Animation -->
+      <div class="mt-4 flex justify-center">
+        <button id="playPauseBtn" class="play"></button>
+        <!-- Added Play/Pause button here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="mt-10 text-center">
+    <a href="./fs.html" class="text-gray-300 hover:text-green-500 p-3" id="previousLink2">Previous</a>
+    <a href="./index.html" class="text-gray-300 hover:text-green-500 p-3" id="nextLink2">Next</a>
+</div>
+
+
+  <!-- Comments Section -->
+  <div class="container mx-auto mt-16 bg-gray-800 p-6 rounded-lg shadow-lg">
+    <h2 class="text-center text-2xl mb-6" id="shareThoughtsHeader">Share Your Thoughts</h2>
+    <form id="comment-form" class="space-y-4">
         <div>
-          <label for="username" class="block text-sm font-medium"
-            >Your Name:</label
-          >
-          <input
-            type="text"
-            id="username"
-            class="w-full p-2 rounded-lg bg-gray-700 text-white"
-            required
-          />
+            <label for="username" class="block text-sm font-medium" id="usernameLabel">Your Name:</label>
+            <input type="text" id="username" class="w-full p-2 rounded-lg bg-gray-700 text-white" required />
         </div>
         <div>
-          <label for="comment" class="block text-sm font-medium"
-            >Your Comment:</label
-          >
-          <textarea
-            id="comment"
-            class="w-full p-2 rounded-lg bg-gray-700 text-white"
-            rows="4"
-            required
-          ></textarea>
+            <label for="comment" class="block text-sm font-medium" id="commentLabel">Your Comment:</label>
+            <textarea id="comment" class="w-full p-2 rounded-lg bg-gray-700 text-white" rows="4" required></textarea>
         </div>
         <div class="text-center">
-          <button
-            type="submit"
-            class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600"
-          >
-            Submit
-          </button>
+            <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600" id="submitButton">
+                Submit
+            </button>
         </div>
-      </form>
+    </form>
 
-      <div id="comments-list" class="mt-10 space-y-4"></div>
+    <div id="comments-list" class="mt-10 space-y-4"></div>
+</div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 p-4 text-center mt-10">
+    <div class="text-gray-500">
+      &copy; 2024 Your Lisbook | All Rights Reserved
     </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 p-4 text-center mt-10">
-      <div class="text-gray-500">
-        &copy; 2024 Your Lisbook | All Rights Reserved
-      </div>
-    </footer>
+  <!-- JS Scripts -->
+  <script src="script.js"></script>
+  <script>
+    const translations = {
+        en: {
+            home: "Home",
+            previous: "Previous",
+            next: "Next",
+            selectLanguage: "Select Language",
+            shareThoughts: "Share Your Thoughts",
+            usernameLabel: "Your Name:",
+            commentLabel: "Your Comment:",
+            submitButton: "Submit",
+            previous: "Previous",
+            next: "Next",
+            // Ajoutez d'autres traductions si nécessaire
+        },
+        fr: {
+            home: "Accueil",
+            previous: "Précédent",
+            next: "Suivant",
+            selectLanguage: "Sélectionner la langue",
+            shareThoughts: "Partagez vos pensées",
+            usernameLabel: "Votre nom :",
+            commentLabel: "Votre commentaire :",
+            submitButton: "Soumettre",
+            previous: "Précédent",
+            next: "Suivant",
+            // Ajoutez d'autres traductions si nécessaire
+        }
+    };
 
-    <!-- JS Scripts -->
-    <script src="script.js"></script>
-  </body>
+    function changeLanguage(language) {
+        // Traduire le menu
+        document.getElementById('homeLink').innerText = translations[language].home;
+        document.getElementById('previousLink').innerText = translations[language].previous;
+        document.getElementById('nextLink').innerText = translations[language].next;
+        document.getElementById('selectLanguage').innerText = translations[language].selectLanguage;
+        document.getElementById('shareThoughtsHeader').innerText = translations[language].shareThoughts;
+        document.getElementById('usernameLabel').innerText = translations[language].usernameLabel;
+        document.getElementById('commentLabel').innerText = translations[language].commentLabel;
+        document.getElementById('submitButton').innerText = translations[language].submitButton;
+        document.getElementById('previousLink2').innerText = translations[language].previous;
+        document.getElementById('nextLink2').innerText = translations[language].next;
+        // Traduire d'autres sections si nécessaire
+    }
+
+    // Définir la langue par défaut lors du chargement de la page
+    document.addEventListener('DOMContentLoaded', () => {
+        changeLanguage('en'); // Par défaut en anglais
+    });
+</script>
+
+</body>
+
 </html>

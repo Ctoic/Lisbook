@@ -176,3 +176,51 @@ document.addEventListener("DOMContentLoaded", function () {
   })
 
 });
+
+
+  const button = document.getElementById('menu-button');
+  const menu = document.querySelector('[role="menu"]');
+
+  button.addEventListener('click', () => {
+    const expanded = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', !expanded);
+    menu.classList.toggle('hidden', expanded);
+  });
+
+  // Fonction pour basculer le menu déroulant
+  function toggleDropdown() {
+    const dropdown = document.getElementById('dropdown-menu');
+    dropdown.classList.toggle('hidden');
+}
+
+// Fermer le dropdown si on clique à l'extérieur
+window.onclick = function(event) {
+    const dropdown = document.getElementById('dropdown-menu');
+    const button = document.getElementById('menu-button');
+    if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.classList.add('hidden');
+    }
+}
+
+function toggleDropdown() {
+  const dropdown = document.getElementById('dropdown-menu');
+  dropdown.classList.toggle('hidden');
+}
+
+window.onclick = function(event) {
+  const dropdown = document.getElementById('dropdown-menu');
+  const button = document.getElementById('menu-button');
+  if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+      dropdown.classList.add('hidden');
+  }
+}
+
+  // Ferme le menu après avoir sélectionné une langue
+  toggleDropdown();
+
+  function toggleDropdown() {
+    const dropdown = document.getElementById('dropdown-menu');
+    dropdown.classList.toggle('hidden'); // Bascule la classe 'hidden'
+}
+
+
