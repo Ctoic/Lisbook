@@ -6,10 +6,86 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuClose = document.getElementById("menu-close");
   const menu = document.getElementById("menu");
 
+  // Function to display error popup
+  function showErrorPopup(message) {
+    const overlay = document.createElement("div");
+    overlay.id = "overlay";
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+    overlay.style.zIndex = '9998';
+    overlay.style.backdropFilter = 'blur(5px)';
+    document.body.appendChild(overlay);
+
+    // Create the error popup
+    const errorPopup = document.createElement("div");
+    errorPopup.style.position = 'fixed';
+    errorPopup.style.top = '50%';
+    errorPopup.style.left = '50%';
+    errorPopup.style.transform = 'translate(-50%, -50%)';
+    errorPopup.style.backgroundColor = '#fff';
+    errorPopup.style.padding = '20px';
+    errorPopup.style.border = '1px solid #ccc';
+    errorPopup.style.zIndex = '9999';
+    errorPopup.innerHTML = `
+      <h2 style="color: red; font-weight: 600; margin-bottom: 5px;">Error</h2>
+      <p>${message}</p>
+      <button id="closeErrorPopup" style="margin-top: 10px; padding: 5px 10px; float: right;">Close</button>
+    `;
+    document.body.appendChild(errorPopup);
+
+    // Close popup when the button is clicked
+    document.getElementById("closeErrorPopup").addEventListener("click", () => {
+      errorPopup.remove();
+      overlay.remove();
+    });
+  }
+
+  // Function to handle audio errors
+  function handleAudioError(error) {
+    switch (error.code) {
+      case error.MEDIA_ERR_ABORTED:
+        showErrorPopup("Playback aborted by the user.");
+        break;
+      case error.MEDIA_ERR_NETWORK:
+        showErrorPopup("Network error. Unable to load the audio.");
+        break;
+      case error.MEDIA_ERR_DECODE:
+        showErrorPopup("Audio decoding failed. Unsupported file format or corrupted file.");
+        break;
+      case error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+        showErrorPopup("Audio source not supported.");
+        break;
+      default:
+        showErrorPopup("An unknown error occurred during audio playback.");
+        break;
+    }
+  }
+
+  // Playlist item click event
   playlistItems.forEach((item) => {
     item.addEventListener("click", function () {
-      audioPlayer.src = item.getAttribute("data-src");
-      audioPlayer.play();
+      const audioSource = item.getAttribute("data-src");
+
+      if (audioSource) {
+        audioPlayer.src = audioSource;
+
+        // Listen for audio errors
+        audioPlayer.onerror = () => {
+          handleAudioError(audioPlayer.error);
+        };
+
+        // Play audio and handle potential errors
+        audioPlayer.play().catch((error) => {
+          console.error("Playback failed:", error);
+          showErrorPopup("Failed to play audio. There was an issue with playback.");
+        });
+      } else {
+        showErrorPopup("Audio source not available.");
+      }
     });
   });
 
