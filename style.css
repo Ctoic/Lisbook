@@ -1,3 +1,14 @@
+:root {
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Customize your shadow here */
+  --transition-transform: transform 0.6s ease-in-out 0.1s;
+  --accent-color: #1ed760;
+  --accent-background-color: #1ed760;
+}
+
+* {
+  margin: 0;
+}
+
 body {
   transition: background-color 0.3s, color 0.3s;
 }
@@ -25,7 +36,6 @@ body.dark-theme .playlist-card {
   background: lightgrey;
   border-radius: 4px;
 }
- 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: gray;
@@ -35,7 +45,11 @@ body.dark-theme .playlist-card {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #1ed760;
+  background: var(--accent-background-color);
+}
+
+a {
+  text-decoration: none !important;
 }
 
 h1,
@@ -44,10 +58,24 @@ h3 {
   color: inherit;
 }
 
+.page-title {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
 #playlist li:hover {
   background-color: #282828;
-  color: #1db954;
+  color: var(--accent-color);
   cursor: pointer;
+}
+
+#audio-player {
+  background-color: #282828;
+  color: var(--accent-color);
+}
+
+section {
+  box-shadow: var(--shadow);
 }
 
 button {
@@ -55,7 +83,18 @@ button {
 }
 
 button:hover {
-  background-color: hsl(141, 76%, 20%);
+  background-color: var(--accent-background-color);
+}
+
+.btn-bd-primary {
+  cursor: pointer;
+  color: var(--accent-color) !important;
+  background-color: transparent !important;
+  border: 1px solid var(--accent-color) !important;
+}
+.btn-bd-primary:hover {
+  color: #191414 !important;
+  background-color: var(--accent-background-color) !important;
 }
 
 footer {
@@ -64,8 +103,33 @@ footer {
 }
 
 footer a:hover {
-  color: #1db954;
+  color: var(--accent-color);
 }
+
+/* About page  */
+body.dark-theme section {
+  width: 100%;
+  background-color: #181818;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+body.light-theme section {
+  background-color: #ffffff;
+}
+
+.features-title {
+  color: var(--accent-color) !important;
+}
+
+.features-card {
+  transition: var(--transition-transform);
+  will-change: transform;
+}
+
+.features-card:hover {
+  transform: scale(1.03);
+}
+
+/*  about page end */
 
 .book-card {
   background-color: #181818;
@@ -74,17 +138,18 @@ footer a:hover {
 }
 
 .book-card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow);
 }
 
 .bi {
   cursor: pointer;
-  transition: transform 0.6s ease-in-out 0.3s;
+  transition: var(--transition-transform);
   will-change: transform;
 }
 
 .bi:hover {
   transform: scale(1.2);
+  color: #1db954;
 }
 body.dark-theme .playlist-card {
   width: 100%;
@@ -95,7 +160,7 @@ body.light-theme .playlist-card {
   background-color: #ffffff;
 }
 .playlist-card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow);
 }
 
 .playlist-card ul {

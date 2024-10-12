@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("menu-toggle");
   const menuClose = document.getElementById("menu-close");
   const menu = document.getElementById("menu");
-  const bookList = document.getElementById("audio-books-list");
+  const commentForm = document.getElementById("comment-form");
 
   // Function to display error popup
   function showErrorPopup(message) {
@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Attach event listener to the close button directly via DOM element
     const closeButton = errorPopup.querySelector("button");
     closeButton.addEventListener("click", () => {
-      errorPopup.remove(); 
-      overlay.remove(); 
+      errorPopup.remove();
+      overlay.remove();
     });
   }
 
@@ -61,9 +61,13 @@ document.addEventListener("DOMContentLoaded", function () {
         audioPlayer.play().catch((error) => {
           console.error("Audio playback error:", error);
           if (error.name === "NotSupportedError") {
-            showErrorPopup("Failed to play audio. Unsupported format or file missing.");
+            showErrorPopup(
+              "Failed to play audio. Unsupported format or file missing."
+            );
           } else {
-            showErrorPopup("Failed to play audio. There was an issue with playback.");
+            showErrorPopup(
+              "Failed to play audio. There was an issue with playback."
+            );
           }
         });
       } else {
@@ -121,33 +125,44 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Comment Submission
-  document.getElementById("comment-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const username = document.getElementById("username").value;
-    const comment = document.getElementById("comment").value;
+  document
+    .getElementById("comment-form")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const comment = document.getElementById("comment").value;
 
-    const commentHTML = `<div class="bg-gray-700 text-white p-4 rounded-lg">
+      const commentHTML = `<div class="bg-gray-700 text-white p-4 rounded-lg">
                     <strong>${username}:</strong>
                     <p>${comment}</p>
                 </div>`;
 
-    document.getElementById("comments-list").insertAdjacentHTML("beforeend", commentHTML);
+      document
+        .getElementById("comments-list")
+        .insertAdjacentHTML("beforeend", commentHTML);
 
-    // Reset form
-    document.getElementById("comment-form").reset();
-  });
+      // Reset form
+      document.getElementById("comment-form").reset();
+    });
 
   // Theme Toggle
-  themeToggle.addEventListener("click", function () {
-    if (document.body.classList.contains("dark-theme")) {
-      document.body.classList.remove("dark-theme");
-      document.body.classList.add("light-theme");
-      console.log("light");
-    } else {
-      document.body.classList.remove("light-theme");
-      document.body.classList.add("dark-theme");
-      console.log("dark");
-    }
+
+  const body = document.body;
+
+  // Vérifier le thème actuel dans localStorage, sinon le définir par défaut sur 'dark'
+  const currentTheme = localStorage.getItem("theme") || "dark";
+  body.classList.toggle("dark-theme", currentTheme === "dark");
+  body.classList.toggle("light-theme", currentTheme === "light");
+
+  // Écouter le clic sur le bouton de basculement du thème
+  themeToggle.addEventListener("click", () => {
+    // Changer de thème
+    body.classList.toggle("dark-theme");
+    body.classList.toggle("light-theme");
+
+    // Enregistrer le thème dans localStorage
+    const newTheme = body.classList.contains("dark-theme") ? "dark" : "light";
+    localStorage.setItem("theme", newTheme);
   });
 
   //Mobile menu toggle
@@ -161,18 +176,17 @@ document.addEventListener("DOMContentLoaded", function () {
     menu.classList.remove("scale-100");
   });
 
-  fetch('/data/books.json')
-  .then(response=>response.json())
-  .then(response=>{
-    const template = document.getElementById("book-card-template");
-    response.forEach(book=>{
+  fetch("/data/books.json")
+    .then((response) => response.json())
+    .then((response) => {
+      const template = document.getElementById("book-card-template");
+      response.forEach((book) => {
         const element = document.importNode(template.content, true);
         element.getElementById("book-title").textContent = book.title;
         element.getElementById("book-author").textContent = `By ${book.author}`;
         element.getElementById("img").src = `https://picsum.photos/200`;
         element.getElementById("img").alt = `Cover of ${book.title}`;
         bookList.appendChild(element);
-    })
-  })
-
+      });
+    });
 });
