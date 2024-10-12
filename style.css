@@ -48,6 +48,10 @@ body.dark-theme .playlist-card {
   background: var(--accent-background-color);
 }
 
+a {
+  text-decoration: none !important;
+}
+
 h1,
 h2,
 h3 {
@@ -83,9 +87,14 @@ button:hover {
 }
 
 .btn-bd-primary {
+  cursor: pointer;
   color: var(--accent-color) !important;
   background-color: transparent !important;
   border: 1px solid var(--accent-color) !important;
+}
+.btn-bd-primary:hover {
+  color: #191414 !important;
+  background-color: var(--accent-background-color) !important;
 }
 
 footer {
