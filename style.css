@@ -1,6 +1,6 @@
 :root {
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Customize your shadow here */
-  --transition-transform: transform 0.6s ease-in-out 0.3s;
+  --transition-transform: transform 0.6s ease-in-out 0.1s;
 }
 
 * {
@@ -132,6 +132,7 @@ body.light-theme section {
 
 .bi:hover {
   transform: scale(1.2);
+  color: #1db954;
 }
 body.dark-theme .playlist-card {
   width: 100%;
