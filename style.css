@@ -1,121 +1,266 @@
- body {
-            transition: background-color 0.3s, color 0.3s;
-        }
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
 
-        body.light-theme {
-            background-color: #f0f0f0;
-            color: #333;
-        }
+body.light-theme {
+  background-color: #f0f0f0;
+  color: #333;
+}
 
-        body.dark-theme {
-            background-color: #121212;
-            color: #b3b3b3;
-        }
+body.dark-theme {
+  background-color: #121212;
+  color: #b3b3b3;
+}
+body.dark-theme .playlist-card {
+  background-color: #121212;
+  color: #b3b3b3;
+}
 
-        h1, h2, h3 {
-            color: inherit;
-        }
+::-webkit-scrollbar {
+  width: 7px;
+}
 
-        #playlist li:hover {
-            background-color: #282828;
-            color: #1DB954;
-            cursor: pointer;
-        }
+/* Track */
+::-webkit-scrollbar-track {
+  background: lightgrey;
+  border-radius: 4px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gray;
+  cursor: pointer;
+  border-radius: 8px;
+}
 
-        #audio-player {
-            background-color: #282828;
-            color: #1DB954;
-        }
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #1ed760;
+}
 
-        button {
-            transition: background-color 0.3s;
-        }
+h1,
+h2,
+h3 {
+  color: inherit;
+}
 
-        button:hover {
-            background-color: #1ed760;
-        }
+#playlist li:hover {
+  background-color: #282828;
+  color: #1db954;
+  cursor: pointer;
+}
 
-        footer {
-            background-color: #191414;
-            color: #b3b3b3;
-        }
+button {
+  transition: background-color 0.3s;
+}
 
-        footer a:hover {
-            color: #1DB954;
-        }
+button:hover {
+  background-color: hsl(141, 76%, 20%);
+}
 
-        .book-card {
-            background-color: #181818;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
+footer {
+  background-color: #191414;
+  color: #b3b3b3;
+}
 
-        .book-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
+footer a:hover {
+  color: #1db954;
+}
 
-        .favorite-button {
-            transition: color 0.3s;
-        }
+.book-card {
+  background-color: #181818;
+  transition: transform 0.3s, box-shadow 0.3s;
+  /* cursor: pointer; */
+}
 
-        .favorite-button.active {
-            color: #1DB954;
-        }
+.book-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
 
-        .favorite-button:hover {
-            color: #1DB954;
-        }
+.bi {
+  cursor: pointer;
+  transition: transform 0.6s ease-in-out 0.3s;
+  will-change: transform;
+}
 
-        .light-theme .book-card,
-        .light-theme #playlist,
-        .light-theme .bg-gray-800 {
-            background-color: #f8f8f8;
-        }
+.bi:hover {
+  transform: scale(1.2);
+}
+body.dark-theme .playlist-card {
+  width: 100%;
+  background-color: #181818;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+body.light-theme .playlist-card {
+  background-color: #ffffff;
+}
+.playlist-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
 
-        .light-theme .text-gray-300 {
-            color: #333;
-        }
+.playlist-card ul {
+  height: 85%;
+}
 
-        .light-theme .bg-gray-700 {
-            background-color: #e0e0e0;
-        }
+.playlist {
+  max-height: 50vh;
+}
 
-        /* Play/Pause button animation */
-        .play-pause-button {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background-color: #1DB954;
-            border-radius: 50%;
-            cursor: pointer;
-            position: relative;
-            transition: background-color 0.3s;
-        }
+.icon-action-btn-container {
+  margin-top: 30px;
+}
 
-        .play-pause-button.play::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border-style: solid;
-            border-width: 10px 0 10px 18px;
-            border-color: transparent transparent transparent #fff;
-        }
+.icon-action-btn {
+  transition: color 0.3s;
+}
 
-        .play-pause-button.pause::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 10px;
-            height: 24px;
-            background-color: #fff;
-            box-shadow: 16px 0 0 #fff;
-        }
+.icon-action-btn.active {
+  color: #1db954;
+}
 
-        .play-pause-button:hover {
-            background-color: #1ed760;
-        }
+.icon-action-btn:hover {
+  color: #1db954;
+}
+
+.light-theme .book-card,
+.light-theme #playlist,
+.light-theme .bg-gray-800 {
+  background-color: #f8f8f8;
+}
+
+.light-theme .text-gray-300 {
+  color: #333;
+}
+
+.light-theme .bg-gray-700 {
+  background-color: #e0e0e0;
+}
+
+/* Play/Pause button animation */
+.play-pause-button {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: #1db954;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.play-pause-button.play::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 10px 0 10px 18px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.play-pause-button.pause::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 24px;
+  background-color: #fff;
+  box-shadow: 16px 0 0 #fff;
+}
+
+.play-pause-button:hover {
+  background-color: #1ed760;
+}
+
+.tooltip-parent {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  margin: 28px;
+  border-radius: 8px;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 150px;
+  background-color: rgba(43, 42, 42, 0.7);
+  position: absolute;
+  padding: 4px;
+  color: white;
+  z-index: 1;
+  transition: opactiy 2s;
+  text-decoration: none;
+  font-style: normal;
+}
+
+.tooltip-parent:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-left .tooltip {
+  top: 50%;
+  right: 100%;
+  margin-right: 5px;
+  transform: translateY(-50%);
+}
+
+.tooltip-right .tooltip {
+  top: 50%;
+  left: 100%;
+  margin-left: 5px;
+  transform: translateY(-50%);
+}
+
+.tooltip-bottom .tooltip {
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+  margin-top: 5px;
+}
+
+.tooltip-top .tooltip {
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  margin-bottom: 5px;
+}
+
+.adiobk-sub-item {
+  padding: 12px 8px;
+  border-radius: 8px;
+}
+
+.player {
+  position: relative;
+  background-color: white;
+}
+
+.player audio {
+  width: 100%;
+  outline: none;
+}
+
+audio {
+  background-color: transparent;
+  background-image: none;
+}
+
+#audio-book-list-item:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#audio-book-list-item {
+  cursor: pointer;
+  list-style: none;
+}
+
+/* @media screen and (max-width: 1000px) {
+  #audio-book-list-item {
+    display: inline-flex;
+    flex-direction: column;
+  }
+} */
