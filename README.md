@@ -1,6 +1,6 @@
 # LisBook - A Simple Audio Book Player
 
-<!-- readme: contributors -start -->
+
 <table>
 	<tbody>
 		<tr>
@@ -170,8 +170,5 @@ MIT License
 
 ## Contributors
 
-<a href="https://github.com/Ctoic/Lisbook/blob/master/Contributors.md">
-  <img src="https://contributors-img.web.app/image?repo=Ctoic/Lisbook"/>
-</a>
-
+<!-- readme: contributors -start -->
 
