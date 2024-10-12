@@ -86,6 +86,13 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/amankumarconnect">
+                    <img src="https://avatars.githubusercontent.com/u/150781237?v=4" width="100;" alt="amankumarconnect"/>
+                    <br />
+                    <sub><b>Aman Kumar</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/VaradJadhav">
                     <img src="https://avatars.githubusercontent.com/u/96735054?v=4" width="100;" alt="VaradJadhav"/>
                     <br />
@@ -97,13 +104,6 @@ MIT License
                     <img src="https://avatars.githubusercontent.com/u/64344960?v=4" width="100;" alt="AdityaBavadekar"/>
                     <br />
                     <sub><b>Aditya Bavadekar</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/amankumarconnect">
-                    <img src="https://avatars.githubusercontent.com/u/150781237?v=4" width="100;" alt="amankumarconnect"/>
-                    <br />
-                    <sub><b>Aman Kumar</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -130,6 +130,13 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/sujalcharati">
+                    <img src="https://avatars.githubusercontent.com/u/146851304?v=4" width="100;" alt="sujalcharati"/>
+                    <br />
+                    <sub><b>Sujal charati</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/username-amarjit">
                     <img src="https://avatars.githubusercontent.com/u/121117087?v=4" width="100;" alt="username-amarjit"/>
                     <br />
@@ -150,6 +157,8 @@ MIT License
                     <sub><b>Nirmohi</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/harshitkumargupta">
                     <img src="https://avatars.githubusercontent.com/u/149725714?v=4" width="100;" alt="harshitkumargupta"/>
@@ -157,8 +166,6 @@ MIT License
                     <sub><b>harshitkumargupta</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/vatsaljain-hub">
                     <img src="https://avatars.githubusercontent.com/u/60287913?v=4" width="100;" alt="vatsaljain-hub"/>
