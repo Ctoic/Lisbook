@@ -10,59 +10,41 @@ document.addEventListener("DOMContentLoaded", function () {
   function showErrorPopup(message) {
     const overlay = document.createElement("div");
     overlay.id = "overlay";
-    overlay.style.position = 'fixed';
-    overlay.style.top = '0';
-    overlay.style.left = '0';
-    overlay.style.width = '100%';
-    overlay.style.height = '100%';
-    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-    overlay.style.zIndex = '9998';
-    overlay.style.backdropFilter = 'blur(5px)';
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+    overlay.style.zIndex = "9998";
+    overlay.style.backdropFilter = "blur(5px)";
     document.body.appendChild(overlay);
 
     // Create the error popup
     const errorPopup = document.createElement("div");
-    errorPopup.style.position = 'fixed';
-    errorPopup.style.top = '50%';
-    errorPopup.style.left = '50%';
-    errorPopup.style.transform = 'translate(-50%, -50%)';
-    errorPopup.style.backgroundColor = '#fff';
-    errorPopup.style.padding = '20px';
-    errorPopup.style.border = '1px solid #ccc';
-    errorPopup.style.zIndex = '9999';
+    errorPopup.id = "errorPopup";
+    errorPopup.style.position = "fixed";
+    errorPopup.style.top = "50%";
+    errorPopup.style.left = "50%";
+    errorPopup.style.transform = "translate(-50%, -50%)";
+    errorPopup.style.backgroundColor = "#fff";
+    errorPopup.style.padding = "20px";
+    errorPopup.style.border = "1px solid #ccc";
+    errorPopup.style.zIndex = "9999";
     errorPopup.innerHTML = `
       <h2 style="color: red; font-weight: 600; margin-bottom: 5px;">Error</h2>
       <p>${message}</p>
-      <button id="closeErrorPopup" style="margin-top: 10px; padding: 5px 10px; float: right;">Close</button>
+      <button style="margin-top: 10px; padding: 5px 10px; float: right;">Close</button>
     `;
+
     document.body.appendChild(errorPopup);
 
-    // Close popup when the button is clicked
-    document.getElementById("closeErrorPopup").addEventListener("click", () => {
-      errorPopup.remove();
-      overlay.remove();
+    // Attach event listener to the close button directly via DOM element
+    const closeButton = errorPopup.querySelector("button");
+    closeButton.addEventListener("click", () => {
+      errorPopup.remove(); 
+      overlay.remove(); 
     });
-  }
-
-  // Function to handle audio errors
-  function handleAudioError(error) {
-    switch (error.code) {
-      case error.MEDIA_ERR_ABORTED:
-        showErrorPopup("Playback aborted by the user.");
-        break;
-      case error.MEDIA_ERR_NETWORK:
-        showErrorPopup("Network error. Unable to load the audio.");
-        break;
-      case error.MEDIA_ERR_DECODE:
-        showErrorPopup("Audio decoding failed. Unsupported file format or corrupted file.");
-        break;
-      case error.MEDIA_ERR_SRC_NOT_SUPPORTED:
-        showErrorPopup("Audio source not supported.");
-        break;
-      default:
-        showErrorPopup("An unknown error occurred during audio playback.");
-        break;
-    }
   }
 
   // Playlist item click event
@@ -70,18 +52,18 @@ document.addEventListener("DOMContentLoaded", function () {
     item.addEventListener("click", function () {
       const audioSource = item.getAttribute("data-src");
 
+      // Check if the file exists before playing
       if (audioSource) {
         audioPlayer.src = audioSource;
 
-        // Listen for audio errors
-        audioPlayer.onerror = () => {
-          handleAudioError(audioPlayer.error);
-        };
-
-        // Play audio and handle potential errors
+        // Handle playback errors
         audioPlayer.play().catch((error) => {
-          console.error("Playback failed:", error);
-          showErrorPopup("Failed to play audio. There was an issue with playback.");
+          console.error("Audio playback error:", error);
+          if (error.name === "NotSupportedError") {
+            showErrorPopup("Failed to play audio. Unsupported format or file missing.");
+          } else {
+            showErrorPopup("Failed to play audio. There was an issue with playback.");
+          }
         });
       } else {
         showErrorPopup("Audio source not available.");
@@ -90,25 +72,21 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Comment Submission
-  document
-    .getElementById("comment-form")
-    .addEventListener("submit", function (e) {
-      e.preventDefault();
-      const username = document.getElementById("username").value;
-      const comment = document.getElementById("comment").value;
+  document.getElementById("comment-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const username = document.getElementById("username").value;
+    const comment = document.getElementById("comment").value;
 
-      const commentHTML = `<div class="bg-gray-700 text-white p-4 rounded-lg">
+    const commentHTML = `<div class="bg-gray-700 text-white p-4 rounded-lg">
                     <strong>${username}:</strong>
                     <p>${comment}</p>
                 </div>`;
 
-      document
-        .getElementById("comments-list")
-        .insertAdjacentHTML("beforeend", commentHTML);
+    document.getElementById("comments-list").insertAdjacentHTML("beforeend", commentHTML);
 
-      // Reset form
-      document.getElementById("comment-form").reset();
-    });
+    // Reset form
+    document.getElementById("comment-form").reset();
+  });
 
   // Theme Toggle
   themeToggle.addEventListener("click", function () {
