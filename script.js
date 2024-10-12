@@ -145,16 +145,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   // Theme Toggle
-  themeToggle.addEventListener("click", function () {
-    if (document.body.classList.contains("dark-theme")) {
-      document.body.classList.remove("dark-theme");
-      document.body.classList.add("light-theme");
-      console.log("light");
-    } else {
-      document.body.classList.remove("light-theme");
-      document.body.classList.add("dark-theme");
-      console.log("dark");
-    }
+
+  const body = document.body;
+
+  // Vérifier le thème actuel dans localStorage, sinon le définir par défaut sur 'dark'
+  const currentTheme = localStorage.getItem("theme") || "dark";
+  body.classList.toggle("dark-theme", currentTheme === "dark");
+  body.classList.toggle("light-theme", currentTheme === "light");
+
+  // Écouter le clic sur le bouton de basculement du thème
+  themeToggle.addEventListener("click", () => {
+    // Changer de thème
+    body.classList.toggle("dark-theme");
+    body.classList.toggle("light-theme");
+
+    // Enregistrer le thème dans localStorage
+    const newTheme = body.classList.contains("dark-theme") ? "dark" : "light";
+    localStorage.setItem("theme", newTheme);
   });
 
   //Mobile menu toggle
