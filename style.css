@@ -1,3 +1,12 @@
+:root {
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Customize your shadow here */
+  --transition-transform: transform 0.6s ease-in-out 0.3s;
+}
+
+* {
+  margin: 0;
+}
+
 body {
   transition: background-color 0.3s, color 0.3s;
 }
@@ -25,7 +34,6 @@ body.dark-theme .playlist-card {
   background: lightgrey;
   border-radius: 4px;
 }
- 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: gray;
@@ -44,10 +52,24 @@ h3 {
   color: inherit;
 }
 
+.page-title {
+  color: #1db954;
+  font-weight: bold;
+}
+
 #playlist li:hover {
   background-color: #282828;
   color: #1db954;
   cursor: pointer;
+}
+
+#audio-player {
+  background-color: #282828;
+  color: #1db954;
+}
+
+section {
+  box-shadow: var(--shadow);
 }
 
 button {
@@ -67,6 +89,31 @@ footer a:hover {
   color: #1db954;
 }
 
+/* About page  */
+body.dark-theme section {
+  width: 100%;
+  background-color: #181818;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+body.light-theme section {
+  background-color: #ffffff;
+}
+
+.features-title {
+  color: #1db954 !important;
+}
+
+.features-card {
+  transition: var(--transition-transform);
+  will-change: transform;
+}
+
+.features-card:hover {
+  transform: scale(1.03);
+}
+
+/*  about page end */
+
 .book-card {
   background-color: #181818;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -74,12 +121,12 @@ footer a:hover {
 }
 
 .book-card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow);
 }
 
 .bi {
   cursor: pointer;
-  transition: transform 0.6s ease-in-out 0.3s;
+  transition: var(--transition-transform);
   will-change: transform;
 }
 
@@ -95,7 +142,7 @@ body.light-theme .playlist-card {
   background-color: #ffffff;
 }
 .playlist-card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow);
 }
 
 .playlist-card ul {

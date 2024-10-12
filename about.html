@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <title>My Favorite Books Music App</title>
+  </head>
+
+  <body class="dark-theme bg-gray-900 text-gray-300">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-20 bg-gray-800 p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <a class="text-green-500 text-2xl font-bold" href="./index.html"
+          >Lisbook</a
+        >
+
+        <!-- Menu Links and Theme Toggle -->
+        <div
+          id="menu"
+          class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20"
+        >
+          <div
+            id="menu-close"
+            class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </div>
+          <a href="./index.html" class="text-gray-300 hover:text-green-500"
+            >Home</a
+          >
+          <a href="./about.html" class="text-gray-300 hover:text-green-500"
+            >About</a
+          >
+
+          <a href="./index.html" class="text-gray-300 hover:text-green-500"
+            >Previous</a
+          >
+          <a href="./pbd.html" class="text-gray-300 hover:text-green-500"
+            >Next</a
+          >
+          <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div
+          id="menu-toggle"
+          title="Menu"
+          class="text-gray-300 lg:hidden cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container my-5">
+      <section class="row d-flex align-items-center rounded-5 p-5">
+        <div class="col-12 col-lg-6 mb-5 mb-lg-0">
+          <h1 class="display-5 fw-semibold">
+            LisBook - A Simple Audio Book Player
+          </h1>
+          <p class="mt-4">
+            LisBook is a straightforward audiobook player designed for
+            simplicity and ease of use. With LisBook, you can listen to your
+            favorite books in MP3 format. The app provides essential playback
+            features such as play, pause, stop, and the ability to skip
+            chapters. You can also adjust playback speed and volume to suit your
+            listening preferences.
+          </p>
+        </div>
+        <div class="col-12 col-lg-6 pe-5 ps-lg-5">
+          <img
+            src="./Images/lisbook-about.jpg"
+            class="img-fluid rounded-4"
+            alt="lisbook logo"
+          />
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="rounded-5 p-5 my-5">
+        <h2 class="display-5 page-title fw-semibold">Key Features</h2>
+
+        <div
+          class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-4 align-items-stretch"
+        >
+          <div class="col">
+            <div class="features-card border rounded p-4">
+              <div class="card-body">
+                <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                  Play/Pause
+                </h3>
+                <p class="card-text">
+                  Start or pause the playback of your audiobook anytime with a
+                  single click.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="features-card border rounded p-4">
+              <div class="card-body">
+                <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                  Stop
+                </h3>
+                <p class="card-text">
+                  Stop the audiobook and reset its position to the beginning,
+                  ready to restart.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="features-card border rounded p-4">
+              <div class="card-body">
+                <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                  Skip Chapters
+                </h3>
+                <p class="card-text">
+                  Effortlessly navigate between different chapters of the
+                  audiobook with ease.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="features-card border rounded p-4">
+              <div class="card-body">
+                <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                  Change Speed
+                </h3>
+                <p class="card-text">
+                  Adjust the playback speed of the audiobook to listen faster or
+                  slower as needed.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="features-card border rounded p-4">
+              <div class="card-body">
+                <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                  Change Volume
+                </h3>
+                <p class="card-text">
+                  Control the volume of your audiobook to ensure a comfortable
+                  listening experience.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="features-card border rounded p-4">
+              <div class="card-body">
+                <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                  Change Theme
+                </h3>
+                <p class="card-text">
+                  Customize your audiobook player by switching between themes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contributors -->
+      <section class="rounded-5 p-5 my-5">
+        <h2 class="display-5 page-title fw-semibold">Contributors</h2>
+
+        <div
+          class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-4 align-items-stretch"
+        >
+          <div class="col">
+            <div class="features-card border rounded p-4">
+              <div class="card-body">
+                <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                  Play/Pause
+                </h3>
+                <p class="card-text">
+                  Start or pause the playback of your audiobook anytime with a
+                  single click.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="features-card border rounded p-4">
+              <div class="card-body">
+                <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                  Stop
+                </h3>
+                <p class="card-text">
+                  Stop the audiobook and reset its position to the beginning,
+                  ready to restart.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="features-card border rounded p-4">
+              <div class="card-body">
+                <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                  Skip Chapters
+                </h3>
+                <p class="card-text">
+                  Effortlessly navigate between different chapters of the
+                  audiobook with ease.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="features-card border rounded p-4">
+              <div class="card-body">
+                <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                  Change Speed
+                </h3>
+                <p class="card-text">
+                  Adjust the playback speed of the audiobook to listen faster or
+                  slower as needed.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="features-card border rounded p-4">
+              <div class="card-body">
+                <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                  Change Volume
+                </h3>
+                <p class="card-text">
+                  Control the volume of your audiobook to ensure a comfortable
+                  listening experience.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="features-card border rounded p-4">
+              <div class="card-body">
+                <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                  Change Theme
+                </h3>
+                <p class="card-text">
+                  Customize the look of your audiobook player by switching
+                  between various themes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-gray-900 p-4 text-center mt-10">
+      <div class="text-gray-500">&copy; 2024 Lisbook | All Rights Reserved</div>
+    </footer>
+
+    <!-- JS Scripts -->
+    <script src="./script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
