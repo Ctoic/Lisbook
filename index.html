@@ -98,6 +98,14 @@
       </div>
     </nav>
 
+    <div class="container p-4 w-full">
+
+      <p class="text-2xl mt-3 pb-5 ps-3 font-bold">Top Audio Books</p>
+
+      <ul id="audio-books-list" class="space-x-2 space-y-2 flex flex-wrap w-full mx-auto">
+      </ul>
+    </div>
+
     <!-- Book Card Display -->
     <div
       class="container flex flex-col md:flex-row mx-auto mt-10 p-6 text-center"
@@ -138,30 +146,33 @@
           id="playlist"
           class="playlist list-none rounded-lg text-left overflow-auto"
         >
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part1.mp3">
+          <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part1.mp3">
             Introduction: God Delusion
           </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part2.mp3">
+          <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part2.mp3">
             Part 2
           </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part3.mp3">
+          <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part3.mp3">
             Part 3
           </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part4.mp3">
+          <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part4.mp3">
             Part 4
           </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part5.mp3">
+          <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part5.mp3">
             Part 5
           </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part6.mp3">
+          <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part6.mp3">
             Part 6
           </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part7.mp3">
+          <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part7.mp3">
             Part 7
           </li>
         </ul>
 
-        <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
+        <div class="player container rounded-xl">
+          <div class="audio-img"></div>
+          <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
+        </div> 
 
         <!-- Play/Pause Button with Animation -->
         <div class="mt-4 flex justify-center">
@@ -214,7 +225,28 @@
     <footer class="bg-gray-900 p-4 text-center mt-10">
       <div class="text-gray-500">&copy; 2024 Lisbook | All Rights Reserved</div>
     </footer>
+    
+    <!-- Template for the book card -->
+    <template id="book-card-template">
+      <li id="audio-book-list-item" class="w-fit">
+        <div class="book-card flex-auto p-4 rounded-lg shadow-lg w-full h-full">
+          <!-- Cover Image -->
+          <img
+            id="img"
+            src=""
+            alt=""
+            class="w-40 object-cover rounded-lg aspect-square"
+          />
+          <!-- Book Details -->
+          <div class="mt-4">
+            <h1 class="text-lg font-bold text-green-500 w-32 line-clamp-2" id="book-title"></h1>
+            <h3 class="text-sm mt-1 truncate" id="book-author"></h3>
+          </div>
+        </div>
+      </li>
+    </template>
 
+    
     <!-- JS Scripts -->
     <script src="./script.js"></script>
   </body>

@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("menu-toggle");
   const menuClose = document.getElementById("menu-close");
   const menu = document.getElementById("menu");
+  const bookList = document.getElementById("audio-books-list");
 
   playlistItems.forEach((item) => {
     item.addEventListener("click", function () {
@@ -57,4 +58,19 @@ document.addEventListener("DOMContentLoaded", function () {
     menu.classList.add("scale-0");
     menu.classList.remove("scale-100");
   });
+
+  fetch('/data/books.json')
+  .then(response=>response.json())
+  .then(response=>{
+    const template = document.getElementById("book-card-template");
+    response.forEach(book=>{
+        const element = document.importNode(template.content, true);
+        element.getElementById("book-title").textContent = book.title;
+        element.getElementById("book-author").textContent = `By ${book.author}`;
+        element.getElementById("img").src = `https://picsum.photos/200`;
+        element.getElementById("img").alt = `Cover of ${book.title}`;
+        bookList.appendChild(element);
+    })
+  })
+
 });

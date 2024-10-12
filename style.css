@@ -16,6 +16,28 @@ body.dark-theme .playlist-card {
   color: #b3b3b3;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: lightgrey;
+  border-radius: 4px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gray;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #1ed760;
+}
+
 h1,
 h2,
 h3 {
@@ -26,11 +48,6 @@ h3 {
   background-color: #282828;
   color: #1db954;
   cursor: pointer;
-}
-
-#audio-player {
-  background-color: #282828;
-  color: #1db954;
 }
 
 button {
@@ -164,12 +181,12 @@ body.light-theme .playlist-card {
   visibility: hidden;
   opacity: 0;
   min-width: 150px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(43, 42, 42, 0.7);
   position: absolute;
-  padding: 8px;
+  padding: 4px;
   color: white;
   z-index: 1;
-  transition: opactiy 0.24s;
+  transition: opactiy 2s;
   text-decoration: none;
   font-style: normal;
 }
@@ -205,4 +222,33 @@ body.light-theme .playlist-card {
   left: 50%;
   margin-left: -60px;
   margin-bottom: 5px;
+}
+
+.adiobk-sub-item {
+  padding: 12px 8px;
+  border-radius: 8px;
+}
+
+.player {
+  position: relative;
+  background-color: white;
+}
+
+.player audio {
+  width: 100%;
+  outline: none;
+}
+
+audio {
+  background-color: transparent;
+  background-image: none;
+}
+
+#audio-book-list-item:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#audio-book-list-item {
+  cursor: pointer;
+  list-style: none;
 }

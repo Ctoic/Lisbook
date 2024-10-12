@@ -1,0 +1,62 @@
+[
+    {
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "published_year": 1960,
+        "genre": "Fiction",
+        "audio_files": {
+            "chapter1": "audio/mockingbird_ch1.mp3",
+            "chapter2": "audio/mockingbird_ch2.mp3"
+        }
+    },
+    {
+        "title": "1984",
+        "author": "George Orwell",
+        "published_year": 1949,
+        "genre": "Dystopian",
+        "audio_files": {
+            "chapter1": "audio/1984_ch1.mp3",
+            "chapter2": "audio/1984_ch2.mp3"
+        }
+    },
+    {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "published_year": 1925,
+        "genre": "Tragedy",
+        "audio_files": {
+            "chapter1": "audio/gatsby_ch1.mp3",
+            "chapter2": "audio/gatsby_ch2.mp3"
+        }
+    },
+    {
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "published_year": 1813,
+        "genre": "Romance",
+        "audio_files": {
+            "chapter1": "audio/pride_ch1.mp3",
+            "chapter2": "audio/pride_ch2.mp3"
+        }
+    },
+    {
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "published_year": 1951,
+        "genre": "Fiction",
+        "audio_files": {
+            "chapter1": "audio/catcher_ch1.mp3",
+            "chapter2": "audio/catcher_ch2.mp3"
+        }
+    },
+    {
+        "title": "Moby-Dick",
+        "author": "Herman Melville",
+        "published_year": 1851,
+        "genre": "Adventure",
+        "audio_files": {
+            "chapter1": "audio/mobydick_ch1.mp3",
+            "chapter2": "audio/mobydick_ch2.mp3"
+        }
+    }
+]
