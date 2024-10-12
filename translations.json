@@ -8,9 +8,7 @@
         "yourName": "Your Name:",
         "yourComment": "Your Comment:",
         "submit": "Submit",
-        "Introduction": "Introduction: God Delusion",
-        "God": "God Delusion",
-        "The": "The God Delusion is a book by English biologist Richard Dawkins that argues against the existence of a supernatural creator."
+        "authorName": "By Richard Dawkins"
     },
     "fr": {
         "previous": "Précédent",
@@ -21,8 +19,6 @@
         "yourName": "Votre Nom:",
         "yourComment": "Votre Commentaire:",
         "submit": "Soumettre",
-        "Introduction": "Introduction : L'illusion de Dieu",
-        "God": "L'illusion de Dieu",
-        "The": "The God Delusion est un livre du biologiste anglais Richard Dawkins qui s'oppose à l'existance d'un créateur surnaturel."
+        "authorName": "Par Richard Dawkins"
     }
 }

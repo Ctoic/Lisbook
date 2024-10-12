@@ -75,8 +75,8 @@
       <!-- Book Details -->
       <div class="mt-4">
         <h1 class="text-2xl font-bold text-green-500">Pale Blue Dot</h1>
-        <h3 class="text-lg mt-2" id="ByA">By Carl Sagan</h3>
-        <p class="text-sm mt-2" id="PaleA">
+        <h3 class="text-lg mt-2" id="authorName">By Carl Sagan</h3>
+        <p class="text-sm mt-2">
           Pale Blue Dot explores humanity's place in the universe, emphasizing
           the importance of space exploration and our responsibility to
           protect Earth.
@@ -163,13 +163,8 @@
           commentsTitle: "Share Your Thoughts",
           nameLabel: "Your Name:",
           commentLabel: "Your Comment:",
-          Introduction: "Introduction: Pale Blue Dot",
-          Chapter: "Chapter 1: The Shores of the Cosmic Ocean",
-          ChapterA: "Chapter 2: One Voice in the Cosmic Fugue",
-          ChapterB: "Chapter 3: The Harmony of the Worlds",
-          ChapterC: "Chapter 4: Heaven and Hell",
-          Pale: "Pale Blue Dot explores humanity's place in the universe, emphasizing the importance of space exploration and our responsibility to protect Earth.",
-          By: "By Carl Sagan"
+          authorName: "By Carl Sagan",
+          submitBtn: "submit",
         },
         fr: {
           pageTitle: "Mon Application de Musique et de Livres Préférés",
@@ -179,13 +174,8 @@
           commentsTitle: "Partagez Vos Pensées",
           nameLabel: "Votre Nom:",
           commentLabel: "Votre Commentaire:",
-          Introduction: "Introduction: Point bleu pâle",
-          Chapter: "Chapter 1: Les rivages de l'océan cosmique",
-          ChapterA: "Chapter 2: Une voix dans la fugue cosmique",
-          ChapterB: "Chapter 3: L'harmonie des mondes",
-          ChapterC: "Chapter 4: Le paradis et l'enfer",
-          Pale: "Pale Blue Dot explore la place de l'humanité dans l'univers, soulignant l'importance de l'exploration spaciale et notre responsabilité de protéger la Terre.",
-          By: "Par Carl Sagan"
+          authorName: "Par Carl Sagan",
+          submitBtn: "soumettre",
 
         }
       };
@@ -200,12 +190,8 @@
       document.getElementById('commentsTitle').innerText = translations[lang].commentsTitle;
       document.getElementById('nameLabel').innerText = translations[lang].nameLabel;
       document.getElementById('commentLabel').innerText = translations[lang].commentLabel;
-      document.getElementById('IntroductionA').innerText = translations[lang].Introduction;
-      document.getElementById('Chapter1').innerText = translations[lang].Chapter;
-      document.getElementById('Chapter2').innerText = translations[lang].ChapterA;
-      document.getElementById('Chapter3').innerText = translations[lang].ChapterB;
-      document.getElementById('Chapter4').innerText = translations[lang].ChapterC;
-      document.getElementById('PaleA').innerText = translations[lang].Pale;
+      document.getElementById('authorName').innerText = translations[lang].authorName;
+      document.getElementById('submitBtn').innerText = translations[lang].submitBtn;
     }
   </script>
 

@@ -38,7 +38,6 @@
                         class="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700 h-12 w-32">
                         <option value="en">English</option> <!-- Option Anglais -->
                         <option value="fr">Français</option> <!-- Option Français -->
-                        <option value="es">Español</option> <!-- Option Espagnol -->
                     </select>
                 </div>
 
@@ -79,9 +78,9 @@
 
             <!-- Book Details -->
             <div class="mt-4">
-                <h1 class="text-2xl font-bold text-green-500" id="GodA">L'illusion de Dieu</h1>
-                <h3 class="text-lg mt-2">By Richard Dawkins</h3>
-                <p class="text-sm mt-2" id="TheA">
+                <h1 class="text-2xl font-bold text-green-500">God Delusion</h1>
+                <h3 class="text-lg mt-2" id="authorName">By Richard Dawkins</h3>
+                <p class="text-sm mt-2">
                     The God Delusion is a book by English biologist Richard Dawkins that
                     argues against the existence of a supernatural creator.
                 </p>
@@ -97,7 +96,7 @@
         <!-- playlist -->
         <div class="playlist-card flex-auto md:ml-7 p-6 min-h-full rounded-lg mx-auto shadow-lg md:w-2/3">
             <ul id="playlist" class="playlist list-none rounded-lg text-left overflow-auto">
-                <li id="IntroductionA" class="p-2 hover:bg-gray-700" data-src="audio/part1.mp3">
+                <li class="p-2 hover:bg-gray-700" data-src="audio/part1.mp3">
                     Introduction: God Delusion
                 </li>
                 <li class="p-2 hover:bg-gray-700" data-src="audio/part2.mp3">
@@ -172,6 +171,7 @@
             const translations = await response.json();
 
             document.getElementById('pageTitle').innerText = translations[lang].title;
+            document.getElementById('previousLink').innerText = translations[lang].previous;
             document.getElementById('previousLink2').innerText = translations[lang].previous;
             document.getElementById('nextLink').innerText = translations[lang].next;
             document.getElementById('nextLink2').innerText = translations[lang].next;
@@ -180,9 +180,7 @@
             document.getElementById('nameLabel').innerText = translations[lang].yourName;
             document.getElementById('commentLabel').innerText = translations[lang].yourComment;
             document.getElementById('submitBtn').innerText = translations[lang].submit;
-            document.getElementById('IntroductionA').innerText = translations[lang].Introduction;
-            document.getElementById('GodA').innerText = translations[lang].God;
-            document.getElementById('TheA').innerText = translations[lang].The;
+            document.getElementById('authorName').innerText = translations[lang].authorName;
 
             currentLanguage = lang;
         }
