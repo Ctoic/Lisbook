@@ -72,7 +72,7 @@ footer a:hover {
 body.dark-theme .playlist-card {
   width: 100%;
   background-color: #181818;
-  transition: transform 0s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 body.light-theme .playlist-card {
   background-color: #ffffff;
