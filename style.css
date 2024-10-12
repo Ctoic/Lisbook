@@ -38,7 +38,7 @@ button {
 }
 
 button:hover {
-  background-color: #1ed760;
+  background-color: hsl(141, 76%, 20%);
 }
 
 footer {
@@ -84,19 +84,19 @@ body.light-theme .playlist-card {
   max-height: 50vh;
 }
 
-.favorite-button-container {
+.icon-action-btn-container {
   margin-top: 30px;
 }
 
-.favorite-button {
+.icon-action-btn {
   transition: color 0.3s;
 }
 
-.favorite-button.active {
+.icon-action-btn.active {
   color: #1db954;
 }
 
-.favorite-button:hover {
+.icon-action-btn:hover {
   color: #1db954;
 }
 
@@ -151,4 +151,58 @@ body.light-theme .playlist-card {
 
 .play-pause-button:hover {
   background-color: #1ed760;
+}
+
+.tooltip-parent {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  margin: 28px;
+  border-radius: 8px;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 150px;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  padding: 8px;
+  color: white;
+  z-index: 1;
+  transition: opactiy 0.24s;
+  text-decoration: none;
+  font-style: normal;
+}
+
+.tooltip-parent:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-left .tooltip {
+  top: 50%;
+  right: 100%;
+  margin-right: 5px;
+  transform: translateY(-50%);
+}
+
+.tooltip-right .tooltip {
+  top: 50%;
+  left: 100%;
+  margin-left: 5px;
+  transform: translateY(-50%);
+}
+
+.tooltip-bottom .tooltip {
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+  margin-top: 5px;
+}
+
+.tooltip-top .tooltip {
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  margin-bottom: 5px;
 }

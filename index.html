@@ -45,17 +45,18 @@
               />
             </svg>
           </div>
-          <a href="./index.html" class="text-gray-300 hover:text-green-500"
+          <a href="./index.html" class="text-gray-300 hover:text-green-500 my-auto"
             >Home</a
           >
 
-          <a href="./index.html" class="text-gray-300 hover:text-green-500"
+          <a href="./index.html" class="text-gray-300 hover:text-green-500 my-auto"
             >Previous</a
           >
-          <a href="./pbd.html" class="text-gray-300 hover:text-green-500"
+          <a href="./pbd.html" class="text-gray-300 hover:text-green-500 my-auto"
             >Next</a
           >
-          <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
+          <button id="theme-toggle" class="text-gray-300 rounded tooltip-parent my-auto tooltip-left">
+            <span class="tooltip">Switch theme</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 w-6"
@@ -123,10 +124,10 @@
         </div>
 
         <!-- Favorite Button -->
-        <div class="mt-4 flex justify-center favorite-button-container">
-          <i class="bi bi-heart mx-4 favorite-button"></i>
-          <i class="bi bi-share mx-4 favorite-button"></i>
-          <i class="bi bi-chat mx-4 favorite-button"></i>
+        <div class="mt-4 flex justify-center icon-action-btn-container">
+          <i class="bi bi-heart mx-4 icon-action-btn tooltip-parent tooltip-bottom" id="favourite-btn"><span class="tooltip">Save to Favourites</span></i>
+          <i class="bi bi-share mx-4 icon-action-btn tooltip-parent tooltip-bottom" id="share-btn"><span class="tooltip">Share</span></i>
+          <i class="bi bi-chat mx-4 icon-action-btn tooltip-parent tooltip-bottom" id="view-comments-btn"><span class="tooltip">View comments</span></i>
         </div>
       </div>
       <!-- playlist -->
@@ -181,7 +182,7 @@
           <input
             type="text"
             id="username"
-            class="w-full p-2 rounded-lg bg-gray-700 text-white"
+            class="w-full p-2 rounded-lg bg-gray-700 text-white mt-2"
             required
           />
         </div>
@@ -191,7 +192,7 @@
           >
           <textarea
             id="comment"
-            class="w-full p-2 rounded-lg bg-gray-700 text-white"
+            class="w-full p-2 rounded-lg bg-gray-700 text-white mt-2"
             rows="4"
             required
           ></textarea>
