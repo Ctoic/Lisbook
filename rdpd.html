@@ -1,371 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>My Favorite Books Music App</title>
-    <style>
-        /* Default theme */
-        body {
-            background-color: #f8f9fa;
-            color: #212529;
-            transition: all 0.3s ease;
-        }
-
-        /* Dark theme */
-        body.dark-theme {
-            background-color: #121212;
-            color: #e0e0e0;
-        }
-
-        .dark-theme h1, .dark-theme h2, .dark-theme h3,
-        .dark-theme .navbar, .dark-theme .container,
-        .dark-theme .comments-section, .dark-theme footer {
-            color: #e0e0e0;
-            background-color: #1e1e1e;
-        }
-
-        .dark-theme .navbar-light .navbar-brand,
-        .dark-theme .navbar-light .navbar-nav .nav-link,
-        .dark-theme .btn-outline,
-        .dark-theme .text-body {
-            color: #e0e0e0 !important;
-        }
-
-        .dark-theme .form-control,
-        .dark-theme .btn-outline {
-            background-color: #333;
-            border-color: #555;
-            color: #e0e0e0;
-        }
-
-        .dark-theme .bg-body-tertiary {
-            background-color: #1e1e1e !important;
-        }
-
-        /* Toggle switch styles */
-        .theme-switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
-        }
-
-        .theme-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-        input:checked + .slider {
-            background-color: #2196F3;
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title id="pageTitle">My Favorite Books Music App</title>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">lisbook</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+
+<body class="bg-gray-900 text-gray-300 dark-theme">
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-20 bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <a class="text-green-500 text-2xl font-bold" href="./index.html">Lisbook</a>
+
+      <!-- Menu Links and Theme Toggle -->
+      <div id="menu"
+        class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20">
+        <!-- Changed space-y-8 to space-y-4 and space-x-4 to space-x-2 -->
+
+        <div id="menu-close" class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </div>
+
+        <!-- Language Selection -->
+        <div class="mt-10 text-center">
+          <label for="language-select" class="text-gray-300"></label>
+          <!-- Dropdown menu for language selection -->
+          <select id="language-select" onchange="changeLanguage(this.value)"
+            class="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700 h-12 w-32">
+            <!-- Adjusted height and width -->
+            <!-- Options for different languages -->
+            <option value="en">English</option> <!-- English option -->
+            <option value="fr">Français</option> <!-- French option -->
+          </select>
+        </div>
+
+        <a href="./index.html" id="homeLink"
+          class="text-gray-300 hover:text-green-500 h-12 w-32 flex items-center justify-center rounded">Home</a>
+        <a href="./fs.html" id="previousLink"
+          class="text-gray-300 hover:text-green-500 h-12 w-32 flex items-center justify-center rounded">Previous</a>
+        <a href="./index.html" id="nextLink"
+          class="text-gray-300 hover:text-green-500 h-12 w-32 flex items-center justify-center rounded">Next</a>
+        <button id="theme-toggle"
+          class="text-gray-300 hover:text-green-500 h-12 w-32 flex items-center justify-center rounded">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
         </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./pbd.html">Next</a>
-            </li>
-            <li class ="nav-item">
-              <a class="nav-link" href="./index.html">Previous</a>
-            </li>
-          </ul>
-          <label class="theme-switch">
-            <input type="checkbox" id="themeToggle">
-            <span class="slider"></span>
-          </label>
-        </div>
-    </nav>
-    <div class="container">
-        <h1>God Delusion</h1>
-        <h3>By Richard Dawkins</h3>
-
-        <!--image insert -->
-        <img id="img" src="./Images/GD.jpeg" alt="bookify logo" width="200" height="200">
-
-        <h2>My Favorite Books</h2>
-        <ul id="playlist">
-          <li data-src="audio/part1.mp3">Introduction: God Delusion </li>
-          <li data-src="audio/part2.mp3">Part 2</li>
-            <li data-src="audio/part3.mp3">Part 3</li>
-            <li data-src="audio/part4.mp3">Part 4</li>
-            <li data-src="audio/part5.mp3">Part 5</li>
-            <li data-src="audio/part6.mp3">Part 6</li>
-            <li data-src="audio/part7.mp3">Part 7</li>
-            <li data-src="audio/part8.mp3">Part 8</li>
-            <li data-src="audio/part9.mp3">Part 9</li>
-            <li data-src="audio/part10.mp3">Part 10</li>
-            <li data-src="audio/part11.mp3">Part 11</li>
-            <li data-src="audio/part12.mp3">Part 12</li>
-            <li data-src="audio/part13.mp3">Part 13</li>
-            <li data-src="audio/part14.mp3">Part 14</li>
-        </ul>
-        <audio id="audio-player" controls></audio>
-    </div>
-    <div class="button"
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="./pbd.html">Next Book</a>
-      </li>
-      <li class ="nav-item">
-        <a class="nav-link" href="./index.html">Previous Book</a>
-      </li>
-      </ul>
-    <div class="comments-section">
-        <h2>Share Your Thoughts</h2>
-        <form id="comment-form">
-            <label for="username">Your Name:</label>
-            <input type="text" id="username" name="username" required>
-
-            <label for="comment">Your Comment:</label>
-            <textarea id="comment" name="comment" rows="4" required></textarea>
-
-            <button type="submit">Submit</button>
-        </form>
-        <div id="comments-list"></div>
-    </div>
-   
-
-    <script src="app.js"></script>
-    <script>
-        document.getElementById('themeToggle').addEventListener('change', function() {
-            document.body.classList.toggle('dark-theme');
-            localStorage.setItem('darkTheme', document.body.classList.contains('dark-theme'));
-        });
-
-        // Check for saved theme preference
-        if (localStorage.getItem('darkTheme') === 'true') {
-            document.body.classList.add('dark-theme');
-            document.getElementById('themeToggle').checked = true;
-        }
-    </script>
-</body>
-<!-- Footer -->
-<footer class="bg-body-tertiary text-center">
-  <!-- Grid container -->
-  <div class="container p-4">
-    <!-- Section: Social media -->
-    <section class="mb-4">
-      <!-- Facebook -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-
-      <!-- Twitter -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-twitter"></i
-      ></a>
-
-      <!-- Google -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-google"></i
-      ></a>
-
-      <!-- Instagram -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-instagram"></i
-      ></a>
-
-      <!-- Linkedin -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-linkedin-in"></i
-      ></a>
-
-      <!-- Github -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-github"></i
-      ></a>
-    </section>
-    <!-- Section: Social media -->
-
-    <!-- Section: Form -->
-    <section class="">
-      <form action="">
-        <!--Grid row-->
-        <div class="row d-flex justify-content-center">
-          <!--Grid column-->
-          <div class="col-auto">
-            <p class="pt-2">
-              <strong>Sign up for our newsletter</strong>
-            </p>
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-md-5 col-12">
-            <!-- Email input -->
-            <div data-mdb-input-init class="form-outline mb-4">
-              <input type="email" id="form5Example24" class="form-control" />
-              <label class="form-label" for="form5Example24">Email address</label>
-            </div>
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-auto">
-            <!-- Submit button -->
-            <button data-mdb-ripple-init type="submit" class="btn btn-outline mb-4">
-              Subscribe
-            </button>
-          </div>
-          <!--Grid column-->
-        </div>
-        <!--Grid row-->
-      </form>
-    </section>
-    <!-- Section: Form -->
-
-    <!-- Section: Text -->
-    <section class="mb-4">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam eum
-        harum corrupti dicta, aliquam sequi voluptate quas.
-      </p>
-    </section>
-    <!-- Section: Text -->
-
-    <!-- Section: Links -->
-    <section class="">
-      <!--Grid row-->
-      <div class="row">
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="text-body" href="https://www.linkedin.com/in/ctoic/">Linkedin</a>
-            </li>
-            <li>
-              <a class="text-body" href="https://www.linkedin.com/in/ctoic/">Instagram/a>
-            </li>
-            <li>
-              <a class="text-body" href="https://www.linkedin.com/in/ctoic/">Github</a>
-            </li>
-            <li>
-              <a class="text-body" href="https://www.linkedin.com/in/ctoic/">Website</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Calhub</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="text-body" href="#!">Todo Apps</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">C3akademia</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">Talis Adventure</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">FoodWeb</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="text-body" href="#!">Link 1</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">Link 2</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">Link 3</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">Link 4</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a class="text-body" href="#!">Link 1</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">Link 2</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">Link 3</a>
-            </li>
-            <li>
-              <a class="text-body" href="#!">Link 4</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
       </div>
-      <!--Grid row-->
-    </section>
-    <!-- Section: Links -->
-  </div>
-  <!-- Grid container -->
 
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2020 Copyright:
-    <a class="text-reset fw-bold" href="https://www.linkedin.com/in/ctoic/"> Developed By : Najam Ali Abass aka ctoic</a>
+      <!-- Mobile Menu Toggle Button -->
+      <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Book Card Display -->
+  <div class="container flex flex-col md:flex-row mx-auto mt-10 p-6 text-center">
+    <div class="book-card flex-auto p-6 rounded-lg shadow-lg md:max-w-sm mx-auto md:w-1/3 mb-6 md:mb-0">
+      <!-- Cover Image -->
+      <img id="img" src="./Images/Sapiens.jpg" alt="God Delusion Cover" class="w-full h-64 object-cover rounded-lg" />
+
+      <!-- Book Details -->
+      <div class="mt-4">
+        <h1 id="bookTitle" class="text-2xl font-bold text-green-500">Sapiens: A Brief History of Humankind</h1>
+        <h3 id="authorName" class="text-lg mt-2">By Yuval Noah Harari</h3>
+        <p id="bookDescription" class="text-sm mt-2">
+          Sapiens explores the history and evolution of humanity, from early Homo sapiens to modern society.
+        </p>
+      </div>
+
+      <!-- Favorite Button -->
+      <div class="mt-4 flex justify-center favorite-button-container">
+        <i class="bi bi-heart mx-4 favorite-button"></i>
+        <i class="bi bi-share mx-4 favorite-button"></i>
+        <i class="bi bi-chat mx-4 favorite-button"></i>
+      </div>
+    </div>
+
+    <!-- Playlist Section -->
+    <div class="playlist-card flex-auto md:ml-7 p-6 min-h-full rounded-lg mx-auto shadow-lg md:w-2/3">
+      <ul id="playlist" class="playlist list-none rounded-lg text-left overflow-auto">
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part1.mp3">
+          Introduction: God Delusion
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/part2.mp3">
+          Part 2
+        </li>
+        <!-- Add more playlist items here -->
+      </ul>
+      <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
+    </div>
   </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
+
+  <div class="mt-10 text-center">
+    <a href="./fs.html" id="previousLink" class="btn btn-primary me-2">Previous</a>
+    <a href="./index.html" id="nextLink" class="btn btn-primary">Next</a>
+  </div>  
+
+  <!-- Comments Section -->
+  <div class="container mx-auto mt-16 bg-gray-800 p-6 rounded-lg shadow-lg">
+    <h2 id="commentsTitle" class="text-center text-2xl mb-6">Share Your Thoughts</h2>
+    <form id="comment-form" class="space-y-4">
+      <div>
+        <label for="username" id="nameLabel" class="block text-sm font-medium">Your Name:</label>
+        <input type="text" id="username" class="w-full p-2 rounded-lg bg-gray-700 text-white" required />
+      </div>
+      <div>
+        <label for="comment" id="commentLabel" class="block text-sm font-medium">Your Comment:</label>
+        <textarea id="comment" class="w-full p-2 rounded-lg bg-gray-700 text-white" rows="4" required></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" id="submitBtn" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600">
+          Submit
+        </button>
+      </div>
+    </form>
+
+    <div id="comments-list" class="mt-10 space-y-4"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 p-4 text-center mt-10">
+    <div class="text-gray-500">
+      &copy; 2024 Your Lisbook | All Rights Reserved
+    </div>
+  </footer>
+
+  <!-- JS Scripts -->
+  <script>
+    const translations = {
+      en: {
+        title: "My Favorite Books Music App",
+        bookTitle: "Sapiens: A Brief History of Humankind",
+        authorName: "By Yuval Noah Harari",
+        bookDescription: "Sapiens explores the history and evolution of humanity, from early Homo sapiens to modern society.",
+        commentsTitle: "Share Your Thoughts",
+        previous: "Previous",
+        next: "Next",
+        home: "Home",
+        nameLabel: "Your Name:",
+        commentLabel: "Your Comment:",
+        submitBtn: "Submit"
+      },
+      fr: {
+        title: "Mon application de livres et de musique préférés",
+        bookTitle: "Sapiens: Une brève histoire de l'humanité",
+        authorName: "Par Yuval Noah Harari",
+        bookDescription: "Sapiens explore l'histoire et l'évolution de l'humanité, des premiers Homo sapiens à la société moderne.",
+        commentsTitle: "Partagez vos pensées",
+        previous: "Précédent",
+        next: "Suivant",
+        home: "Accueil",
+        nameLabel: "Votre Nom:",
+        commentLabel: "Votre Commentaire:",
+        submitBtn: "Soumettre"
+      }
+    };
+
+    function changeLanguage(language) {
+      document.getElementById('pageTitle').innerText = translations[language].title;
+      document.getElementById('bookTitle').innerText = translations[language].bookTitle;
+      document.getElementById('authorName').innerText = translations[language].authorName;
+      document.getElementById('bookDescription').innerText = translations[language].bookDescription;
+      document.getElementById('previousLink').innerText = translations[language].previous;
+      document.getElementById('nextLink').innerText = translations[language].next;
+      document.getElementById('homeLink').innerText = translations[language].home;
+      document.getElementById('commentsTitle').innerText = translations[language].commentsTitle;
+      document.getElementById('nameLabel').innerText = translations[language].nameLabel;
+      document.getElementById('commentLabel').innerText = translations[language].commentLabel;
+      document.getElementById('submitBtn').innerText = translations[language].submitBtn;
+    }
+
+    // Set the default language on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      changeLanguage('en'); // Default to English
+    });
+  </script>
+</body>
+
 </html>

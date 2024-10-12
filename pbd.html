@@ -2,337 +2,214 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>My Favorite Books Music App</title>
-
-    <style>
-        body {
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body.light-mode {
-            background-color: #ffffff;
-            color: #333333;
-        }
-
-        body.dark-mode {
-            background-color: #121212;
-            color: #b3b3b3;
-        }
-
-        h1, h2, h3 {
-            transition: color 0.3s;
-        }
-
-        body.light-mode h1, body.light-mode h2, body.light-mode h3 {
-            color: #333333;
-        }
-
-        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
-            color: #fff;
-        }
-
-        #playlist li:hover {
-            background-color: #282828;
-            color: #1DB954;
-            cursor: pointer;
-        }
-
-        #audio-player {
-            background-color: #282828;
-            color: #1DB954;
-        }
-
-        button {
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #1ed760;
-        }
-
-        footer {
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body.light-mode footer {
-            background-color: #f1f1f1;
-            color: #333333;
-        }
-
-        body.dark-mode footer {
-            background-color: #191414;
-            color: #b3b3b3;
-        }
-
-        footer a:hover {
-            color: #1DB954;
-        }
-
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
-        }
-
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-        input:checked + .slider {
-            background-color: #1DB954;
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-
-        /* New styles for light mode */
-        body.light-mode nav {
-            background-color: #f1f1f1;
-            color: #333333;
-        }
-
-        body.light-mode #playlist {
-            background-color: #e0e0e0;
-        }
-
-        body.light-mode #playlist li:hover {
-            background-color: #d0d0d0;
-            color: #1DB954;
-        }
-
-        body.light-mode .bg-gray-800 {
-            background-color: #f1f1f1;
-        }
-
-        body.light-mode .text-gray-300 {
-            color: #333333;
-        }
-
-        body.light-mode .hover\:bg-gray-700:hover {
-            background-color: #d0d0d0;
-        }
-
-        body.light-mode #audio-player {
-            background-color: #e0e0e0;
-            color: #1DB954;
-        }
-
-        body.light-mode .bg-gray-700 {
-            background-color: #f1f1f1;
-            color: #333333;
-        }
-
-        body.light-mode input[type="text"],
-        body.light-mode textarea {
-            background-color: #ffffff;
-            color: #333333;
-            border: 1px solid #d0d0d0;
-        }
-
-        body.light-mode .bg-gray-900 {
-            background-color: #ffffff;
-        }
-
-        body.light-mode .container {
-            color: #333333;
-        }
-
-        body.light-mode #comment-form label {
-            color: #333333;
-        }
-
-        body.light-mode #comments-list .bg-gray-700 {
-            background-color: #f1f1f1;
-            color: #333333;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <title id="pageTitle">My Favorite Books Music App</title> <!-- Ajout d'id pour le titre -->
 </head>
 
-
-<body class="bg-gray-900 text-gray-300 dark-mode">
-    <!-- Navbar -->
-    <nav class="bg-gray-800 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <!-- Logo -->
-            <a class="text-green-500 text-2xl font-bold" href="./index.html">Lisbook</a>
-
-            <!-- Menu Links and Theme Toggle -->
-            <div id="menu" class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20">
-                <div id="menu-close" class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </div>
-                <a href="./index.html" class="text-gray-300 hover:text-green-500">Home</a>
-                <a href="./fs.html" class="text-gray-300 hover:text-green-500">Next</a>
-                <a href="./index.html" class="text-gray-300 hover:text-green-500">Previous</a>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="theme-toggle">
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <!-- Mobile Menu Toggle Button -->
-            <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </div>
+<body class="dark-theme bg-gray-900 text-gray-300">
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-20 bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <a class="text-green-500 text-2xl font-bold" href="./index.html">Lisbook</a>
+  
+      <!-- Menu Links and Theme Toggle -->
+      <div id="menu"
+        class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-4 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-2 z-20">
+        <!-- Changed space-y-8 to space-y-4 and space-x-4 to space-x-2 -->
+  
+        <!-- Bouton pour fermer le menu -->
+        <div id="menu-close" class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </div>
-    </nav>
-
-    <!-- Content -->
-    <div class="container mx-auto mt-10">
-        <h1 class="text-center text-3xl font-bold">Pale Blue Dot</h1>
-        <h3 class="text-center text-xl mt-2">By Carl Sagan</h3>
-
-        <!-- Image -->
-        <div class="flex justify-center mt-5">
-            <img id="img" src="./Images/cs.jpg" alt="bookify logo" class="w-48 h-48 rounded-lg shadow-lg">
+  
+        <!-- Sélecteur de langue -->
+        <div class="mt-10 text-center">
+          <label for="language-select" class="text-gray-300"></label>
+          <!-- Menu déroulant pour la sélection de la langue -->
+          <select id="language-select" onchange="changeLanguage(this.value)"
+            class="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700 h-12 w-32">
+            <option value="en">English</option> <!-- Option Anglais -->
+            <option value="fr">Français</option> <!-- Option Français -->
+          </select>
         </div>
-
-        <!-- Playlist -->
-        <h2 class="text-center text-2xl mt-10">My Favorite Books</h2>
-        <ul id="playlist" class="list-none mt-5 bg-gray-800 rounded-lg shadow-lg p-4">
-            <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/Introduction.mp3">Introduction: Pale Blue Dot</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/chap-1.mp3">Chapter 1: The Shores of the Cosmic Ocean</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/Chap-2.mp3">Chapter 2: One Voice in the Cosmic Fugue</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/chap-3.mp3">Chapter 3: The Harmony of the Worlds</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/chap-4.mp3">Chapter 4: Heaven and Hell</li>
-        </ul>
-
-        <!-- Audio Player -->
-        <div class="mt-5 flex justify-center">
-            <audio id="audio-player" class="w-full max-w-lg" controls></audio>
-        </div>
+  
+        <!-- Liens du menu -->
+        <a href="./index.html" id="homeLink"
+          class="text-gray-300 hover:text-green-500 h-12 w-32 flex items-center justify-center rounded">Home</a>
+        <a href="./index.html" id="previousLink"
+          class="text-gray-300 hover:text-green-500 h-12 w-32 flex items-center justify-center rounded">Previous</a>
+        <a href="./fs.html" id="nextLink"
+          class="text-gray-300 hover:text-green-500 h-12 w-32 flex items-center justify-center rounded">Next</a>
+  
+        <!-- Bouton pour changer le thème -->
+        <button id="theme-toggle" class="text-gray-300 hover:text-green-500 h-12 w-32 flex items-center justify-center rounded">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+      </div>
+  
+      <!-- Mobile Menu Toggle Button -->
+      <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </div>
     </div>
+  </nav>
 
-    <!-- Buttons -->
-    <div class="mt-10 text-center">
-        <a href="./index.html" class="text-gray-300 hover:text-green-500 p-3">Previous</a>
-        <a href="./fs.html" class="text-gray-300 hover:text-green-500 p-3">Next</a>
+  <!-- Book Card Display -->
+  <div class="container flex flex-col md:flex-row mx-auto mt-10 p-6 text-center">
+    <div class="book-card flex-auto p-6 rounded-lg shadow-lg md:max-w-sm mx-auto md:w-1/3 mb-6 md:mb-0">
+      <!-- Cover Image -->
+      <img id="img" src="./Images/cs.jpg" alt="God Delusion Cover" class="w-full h-64 object-cover rounded-lg" />
+
+      <!-- Book Details -->
+      <div class="mt-4">
+        <h1 class="text-2xl font-bold text-green-500">Pale Blue Dot</h1>
+        <h3 class="text-lg mt-2" id="ByA">By Carl Sagan</h3>
+        <p class="text-sm mt-2" id="PaleA">
+          Pale Blue Dot explores humanity's place in the universe, emphasizing
+          the importance of space exploration and our responsibility to
+          protect Earth.
+        </p>
+      </div>
+
+      <!-- Favorite Button -->
+      <div class="mt-4 flex justify-center favorite-button-container">
+        <i class="bi bi-heart mx-4 favorite-button"></i>
+        <i class="bi bi-share mx-4 favorite-button"></i>
+        <i class="bi bi-chat mx-4 favorite-button"></i>
+      </div>
     </div>
+    <!-- Playlist Section -->
+    <div class="playlist-card flex-auto md:ml-7 p-6 min-h-full rounded-lg mx-auto shadow-lg md:w-2/3">
+      <ul id="playlist" class="list-none rounded-lg text-left overflow-auto">
+        <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/Introduction.mp3" id="IntroductionA">
+          Introduction: Pale Blue Dot
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/chap-1.mp3" id="Chapter1">
+          Chapter 1: The Shores of the Cosmic Ocean
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/Chap-2.mp3" id="Chapter2">
+          Chapter 2: One Voice in the Cosmic Fugue
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/chap-3.mp3" id="Chapter3">
+          Chapter 3: The Harmony of the Worlds
+        </li>
+        <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/chap-4.mp3" id="Chapter4">
+          Chapter 4: Heaven and Hell
+        </li>
+      </ul>
+      <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
 
-    <!-- Comments Section -->
-    <div class="container mx-auto mt-16 bg-gray-800 p-6 rounded-lg shadow-lg">
-        <h2 class="text-center text-2xl mb-6">Share Your Thoughts</h2>
-        <form id="comment-form" class="space-y-4">
-            <div>
-                <label for="username" class="block text-sm font-medium">Your Name:</label>
-                <input type="text" id="username" class="w-full p-2 rounded-lg bg-gray-700 text-white" required>
-            </div>
-            <div>
-                <label for="comment" class="block text-sm font-medium">Your Comment:</label>
-                <textarea id="comment" class="w-full p-2 rounded-lg bg-gray-700 text-white" rows="4" required></textarea>
-            </div>
-            <div class="text-center">
-                <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600">Submit</button>
-            </div>
-        </form>
-
-        <div id="comments-list" class="mt-10 space-y-4"></div>
+      <!-- Play/Pause Button with Animation -->
+      <div class="mt-4 flex justify-center">
+        <button id="playPauseBtn" class="play"></button>
+        <!-- Added Play/Pause button here -->
+      </div>
     </div>
+  </div>
 
-    <!-- Footer -->
-    <footer class="mt-20 py-6 text-center">
-        <div class="flex justify-center space-x-4">
-            <a href="https://www.facebook.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-facebook"></i></a>
-            <a href="https://www.instagram.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-instagram"></i></a>
-            <a href="https://www.linkedin.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-linkedin"></i></a>
-            <a href="https://www.twitter.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-twitter"></i></a>
-        </div>
+  <!-- Buttons -->
+  <div class="mt-10 text-center">
+    <a href="./index.html" id="previousLink2" class="text-gray-300 hover:text-green-500 p-3">Previous</a>
+    <a href="./fs.html" id="nextLink2" class="text-gray-300 hover:text-green-500 p-3">Next</a>
+  </div>
 
-        <p class="mt-4 text-gray-400">© 2020 Developed by Najam Ali Abass aka ctoic</p>
-    </footer>
+  <!-- Comments Section -->
+  <div class="container mx-auto mt-16 bg-gray-800 p-6 rounded-lg shadow-lg">
+    <h2 id="commentsTitle" class="text-center text-2xl mb-6">Share Your Thoughts</h2>
+    <form id="comment-form" class="space-y-4">
+      <div>
+        <label for="username" class="block text-sm font-medium" id="nameLabel">Your Name:</label>
+        <input type="text" id="username" class="w-full p-2 rounded-lg bg-gray-700 text-white" required />
+      </div>
+      <div>
+        <label for="comment" class="block text-sm font-medium" id="commentLabel">Your Comment:</label>
+        <textarea id="comment" class="w-full p-2 rounded-lg bg-gray-700 text-white" rows="4" required></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600"
+          id="submitBtn">Submit</button>
+      </div>
+    </form>
 
-    <!-- JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const playlistItems = document.querySelectorAll('#playlist li');
-            const audioPlayer = document.getElementById('audio-player');
-            const themeToggle = document.getElementById('theme-toggle');
-            const menuToggle = document.getElementById("menu-toggle");
-            const menuClose = document.getElementById("menu-close");
-            const menu = document.getElementById("menu");
+    <div id="comments-list" class="mt-10 space-y-4"></div>
+  </div>
 
-            playlistItems.forEach(item => {
-                item.addEventListener('click', function () {
-                    audioPlayer.src = item.getAttribute('data-src');
-                    audioPlayer.play();
-                });
-            });
+  <!-- Footer -->
+  <footer class="bg-gray-900 p-4 text-center mt-10">
+    <div class="text-gray-500">&copy; 2024 Lisbook | All Rights Reserved</div>
+  </footer>
 
-            // Comment Submission
-            document.getElementById('comment-form').addEventListener('submit', function (e) {
-                e.preventDefault();
-                const username = document.getElementById('username').value;
-                const comment = document.getElementById('comment').value;
+  <script>
+    // Function to change the language
+    function changeLanguage(lang) {
+      const translations = {
+        en: {
+          pageTitle: "My Favorite Books Music App",
+          homeLink: "Home",
+          previousLink: "Previous",
+          nextLink: "Next",
+          commentsTitle: "Share Your Thoughts",
+          nameLabel: "Your Name:",
+          commentLabel: "Your Comment:",
+          Introduction: "Introduction: Pale Blue Dot",
+          Chapter: "Chapter 1: The Shores of the Cosmic Ocean",
+          ChapterA: "Chapter 2: One Voice in the Cosmic Fugue",
+          ChapterB: "Chapter 3: The Harmony of the Worlds",
+          ChapterC: "Chapter 4: Heaven and Hell",
+          Pale: "Pale Blue Dot explores humanity's place in the universe, emphasizing the importance of space exploration and our responsibility to protect Earth.",
+          By: "By Carl Sagan"
+        },
+        fr: {
+          pageTitle: "Mon Application de Musique et de Livres Préférés",
+          homeLink: "Accueil",
+          previousLink: "Précédent",
+          nextLink: "Suivant",
+          commentsTitle: "Partagez Vos Pensées",
+          nameLabel: "Votre Nom:",
+          commentLabel: "Votre Commentaire:",
+          Introduction: "Introduction: Point bleu pâle",
+          Chapter: "Chapter 1: Les rivages de l'océan cosmique",
+          ChapterA: "Chapter 2: Une voix dans la fugue cosmique",
+          ChapterB: "Chapter 3: L'harmonie des mondes",
+          ChapterC: "Chapter 4: Le paradis et l'enfer",
+          Pale: "Pale Blue Dot explore la place de l'humanité dans l'univers, soulignant l'importance de l'exploration spaciale et notre responsabilité de protéger la Terre.",
+          By: "Par Carl Sagan"
 
-                const commentHTML = `<div class="bg-gray-700 text-white p-4 rounded-lg">
-                    <strong>${username}:</strong>
-                    <p>${comment}</p>
-                </div>`;
+        }
+      };
 
-                document.getElementById('comments-list').insertAdjacentHTML('beforeend', commentHTML);
+      // Update the titles and labels
+      document.getElementById('pageTitle').innerText = translations[lang].pageTitle;
+      document.getElementById('homeLink').innerText = translations[lang].homeLink;
+      document.getElementById('previousLink').innerText = translations[lang].previousLink;
+      document.getElementById('previousLink2').innerText = translations[lang].previousLink;
+      document.getElementById('nextLink').innerText = translations[lang].nextLink;
+      document.getElementById('nextLink2').innerText = translations[lang].nextLink;
+      document.getElementById('commentsTitle').innerText = translations[lang].commentsTitle;
+      document.getElementById('nameLabel').innerText = translations[lang].nameLabel;
+      document.getElementById('commentLabel').innerText = translations[lang].commentLabel;
+      document.getElementById('IntroductionA').innerText = translations[lang].Introduction;
+      document.getElementById('Chapter1').innerText = translations[lang].Chapter;
+      document.getElementById('Chapter2').innerText = translations[lang].ChapterA;
+      document.getElementById('Chapter3').innerText = translations[lang].ChapterB;
+      document.getElementById('Chapter4').innerText = translations[lang].ChapterC;
+      document.getElementById('PaleA').innerText = translations[lang].Pale;
+    }
+  </script>
 
-                // Reset form
-                document.getElementById('comment-form').reset();
-            });
-            // Theme Toggle
-            themeToggle.addEventListener('change', function() {
-                if (this.checked) {
-                    document.body.classList.remove('dark-mode');
-                    document.body.classList.add('light-mode');
-                } else {
-                    document.body.classList.remove('light-mode');
-                    document.body.classList.add('dark-mode');
-                }
-            });
-
-            //Mobile menu toggle
-            menuToggle.addEventListener("click", () => {
-                menu.classList.remove("scale-0");
-                menu.classList.add("scale-100");
-            });
-
-            menuClose.addEventListener("click", () => {
-                menu.classList.add("scale-0");
-                menu.classList.remove("scale-100");
-            });
-        });
-    </script>
+  <script src="./script.js"></script>
 </body>
 
 </html>
