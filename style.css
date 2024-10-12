@@ -1,6 +1,8 @@
 :root {
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Customize your shadow here */
-  --transition-transform: transform 0.6s ease-in-out 0.3s;
+  --transition-transform: transform 0.6s ease-in-out 0.1s;
+  --accent-color: #1ed760;
+  --accent-background-color: #1ed760;
 }
 
 * {
@@ -44,7 +46,7 @@ body.dark-theme .playlist-card {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #1ed760;
+  background: var(--accent-background-color);
 }
 
 h1,
@@ -54,19 +56,19 @@ h3 {
 }
 
 .page-title {
-  color: #1db954;
+  color: var(--accent-color);
   font-weight: bold;
 }
 
 #playlist li:hover {
   background-color: #282828;
-  color: #1db954;
+  color: var(--accent-color);
   cursor: pointer;
 }
 
 #audio-player {
   background-color: #282828;
-  color: #1db954;
+  color: var(--accent-color);
 }
 
 section {
@@ -78,7 +80,13 @@ button {
 }
 
 button:hover {
-  background-color: #1ed760;
+  background-color: var(--accent-background-color);
+}
+
+.btn-bd-primary {
+  color: var(--accent-color) !important;
+  background-color: transparent !important;
+  border: 1px solid var(--accent-color) !important;
 }
 
 footer {
@@ -87,7 +95,7 @@ footer {
 }
 
 footer a:hover {
-  color: #1db954;
+  color: var(--accent-color);
 }
 
 /* About page  */
@@ -101,7 +109,7 @@ body.light-theme section {
 }
 
 .features-title {
-  color: #1db954 !important;
+  color: var(--accent-color) !important;
 }
 
 .features-card {
