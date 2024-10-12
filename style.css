@@ -62,12 +62,17 @@ footer a:hover {
 
 .bi {
   cursor: pointer;
+  transition: transform 0.6s ease-in-out 0.3s;
+  will-change: transform;
 }
 
+.bi:hover {
+  transform: scale(1.2);
+}
 body.dark-theme .playlist-card {
   width: 100%;
   background-color: #181818;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0s, box-shadow 0.3s;
 }
 body.light-theme .playlist-card {
   background-color: #ffffff;
