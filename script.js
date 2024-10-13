@@ -5,7 +5,29 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("menu-toggle");
   const menuClose = document.getElementById("menu-close");
   const menu = document.getElementById("menu");
+  const bookList = document.getElementById("audio-books-list");
+  const favBooksList = document.getElementById("fav-audio-books-list");
+  const template = document.getElementById("book-card-template");
+  const favouriteButton = document.getElementById("favourite-btn");
   const commentForm = document.getElementById("comment-form");
+  const FAV_BOOKS_KEY = "fav_books";
+  const currentBookId = "7";
+  let allBooksList = [];
+  let currentBook;
+
+  fetch("/data/books.json")
+    .then((response) => response.json())
+    .then((response) => {
+      allBooksList = response;
+      response.forEach((book) => {
+        if (book.id == currentBookId) {
+          currentBook = book;
+        } else {
+          renderBookItem(book, bookList);
+        }
+      });
+      loadFavourites();
+    });
 
   // Function to display error popup
   function showErrorPopup(message) {
@@ -48,6 +70,48 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  function loadFavourites() {
+    const favs = localStorage.getItem(FAV_BOOKS_KEY);
+
+    var favsList = JSON.parse(favs);
+    favBooksList.innerHTML = "";
+
+    if (favs == null || favsList.length == 0) {
+      document
+        .getElementById("fav-empty-container")
+        .classList.remove("invisible");
+      return;
+    } else {
+      document.getElementById("fav-empty-container").classList.add("invisible");
+    }
+
+    if (favsList.includes(currentBookId)) {
+      toggleHeart(true);
+    }
+
+    allBooksList.forEach((book) => {
+      if (favsList.includes(book.id)) {
+        renderBookItem(book, favBooksList);
+      }
+    });
+  }
+
+  function markFavourite(id, addItem) {
+    var favsList = [];
+    const favs = localStorage.getItem(FAV_BOOKS_KEY);
+
+    if (favs != null) favsList = JSON.parse(favs);
+
+    if (addItem == null) addItem = !favsList.includes(id);
+    if (addItem) favsList.push(id);
+    else {
+      const idx = favsList.indexOf(id);
+      if (idx != -1) favsList.splice(idx, 1);
+    }
+
+    localStorage.setItem(FAV_BOOKS_KEY, JSON.stringify(favsList));
+  }
+
   // Playlist item click event
   playlistItems.forEach((item) => {
     item.addEventListener("click", function () {
@@ -74,6 +138,32 @@ document.addEventListener("DOMContentLoaded", function () {
         showErrorPopup("Audio source not available.");
       }
     });
+  });
+
+  function toggleHeart(activate) {
+    if (activate == null)
+      activate = favouriteButton.classList.contains("bi-heart");
+
+    if (activate) {
+      favouriteButton.classList.remove("bi-heart");
+      favouriteButton.classList.add("bi-heart-fill");
+    } else {
+      favouriteButton.classList.add("bi-heart");
+      favouriteButton.classList.remove("bi-heart-fill");
+    }
+
+    return activate;
+  }
+
+  favouriteButton.addEventListener("click", () => {
+    const activated = toggleHeart();
+    markFavourite(currentBookId);
+    if (activated) {
+      document.getElementById("fav-empty-container").classList.add("invisible");
+      renderBookItem(currentBook, favBooksList);
+    } else {
+      loadFavourites();
+    }
   });
 
   //Keyboard Shortcuts buttons
