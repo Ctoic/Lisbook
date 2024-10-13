@@ -25,7 +25,7 @@ LisBook is all about simplicity and convenience, making your audiobook experienc
 
 ![LisBook Screenshot](Images/SC2.png)
 
-## How to Contribute to LisBook During Hacktoberfest 🎉
+## How to Contribute to LisBook During Hacktoberfest 🎉🎃🎃
 
 We’re thrilled to be part of Hacktoberfest! You can join us in improving and growing LisBook by contributing during this event.
 

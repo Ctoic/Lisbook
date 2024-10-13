@@ -10,27 +10,98 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
     />
+
     <title>My Favorite Books Music App</title>
   </head>
   <body class="bg-gray-900 text-gray-300 dark-theme">
-    <nav class="sticky top-0 z-20 bg-gray-800 p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <!-- Logo -->
-        <a class="text-green-500 text-2xl font-bold" href="./index.html"
-          >Lisbook</a
-        >
+    <!-- <div id="header-placeholder" class="sticky top-0 z-20"></div> -->
+    <header class="sticky top-0 z-20 bg-gray-800 p-4">
+      <nav class="">
+        <div class="container mx-auto flex justify-between items-center">
+          <!-- Logo -->
+          <a
+            class="text-green-500 h3 font-bold d-flex"
+            href="./index.html"
+            class="navbar-brand"
+          >
+            <img
+              src="./Images/lisbook-logo.png"
+              alt="Logo"
+              width="35"
+              height="auto"
+              class="align-text-center me-2"
+            />
+            Lisbook
+          </a>
 
-        <!-- Menu Links and Theme Toggle -->
-        <div
-          id="menu"
-          class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20"
-        >
+          <!-- Menu Links and Theme Toggle -->
           <div
-            id="menu-close"
-            class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer"
+            id="menu"
+            class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20"
+          >
+            <div
+              id="menu-close"
+              class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </div>
+            <a href="./index.html" class="text-gray-300 hover:text-green-500"
+              >Home</a
+            >
+            <a href="./about.html" class="text-gray-300 hover:text-green-500"
+              >About</a
+            >
+
+            <!-- <a href="./index.html" class="text-gray-300 hover:text-green-500"
+            >Previous</a
+          >
+          <a href="./pbd.html" class="text-gray-300 hover:text-green-500"
+            >Next</a
+          > -->
+            <button
+              id="theme-toggle"
+              class="text-gray-300 hover:text-green-500"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Mobile Menu Toggle Button -->
+          <div
+            id="menu-toggle"
+            title="Menu"
+            class="text-gray-300 lg:hidden cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -43,283 +114,356 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
+                d="M4 6h16M4 12h16m-7 6h7"
               />
             </svg>
           </div>
-          <a href="./index.html" class="text-gray-300 hover:text-green-500"
-            >Home</a
-          >
-          <a href="./about.html" class="text-gray-300 hover:text-green-500"
-            >About</a
-          >
-          <a href="./pbd.html" class="text-gray-300 hover:text-green-500"
-            >Previous</a
-          >
-          <a href="./rdpd.html" class="text-gray-300 hover:text-green-500"
-            >Next</a
-          >
-
-          <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-              />
-            </svg>
-          </button>
         </div>
+      </nav>
+    </header>
 
-        <!-- Mobile Menu Toggle Button -->
-        <div
-          id="menu-toggle"
-          title="Menu"
-          class="text-gray-300 lg:hidden cursor-pointer"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Book Card Display -->
+    <!-- Social Share Modal -->
     <div
-      class="container flex flex-col md:flex-row mx-auto mt-10 p-6 text-center"
+      class="modal fade"
+      id="exampleModalToggle"
+      aria-hidden="true"
+      aria-labelledby="exampleModalToggleLabel"
+      tabindex="-1"
     >
-      <div
-        class="book-card flex-auto p-6 rounded-lg shadow-lg md:max-w-sm mx-auto md:w-1/3 mb-6 md:mb-0"
-      >
-        <!-- Cover Image -->
-        <img
-          id="img"
-          src="./Images/Frankestine.jpg"
-          alt="God Delusion Cover"
-          class="w-full h-64 object-cover rounded-lg"
-        />
-
-        <!-- Book Details -->
-        <div class="mt-4">
-          <h1 class="text-2xl font-bold text-green-500">Frankestine</h1>
-          <h3 class="text-lg mt-2">By Mary Shelby</h3>
-          <p class="text-sm mt-2">
-            Frankenstein tells the story of Victor Frankenstein, a scientist who
-            creates a monstrous creature, leading to tragic consequences.
-          </p>
-        </div>
-
-
-          <!-- social media sharing -->
-    <div class="flex justify-center space-x-4 mt-4">
-        <h4>Share it on :</h4>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:5500/Lisbook/fs.html&text=Lisbook+god Delusion" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Share on Facebook" style="width: 24px; height: 24px;" />
-        </a>
-        <a href="https://twitter.com/intent/tweet?url=http://127.0.0.1:5500/Lisbook/fs.html&text=Lisbook+god Delusion" target="_blank">
-            <img src="https://abs.twimg.com/favicons/twitter.2.ico" alt="Share on X" />
-        </a>
-        <a href="https://api.whatsapp.com/send?text=http://127.0.0.1:5500/Lisbook/fs.html" target="_blank">
-            <img src="https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_whatsapp-512.png" alt="Share on WhatsApp" style="width: 24px; height: 24px;" />
-        </a>
-              
-        
-    </div>
-
-
-
-  <!-- Playlist Section -->
-    <div class="container mx-auto mt-10 text-center">
-        <ul id="playlist" class="list-none mt-5 bg-gray-800 rounded-lg shadow-lg p-4">
-
-            <li class="p-2 hover:bg-gray-700" data-src="audio/FS/01.mp3">Introduction </li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/FS/02.mp3">Part 2</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/FS/03.mp3">Part 3</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part4.mp3">Part 4</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part5.mp3">Part 5</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part6.mp3">Part 6</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part7.mp3">Part 7</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part8.mp3">Part 8</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part9.mp3">Part 9</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part10.mp3">Part 10</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part11.mp3">Part 11</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part12.mp3">Part 12</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part13.mp3">Part 13</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part14.mp3">Part 14</li>
-
-        <!-- Favorite Button -->
-        <div class="mt-4 flex justify-center favorite-button-container">
-          <i class="bi bi-heart mx-4 favorite-button"></i>
-          <i class="bi bi-share mx-4 favorite-button"></i>
-          <i class="bi bi-chat mx-4 favorite-button"></i>
-        </div>
-      </div>
-      <!-- Playlist Section -->
-      <div
-        class="playlist-card flex-auto md:ml-7 p-6 min-h-full rounded-lg mx-auto shadow-lg md:w-2/3"
-      >
-        <ul
-          id="playlist"
-          class="playlist list-none rounded-lg text-left overflow-auto"
-        >
-          <li class="p-2 hover:bg-gray-700" data-src="audio/FS/01.mp3">
-            Introduction
-            <a href="audio/FS/01.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/FS/02.mp3">
-            Part 2
-            <a href="audio/FS/02.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/FS/03.mp3">
-            Part 3
-            <a href="audio/FS/03.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part4.mp3">
-            Part 4
-            <a href="audio/part4.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part5.mp3">
-            Part 5
-            <a href="audio/part5.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part6.mp3">
-            Part 6
-            <a href="audio/part6.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part7.mp3">
-            Part 7
-            <a href="audio/part7.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part8.mp3">
-            Part 8
-            <a href="audio/part8.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part9.mp3">
-            Part 9
-            <a href="audio/part9.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part10.mp3">
-            Part 10
-            <a href="audio/part10.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part11.mp3">
-            Part 11
-            <a href="audio/part11.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part12.mp3">
-            Part 12
-            <a href="audio/part12.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part13.mp3">
-            Part 13
-            <a href="audio/part13.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part14.mp3">
-            Part 14
-            <a href="audio/part14.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-
-        </ul>
-        <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
-
-        <!-- Play/Pause Button with Animation -->
-        <div class="mt-4 flex justify-center">
-          <button id="playPauseBtn" class="play"></button>
-          <!-- Added Play/Pause button here -->
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+              Share it on :
+            </h1>
+            <button
+              type="button"
+              class="btn-close rounded-5"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!-- Modale body -->
+          <div class="modal-body">
+            <div class="flex justify-center space-x-4 mt-4">
+              <a
+                href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:5500/Lisbook/pbd.html&text=Lisbook+god Delusion"
+                target="_blank"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                  alt="Share on Facebook"
+                  style="width: 24px; height: 24px"
+                />
+              </a>
+              <a
+                href="https://twitter.com/intent/tweet?url=http://127.0.0.1:5500/Lisbook/pbd.html&text=Lisbook+god Delusion"
+                target="_blank"
+              >
+                <img
+                  src="https://abs.twimg.com/favicons/twitter.2.ico"
+                  alt="Share on X"
+                />
+              </a>
+              <a
+                href="https://api.whatsapp.com/send?text=http://127.0.0.1:5500/Lisbook/pbd.html"
+                target="_blank"
+              >
+                <img
+                  src="https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_whatsapp-512.png"
+                  alt="Share on WhatsApp"
+                  style="width: 24px; height: 24px"
+                />
+              </a>
+            </div>
+          </div>
+          <!-- <div class="modal-footer">
+            <button
+              class="btn btn-primary"
+              data-bs-target="#exampleModalToggle2"
+              data-bs-toggle="modal"
+            >
+              Open second modal
+            </button>
+          </div> -->
         </div>
       </div>
     </div>
+    <!-- Social Share Modal end -->
 
-    <!-- Comments Section -->
-    <div class="container mx-auto mt-16 bg-gray-800 p-6 rounded-lg shadow-lg">
-      <h2 class="text-center text-2xl mb-6">Share Your Thoughts</h2>
-      <form id="comment-form" class="space-y-4">
-        <div>
-          <label for="username" class="block text-sm font-medium"
-            >Your Name:</label
-          >
-          <input
-            type="text"
-            id="username"
-            class="w-full p-2 rounded-lg bg-gray-700 text-white"
-            required
-          />
-        </div>
-        <div>
-          <label for="comment" class="block text-sm font-medium"
-            >Your Comment:</label
-          >
-          <textarea
-            id="comment"
-            class="w-full p-2 rounded-lg bg-gray-700 text-white"
-            rows="4"
-            required
-          ></textarea>
-        </div>
-        <div class="text-center">
-          <button
-            type="submit"
-            class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600"
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+    <main class="container my-5">
+      <!-- Book Card Display -->
+      <section class="row d-flex align-items-stretch rounded-5 p-5">
+        <div class="col-12 col-lg-4 mb-5 mb-lg-0">
+          <div class="features-card border rounded-5 p-4 text-center h-100">
+            <!-- Cover Image -->
+            <div
+              class="card-cover-container rounded-4 d-flex align-items-center border"
+              style="height: 16rem"
+            >
+              <img
+                id="img"
+                src="./Images/Frankestine.jpg"
+                alt="Pale Blue Dot"
+                class="card-img-top img-fluid"
+              />
+            </div>
+            <!-- Book Details -->
+            <div class="mt-4">
+              <h1 class="text-2xl font-bold text-green-500">Frankestine</h1>
+              <h3 class="text-lg mt-2">By Mary Shelby</h3>
+              <p class="text-sm mt-2">
+                Frankenstein tells the story of Victor Frankenstein, a scientist
+                who creates a monstrous creature, leading to tragic
+                consequences.
+              </p>
+            </div>
 
-      <div id="comments-list" class="mt-10 space-y-4"></div>
-    </div>
+            <hr class="opacity-50 w-60 mt-4 mx-auto" />
+
+            <!-- Favorite, share, comment Buttons -->
+            <div class="mt-3 flex justify-center icon-action-btn-container">
+              <i
+                class="bi bi-heart mx-4 icon-action-btn tooltip-parent tooltip-bottom"
+                id="favourite-btn"
+                ><span class="tooltip">Save to Favourites</span></i
+              >
+              <i
+                class="bi bi-share mx-4 icon-action-btn tooltip-parent tooltip-bottom"
+                id="share-btn"
+                data-bs-target="#exampleModalToggle"
+                data-bs-toggle="modal"
+                ><span class="tooltip">Share</span></i
+              >
+
+              <i
+                class="bi bi-chat mx-4 icon-action-btn tooltip-parent tooltip-bottom"
+                id="view-comments-btn"
+                ><span class="tooltip">View comments</span></i
+              >
+            </div>
+          </div>
+        </div>
+        <!-- playlist -->
+        <div class="col-12 col-lg-8 ps-4">
+          <div class="eatures-card border rounded-5 p-4 text-center h-100">
+            <ul
+              id="playlist"
+              class="playlist list-none text-left overflow-auto m-2 mb-4"
+            >
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/FS/01.mp3"
+              >
+                <p>Introduction</p>
+                <a href="audio/PaleBlueDot/Introduction.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/FS/02.mp3"
+              >
+                <p>Piste 01</p>
+                <a href="audio/FS/02.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/FS/03.mp3"
+              >
+                <p>Piste 02</p>
+                <a href="audio/FS/03.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part4.mp3"
+              >
+                <p>Piste 03</p>
+                <a href="audio/part4.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part5.mp3"
+              >
+                <p>Piste 04</p>
+                <a href="audio/part5.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part6.mp3"
+              >
+                <p>Piste 05</p>
+                <a href="audio/part6.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part7.mp3"
+              >
+                <p>Piste 06</p>
+                <a href="audio/part7.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part8.mp3"
+              >
+                <p>Piste 07</p>
+                <a href="audio/part8.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part9.mp3"
+              >
+                <p>Piste 08</p>
+                <a href="audio/part9.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part10.mp3"
+              >
+                <p>Piste 09</p>
+                <a href="audio/part10.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part11.mp3"
+              >
+                <p>Piste 10</p>
+                <a href="audio/part11.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part12.mp3"
+              >
+                <p>Piste 11</p>
+                <a href="audio/part12.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part13.mp3"
+              >
+                <p>Piste 12</p>
+                <a href="audio/part13.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part14.mp3"
+              >
+                <p>Piste 13</p>
+                <a href="audio/part14.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+            </ul>
+
+            <div class="player container rounded-5">
+              <div class="audio-img"></div>
+              <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
+            </div>
+
+            <!-- Play/Pause Button with Animation -->
+            <div class="mt-3 flex justify-center">
+              <button id="playPauseBtn" class="play"></button>
+              <!-- Added Play/Pause button here -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Book buttons navigations -->
+      <section
+        class="row d-flex align-items-stretch rounded-5 p-5 my-5 gx-5 text-center"
+      >
+        <div class="col-md-6">
+          <a
+            href="./index.html"
+            class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5"
+            >Previous Book</a
+          >
+        </div>
+        <div class="col-md-6">
+          <a
+            href="./fs.html"
+            class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5"
+            >Next Book</a
+          >
+        </div>
+      </section>
+      <!-- Book buttons navigations end -->
+
+      <!-- Comments Section -->
+      <section class="row rounded-5 p-5 mt-5">
+        <div class="container mx-auto p-6 rounded-lg">
+          <h2 class="display-5 page-title fw-semibold mb-6">
+            Share Your Comments
+          </h2>
+          <form id="comment-form" class="space-y-4 mt-5">
+            <div>
+              <label for="username" class="form-label">Your Name:</label>
+              <input
+                type="text"
+                id="username"
+                class="form-control mt-2 rounded-5 bg-body-tertiary border"
+                required
+              />
+            </div>
+            <div>
+              <label for="comment" class="form-label">Your Comment:</label>
+              <textarea
+                id="comment"
+                class="form-control mt-2 rounded-5 bg-body-tertiary border"
+                rows="6"
+                required
+              ></textarea>
+            </div>
+            <div class="text-center">
+              <button
+                type="submit"
+                class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600"
+              >
+                Share comment
+              </button>
+            </div>
+          </form>
+
+          <div id="comments-list" class="mt-10 space-y-4"></div>
+        </div>
+      </section>
+    </main>
+
     <!-- Footer -->
-    <footer class="bg-gray-900 p-4 text-center mt-10">
-      <div class="text-gray-500">&copy; 2024 Lisbook | All Rights Reserved</div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
-    <!-- JS Scripts -->
-    <script src="script.js"></script>
+    <!-- JavaScript -->
+
+    <script src="./script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
