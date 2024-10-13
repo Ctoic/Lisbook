@@ -148,46 +148,54 @@ document.addEventListener("DOMContentLoaded", function () {
   // Theme Toggle
   const body = document.body;
 
-  //Check the current theme in localStorage, otherwise default to 'dark'.
-  const currentTheme = localStorage.getItem("theme") || "dark";
-  body.classList.toggle("dark-theme", currentTheme === "dark");
-  body.classList.toggle("light-theme", currentTheme === "light");
-
-  // Listen to the click on the theme toggle button
-  themeToggle.addEventListener("click", () => {
-    console.log("clicker");
-    // Change theme
+  function toggleTheme() {
     body.classList.toggle("dark-theme");
     body.classList.toggle("light-theme");
 
     // Save theme in localStorage
     const newTheme = body.classList.contains("dark-theme") ? "dark" : "light";
     localStorage.setItem("theme", newTheme);
-  });
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      console.log("clicker");
+      toggleTheme();
+    });
+  }
 
   //Mobile menu toggle
-  menuToggle.addEventListener("click", () => {
-    menu.classList.remove("scale-0");
-    menu.classList.add("scale-100");
-  });
-
-  menuClose.addEventListener("click", () => {
-    menu.classList.add("scale-0");
-    menu.classList.remove("scale-100");
-  });
-  /*
-  fetch("/data/books.json")
-    .then((response) => response.json())
-    .then((response) => {
-      const template = document.getElementById("book-card-template");
-      response.forEach((book) => {
-        const element = document.importNode(template.content, true);
-        element.getElementById("book-title").textContent = book.title;
-        element.getElementById("book-author").textContent = `By ${book.author}`;
-        element.getElementById("img").src = `https://picsum.photos/200`;
-        element.getElementById("img").alt = `Cover of ${book.title}`;
-        bookList.appendChild(element);
-      });
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      menu.classList.remove("scale-0");
+      menu.classList.add("scale-100");
     });
-*/
+  }
+
+  if (menuClose) {
+    menuClose.addEventListener("click", () => {
+      menu.classList.add("scale-0");
+      menu.classList.remove("scale-100");
+    });
+  }
+});
+
+// Function to load an HTML file into an element
+function loadHTML(file, elementId) {
+  fetch(file)
+    .then((response) => {
+      if (!response.ok)
+        throw new Error("Erreur lors du chargement du fichier " + file);
+      return response.text();
+    })
+    .then((data) => {
+      document.getElementById(elementId).innerHTML = data;
+    })
+    .catch((error) => console.error(error));
+}
+
+// Load header and footer
+document.addEventListener("DOMContentLoaded", function () {
+  // loadHTML("./pages/header.html", "header-placeholder");
+  loadHTML("./pages/footer.html", "footer-placeholder");
 });
