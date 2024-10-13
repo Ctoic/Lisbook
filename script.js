@@ -15,20 +15,19 @@ document.addEventListener("DOMContentLoaded", function () {
   let allBooksList = [];
   let currentBook;
 
-  
-  fetch('/data/books.json')
-  .then(response=>response.json())
-  .then(response=>{
-    allBooksList = response;
-    response.forEach(book=>{
-      if (book.id == currentBookId) {
-        currentBook = book;
-      }else{
-        renderBookItem(book, bookList);
-      }
-    })
-    loadFavourites();
-  })
+  fetch("/data/books.json")
+    .then((response) => response.json())
+    .then((response) => {
+      allBooksList = response;
+      response.forEach((book) => {
+        if (book.id == currentBookId) {
+          currentBook = book;
+        } else {
+          renderBookItem(book, bookList);
+        }
+      });
+      loadFavourites();
+    });
 
   // Function to display error popup
   function showErrorPopup(message) {
@@ -71,17 +70,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  function loadFavourites(){
-
+  function loadFavourites() {
     const favs = localStorage.getItem(FAV_BOOKS_KEY);
-    
+
     var favsList = JSON.parse(favs);
-    favBooksList.innerHTML = '';    
+    favBooksList.innerHTML = "";
 
     if (favs == null || favsList.length == 0) {
-      document.getElementById("fav-empty-container").classList.remove("invisible");
+      document
+        .getElementById("fav-empty-container")
+        .classList.remove("invisible");
       return;
-    }else{
+    } else {
       document.getElementById("fav-empty-container").classList.add("invisible");
     }
 
@@ -89,14 +89,14 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleHeart(true);
     }
 
-    allBooksList.forEach(book=>{
-      if(favsList.includes(book.id)){
+    allBooksList.forEach((book) => {
+      if (favsList.includes(book.id)) {
         renderBookItem(book, favBooksList);
       }
-    })
+    });
   }
 
-  function markFavourite(id, addItem){
+  function markFavourite(id, addItem) {
     var favsList = [];
     const favs = localStorage.getItem(FAV_BOOKS_KEY);
 
@@ -104,15 +104,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (addItem == null) addItem = !favsList.includes(id);
     if (addItem) favsList.push(id);
-    else{
+    else {
       const idx = favsList.indexOf(id);
-      if(idx != -1) favsList.splice(idx,1);
+      if (idx != -1) favsList.splice(idx, 1);
     }
 
     localStorage.setItem(FAV_BOOKS_KEY, JSON.stringify(favsList));
   }
-
-
 
   // Playlist item click event
   playlistItems.forEach((item) => {
@@ -143,29 +141,30 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function toggleHeart(activate) {
-    if(activate == null) activate = favouriteButton.classList.contains('bi-heart') 
-    
-      if(activate){
-      favouriteButton.classList.remove('bi-heart');
-      favouriteButton.classList.add('bi-heart-fill');
-    }else{
-      favouriteButton.classList.add('bi-heart');
-      favouriteButton.classList.remove('bi-heart-fill');
+    if (activate == null)
+      activate = favouriteButton.classList.contains("bi-heart");
+
+    if (activate) {
+      favouriteButton.classList.remove("bi-heart");
+      favouriteButton.classList.add("bi-heart-fill");
+    } else {
+      favouriteButton.classList.add("bi-heart");
+      favouriteButton.classList.remove("bi-heart-fill");
     }
 
     return activate;
   }
 
-  favouriteButton.addEventListener('click', ()=>{
-    const activated = toggleHeart()
+  favouriteButton.addEventListener("click", () => {
+    const activated = toggleHeart();
     markFavourite(currentBookId);
     if (activated) {
       document.getElementById("fav-empty-container").classList.add("invisible");
       renderBookItem(currentBook, favBooksList);
-    }else{
+    } else {
       loadFavourites();
     }
-  })
+  });
 
   //Keyboard Shortcuts buttons
   document.addEventListener("keydown", function (e) {
@@ -216,9 +215,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Comment Submission
-  document
-    .getElementById("comment-form")
-    .addEventListener("submit", function (e) {
+  if (commentForm) {
+    commentForm.addEventListener("submit", function (e) {
       e.preventDefault();
       const username = document.getElementById("username").value;
       const comment = document.getElementById("comment").value;
@@ -235,44 +233,59 @@ document.addEventListener("DOMContentLoaded", function () {
       // Reset form
       document.getElementById("comment-form").reset();
     });
+  }
 
   // Theme Toggle
-
   const body = document.body;
 
-  // Vérifier le thème actuel dans localStorage, sinon le définir par défaut sur 'dark'
-  const currentTheme = localStorage.getItem("theme") || "dark";
-  body.classList.toggle("dark-theme", currentTheme === "dark");
-  body.classList.toggle("light-theme", currentTheme === "light");
-
-  // Écouter le clic sur le bouton de basculement du thème
-  themeToggle.addEventListener("click", () => {
-    // Changer de thème
+  function toggleTheme() {
     body.classList.toggle("dark-theme");
     body.classList.toggle("light-theme");
 
-    // Enregistrer le thème dans localStorage
+    // Save theme in localStorage
     const newTheme = body.classList.contains("dark-theme") ? "dark" : "light";
     localStorage.setItem("theme", newTheme);
-  });
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      console.log("clicker");
+      toggleTheme();
+    });
+  }
 
   //Mobile menu toggle
-  menuToggle.addEventListener("click", () => {
-    menu.classList.remove("scale-0");
-    menu.classList.add("scale-100");
-  });
-
-  menuClose.addEventListener("click", () => {
-    menu.classList.add("scale-0");
-    menu.classList.remove("scale-100");
-  });
-
-  function renderBookItem(book, listElement){
-    const element = document.importNode(template.content, true);
-    element.getElementById("book-title").textContent = book.title;
-    element.getElementById("book-author").textContent = `By ${book.author}`;
-    element.getElementById("img").src = book.cover;
-    element.getElementById("img").alt = `Cover of ${book.title}`;
-    listElement.appendChild(element);
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      menu.classList.remove("scale-0");
+      menu.classList.add("scale-100");
+    });
   }
+
+  if (menuClose) {
+    menuClose.addEventListener("click", () => {
+      menu.classList.add("scale-0");
+      menu.classList.remove("scale-100");
+    });
+  }
+});
+
+// Function to load an HTML file into an element
+function loadHTML(file, elementId) {
+  fetch(file)
+    .then((response) => {
+      if (!response.ok)
+        throw new Error("Erreur lors du chargement du fichier " + file);
+      return response.text();
+    })
+    .then((data) => {
+      document.getElementById(elementId).innerHTML = data;
+    })
+    .catch((error) => console.error(error));
+}
+
+// Load header and footer
+document.addEventListener("DOMContentLoaded", function () {
+  // loadHTML("./pages/header.html", "header-placeholder");
+  loadHTML("./pages/footer.html", "footer-placeholder");
 });

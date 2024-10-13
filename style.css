@@ -1,6 +1,7 @@
 :root {
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Customize your shadow here */
   --transition-transform: transform 0.6s ease-in-out 0.1s;
+  --transition-background: background-color 0.6s ease-in-out 0.1s;
   --accent-color: #1ed760;
   --accent-background-color: #1ed760;
 }
@@ -59,7 +60,7 @@ h3 {
 }
 
 .page-title {
-  color: var(--accent-color);
+  color: var(--accent-color) !important;
   font-weight: bold;
 }
 
@@ -70,7 +71,7 @@ h3 {
 }
 
 #audio-player {
-  background-color: #282828;
+  /* background-color: #282828; */
   color: var(--accent-color);
 }
 
@@ -123,10 +124,16 @@ body.light-theme section {
 .features-card {
   transition: var(--transition-transform);
   will-change: transform;
+  height: 100%;
 }
 
 .features-card:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
+}
+
+.card-cover-container {
+  height: 12rem;
+  overflow: hidden;
 }
 
 /*  about page end */
@@ -145,6 +152,8 @@ body.light-theme section {
   cursor: pointer;
   transition: var(--transition-transform);
   will-change: transform;
+  color: var(--accent-color);
+  font-size: 1.3rem;
 }
 
 .bi:hover {
@@ -157,14 +166,14 @@ body.dark-theme .playlist-card {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 body.light-theme .playlist-card {
-  background-color: #ffffff;
+  background-color: inherit;
 }
 .playlist-card:hover {
   box-shadow: var(--shadow);
 }
 
 .playlist-card ul {
-  height: 85%;
+  height: auto;
 }
 
 .playlist {
@@ -190,7 +199,7 @@ body.light-theme .playlist-card {
 .light-theme .book-card,
 .light-theme #playlist,
 .light-theme .bg-gray-800 {
-  background-color: #f8f8f8;
+  background-color: inherit;
 }
 
 .light-theme .text-gray-300 {
@@ -295,8 +304,16 @@ body.light-theme .playlist-card {
 }
 
 .adiobk-sub-item {
-  padding: 12px 8px;
-  border-radius: 8px;
+  padding: 10px 12px 8px 12px;
+  border-radius: 48px;
+  background-color: inherit;
+  margin-bottom: 7px;
+  transition: var(--transition-background);
+}
+
+.adiobk-sub-item:hover {
+  background-color: var(--accent-background-color);
+  color: #121212;
 }
 
 .player {

@@ -20,51 +20,90 @@
 
   <body class="dark-theme bg-gray-900 text-gray-300">
     <!-- Navbar -->
-    <nav class="sticky top-0 z-20 bg-gray-800 p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <!-- Logo -->
-        <a class="text-green-500 text-2xl font-bold" href="./index.html"
-          >Lisbook</a
-        >
+    <!-- <div id="header-placeholder" class="sticky top-0 z-20"></div> -->
+    <header class="sticky top-0 z-20 bg-gray-800 p-4">
+      <nav class="">
+        <div class="container mx-auto flex justify-between items-center">
+          <!-- Logo -->
+          <a
+            class="text-green-500 h3 font-bold d-flex"
+            href="./index.html"
+            class="navbar-brand"
+          >
+            <img
+              src="./Images/lisbook-logo.png"
+              alt="Logo"
+              width="35"
+              height="auto"
+              class="align-text-center me-2"
+            />
+            Lisbook
+          </a>
 
-        <!-- Menu Links and Theme Toggle -->
-        <div
-          id="menu"
-          class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20"
-        >
+          <!-- Menu Links and Theme Toggle -->
           <div
-            id="menu-close"
-            class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer"
+            id="menu"
+            class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+            <div
+              id="menu-close"
+              class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </div>
-          <a href="./index.html" class="text-gray-300 hover:text-green-500"
-            >Home</a
-          >
-          <a href="./about.html" class="text-gray-300 hover:text-green-500"
-            >About</a
-          >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </div>
+            <a href="./index.html" class="text-gray-300 hover:text-green-500"
+              >Home</a
+            >
+            <a href="./about.html" class="text-gray-300 hover:text-green-500"
+              >About</a
+            >
 
-          <a href="./index.html" class="text-gray-300 hover:text-green-500"
+            <!-- <a href="./index.html" class="text-gray-300 hover:text-green-500"
             >Previous</a
           >
           <a href="./pbd.html" class="text-gray-300 hover:text-green-500"
             >Next</a
+          > -->
+            <button
+              id="theme-toggle"
+              class="text-gray-300 hover:text-green-500"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Mobile Menu Toggle Button -->
+          <div
+            id="menu-toggle"
+            title="Menu"
+            class="text-gray-300 lg:hidden cursor-pointer"
           >
-          <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 w-6"
@@ -76,35 +115,13 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                d="M4 6h16M4 12h16m-7 6h7"
               />
             </svg>
-          </button>
+          </div>
         </div>
-
-        <!-- Mobile Menu Toggle Button -->
-        <div
-          id="menu-toggle"
-          title="Menu"
-          class="text-gray-300 lg:hidden cursor-pointer"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
 
     <main class="container my-5">
       <section class="row d-flex align-items-center rounded-5 p-5">
@@ -562,16 +579,7 @@
       </section>
     </main>
     <!-- Footer -->
-    <footer class="bg-gray-900 p-4 text-center mt-10">
-      <div class="text-gray-500">&copy; 2024 Lisbook | All Rights Reserved</div>
-    </footer>
-
-    <!-- JS Scripts -->
-    <script src="./script.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+    <div id="footer-placeholder"></div>
+    <script src="script.js"></script>
   </body>
 </html>
