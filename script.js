@@ -141,16 +141,20 @@ document.addEventListener("DOMContentLoaded", function () {
     return activate;
   }
 
-  favouriteButton.addEventListener("click", () => {
-    const activated = toggleHeart();
-    markFavourite(currentBookId);
-    if (activated) {
-      document.getElementById("fav-empty-container").classList.add("invisible");
-      renderBookItem(currentBook, favBooksList);
-    } else {
-      loadFavourites();
-    }
-  });
+  if (favouriteButton) {
+    favouriteButton.addEventListener("click", () => {
+      const activated = toggleHeart();
+      markFavourite(currentBookId);
+      if (activated) {
+        document
+          .getElementById("fav-empty-container")
+          .classList.add("invisible");
+        renderBookItem(currentBook, favBooksList);
+      } else {
+        loadFavourites();
+      }
+    });
+  }
 
   //Keyboard Shortcuts buttons
   document.addEventListener("keydown", function (e) {
