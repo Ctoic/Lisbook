@@ -261,12 +261,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (menuClose) {
-    menuClose.addEventListener("click", () => {
-      menu.classList.add("scale-0");
-      menu.classList.remove("scale-100");
-    });
-  }
+  menuClose.addEventListener("click", () => {
+    menu.classList.add("scale-0");
+    menu.classList.remove("scale-100");
+  });
 
   // Function to load an HTML file into an element
   function loadHTML(file, elementId) {
@@ -284,7 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Load header and footer
   document.addEventListener("DOMContentLoaded", function () {
-    loadHTML("./pages/header.html", "header-placeholder");
+    // loadHTML("./pages/header.html", "header-placeholder");
     loadHTML("./pages/footer.html", "footer-placeholder");
   });
 });
