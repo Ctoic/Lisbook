@@ -322,10 +322,3 @@ audio {
   cursor: pointer;
   list-style: none;
 }
-
-/* @media screen and (max-width: 1000px) {
-  #audio-book-list-item {
-    display: inline-flex;
-    flex-direction: column;
-  }
-} */
