@@ -289,3 +289,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // loadHTML("./pages/header.html", "header-placeholder");
   loadHTML("./pages/footer.html", "footer-placeholder");
 });
+
+
+
+// Hide the loader when the page is fully loaded
+window.onload = function() {
+  document.getElementById('loader').style.display = 'none';
+};

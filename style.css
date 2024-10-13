@@ -10,6 +10,27 @@
   margin: 0;
 }
 
+/* Loader Styles */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white; /* Fond blanc pour masquer le contenu */
+  z-index: 9999; /* S'assurer que le loader est au-dessus de tout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Spinner size */
+.spinner-border {
+  width: 4rem;
+  height: 4rem;
+  color: #1db954;
+}
+
 body {
   transition: background-color 0.3s, color 0.3s;
 }
