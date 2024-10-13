@@ -125,9 +125,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Comment Submission
-  document
-    .getElementById("comment-form")
-    .addEventListener("submit", function (e) {
+  if (commentForm) {
+    commentForm.addEventListener("submit", function (e) {
       e.preventDefault();
       const username = document.getElementById("username").value;
       const comment = document.getElementById("comment").value;
@@ -144,23 +143,24 @@ document.addEventListener("DOMContentLoaded", function () {
       // Reset form
       document.getElementById("comment-form").reset();
     });
+  }
 
   // Theme Toggle
-
   const body = document.body;
 
-  // Vérifier le thème actuel dans localStorage, sinon le définir par défaut sur 'dark'
+  //Check the current theme in localStorage, otherwise default to 'dark'.
   const currentTheme = localStorage.getItem("theme") || "dark";
   body.classList.toggle("dark-theme", currentTheme === "dark");
   body.classList.toggle("light-theme", currentTheme === "light");
 
-  // Écouter le clic sur le bouton de basculement du thème
+  // Listen to the click on the theme toggle button
   themeToggle.addEventListener("click", () => {
-    // Changer de thème
+    console.log("clicker");
+    // Change theme
     body.classList.toggle("dark-theme");
     body.classList.toggle("light-theme");
 
-    // Enregistrer le thème dans localStorage
+    // Save theme in localStorage
     const newTheme = body.classList.contains("dark-theme") ? "dark" : "light";
     localStorage.setItem("theme", newTheme);
   });
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
     menu.classList.add("scale-0");
     menu.classList.remove("scale-100");
   });
-
+  /*
   fetch("/data/books.json")
     .then((response) => response.json())
     .then((response) => {
@@ -189,4 +189,5 @@ document.addEventListener("DOMContentLoaded", function () {
         bookList.appendChild(element);
       });
     });
+*/
 });

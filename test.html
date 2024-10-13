@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
@@ -17,7 +17,6 @@
     />
     <title>My Favorite Books Music App</title>
   </head>
-
   <body class="dark-theme bg-gray-900 text-gray-300">
     <!-- Navbar -->
     <nav class="sticky top-0 z-20 bg-gray-800 p-4">
@@ -116,10 +115,115 @@
         </div>
       </div>
     </nav>
+    <main class="container my-5">
+      <!-- Top audio book -->
+      <section class="rounded-5 p-5 my-5">
+        <h2 class="display-5 page-title fw-semibold">Top Audio Books</h2>
 
-<main class="container my-5">
-    <!-- Book Card Display -->
-    <section class="row d-flex align-items-stretch rounded-5 p-5">
+        <div
+          class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4 align-items-stretch"
+        >
+          <!-- book card -->
+          <div class="col">
+            <div class="features-card border rounded-5 p-4 text-center">
+              <div
+                class="card-cover-container rounded-4 d-flex align-items-center border"
+              >
+                <img
+                  src="./Images/GD.jpeg"
+                  class="card-img-top img-fluid"
+                  alt="Audio book cover"
+                />
+              </div>
+              <div class="card-body mt-4">
+                <h4 class="card-title h-6 page-title">God Delusion</h4>
+                <p class="card-text">By Richard Dawkins</p>
+                <a
+                  href="pbd.html"
+                  class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5"
+                  >Discover</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- book card -->
+          <div class="col">
+            <div class="features-card border rounded-5 p-4 text-center">
+              <div
+                class="card-cover-container rounded-4 d-flex align-items-center border"
+              >
+                <img
+                  src="./Images/Frankestine.jpg"
+                  class="card-img-top img-fluid"
+                  alt="Audio book cover"
+                />
+              </div>
+              <div class="card-body mt-4">
+                <h4 class="card-title h6 page-title">Frankestine</h4>
+                <p class="card-text">By Mary Shelby</p>
+                <a
+                  href="fs.html"
+                  class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5"
+                  >Discover</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- book card -->
+          <div class="col">
+            <div class="features-card border rounded-5 p-4 text-center">
+              <div
+                class="card-cover-container rounded-4 d-flex align-items-center border"
+              >
+                <img
+                  src="./Images/Adventures_Sherlock_Holmes.jpg"
+                  class="card-img-top img-fluid"
+                  alt="Audio book cover"
+                />
+              </div>
+              <div class="card-body mt-4">
+                <h4 class="card-title h6 page-title">
+                  Adventures of Sherlock Holmes
+                </h4>
+                <p class="card-text">By Sir Arthur Conan Doyle</p>
+                <a
+                  href="adventures.html"
+                  class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5"
+                  >Discover</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- book card -->
+          <div class="col">
+            <div class="features-card border rounded-5 p-4 text-center">
+              <div
+                class="card-cover-container rounded-4 d-flex align-items-center border"
+              >
+                <img
+                  src="./Images/Sapiens.jpg"
+                  class="card-img-top img-fluid"
+                  alt="Audio book cover"
+                />
+              </div>
+              <div class="card-body mt-4">
+                <h4 class="card-title h6 page-title">
+                  Sapiens: A Brief History of Humankind
+                </h4>
+                <p class="card-text">By Yuval Noah Harari</p>
+                <a
+                  href="rdpd.html"
+                  class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5"
+                  >Discover</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--  -->
+      <section class="row d-flex align-items-stretch rounded-5 p-5">
         <div class="col-12 col-lg-4 mb-5 mb-lg-0">
           <div class="features-card border rounded-5 p-4 text-center h-100">
             <!-- Cover Image -->
@@ -129,19 +233,18 @@
             >
               <img
                 id="img"
-                src="./Images/cs.jpg"
-                alt="Pale Blue Dot"
+                src="./Images/GD.jpeg"
+                alt="God Delusion Cover"
                 class="card-img-top img-fluid"
               />
             </div>
             <!-- Book Details -->
             <div class="mt-4">
-              <h1 class="text-2xl font-bold text-green-500">Pale Blue Dot</h1>
-              <h3 class="text-lg mt-2">By Carl Sagan</h3>
+              <h1 class="text-2xl font-bold text-green-500">God Delusion</h1>
+              <h3 class="text-lg mt-2">By Richard Dawkins</h3>
               <p class="text-sm mt-2">
-                Pale Blue Dot explores humanity's place in the universe, emphasizing
-            the importance of space exploration and our responsibility to
-            protect Earth.
+                The God Delusion is a book by English biologist Richard Dawkins
+                that argues against the existence of a supernatural creator.
               </p>
             </div>
 
@@ -176,66 +279,66 @@
             >
               <li
                 class="adiobk-sub-item d-flex justify-content-between"
-                data-src="audio/PaleBlueDot/Introduction.mp3"
+                data-src="audio/part1.mp3"
               >
-                <p>Introduction: Pale Blue Dot</p>
-                <a href="audio/PaleBlueDot/Introduction.mp3" download
+                <p>Introduction: God Delusion</p>
+                <a href="audio/part1.mp3" download
                   ><i class="bi bi-cloud-arrow-down-fill"></i
                 ></a>
               </li>
               <li
                 class="adiobk-sub-item d-flex justify-content-between"
-                data-src="audio/PaleBlueDot/chap-1.mp3"
+                data-src="audio/part2.mp3"
               >
-                <p>Chapter 1: The Shores of the Cosmic Ocean</p>
-                <a href="audio/PaleBlueDot/chap-1.mp3" download
+                <p>Part 2</p>
+                <a href="audio/part2.mp3" download
                   ><i class="bi bi-cloud-arrow-down-fill"></i
                 ></a>
               </li>
               <li
                 class="adiobk-sub-item d-flex justify-content-between"
-                data-src="audio/PaleBlueDot/Chap-2.mp3"
+                data-src="audio/part3.mp3"
               >
-                <p>Chapter 2: One Voice in the Cosmic Fugue</p>
-                <a href="audio/PaleBlueDot/Chap-2.mp3" download
+                <p>Part 3</p>
+                <a href="audio/part3.mp3" download
                   ><i class="bi bi-cloud-arrow-down-fill"></i
                 ></a>
               </li>
               <li
                 class="adiobk-sub-item d-flex justify-content-between"
-                data-src="audio/PaleBlueDot/chap-3.mp3"
+                data-src="audio/part4.mp3"
               >
-                <p>Chapter 3: The Harmony of the Worlds</p>
-                <a href="audio/PaleBlueDot/chap-3.mp3" download
+                <p>Part 4</p>
+                <a href="audio/part4.mp3" download
                   ><i class="bi bi-cloud-arrow-down-fill"></i
                 ></a>
               </li>
               <li
                 class="adiobk-sub-item d-flex justify-content-between"
-                data-src="audio/PaleBlueDot/chap-4.mp3"
+                data-src="audio/part5.mp3"
               >
-                <p>Chapter 4: Heaven and Hell</p>
-                <a href="audio/PaleBlueDot/chap-4.mp3" download
+                <p>Part 5</p>
+                <a href="audio/part5.mp3" download
                   ><i class="bi bi-cloud-arrow-down-fill"></i
                 ></a>
               </li>
               <li
                 class="adiobk-sub-item d-flex justify-content-between"
-                data-src="audio/PaleBlueDot/chap-5.mp3"
+                data-src="audio/part6.mp3"
               >
-                <p>Chapter 5: </p>
+                <p>Part 6</p>
 
-                <a href="audio/PaleBlueDot/chap-5.mp3" download
+                <a href="audio/part6.mp3" download
                   ><i class="bi bi-cloud-arrow-down-fill"></i
                 ></a>
               </li>
               <li
-                class="p-2 d-flex justify-content-between"
-                data-src="audio/PaleBlueDot/chap-6.m4b"
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part7.mp3"
               >
-                <p>Chapter 6: </p>
+                <p>Part 7</p>
 
-                <a href="audio/PaleBlueDot/chap-6.m4b" download
+                <a href="audio/part7.mp3" download
                   ><i class="bi bi-cloud-arrow-down-fill"></i
                 ></a>
               </li>
@@ -254,143 +357,8 @@
           </div>
         </div>
       </section>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div
-      class="container flex flex-col md:flex-row mx-auto mt-10 p-6 text-center"
-    >
-      <div
-        class="book-card flex-auto p-6 rounded-lg shadow-lg md:max-w-sm mx-auto md:w-1/3 mb-6 md:mb-0"
-      >
-        <!-- Cover Image -->
-        <img
-          id="img"
-          src="./Images/cs.jpg"
-          alt="God Delusion Cover"
-          class="w-full h-64 object-cover rounded-lg"
-        />
 
-        <!-- Book Details -->
-        <div class="mt-4">
-          <h1 class="text-2xl font-bold text-green-500">Pale Blue Dot</h1>
-          <h3 class="text-lg mt-2">By Carl Sagan</h3>
-          <p class="text-sm mt-2">
-            Pale Blue Dot explores humanity's place in the universe, emphasizing
-            the importance of space exploration and our responsibility to
-            protect Earth.
-          </p>
-        </div>
-    </div>
-
-        <!-- social media sharing -->
-
-    <div class="flex justify-center space-x-4 mt-4">
-        <h4>Share it on :</h4>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:5500/Lisbook/pbd.html&text=Lisbook+god Delusion" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Share on Facebook" style="width: 24px; height: 24px;" />
-        </a>
-        <a href="https://twitter.com/intent/tweet?url=http://127.0.0.1:5500/Lisbook/pbd.html&text=Lisbook+god Delusion" target="_blank">
-            <img src="https://abs.twimg.com/favicons/twitter.2.ico" alt="Share on X" />
-        </a>
-        <a href="https://api.whatsapp.com/send?text=http://127.0.0.1:5500/Lisbook/pbd.html" target="_blank">
-            <img src="https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_whatsapp-512.png" alt="Share on WhatsApp" style="width: 24px; height: 24px;" />
-        </a>
-              
-        
-    </div>
-    
-
-
-        <!-- Favorite Button -->
-        <div class="mt-4 flex justify-center favorite-button-container">
-          <i class="bi bi-heart mx-4 favorite-button"></i>
-          <i class="bi bi-share mx-4 favorite-button"></i>
-          <i class="bi bi-chat mx-4 favorite-button"></i>
-        </div>
-      </div>
-      <!-- Playlist Section -->
-      <div
-        class="playlist-card flex-auto md:ml-7 p-6 min-h-full rounded-lg mx-auto shadow-lg md:w-2/3"
-      >
-        <ul id="playlist" class="list-none rounded-lg text-left overflow-auto">
-          <li
-            class="p-2 hover:bg-gray-700"
-            data-src="audio/PaleBlueDot/Introduction.mp3"
-          >
-            Introduction: Pale Blue Dot
-            <a href="audio/PaleBlueDot/Introduction.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li
-            class="p-2 hover:bg-gray-700"
-            data-src="audio/PaleBlueDot/chap-1.mp3"
-          >
-            Chapter 1: The Shores of the Cosmic Ocean
-            <a href="audio/PaleBlueDot/chap-1.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li
-            class="p-2 hover:bg-gray-700"
-            data-src="audio/PaleBlueDot/Chap-2.mp3"
-          >
-            Chapter 2: One Voice in the Cosmic Fugue
-            <a href="audio/PaleBlueDot/Chap-2.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li
-            class="p-2 hover:bg-gray-700"
-            data-src="audio/PaleBlueDot/chap-3.mp3"
-          >
-            Chapter 3: The Harmony of the Worlds
-            <a href="audio/PaleBlueDot/chap-3.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li
-            class="p-2 hover:bg-gray-700"
-            data-src="audio/PaleBlueDot/chap-4.mp3"
-          >
-            Chapter 4: Heaven and Hell
-            <a href="audio/PaleBlueDot/chap-4.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-        </ul>
-        <!-- Audio player -->
-       <div class="player container rounded-xl">
-          <div class="audio-img"></div>
-          <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
-        </div>
-
-        <!-- Play/Pause Button with Animation -->
-        <div class="mt-4 flex justify-center">
-          <button id="playPauseBtn" class="play"></button>
-          <!-- Added Play/Pause button here -->
-        </div>
-      </div>
-    </div>
-
-    <!-- Buttons -->
-    <div class="mt-10 text-center">
-      <a href="./index.html" class="text-gray-300 hover:text-green-500 p-3"
-        >Previous</a
-      >
-      <a href="./fs.html" class="text-gray-300 hover:text-green-500 p-3"
-        >Next</a
-      >
-    </div>
-
-    <section class="row rounded-5 p-5 mt-5">
+      <section class="row rounded-5 p-5 mt-5">
         <!-- Comments Section -->
         <div class="container mx-auto p-6 rounded-lg">
           <h2 class="display-5 page-title fw-semibold mb-6">
@@ -435,7 +403,12 @@
       <div class="text-gray-500">&copy; 2024 Lisbook | All Rights Reserved</div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JS Scripts -->
     <script src="./script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
