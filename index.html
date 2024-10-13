@@ -7,11 +7,17 @@
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_7e5095de20c834f9cdc216140d7a777c"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>My Favorite Books Music App</title>
 </head>
 
-<body class="dark-theme bg-gray-900 text-gray-300">
+<body class="loading" class="dark-theme bg-gray-900 text-gray-300">
+    <div id="loader">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
     <!-- Navbar -->
     <nav class="sticky top-0 z-20 bg-gray-800 p-4">
         <div class="container mx-auto flex justify-between items-center">
@@ -28,9 +34,11 @@
                             d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </div>
-                <a href="./index.html" id="homeLink" class="text-gray-300 hover:text-green-500 my-auto">Home</a>
-                <a href="./index.html" id="previousLink" class="text-gray-300 hover:text-green-500 my-auto">Previous</a>
-                <a href="./pbd.html" id="nextLink" class="text-gray-300 hover:text-green-500 my-auto">Next</a>
+                <a href="./index.html" class="text-gray-300 hover:text-green-500 my-auto" id="homeLink">Home</a>
+                <a href="./about.html" class="text-gray-300 hover:text-green-500" id="AboutLink">About</a>
+
+                <a href="./index.html" class="text-gray-300 hover:text-green-500 my-auto" id="previousLink">Previous</a>
+                <a href="./pbd.html" class="text-gray-300 hover:text-green-500 my-auto" id="nextLink">Next</a>
                 <button id="theme-toggle" class="text-gray-300 rounded tooltip-parent my-auto tooltip-left">
                     <span class="tooltip">Switch theme</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -66,26 +74,44 @@
                         </div>
                     </div>
                 </div>
+
             </div>
 
-
-
-        </div>
-
-        <!-- Mobile Menu Toggle Button -->
-        <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-        </div>
+            <!-- Mobile Menu Toggle Button -->
+            <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </div>
         </div>
     </nav>
 
     <div class="container p-4 w-full">
-        <p id="topAudioBooks" class="text-2xl mt-3 pb-5 ps-3 font-bold">Top Audio Books</p>
+        <p class="text-2xl mt-3 pb-5 ps-3 font-bold" id="topAudioBooks">Top Audio Books</p>
+
         <ul id="audio-books-list" class="space-x-2 space-y-2 flex flex-wrap w-full mx-auto"></ul>
     </div>
+    <!-- social media sharing -->
+    <div class="flex justify-center space-x-4 mt-4">
+        <h4>Share it on :</h4>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:5500/Lisbook/index.html&text=Lisbook+god Delusion"
+            target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                alt="Share on Facebook" style="width: 24px; height: 24px;" />
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=http://127.0.0.1:5500/Lisbook/index.html&text=Lisbook+god Delusion"
+            target="_blank">
+            <img src="https://abs.twimg.com/favicons/twitter.2.ico" alt="Share on X" />
+        </a>
+        <a href="https://api.whatsapp.com/send?text=http://127.0.0.1:5500/Lisbook/index.html" target="_blank">
+            <img src="https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_whatsapp-512.png"
+                alt="Share on WhatsApp" style="width: 24px; height: 24px;" />
+        </a>
+
+
+    </div>
+
 
 
     <!-- Book Card Display -->
@@ -119,24 +145,38 @@
             <ul id="playlist" class="playlist list-none rounded-lg text-left overflow-auto">
                 <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part1.mp3">
                     Introduction: God Delusion
+                    <a href="audio/part1.mp3" download><i class="fa fa-download"
+                            style="font-size: 24px; color: red"></i></a>
                 </li>
                 <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part2.mp3">
                     Part 2
+                    <a href="audio/part2.mp3" download><i class="fa fa-download"
+                            style="font-size: 24px; color: red"></i></a>
                 </li>
                 <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part3.mp3">
                     Part 3
+                    <a href="audio/part3.mp3" download><i class="fa fa-download"
+                            style="font-size: 24px; color: red"></i></a>
                 </li>
                 <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part4.mp3">
                     Part 4
+                    <a href="audio/part4.mp3" download><i class="fa fa-download"
+                            style="font-size: 24px; color: red"></i></a>
                 </li>
                 <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part5.mp3">
                     Part 5
+                    <a href="audio/part5.mp3" download><i class="fa fa-download"
+                            style="font-size: 24px; color: red"></i></a>
                 </li>
                 <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part6.mp3">
                     Part 6
+                    <a href="audio/part6.mp3" download><i class="fa fa-download"
+                            style="font-size: 24px; color: red"></i></a>
                 </li>
                 <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part7.mp3">
                     Part 7
+                    <a href="audio/part7.mp3" download><i class="fa fa-download"
+                            style="font-size: 24px; color: red"></i></a>
                 </li>
             </ul>
 
@@ -153,10 +193,14 @@
         </div>
     </div>
 
-    <!-- Buttons -->
-    <div class="mt-10 text-center">
-        <a id="previousLink1" href="./index.html" class="text-gray-300 hover:text-green-500 p-3">Previous</a>
-        <a id="nextLink1" href="./fs.html" class="text-gray-300 hover:text-green-500 p-3">Next</a>
+    <div class="container p-4 w-full">
+
+        <p class="text-2xl mt-3 pb-5 ps-3 font-bold">Favorites</p>
+
+        <div class="container" id="fav-empty-container">
+            <p class="ps-3 text-sm text-gray-500">All of your favourite books will appear here</p>
+        </div>
+        <ul id="fav-audio-books-list" class="space-x-2 space-y-2 flex flex-wrap w-full mx-auto"></ul>
     </div>
 
 
@@ -191,8 +235,6 @@
 
     <!-- Template for the book card -->
     <template id="book-card-template">
-
-
         <li id="audio-book-list-item flex-row items-center" class="md:w-60 w-full">
             <div
                 class="book-card flex flex-row p-4 sm:p-3 rounded-lg shadow-lg w-full h-full md:flex-col items-center md:items-start">
@@ -209,19 +251,18 @@
                 </div>
             </div>
         </li>
-
     </template>
-
 
     <!-- JS Scripts -->
     <script src="./script.js"></script>
-    <!-- JS pour la gestion des langues -->
+    <!-- JS for language management -->
     <script>
         const translations = {
             en: {
                 home: "Home",
                 previous: "Previous",
                 next: "Next",
+                About: "About",
                 selectLanguage: "Select Language",
                 themeToggleTooltip: "Switch theme",
                 topAudioBooks: "Top Audio Books",
@@ -236,6 +277,7 @@
                 home: "Accueil",
                 previous: "Précédent",
                 next: "Suivant",
+                About: "A Propos",
                 selectLanguage: "Sélectionner la langue",
                 themeToggleTooltip: "Changer le thème",
                 topAudioBooks: "Meilleurs livres audio",
@@ -252,6 +294,7 @@
             document.getElementById('homeLink').innerText = translations[language].home;
             document.getElementById('previousLink').innerText = translations[language].previous;
             document.getElementById('nextLink').innerText = translations[language].next;
+            document.getElementById('AboutLink').innerText = translations[language].About;
             document.getElementById('selectLanguage').innerText = translations[language].selectLanguage;
             document.getElementById('theme-toggle').querySelector('.tooltip').innerText = translations[language].themeToggleTooltip;
             document.getElementById('topAudioBooks').innerText = translations[language].topAudioBooks;
@@ -263,11 +306,22 @@
             document.getElementById('nextLink1').innerText = translations[language].next;
         }
 
-        // Optionnel : définir la langue par défaut lors du chargement de la page
+        // Optional: Set default language when page loads
         document.addEventListener('DOMContentLoaded', () => {
             changeLanguage('en'); // Par défaut en anglais
         });
+
+        // When the page is fully loaded, hide the loading animation
+
+        window.addEventListener('load', function () {
+            // Ajoute un délai avant de cacher l'animation de chargement (par exemple, 2 secondes)
+            setTimeout(function () {
+                document.getElementById('loader').style.display = 'none';
+                document.body.classList.remove('loading');
+            }, 1000); // 1000 millisecondes = 1 secondes
+        });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
