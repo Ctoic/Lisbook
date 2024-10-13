@@ -9,6 +9,24 @@
   margin: 0;
 }
 
+/*loader page*/
+#loader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff; /* Couleur de fond */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.loading {
+  overflow: hidden; /* Empêche le scroll pendant le chargement */
+}
+
 body {
   transition: background-color 0.3s, color 0.3s;
 }
