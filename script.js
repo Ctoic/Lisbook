@@ -6,6 +6,29 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuClose = document.getElementById("menu-close");
   const menu = document.getElementById("menu");
   const bookList = document.getElementById("audio-books-list");
+  const favBooksList = document.getElementById("fav-audio-books-list");
+  const template = document.getElementById("book-card-template");
+  const favouriteButton = document.getElementById("favourite-btn");
+  const commentForm = document.getElementById("comment-form");
+  const FAV_BOOKS_KEY = "fav_books";
+  const currentBookId = "7";
+  let allBooksList = [];
+  let currentBook;
+
+  
+  fetch('/data/books.json')
+  .then(response=>response.json())
+  .then(response=>{
+    allBooksList = response;
+    response.forEach(book=>{
+      if (book.id == currentBookId) {
+        currentBook = book;
+      }else{
+        renderBookItem(book, bookList);
+      }
+    })
+    loadFavourites();
+  })
 
   // Function to display error popup
   function showErrorPopup(message) {
@@ -43,10 +66,53 @@ document.addEventListener("DOMContentLoaded", function () {
     // Attach event listener to the close button directly via DOM element
     const closeButton = errorPopup.querySelector("button");
     closeButton.addEventListener("click", () => {
-      errorPopup.remove(); 
-      overlay.remove(); 
+      errorPopup.remove();
+      overlay.remove();
     });
   }
+
+  function loadFavourites(){
+
+    const favs = localStorage.getItem(FAV_BOOKS_KEY);
+    
+    var favsList = JSON.parse(favs);
+    favBooksList.innerHTML = '';    
+
+    if (favs == null || favsList.length == 0) {
+      document.getElementById("fav-empty-container").classList.remove("invisible");
+      return;
+    }else{
+      document.getElementById("fav-empty-container").classList.add("invisible");
+    }
+
+    if (favsList.includes(currentBookId)) {
+      toggleHeart(true);
+    }
+
+    allBooksList.forEach(book=>{
+      if(favsList.includes(book.id)){
+        renderBookItem(book, favBooksList);
+      }
+    })
+  }
+
+  function markFavourite(id, addItem){
+    var favsList = [];
+    const favs = localStorage.getItem(FAV_BOOKS_KEY);
+
+    if (favs != null) favsList = JSON.parse(favs);
+
+    if (addItem == null) addItem = !favsList.includes(id);
+    if (addItem) favsList.push(id);
+    else{
+      const idx = favsList.indexOf(id);
+      if(idx != -1) favsList.splice(idx,1);
+    }
+
+    localStorage.setItem(FAV_BOOKS_KEY, JSON.stringify(favsList));
+  }
+
+
 
   // Playlist item click event
   playlistItems.forEach((item) => {
@@ -61,9 +127,13 @@ document.addEventListener("DOMContentLoaded", function () {
         audioPlayer.play().catch((error) => {
           console.error("Audio playback error:", error);
           if (error.name === "NotSupportedError") {
-            showErrorPopup("Failed to play audio. Unsupported format or file missing.");
+            showErrorPopup(
+              "Failed to play audio. Unsupported format or file missing."
+            );
           } else {
-            showErrorPopup("Failed to play audio. There was an issue with playback.");
+            showErrorPopup(
+              "Failed to play audio. There was an issue with playback."
+            );
           }
         });
       } else {
@@ -71,6 +141,31 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  function toggleHeart(activate) {
+    if(activate == null) activate = favouriteButton.classList.contains('bi-heart') 
+    
+      if(activate){
+      favouriteButton.classList.remove('bi-heart');
+      favouriteButton.classList.add('bi-heart-fill');
+    }else{
+      favouriteButton.classList.add('bi-heart');
+      favouriteButton.classList.remove('bi-heart-fill');
+    }
+
+    return activate;
+  }
+
+  favouriteButton.addEventListener('click', ()=>{
+    const activated = toggleHeart()
+    markFavourite(currentBookId);
+    if (activated) {
+      document.getElementById("fav-empty-container").classList.add("invisible");
+      renderBookItem(currentBook, favBooksList);
+    }else{
+      loadFavourites();
+    }
+  })
 
   //Keyboard Shortcuts buttons
   document.addEventListener("keydown", function (e) {
@@ -121,33 +216,44 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Comment Submission
-  document.getElementById("comment-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const username = document.getElementById("username").value;
-    const comment = document.getElementById("comment").value;
+  document
+    .getElementById("comment-form")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const comment = document.getElementById("comment").value;
 
-    const commentHTML = `<div class="bg-gray-700 text-white p-4 rounded-lg">
+      const commentHTML = `<div class="bg-gray-700 text-white p-4 rounded-lg">
                     <strong>${username}:</strong>
                     <p>${comment}</p>
                 </div>`;
 
-    document.getElementById("comments-list").insertAdjacentHTML("beforeend", commentHTML);
+      document
+        .getElementById("comments-list")
+        .insertAdjacentHTML("beforeend", commentHTML);
 
-    // Reset form
-    document.getElementById("comment-form").reset();
-  });
+      // Reset form
+      document.getElementById("comment-form").reset();
+    });
 
   // Theme Toggle
-  themeToggle.addEventListener("click", function () {
-    if (document.body.classList.contains("dark-theme")) {
-      document.body.classList.remove("dark-theme");
-      document.body.classList.add("light-theme");
-      console.log("light");
-    } else {
-      document.body.classList.remove("light-theme");
-      document.body.classList.add("dark-theme");
-      console.log("dark");
-    }
+
+  const body = document.body;
+
+  // Vérifier le thème actuel dans localStorage, sinon le définir par défaut sur 'dark'
+  const currentTheme = localStorage.getItem("theme") || "dark";
+  body.classList.toggle("dark-theme", currentTheme === "dark");
+  body.classList.toggle("light-theme", currentTheme === "light");
+
+  // Écouter le clic sur le bouton de basculement du thème
+  themeToggle.addEventListener("click", () => {
+    // Changer de thème
+    body.classList.toggle("dark-theme");
+    body.classList.toggle("light-theme");
+
+    // Enregistrer le thème dans localStorage
+    const newTheme = body.classList.contains("dark-theme") ? "dark" : "light";
+    localStorage.setItem("theme", newTheme);
   });
 
   //Mobile menu toggle
@@ -161,20 +267,14 @@ document.addEventListener("DOMContentLoaded", function () {
     menu.classList.remove("scale-100");
   });
 
-  fetch('/data/books.json')
-  .then(response=>response.json())
-  .then(response=>{
-    const template = document.getElementById("book-card-template");
-    response.forEach(book=>{
-        const element = document.importNode(template.content, true);
-        element.getElementById("book-title").textContent = book.title;
-        element.getElementById("book-author").textContent = `By ${book.author}`;
-        element.getElementById("img").src = `https://picsum.photos/200`;
-        element.getElementById("img").alt = `Cover of ${book.title}`;
-        bookList.appendChild(element);
-    })
-  })
-
+  function renderBookItem(book, listElement){
+    const element = document.importNode(template.content, true);
+    element.getElementById("book-title").textContent = book.title;
+    element.getElementById("book-author").textContent = `By ${book.author}`;
+    element.getElementById("img").src = book.cover;
+    element.getElementById("img").alt = `Cover of ${book.title}`;
+    listElement.appendChild(element);
+  }
 });
 
 
