@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "your_public_key",
+            });
+        })();
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -284,24 +293,39 @@
     <!-- Comments Section -->
     <div class="container mx-auto mt-16 bg-gray-800 p-6 rounded-lg shadow-lg">
       <h2 class="text-center text-2xl mb-6">Share Your Thoughts</h2>
-      <form id="comment-form" class="space-y-4">
+      <form id="feedback-form" class="space-y-4">
         <div>
           <label for="username" class="block text-sm font-medium"
             >Your Name:</label
           >
           <input
             type="text"
+            name="username"
             id="username"
             class="w-full p-2 rounded-lg bg-gray-700 text-white mt-2"
             required
           />
         </div>
         <div>
+          <label for="username" class="block text-sm font-medium"
+            >Email:</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="off"
+            class="w-full p-2 rounded-lg bg-gray-700 text-white mt-2"
+            required
+          />
+        </div>
+        <div>
           <label for="comment" class="block text-sm font-medium"
-            >Your Comment:</label
+            >Your Feedback:</label
           >
           <textarea
-            id="comment"
+            id="feedback"
+            name="feedback"
             class="w-full p-2 rounded-lg bg-gray-700 text-white mt-2"
             rows="4"
             required
@@ -316,8 +340,6 @@
           </button>
         </div>
       </form>
-
-      <div id="comments-list" class="mt-10 space-y-4"></div>
     </div>
 
     <!-- Footer -->

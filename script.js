@@ -215,26 +215,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Comment Submission
-  document
-    .getElementById("comment-form")
-    .addEventListener("submit", function (e) {
-      e.preventDefault();
-      const username = document.getElementById("username").value;
-      const comment = document.getElementById("comment").value;
-
-      const commentHTML = `<div class="bg-gray-700 text-white p-4 rounded-lg">
-                    <strong>${username}:</strong>
-                    <p>${comment}</p>
-                </div>`;
-
-      document
-        .getElementById("comments-list")
-        .insertAdjacentHTML("beforeend", commentHTML);
-
-      // Reset form
-      document.getElementById("comment-form").reset();
-    });
+// Feedback Submission
+window.onload = function() {
+  document.getElementById('feedback-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      emailjs.sendForm('your_service_id', 'feedback_form', this)
+          .then(() => {
+              console.log('SUCCESS!');
+              
+              // Reset the form 
+              document.getElementById("feedback-form").reset();
+          }, (error) => {
+              console.log('FAILED...', error);
+          });
+  });
+}
 
   // Theme Toggle
 
