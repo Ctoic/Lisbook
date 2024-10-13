@@ -190,3 +190,69 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 });
+
+// Function to save audiobook to Recently Played list in localStorage
+function saveToRecentlyPlayed(book) {
+  let recentlyPlayed = JSON.parse(localStorage.getItem('recentlyPlayed')) || [];
+  
+  // Remove the book if it already exists
+  recentlyPlayed = recentlyPlayed.filter(b => b.title !== book.title);
+  
+  // Add the new book to the start of the list
+  recentlyPlayed.unshift(book);
+
+  // Limit the list to 5 audiobooks
+  if (recentlyPlayed.length > 5) {
+    recentlyPlayed.pop();
+  }
+
+  // Save updated list to localStorage
+  localStorage.setItem('recentlyPlayed', JSON.stringify(recentlyPlayed));
+
+  // Update the Recently Played section on the UI
+  displayRecentlyPlayed();
+}
+
+// Function to display the Recently Played section
+function displayRecentlyPlayed() {
+  const recentlyPlayed = JSON.parse(localStorage.getItem('recentlyPlayed')) || [];
+  const recentlyPlayedList = document.getElementById('recently-played-list');
+
+  recentlyPlayedList.innerHTML = ''; // Clear current list
+
+  recentlyPlayed.forEach(book => {
+    // Create list item for each recently played audiobook
+    const li = document.createElement('li');
+    li.classList.add('md:w-60', 'w-full');
+
+    li.innerHTML = `
+      <div class="book-card flex flex-row p-4 sm:p-3 rounded-lg shadow-lg w-full h-full md:flex-col items-center md:items-start">
+        <div class="container w-14 md:w-40 md:h-40 flex items-center md:w-full">
+          <img src="${book.img}" alt="${book.title}" class="rounded-lg w-full h-full aspect-square object-cover" />
+        </div>
+        <div class="md:mt-2 ps-4 md:px-1 text-wrap flex-col items-center">
+          <p class="md:text-lg text-sm font-medium text-green-500 w-32 truncate sm:w-full align-middle">${book.title}</p>
+          <p class="text-sm truncate align-middle">${book.author}</p>
+        </div>
+      </div>
+    `;
+    
+    recentlyPlayedList.appendChild(li);
+  });
+}
+
+// Event listener for when an audiobook is played
+const playlistItems = document.querySelectorAll('.adiobk-sub-item');
+playlistItems.forEach(item => {
+  item.addEventListener('click', function() {
+    const book = {
+      title: document.querySelector('h1').textContent, // Audiobook title
+      author: document.querySelector('h3').textContent, // Audiobook author
+      img: document.querySelector('.book-card img').src, // Audiobook cover image
+    };
+    saveToRecentlyPlayed(book); // Save book to recently played
+  });
+});
+
+// Display Recently Played list on page load
+document.addEventListener('DOMContentLoaded', displayRecentlyPlayed);

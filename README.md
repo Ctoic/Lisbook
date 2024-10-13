@@ -173,6 +173,13 @@ MIT License
                     <sub><b>vatsaljain-hub</b></sub>
                 </a>
             </td>
+            <td align="center">
+                <a href="https://github.com/G-SaiVishwas">
+                    <img src="https://avatars.githubusercontent.com/u/174499002?s=400&u=55d771300ec7a8d421a5a51268711a54ac4da505&v=4" width="100;" alt="G-SaiVishwas"/>
+                    <br />
+                    <sub><b>G-SaiVishwas</b></sub>
+                </a>
+            </td>
 		</tr>
 	<tbody>
 </table>
