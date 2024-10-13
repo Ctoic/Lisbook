@@ -19,12 +19,25 @@
     class="bg-gray-900 text-gray-300 dark-theme d-flex flex-column min-vh-100"
   >
     <!-- Navbar -->
-    <nav class="sticky top-0 z-20 bg-gray-800 p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <!-- Logo -->
-        <a class="text-green-500 text-2xl font-bold" href="./index.html"
-          >Lisbook</a
-        >
+    <!-- <div id="header-placeholder" class="sticky top-0 z-20"></div> -->
+    <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
+      <nav class="">
+        <div class="container mx-auto flex justify-between items-center">
+          <!-- Logo -->
+          <a
+            class="logo-text h3 font-bold d-inline-flex"
+            href="./index.html"
+            class="navbar-brand"
+          >
+            <img
+              src="./Images/lisbook-logo-1.png"
+              alt="Logo"
+              width="40"
+              height="auto"
+              class="align-text-center me-2"
+            />
+            Lisbook
+          </a>
 
         <!-- Menu Links and Theme Toggle -->
         <div
@@ -169,149 +182,107 @@
           </p>
         </div>
 
-        <!-- Favorite Button -->
-        <div class="mt-4 flex justify-center favorite-button-container">
-          <i class="bi bi-heart mx-4 favorite-button"></i>
-          <i class="bi bi-share mx-4 favorite-button"></i>
-          <i class="bi bi-chat mx-4 favorite-button"></i>
+            <hr class="opacity-50 w-60 mt-4 mx-auto" />
+
+            <!-- Favorite, share, comment Buttons -->
+            <div class="mt-3 flex justify-center icon-action-btn-container">
+              <i
+                class="bi bi-heart mx-4 icon-action-btn tooltip-parent tooltip-bottom"
+                id="favourite-btn"
+                ><span class="tooltip">Save to Favourites</span></i
+              >
+              <i
+                class="bi bi-share mx-4 icon-action-btn tooltip-parent tooltip-bottom"
+                id="share-btn"
+                data-bs-target="#exampleModalToggle"
+                data-bs-toggle="modal"
+                ><span class="tooltip">Share</span></i
+              >
+
+              <i
+                class="bi bi-chat mx-4 icon-action-btn tooltip-parent tooltip-bottom"
+                id="view-comments-btn"
+                ><span class="tooltip">View comments</span></i
+              >
+            </div>
+          </div>
         </div>
-      </div>
+        <!-- playlist -->
+        <div class="col-12 col-lg-8 ps-4">
+          <div class="eatures-card border rounded-5 p-4 text-center h-100">
+            <ul
+              id="playlist"
+              class="playlist list-none text-left overflow-auto m-2 mb-4"
+            >
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part1.mp3"
+              >
+                <p>Introduction: God Delusion</p>
+                <a href="audio/part1.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part2.mp3"
+              >
+                <p>Piste 02</p>
+                <a href="audio/part2.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part3.mp3"
+              >
+                <p>Piste 03</p>
+                <a href="audio/part3.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part4.mp3"
+              >
+                <p>Piste 04</p>
+                <a href="audio/part4.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part5.mp3"
+              >
+                <p>Piste 05</p>
+                <a href="audio/part5.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part6.mp3"
+              >
+                <p>Piste 06</p>
+                <a href="audio/part6.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+              <li
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part7.mp3"
+              >
+                <p>Piste 07</p>
+                <a href="audio/part7.mp3" download
+                  ><i class="bi bi-cloud-arrow-down-fill"></i
+                ></a>
+              </li>
+            </ul>
 
-
-             <!-- social media sharing -->
-    <div class="flex justify-center space-x-4 mt-4">
-        <h4>Share it on :</h4>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:5500/Lisbook/rdpd.html&text=Lisbook+god Delusion" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Share on Facebook" style="width: 24px; height: 24px;" />
-        </a>
-        <a href="https://twitter.com/intent/tweet?url=http://127.0.0.1:5500/Lisbook/rdpd.html&text=Lisbook+god Delusion" target="_blank">
-            <img src="https://abs.twimg.com/favicons/twitter.2.ico" alt="Share on X" />
-        </a>
-        <a href="https://api.whatsapp.com/send?text=http://127.0.0.1:5500/Lisbook/rdpd.html" target="_blank">
-            <img src="https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_whatsapp-512.png" alt="Share on WhatsApp" style="width: 24px; height: 24px;" />
-        </a>
-              
-        
-    </div>
-
-
-     <!-- Playlist Section -->
-    <div class="container mx-auto mt-10 text-center">
-        <ul id="playlist" class="list-none mt-5 bg-gray-800 rounded-lg shadow-lg p-4">
-            
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part1.mp3">Introduction: God Delusion </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part2.mp3">Part 2</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part3.mp3">Part 3</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part4.mp3">Part 4</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part5.mp3">Part 5</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part6.mp3">Part 6</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part7.mp3">Part 7</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part8.mp3">Part 8</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part9.mp3">Part 9</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part10.mp3">Part 10</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part11.mp3">Part 11</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part12.mp3">Part 12</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part13.mp3">Part 13</li>
-            <li class="p-2 hover:bg-gray-700" data-src="audio/part14.mp3">Part 14</li>
-      <!-- Playlist Section -->
-      <div
-        class="playlist-card flex-auto md:ml-7 p-6 min-h-full rounded-lg mx-auto shadow-lg md:w-2/3"
-      >
-        <ul
-          id="playlist"
-          class="playlist list-none rounded-lg text-left overflow-auto"
-        >
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part1.mp3">
-            Introduction: God Delusion
-            <a href="audio/part1.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part2.mp3">
-            Part 2
-            <a href="audio/part2.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part3.mp3">
-            Part 3
-            <a href="audio/part3.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part4.mp3">
-            Part 4
-            <a href="audio/part4.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part5.mp3">
-            Part 5
-            <a href="audio/part5.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part6.mp3">
-            Part 6
-            <a href="audio/part6.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part7.mp3">
-            Part 7
-            <a href="audio/part7.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part8.mp3">
-            Part 8
-            <a href="audio/part8.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part9.mp3">
-            Part 9
-            <a href="audio/part9.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part10.mp3">
-            Part 10
-            <a href="audio/part10.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part11.mp3">
-            Part 11
-            <a href="audio/part11.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part12.mp3">
-            Part 12
-            <a href="audio/part12.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part13.mp3">
-            Part 13
-            <a href="audio/part13.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-          <li class="p-2 hover:bg-gray-700" data-src="audio/part14.mp3">
-            Part 14
-            <a href="audio/part14.mp3" download
-              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
-            ></a>
-          </li>
-
-        </ul>
-        <!-- Audio players -->
-        <div class="player container rounded-xl">
-          <div class="audio-img"></div>
-          <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
-        </div>
+            <div class="player container rounded-5">
+              <div class="audio-img"></div>
+              <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
+            </div>
 
         <!-- Play/Pause Button with Animation -->
         <div class="mt-4 flex justify-center">
