@@ -68,12 +68,12 @@
             >About</a
           >
 
-          <a href="./index.html" class="text-gray-300 hover:text-green-500"
+          <!-- <a href="./index.html" class="text-gray-300 hover:text-green-500"
             >Previous</a
           >
           <a href="./pbd.html" class="text-gray-300 hover:text-green-500"
             >Next</a
-          >
+          > -->
           <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -115,6 +115,76 @@
         </div>
       </div>
     </nav>
+
+    <!-- Social Share Modal -->
+    <div
+      class="modal fade"
+      id="exampleModalToggle"
+      aria-hidden="true"
+      aria-labelledby="exampleModalToggleLabel"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+              Share it on :
+            </h1>
+            <button
+              type="button"
+              class="btn-close rounded-5"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!-- Modale body -->
+          <div class="modal-body">
+            <div class="flex justify-center space-x-4 mt-4">
+              <a
+                href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:5500/Lisbook/pbd.html&text=Lisbook+god Delusion"
+                target="_blank"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                  alt="Share on Facebook"
+                  style="width: 24px; height: 24px"
+                />
+              </a>
+              <a
+                href="https://twitter.com/intent/tweet?url=http://127.0.0.1:5500/Lisbook/pbd.html&text=Lisbook+god Delusion"
+                target="_blank"
+              >
+                <img
+                  src="https://abs.twimg.com/favicons/twitter.2.ico"
+                  alt="Share on X"
+                />
+              </a>
+              <a
+                href="https://api.whatsapp.com/send?text=http://127.0.0.1:5500/Lisbook/pbd.html"
+                target="_blank"
+              >
+                <img
+                  src="https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_whatsapp-512.png"
+                  alt="Share on WhatsApp"
+                  style="width: 24px; height: 24px"
+                />
+              </a>
+            </div>
+          </div>
+          <!-- <div class="modal-footer">
+            <button
+              class="btn btn-primary"
+              data-bs-target="#exampleModalToggle2"
+              data-bs-toggle="modal"
+            >
+              Open second modal
+            </button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- Social Share Modal end -->
+
     <main class="container my-5">
       <!-- Top audio book -->
       <section class="rounded-5 p-5 my-5">
@@ -222,7 +292,7 @@
         </div>
       </section>
 
-      <!--  -->
+      <!-- Book details playlist -->
       <section class="row d-flex align-items-stretch rounded-5 p-5">
         <div class="col-12 col-lg-4 mb-5 mb-lg-0">
           <div class="features-card border rounded-5 p-4 text-center h-100">
@@ -260,6 +330,8 @@
               <i
                 class="bi bi-share mx-4 icon-action-btn tooltip-parent tooltip-bottom"
                 id="share-btn"
+                data-bs-target="#exampleModalToggle"
+                data-bs-toggle="modal"
                 ><span class="tooltip">Share</span></i
               >
               <i
@@ -355,6 +427,26 @@
               <!-- Added Play/Pause button here -->
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Book buttons navigations -->
+      <section
+        class="row d-flex align-items-stretch rounded-5 p-5 my-5 gx-5 text-center"
+      >
+        <div class="col-md-6">
+          <a
+            href="./index.html"
+            class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5"
+            >Previous Book</a
+          >
+        </div>
+        <div class="col-md-6">
+          <a
+            href="./fs.html"
+            class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5"
+            >Next Book</a
+          >
         </div>
       </section>
 
