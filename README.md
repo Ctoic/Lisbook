@@ -1,4 +1,6 @@
 # LisBook - A Simple Audio Book Player
+
+
 <div align="center">
 
   
@@ -65,8 +67,114 @@ MIT License
 
 ## Contributors
 
-<a href="https://github.com/Ctoic/Lisbook/blob/master/Contributors.md">
-  <img src="https://contributors-img.web.app/image?repo=Ctoic/Lisbook"/>
-</a>
-
+<!-- readme: contributors -start -->
+<table>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/Ctoic">
+                    <img src="https://avatars.githubusercontent.com/u/90936436?v=4" width="100;" alt="Ctoic"/>
+                    <br />
+                    <sub><b>Najam Ali Abbas</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/YakeDev">
+                    <img src="https://avatars.githubusercontent.com/u/137875228?v=4" width="100;" alt="YakeDev"/>
+                    <br />
+                    <sub><b>YakeDev</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/amankumarconnect">
+                    <img src="https://avatars.githubusercontent.com/u/150781237?v=4" width="100;" alt="amankumarconnect"/>
+                    <br />
+                    <sub><b>Aman Kumar</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/VaradJadhav">
+                    <img src="https://avatars.githubusercontent.com/u/96735054?v=4" width="100;" alt="VaradJadhav"/>
+                    <br />
+                    <sub><b>Varad Sunil Jadhav</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/AdityaBavadekar">
+                    <img src="https://avatars.githubusercontent.com/u/64344960?v=4" width="100;" alt="AdityaBavadekar"/>
+                    <br />
+                    <sub><b>Aditya Bavadekar</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/IngaleChinmay04">
+                    <img src="https://avatars.githubusercontent.com/u/143017442?v=4" width="100;" alt="IngaleChinmay04"/>
+                    <br />
+                    <sub><b>Chinmay Ingale</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/2MJ-DEV">
+                    <img src="https://avatars.githubusercontent.com/u/146131402?v=4" width="100;" alt="2MJ-DEV"/>
+                    <br />
+                    <sub><b>JULES MUKADI</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/khandelwal20sid">
+                    <img src="https://avatars.githubusercontent.com/u/58730831?v=4" width="100;" alt="khandelwal20sid"/>
+                    <br />
+                    <sub><b>Siddharth Khandelwal</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/sujalcharati">
+                    <img src="https://avatars.githubusercontent.com/u/146851304?v=4" width="100;" alt="sujalcharati"/>
+                    <br />
+                    <sub><b>Sujal charati</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/username-amarjit">
+                    <img src="https://avatars.githubusercontent.com/u/121117087?v=4" width="100;" alt="username-amarjit"/>
+                    <br />
+                    <sub><b>Amarjit</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/JayShukla8">
+                    <img src="https://avatars.githubusercontent.com/u/75677270?v=4" width="100;" alt="JayShukla8"/>
+                    <br />
+                    <sub><b>Jay Shukla</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Vedantjn">
+                    <img src="https://avatars.githubusercontent.com/u/76029713?v=4" width="100;" alt="Vedantjn"/>
+                    <br />
+                    <sub><b>Nirmohi</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/harshitkumargupta">
+                    <img src="https://avatars.githubusercontent.com/u/149725714?v=4" width="100;" alt="harshitkumargupta"/>
+                    <br />
+                    <sub><b>harshitkumargupta</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/vatsaljain-hub">
+                    <img src="https://avatars.githubusercontent.com/u/60287913?v=4" width="100;" alt="vatsaljain-hub"/>
+                    <br />
+                    <sub><b>vatsaljain-hub</b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
+</table>
+<!-- readme: contributors -end -->
 

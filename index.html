@@ -9,6 +9,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>My Favorite Books Music App</title>
   </head>
 
@@ -45,17 +49,29 @@
               />
             </svg>
           </div>
-          <a href="./index.html" class="text-gray-300 hover:text-green-500 my-auto"
+          <a
+            href="./index.html"
+            class="text-gray-300 hover:text-green-500 my-auto"
             >Home</a
           >
+          <a href="./about.html" class="text-gray-300 hover:text-green-500"
+            >About</a
+          >
 
-          <a href="./index.html" class="text-gray-300 hover:text-green-500 my-auto"
+          <a
+            href="./index.html"
+            class="text-gray-300 hover:text-green-500 my-auto"
             >Previous</a
           >
-          <a href="./pbd.html" class="text-gray-300 hover:text-green-500 my-auto"
+          <a
+            href="./pbd.html"
+            class="text-gray-300 hover:text-green-500 my-auto"
             >Next</a
           >
-          <button id="theme-toggle" class="text-gray-300 rounded tooltip-parent my-auto tooltip-left">
+          <button
+            id="theme-toggle"
+            class="text-gray-300 rounded tooltip-parent my-auto tooltip-left"
+          >
             <span class="tooltip">Switch theme</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -99,11 +115,30 @@
     </nav>
 
     <div class="container p-4 w-full">
-
       <p class="text-2xl mt-3 pb-5 ps-3 font-bold">Top Audio Books</p>
 
-      <ul id="audio-books-list" class="space-x-2 space-y-2 flex flex-wrap w-full mx-auto"></ul>
+      <ul
+        id="audio-books-list"
+        class="space-x-2 space-y-2 flex flex-wrap w-full mx-auto"
+      ></ul>
     </div>
+        <!-- social media sharing -->
+        <div class="flex justify-center space-x-4 mt-4">
+            <h4>Share it on :</h4>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:5500/Lisbook/index.html&text=Lisbook+god Delusion" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Share on Facebook" style="width: 24px; height: 24px;" />
+            </a>
+            <a href="https://twitter.com/intent/tweet?url=http://127.0.0.1:5500/Lisbook/index.html&text=Lisbook+god Delusion" target="_blank">
+                <img src="https://abs.twimg.com/favicons/twitter.2.ico" alt="Share on X" />
+            </a>
+            <a href="https://api.whatsapp.com/send?text=http://127.0.0.1:5500/Lisbook/index.html" target="_blank">
+                <img src="https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_whatsapp-512.png" alt="Share on WhatsApp" style="width: 24px; height: 24px;" />
+            </a>
+                  
+            
+        </div>
+
+
 
     <!-- Book Card Display -->
     <div
@@ -132,9 +167,21 @@
 
         <!-- Favorite Button -->
         <div class="mt-4 flex justify-center icon-action-btn-container">
-          <i class="bi bi-heart mx-4 icon-action-btn tooltip-parent tooltip-bottom" id="favourite-btn"><span class="tooltip">Save to Favourites</span></i>
-          <i class="bi bi-share mx-4 icon-action-btn tooltip-parent tooltip-bottom" id="share-btn"><span class="tooltip">Share</span></i>
-          <i class="bi bi-chat mx-4 icon-action-btn tooltip-parent tooltip-bottom" id="view-comments-btn"><span class="tooltip">View comments</span></i>
+          <i
+            class="bi bi-heart mx-4 icon-action-btn tooltip-parent tooltip-bottom"
+            id="favourite-btn"
+            ><span class="tooltip">Save to Favourites</span></i
+          >
+          <i
+            class="bi bi-share mx-4 icon-action-btn tooltip-parent tooltip-bottom"
+            id="share-btn"
+            ><span class="tooltip">Share</span></i
+          >
+          <i
+            class="bi bi-chat mx-4 icon-action-btn tooltip-parent tooltip-bottom"
+            id="view-comments-btn"
+            ><span class="tooltip">View comments</span></i
+          >
         </div>
       </div>
       <!-- playlist -->
@@ -145,33 +192,75 @@
           id="playlist"
           class="playlist list-none rounded-lg text-left overflow-auto"
         >
-          <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part1.mp3">
+          <li
+            class="adiobk-sub-item hover:bg-gray-700"
+            data-src="audio/part1.mp3"
+          >
             Introduction: God Delusion
+            <a href="audio/part1.mp3" download
+              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
+            ></a>
           </li>
-          <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part2.mp3">
+          <li
+            class="adiobk-sub-item hover:bg-gray-700"
+            data-src="audio/part2.mp3"
+          >
             Part 2
+            <a href="audio/part2.mp3" download
+              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
+            ></a>
           </li>
-          <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part3.mp3">
+          <li
+            class="adiobk-sub-item hover:bg-gray-700"
+            data-src="audio/part3.mp3"
+          >
             Part 3
+            <a href="audio/part3.mp3" download
+              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
+            ></a>
           </li>
-          <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part4.mp3">
+          <li
+            class="adiobk-sub-item hover:bg-gray-700"
+            data-src="audio/part4.mp3"
+          >
             Part 4
+            <a href="audio/part4.mp3" download
+              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
+            ></a>
           </li>
-          <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part5.mp3">
+          <li
+            class="adiobk-sub-item hover:bg-gray-700"
+            data-src="audio/part5.mp3"
+          >
             Part 5
+            <a href="audio/part5.mp3" download
+              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
+            ></a>
           </li>
-          <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part6.mp3">
+          <li
+            class="adiobk-sub-item hover:bg-gray-700"
+            data-src="audio/part6.mp3"
+          >
             Part 6
+            <a href="audio/part6.mp3" download
+              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
+            ></a>
           </li>
-          <li class="adiobk-sub-item hover:bg-gray-700" data-src="audio/part7.mp3">
+          <li
+            class="adiobk-sub-item hover:bg-gray-700"
+            data-src="audio/part7.mp3"
+          >
             Part 7
+            <a href="audio/part7.mp3" download
+              ><i class="fa fa-download" style="font-size: 24px; color: red"></i
+            ></a>
           </li>
         </ul>
 
         <div class="player container rounded-xl">
           <div class="audio-img"></div>
           <audio id="audio-player" controls class="mt-4 mx-auto"></audio>
-        </div> 
+        </div>
 
         <!-- Play/Pause Button with Animation -->
         <div class="mt-4 flex justify-center">
@@ -235,35 +324,43 @@
     <footer class="bg-gray-900 p-4 text-center mt-10">
       <div class="text-gray-500">&copy; 2024 Lisbook | All Rights Reserved</div>
     </footer>
-    
+
     <!-- Template for the book card -->
     <template id="book-card-template">
-
-
-      <li id="audio-book-list-item flex-row items-center" class="md:w-60 w-full">
-        <div class="book-card flex flex-row p-4 sm:p-3 rounded-lg shadow-lg w-full h-full md:flex-col items-center md:items-start">
+      <li
+        id="audio-book-list-item flex-row items-center"
+        class="md:w-60 w-full"
+      >
+        <div
+          class="book-card flex flex-row p-4 sm:p-3 rounded-lg shadow-lg w-full h-full md:flex-col items-center md:items-start"
+        >
           <!-- Cover Image -->
-           <div class="container w-14 md:w-40 md:h-40 flex items-center md:w-full"
-           >
-             <img
-               id="img"
-               src=""
-               alt=""
-               class="rounded-lg w-full h-full aspect-square object-cover"
-             />
-           </div>
+          <div
+            class="container w-14 md:w-40 md:h-40 flex items-center md:w-full"
+          >
+            <img
+              id="img"
+              src=""
+              alt=""
+              class="rounded-lg w-full h-full aspect-square object-cover"
+            />
+          </div>
 
           <!-- Book Details -->
-          <div class="md:mt-2 ps-4 md:px-1 text-wrap flex-col items-center" id="text-content">
-            <p class="md:text-lg text-sm font-medium text-green-500 w-32 truncate sm:w-full align-middle" id="book-title"></p>
+          <div
+            class="md:mt-2 ps-4 md:px-1 text-wrap flex-col items-center"
+            id="text-content"
+          >
+            <p
+              class="md:text-lg text-sm font-medium text-green-500 w-32 truncate sm:w-full align-middle"
+              id="book-title"
+            ></p>
             <p class="text-sm truncate align-middle" id="book-author"></p>
           </div>
         </div>
       </li>
-
     </template>
 
-    
     <!-- JS Scripts -->
     <script src="./script.js"></script>
   </body>
