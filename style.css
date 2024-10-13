@@ -53,6 +53,10 @@ a {
   text-decoration: none !important;
 }
 
+a.logo-text {
+  color: var(--accent-color);
+}
+
 h1,
 h2,
 h3 {
