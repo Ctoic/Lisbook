@@ -86,6 +86,13 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/AdityaBavadekar">
+                    <img src="https://avatars.githubusercontent.com/u/64344960?v=4" width="100;" alt="AdityaBavadekar"/>
+                    <br />
+                    <sub><b>Aditya Bavadekar</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/amankumarconnect">
                     <img src="https://avatars.githubusercontent.com/u/150781237?v=4" width="100;" alt="amankumarconnect"/>
                     <br />
@@ -97,13 +104,6 @@ MIT License
                     <img src="https://avatars.githubusercontent.com/u/96735054?v=4" width="100;" alt="VaradJadhav"/>
                     <br />
                     <sub><b>Varad Sunil Jadhav</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/AdityaBavadekar">
-                    <img src="https://avatars.githubusercontent.com/u/64344960?v=4" width="100;" alt="AdityaBavadekar"/>
-                    <br />
-                    <sub><b>Aditya Bavadekar</b></sub>
                 </a>
             </td>
             <td align="center">
