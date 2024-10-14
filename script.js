@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let allBooksList = [];
   let currentBook;
 
+  //  search input element
+  const searchInput = document.getElementById('search-input');
+
   fetch("/data/books.json")
     .then((response) => response.json())
     .then((response) => {
@@ -27,6 +30,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
       loadFavourites();
+    });
+
+  //  search functionality
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      const bookCards = document.querySelectorAll('.features-card');
+
+      bookCards.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        const author = card.querySelector('.card-text').textContent.toLowerCase();
+
+        if (title.includes(searchTerm) || author.includes(searchTerm)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     });
 
   // Function to display error popup
