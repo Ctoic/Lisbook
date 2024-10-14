@@ -24,12 +24,33 @@
   align-items: center;
 }
 
+
 /* Spinner size */
-.spinner-border {
+/* .spinner-border {
   width: 4rem;
   height: 4rem;
   color: #1db954;
+} */
+
+/* Spinner container */
+.spinner-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
+
+/* Hide the spinner once the page is loaded */
+#loader.hidden {
+  display: none;
+}
+
 
 .language-selector {
   margin: 20px;
