@@ -15,20 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let allBooksList = [];
   let currentBook;
 
-  fetch("/data/books.json")
-    .then((response) => response.json())
-    .then((response) => {
-      allBooksList = response;
-      response.forEach((book) => {
-        if (book.id == currentBookId) {
-          currentBook = book;
-        } else {
-          renderBookItem(book, bookList);
-        }
-      });
-      loadFavourites();
-    });
-
   // Function to display error popup
   function showErrorPopup(message) {
     const overlay = document.createElement("div");
@@ -155,16 +141,20 @@ document.addEventListener("DOMContentLoaded", function () {
     return activate;
   }
 
-  favouriteButton.addEventListener("click", () => {
-    const activated = toggleHeart();
-    markFavourite(currentBookId);
-    if (activated) {
-      document.getElementById("fav-empty-container").classList.add("invisible");
-      renderBookItem(currentBook, favBooksList);
-    } else {
-      loadFavourites();
-    }
-  });
+  if (favouriteButton) {
+    favouriteButton.addEventListener("click", () => {
+      const activated = toggleHeart();
+      markFavourite(currentBookId);
+      if (activated) {
+        document
+          .getElementById("fav-empty-container")
+          .classList.add("invisible");
+        renderBookItem(currentBook, favBooksList);
+      } else {
+        loadFavourites();
+      }
+    });
+  }
 
   //Keyboard Shortcuts buttons
   document.addEventListener("keydown", function (e) {
@@ -238,6 +228,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // Theme Toggle
   const body = document.body;
 
+  function initializeTheme() {
+    const currentTheme = localStorage.getItem("theme") || "dark";
+    body.classList.toggle("dark-theme", currentTheme === "dark");
+    body.classList.toggle("light-theme", currentTheme === "light");
+  }
+
   function toggleTheme() {
     body.classList.toggle("dark-theme");
     body.classList.toggle("light-theme");
@@ -246,6 +242,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const newTheme = body.classList.contains("dark-theme") ? "dark" : "light";
     localStorage.setItem("theme", newTheme);
   }
+
+  // Initialize theme on load
+  initializeTheme();
 
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
@@ -286,7 +285,7 @@ function loadHTML(file, elementId) {
 
 // Load header and footer
 document.addEventListener("DOMContentLoaded", function () {
-  // loadHTML("./pages/header.html", "header-placeholder");
+  loadHTML("./pages/header.html", "header-placeholder");
   loadHTML("./pages/footer.html", "footer-placeholder");
 });
 
