@@ -261,28 +261,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  menuClose.addEventListener("click", () => {
-    menu.classList.add("scale-0");
-    menu.classList.remove("scale-100");
-  });
-
-  // Function to load an HTML file into an element
-  function loadHTML(file, elementId) {
-    fetch(file)
-      .then((response) => {
-        if (!response.ok)
-          throw new Error("Erreur lors du chargement du fichier " + file);
-        return response.text();
-      })
-      .then((data) => {
-        document.getElementById(elementId).innerHTML = data;
-      })
-      .catch((error) => console.error(error));
+  if (menuClose) {
+    menuClose.addEventListener("click", () => {
+      menu.classList.add("scale-0");
+      menu.classList.remove("scale-100");
+    });
   }
+});
 
-  // Load header and footer
-  document.addEventListener("DOMContentLoaded", function () {
-    loadHTML("./pages/header.html", "header-placeholder");
-    loadHTML("./pages/footer.html", "footer-placeholder");
-  });
+// Function to load an HTML file into an element
+function loadHTML(file, elementId) {
+  fetch(file)
+    .then((response) => {
+      if (!response.ok)
+        throw new Error("Erreur lors du chargement du fichier " + file);
+      return response.text();
+    })
+    .then((data) => {
+      document.getElementById(elementId).innerHTML = data;
+    })
+    .catch((error) => console.error(error));
+}
+
+// Load header and footer
+document.addEventListener("DOMContentLoaded", function () {
+  loadHTML("./pages/header.html", "header-placeholder");
+  loadHTML("./pages/footer.html", "footer-placeholder");
 });
