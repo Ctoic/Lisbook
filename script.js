@@ -15,6 +15,54 @@ document.addEventListener("DOMContentLoaded", function () {
   let allBooksList = [];
   let currentBook;
 
+  const searchForm = document.querySelector('form');
+  const searchInput = document.querySelector('input[type="search"]');
+
+  function performSearch(searchTerm) {
+    searchTerm = searchTerm.toLowerCase();
+    const bookItems = document.querySelectorAll('.features-card');
+    let found = false;
+
+    bookItems.forEach(item => {
+      const title = item.querySelector('.card-title').textContent.toLowerCase();
+      const author = item.querySelector('.card-text').textContent.toLowerCase();
+      
+      if (title.includes(searchTerm) || author.includes(searchTerm)) {
+        item.style.display = 'block';
+        found = true;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    const noResultsMessage = document.getElementById('no-results-message');
+    if (!found) {
+      if (!noResultsMessage) {
+        const message = document.createElement('p');
+        message.id = 'no-results-message';
+        message.textContent = 'No books found matching your search.';
+        message.className = 'text-center mt-4';
+        document.querySelector('.row.row-cols-1').appendChild(message);
+      }
+    } else if (noResultsMessage) {
+      noResultsMessage.remove();
+    }
+  }
+
+  if (searchForm) {
+    searchForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const searchTerm = searchInput.value.trim();
+      performSearch(searchTerm);
+    });
+
+    //live search functionality
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.trim();
+      performSearch(searchTerm);
+    });
+  }
+
   // Function to display error popup
   function showErrorPopup(message) {
     const overlay = document.createElement("div");
@@ -252,7 +300,6 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleTheme();
     });
   }
-
   //Mobile menu toggle
   if (menuToggle) {
     menuToggle.addEventListener("click", () => {
