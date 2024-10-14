@@ -282,7 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Load header and footer
   document.addEventListener("DOMContentLoaded", function () {
-    // loadHTML("./pages/header.html", "header-placeholder");
+    loadHTML("./pages/header.html", "header-placeholder");
     loadHTML("./pages/footer.html", "footer-placeholder");
   });
 });
