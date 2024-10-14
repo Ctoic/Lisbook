@@ -41,8 +41,8 @@
                                 d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </div>
-                    <a href="./index.html" class="text-gray-300 hover:text-green-500">Home</a>
-                    <a href="./about.html" class="text-gray-300 hover:text-green-500">About</a>
+                    <a href="./index.html" class="text-gray-300 hover:text-green-500" id="home">Home</a>
+                    <a href="./about.html" class="text-gray-300 hover:text-green-500" id="about">About</a>
 
                     <!-- <a href="./index.html" class="text-gray-300 hover:text-green-500"
             >Previous</a
@@ -57,6 +57,16 @@
                                 d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                         </svg>
                     </button>
+
+                    <div class="language-selector">
+                        <select id="language" onchange="changeLanguage()" style="background-color: #1db954; color: #fff;">
+                            <option value="en">English</option>
+                            <option value="fr">Français</option>
+                            <option value="es">Español</option>
+                            <!-- Ajoutez d'autres langues ici -->
+                        </select>
+                    </div>
+                    
                 </div>
 
                 <!-- Mobile Menu Toggle Button -->
@@ -119,7 +129,7 @@
     <main class="container my-5">
         <!-- Top audio book -->
         <section class="rounded-5 p-5 my-5">
-            <h2 class="display-5 page-title fw-semibold">Top Audio Books</h2>
+            <h2 class="display-5 page-title fw-semibold" id="top-audio-books">Top Audio Books</h2>
 
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4 align-items-stretch">
                 <!-- book card -->
@@ -130,12 +140,12 @@
                         </div>
                         <div class="card-body mt-4">
                             <h4 class="card-title h-6 page-title">God Delusion</h4>
-                            <p class="card-text">By Richard Dawkins</p>
+                            <p class="card-text" id="author-gd">By Richard Dawkins</p>
                             <a href="pbd.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
                         </div>
                     </div>
                 </div>
-                <!-- book card -->
+                
                 <div class="col">
                     <div class="features-card border rounded-5 p-4 text-center">
                         <div class="card-cover-container rounded-4 d-flex align-items-center border">
@@ -143,42 +153,37 @@
                         </div>
                         <div class="card-body mt-4">
                             <h4 class="card-title h6 page-title">Frankestine</h4>
-                            <p class="card-text">By Mary Shelby</p>
+                            <p class="card-text" id="author-frankestine">By Mary Shelby</p>
                             <a href="fs.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
                         </div>
                     </div>
                 </div>
-                <!-- book card -->
+                
                 <div class="col">
                     <div class="features-card border rounded-5 p-4 text-center">
                         <div class="card-cover-container rounded-4 d-flex align-items-center border">
-                            <img src="./Images/Adventures_Sherlock_Holmes.jpg" class="card-img-top img-fluid"
-                                alt="Audio book cover" />
+                            <img src="./Images/Adventures_Sherlock_Holmes.jpg" class="card-img-top img-fluid" alt="Audio book cover" />
                         </div>
                         <div class="card-body mt-4">
-                            <h4 class="card-title h6 page-title">
-                                Adventures of Sherlock Holmes
-                            </h4>
-                            <p class="card-text">By Sir Arthur Conan Doyle</p>
+                            <h4 class="card-title h6 page-title">Adventures of Sherlock Holmes</h4>
+                            <p class="card-text" id="author-sherlock">By Sir Arthur Conan Doyle</p>
                             <a href="adventures.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
                         </div>
                     </div>
                 </div>
-                <!-- book card -->
+                
                 <div class="col">
                     <div class="features-card border rounded-5 p-4 text-center">
                         <div class="card-cover-container rounded-4 d-flex align-items-center border">
                             <img src="./Images/Sapiens.jpg" class="card-img-top img-fluid" alt="Audio book cover" />
                         </div>
                         <div class="card-body mt-4">
-                            <h4 class="card-title h6 page-title">
-                                Sapiens: A Brief History of Humankind
-                            </h4>
-                            <p class="card-text">By Yuval Noah Harari</p>
+                            <h4 class="card-title h6 page-title">Sapiens: A Brief History of Humankind</h4>
+                            <p class="card-text" id="author-sapiens">By Yuval Noah Harari</p>
                             <a href="rdpd.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
                         </div>
                     </div>
-                </div>
+                </div>                
             </div>
         </section>
 
@@ -193,7 +198,7 @@
                     <!-- Book Details -->
                     <div class="mt-4">
                         <h1 class="text-2xl font-bold text-green-500">God Delusion</h1>
-                        <h3 class="text-lg mt-2">By Richard Dawkins</h3>
+                        <h3 class="text-lg mt-2" id="author-gd1">By Richard Dawkins</h3>
                         <p class="text-sm mt-2">
                             The God Delusion is a book by English biologist Richard Dawkins
                             that argues against the existence of a supernatural creator.
@@ -205,12 +210,12 @@
                     <!-- Favorite Button -->
                     <div class="mt-3 flex justify-center icon-action-btn-container">
                         <i class="bi bi-heart mx-4 icon-action-btn tooltip-parent tooltip-bottom"
-                            id="favourite-btn"><span class="tooltip">Save to Favourites</span></i>
+                            id="favourite-btn"><span class="tooltip" id="favourite">Save to Favourites</span></i>
                         <i class="bi bi-share mx-4 icon-action-btn tooltip-parent tooltip-bottom" id="share-btn"
                             data-bs-target="#exampleModalToggle" data-bs-toggle="modal"><span
-                                class="tooltip">Share</span></i>
+                                class="tooltip" id="share">Share</span></i>
                         <i class="bi bi-chat mx-4 icon-action-btn tooltip-parent tooltip-bottom"
-                            id="view-comments-btn"><span class="tooltip">View comments</span></i>
+                            id="view-comments-btn"><span class="tooltip" id="view">View comments</span></i>
                     </div>
                 </div>
             </div>
@@ -268,10 +273,10 @@
         <section class="row d-flex align-items-stretch rounded-5 p-5 my-5 gx-5 text-center">
             <div class="col-md-6">
                 <a href="./index.html"
-                    class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5">Previous Book</a>
+                    class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5" id="previousbook">Previous Book</a>
             </div>
             <div class="col-md-6">
-                <a href="./fs.html" class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5">Next
+                <a href="./fs.html" class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5" id="nextbook">Next
                     Book</a>
             </div>
         </section>
@@ -279,22 +284,22 @@
         <section class="row rounded-5 p-5 mt-5">
             <!-- Comments Section -->
             <div class="container mx-auto p-6 rounded-lg">
-                <h2 class="display-5 page-title fw-semibold mb-6">
+                <h2 class="display-5 page-title fw-semibold mb-6" id="share1">
                     Share Your Comments
                 </h2>
                 <form id="comment-form" class="space-y-4 mt-5">
                     <div>
-                        <label for="username" class="form-label">Your Name:</label>
+                        <label for="username" class="form-label" id="yourname">Your Name:</label>
                         <input type="text" id="username" class="form-control mt-2 rounded-5 bg-body-tertiary border"
                             required />
                     </div>
                     <div>
-                        <label for="comment" class="form-label">Your Comment:</label>
+                        <label for="comment" class="form-label" id="yourcomment">Your Comment:</label>
                         <textarea id="comment" class="form-control mt-2 rounded-5 bg-body-tertiary border" rows="6"
                             required></textarea>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600">
+                        <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600" id="share2">
                             Share comment
                         </button>
                     </div>

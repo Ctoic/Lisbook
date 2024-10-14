@@ -31,6 +31,17 @@
   color: #1db954;
 }
 
+.language-selector {
+  margin: 20px;
+}
+
+.language-selector select {
+  padding: 10px;
+    font-size: 10px;
+    border-radius: 7px;
+    font-weight: 500;
+}
+
 body {
   transition: background-color 0.3s, color 0.3s;
 }

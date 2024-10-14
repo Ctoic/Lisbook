@@ -70,10 +70,10 @@
               </svg>
             </div>
             <a href="./index.html" class="text-gray-300 hover:text-green-500"
-              >Home</a
+              id="home">Home</a
             >
             <a href="./about.html" class="text-gray-300 hover:text-green-500"
-              >About</a
+              id="about">About</a
             >
 
             <!-- <a href="./index.html" class="text-gray-300 hover:text-green-500"
@@ -101,6 +101,15 @@
                 />
               </svg>
             </button>
+            
+                    <div class="language-selector">
+                        <select id="language" onchange="changeLanguage()" style="background-color: #1db954; color: #fff;">
+                            <option value="en">English</option>
+                            <option value="fr">Français</option>
+                            <option value="es">Español</option>
+                            <!-- Ajoutez d'autres langues ici -->
+                        </select>
+                    </div>
           </div>
 
           <!-- Mobile Menu Toggle Button -->
@@ -232,20 +241,20 @@
               <i
                 class="bi bi-heart mx-4 icon-action-btn tooltip-parent tooltip-bottom"
                 id="favourite-btn"
-                ><span class="tooltip">Save to Favourites</span></i
+                ><span class="tooltip" id="favourite">Save to Favourites</span></i
               >
               <i
                 class="bi bi-share mx-4 icon-action-btn tooltip-parent tooltip-bottom"
                 id="share-btn"
                 data-bs-target="#exampleModalToggle"
                 data-bs-toggle="modal"
-                ><span class="tooltip">Share</span></i
+                ><span class="tooltip" id="share">Share</span></i
               >
 
               <i
                 class="bi bi-chat mx-4 icon-action-btn tooltip-parent tooltip-bottom"
                 id="view-comments-btn"
-                ><span class="tooltip">View comments</span></i
+                ><span class="tooltip" id="view">View comments</span></i
               >
             </div>
           </div>
@@ -406,8 +415,7 @@
         <div class="col-md-6">
           <a
             href="./index.html"
-            class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5"
-            >Previous Book</a
+            class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5">Previous Book</a
           >
         </div>
         <div class="col-md-6">
@@ -423,12 +431,12 @@
       <!-- Comments Section -->
       <section class="row rounded-5 p-5 mt-5">
         <div class="container mx-auto p-6 rounded-lg">
-          <h2 class="display-5 page-title fw-semibold mb-6">
+          <h2 class="display-5 page-title fw-semibold mb-6" id="share1">
             Share Your Comments
           </h2>
           <form id="comment-form" class="space-y-4 mt-5">
             <div>
-              <label for="username" class="form-label">Your Name:</label>
+              <label for="username" class="form-label" id="yourname">Your Name:</label>
               <input
                 type="text"
                 id="username"
@@ -437,7 +445,7 @@
               />
             </div>
             <div>
-              <label for="comment" class="form-label">Your Comment:</label>
+              <label for="comment" class="form-label" id="yourcomment">Your Comment:</label>
               <textarea
                 id="comment"
                 class="form-control mt-2 rounded-5 bg-body-tertiary border"
@@ -449,7 +457,7 @@
               <button
                 type="submit"
                 class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600"
-              >
+              id"share2">
                 Share comment
               </button>
             </div>
