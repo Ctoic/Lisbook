@@ -15,11 +15,11 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+
     <title>My Favorite Books Music App</title>
   </head>
-
   <body
-    class="dark-theme bg-gray-900 text-gray-300 d-flex flex-column min-vh-100"
+    class="bg-gray-900 text-gray-300 dark-theme d-flex flex-column min-vh-100"
   >
     <!-- Navbar -->
     <!-- <div id="header-placeholder" class="sticky top-0 z-20"></div> -->
@@ -70,12 +70,6 @@
               >Home</a
             >
             <a href="./about.html" class="text-gray-300 hover:text-green-500"
-              >About</a
-            >
-            <a href="./contact.html" class="text-gray-300 hover:text-green-500"
-              >Contact</a
-            >
-            <a href="./faq.html" class="text-gray-300 hover:text-green-500"
               >About</a
             >
 
@@ -140,7 +134,7 @@
       tabindex="-1"
     >
       <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <div class="modal-content modal-background">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
               Share it on :
@@ -212,19 +206,20 @@
             >
               <img
                 id="img"
-                src="./Images/cs.jpg"
-                alt="Pale Blue Dot"
+                src="./Images/Sapiens.jpg"
+                alt="God Delusion Cover"
                 class="card-img-top img-fluid"
               />
             </div>
             <!-- Book Details -->
             <div class="mt-4">
-              <h1 class="text-2xl font-bold text-green-500">Pale Blue Dot</h1>
-              <h3 class="text-lg mt-2">By Carl Sagan</h3>
+              <h1 class="text-2xl font-bold text-green-500">
+                Sapiens: A Brief History of Humankind
+              </h1>
+              <h3 class="text-lg mt-2">By Yuval Noah Harari</h3>
               <p class="text-sm mt-2">
-                Pale Blue Dot explores humanity's place in the universe,
-                emphasizing the importance of space exploration and our
-                responsibility to protect Earth.
+                Sapiens explores the history and evolution of humanity, from
+                early Homo sapiens to modern society.
               </p>
             </div>
 
@@ -262,66 +257,64 @@
             >
               <li
                 class="adiobk-sub-item d-flex justify-content-between"
-                data-src="audio/PaleBlueDot/Introduction.mp3"
+                data-src="audio/part1.mp3"
               >
-                <p>Introduction: Pale Blue Dot</p>
-                <a href="audio/PaleBlueDot/Introduction.mp3" download
+                <p>Introduction: God Delusion</p>
+                <a href="audio/part1.mp3" download
                   ><i class="bi bi-cloud-arrow-down-fill"></i
                 ></a>
               </li>
               <li
                 class="adiobk-sub-item d-flex justify-content-between"
-                data-src="audio/PaleBlueDot/chap-1.mp3"
+                data-src="audio/part2.mp3"
               >
-                <p>Chapter 1: The Shores of the Cosmic Ocean</p>
-                <a href="audio/PaleBlueDot/chap-1.mp3" download
+                <p>Piste 02</p>
+                <a href="audio/part2.mp3" download
                   ><i class="bi bi-cloud-arrow-down-fill"></i
                 ></a>
               </li>
               <li
                 class="adiobk-sub-item d-flex justify-content-between"
-                data-src="audio/PaleBlueDot/Chap-2.mp3"
+                data-src="audio/part3.mp3"
               >
-                <p>Chapter 2: One Voice in the Cosmic Fugue</p>
-                <a href="audio/PaleBlueDot/Chap-2.mp3" download
+                <p>Piste 03</p>
+                <a href="audio/part3.mp3" download
                   ><i class="bi bi-cloud-arrow-down-fill"></i
                 ></a>
               </li>
               <li
                 class="adiobk-sub-item d-flex justify-content-between"
-                data-src="audio/PaleBlueDot/chap-3.mp3"
+                data-src="audio/part4.mp3"
               >
-                <p>Chapter 3: The Harmony of the Worlds</p>
-                <a href="audio/PaleBlueDot/chap-3.mp3" download
+                <p>Piste 04</p>
+                <a href="audio/part4.mp3" download
                   ><i class="bi bi-cloud-arrow-down-fill"></i
                 ></a>
               </li>
               <li
                 class="adiobk-sub-item d-flex justify-content-between"
-                data-src="audio/PaleBlueDot/chap-4.mp3"
+                data-src="audio/part5.mp3"
               >
-                <p>Chapter 4: Heaven and Hell</p>
-                <a href="audio/PaleBlueDot/chap-4.mp3" download
+                <p>Piste 05</p>
+                <a href="audio/part5.mp3" download
                   ><i class="bi bi-cloud-arrow-down-fill"></i
                 ></a>
               </li>
               <li
                 class="adiobk-sub-item d-flex justify-content-between"
-                data-src="audio/PaleBlueDot/chap-5.mp3"
+                data-src="audio/part6.mp3"
               >
-                <p>Chapter 5:</p>
-
-                <a href="audio/PaleBlueDot/chap-5.mp3" download
+                <p>Piste 06</p>
+                <a href="audio/part6.mp3" download
                   ><i class="bi bi-cloud-arrow-down-fill"></i
                 ></a>
               </li>
               <li
-                class="p-2 d-flex justify-content-between"
-                data-src="audio/PaleBlueDot/chap-6.m4b"
+                class="adiobk-sub-item d-flex justify-content-between"
+                data-src="audio/part7.mp3"
               >
-                <p>Chapter 6:</p>
-
-                <a href="audio/PaleBlueDot/chap-6.m4b" download
+                <p>Piste 07</p>
+                <a href="audio/part7.mp3" download
                   ><i class="bi bi-cloud-arrow-down-fill"></i
                 ></a>
               </li>
@@ -347,14 +340,14 @@
       >
         <div class="col-md-6">
           <a
-            href="./index.html"
+            href="./fs.html"
             class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5"
             >Previous Book</a
           >
         </div>
         <div class="col-md-6">
           <a
-            href="./fs.html"
+            href="./adventures.html"
             class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5"
             >Next Book</a
           >
