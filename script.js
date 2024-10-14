@@ -15,20 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let allBooksList = [];
   let currentBook;
 
-  fetch("/data/books.json")
-    .then((response) => response.json())
-    .then((response) => {
-      allBooksList = response;
-      response.forEach((book) => {
-        if (book.id == currentBookId) {
-          currentBook = book;
-        } else {
-          renderBookItem(book, bookList);
-        }
-      });
-      loadFavourites();
-    });
-
   // Function to display error popup
   function showErrorPopup(message) {
     const overlay = document.createElement("div");
@@ -155,16 +141,20 @@ document.addEventListener("DOMContentLoaded", function () {
     return activate;
   }
 
-  favouriteButton.addEventListener("click", () => {
-    const activated = toggleHeart();
-    markFavourite(currentBookId);
-    if (activated) {
-      document.getElementById("fav-empty-container").classList.add("invisible");
-      renderBookItem(currentBook, favBooksList);
-    } else {
-      loadFavourites();
-    }
-  });
+  if (favouriteButton) {
+    favouriteButton.addEventListener("click", () => {
+      const activated = toggleHeart();
+      markFavourite(currentBookId);
+      if (activated) {
+        document
+          .getElementById("fav-empty-container")
+          .classList.add("invisible");
+        renderBookItem(currentBook, favBooksList);
+      } else {
+        loadFavourites();
+      }
+    });
+  }
 
   //Keyboard Shortcuts buttons
   document.addEventListener("keydown", function (e) {
@@ -238,6 +228,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // Theme Toggle
   const body = document.body;
 
+  function initializeTheme() {
+    const currentTheme = localStorage.getItem("theme") || "dark";
+    body.classList.toggle("dark-theme", currentTheme === "dark");
+    body.classList.toggle("light-theme", currentTheme === "light");
+  }
+
   function toggleTheme() {
     body.classList.toggle("dark-theme");
     body.classList.toggle("light-theme");
@@ -246,6 +242,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const newTheme = body.classList.contains("dark-theme") ? "dark" : "light";
     localStorage.setItem("theme", newTheme);
   }
+
+  // Initialize theme on load
+  initializeTheme();
 
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
@@ -262,30 +261,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (menuClose) {
-    menuClose.addEventListener("click", () => {
-      menu.classList.add("scale-0");
-      menu.classList.remove("scale-100");
-    });
+  menuClose.addEventListener("click", () => {
+    menu.classList.add("scale-0");
+    menu.classList.remove("scale-100");
+  });
+
+  // Function to load an HTML file into an element
+  function loadHTML(file, elementId) {
+    fetch(file)
+      .then((response) => {
+        if (!response.ok)
+          throw new Error("Erreur lors du chargement du fichier " + file);
+        return response.text();
+      })
+      .then((data) => {
+        document.getElementById(elementId).innerHTML = data;
+      })
+      .catch((error) => console.error(error));
   }
-});
 
-// Function to load an HTML file into an element
-function loadHTML(file, elementId) {
-  fetch(file)
-    .then((response) => {
-      if (!response.ok)
-        throw new Error("Erreur lors du chargement du fichier " + file);
-      return response.text();
-    })
-    .then((data) => {
-      document.getElementById(elementId).innerHTML = data;
-    })
-    .catch((error) => console.error(error));
-}
-
-// Load header and footer
-document.addEventListener("DOMContentLoaded", function () {
-  // loadHTML("./pages/header.html", "header-placeholder");
-  loadHTML("./pages/footer.html", "footer-placeholder");
+  // Load header and footer
+  document.addEventListener("DOMContentLoaded", function () {
+    loadHTML("./pages/header.html", "header-placeholder");
+    loadHTML("./pages/footer.html", "footer-placeholder");
+  });
 });
