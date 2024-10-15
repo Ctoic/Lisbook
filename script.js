@@ -25,6 +25,40 @@ document.addEventListener("DOMContentLoaded", function () {
   const currentTimeLabel = document.getElementById("currentTime");
   const durationLabel = document.getElementById("duration");
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const audioFile = urlParams.get("file");
+  const startTime = urlParams.get("t");
+
+  if (audioFile && startTime) {
+    audioPlayer.src = `audio/${audioFile}`;
+    audioPlayer.currentTime = startTime;
+    audioPlayer.play();
+  }
+
+  const shareBtn = document.getElementById("share-link");
+
+  shareBtn.addEventListener("click", () => {
+
+    const currentAudioFile = audioPlayer.src.split("/").pop(); 
+    const currentTime = audioPlayer.currentTime;
+
+    const currentUrl = `${
+      window.location.href
+    }?file=${currentAudioFile}&t=${Math.floor(currentTime)}`;
+    const shareText = `Check out this audio "${currentAudioFile}" starting at ${Math.floor(
+      currentTime
+    )} seconds!`;
+
+    navigator.clipboard
+      .writeText(currentUrl)
+      .then(() => {
+        alert(`Link copied to clipboard`);
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
+  });
+
   // Function to display error popup
   function showErrorPopup(message) {
     const overlay = document.createElement("div");
