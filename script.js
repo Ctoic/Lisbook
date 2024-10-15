@@ -287,3 +287,104 @@ document.addEventListener("DOMContentLoaded", function () {
   loadHTML("./pages/header.html", "header-placeholder");
   loadHTML("./pages/footer.html", "footer-placeholder");
 });
+
+
+
+// // Hide the loader when the page is fully loaded
+window.addEventListener('load', function () {
+  // Cache le spinner après que la page est entièrement chargée
+  const loader = document.getElementById('loader');
+  loader.classList.add('hidden');
+});
+
+
+
+
+// const translations = {
+//   en: {
+//     home: "Home",
+//     about: "About",
+//     topAudioBooks: "Top Audio Books",
+//     by: "By",
+//     favourite: "Save to Favourites",
+//     share: "Share",
+//     view: "View comments",
+//     previousbook : "Previous Book",
+//     nextbook: "Next Book",
+//     share1: "Share Your Comments",
+//     share2: "Share Your Comments",
+//     yourname: "Your Name:",
+//     yourcomment: "Your Comment:",
+//   },
+//   fr: {
+//       home: "Accueil",
+//       about: "À propos",
+//       topAudioBooks: "Meilleurs livres audio",
+//       by: "Par",
+//       favourite: "Enregistrer dans les favoris",
+//       share: "Partager",
+//       view: "Afficher les commentaires",
+//       previousbook : "Livre précédent",
+//       nextbook: "Livre suivant",
+//       share1: "Partagez vos commentaires",
+//       share2: "Partager le commentaire",
+//       yourname: "Votre nom :",
+//       yourcomment: "Votre commentaire :",
+//   },
+//   es: {
+//       home: "Inicio",
+//       about: "Acerca de",
+//       topAudioBooks: "Mejores libros de audio",
+//       by: "Por",
+//       favourite: "Guardar en favoritos",
+//       share: "Compartir",
+//       view: "Ver comentarios",
+//       previousbook : "Libro anterior",
+//       nextbook: "Siguiente libro",
+//       share1: "Comparte tus comentarios",
+//       share2: "Comparte tu comentario",
+//       yourname: "Tu nombre:",
+//       yourcomment: "Tu comentario:",
+//   }
+// };
+
+// // Fonction pour changer la langue
+// function changeLanguage() {
+//   const language = document.getElementById('language').value;
+
+//   // Mettez à jour le localStorage avec la langue choisie
+//   localStorage.setItem('language', language);
+//   updateText(language);
+// }
+
+// // Fonction pour mettre à jour le texte en fonction de la langue choisie
+// function updateText(language) {
+//   if (translations[language]) {
+//       document.getElementById('home').textContent = translations[language].home;
+//       document.getElementById('about').textContent = translations[language].about;
+//       document.getElementById('top-audio-books').textContent = translations[language].topAudioBooks;
+//       document.getElementById('author-gd').textContent = translations[language].by + " Richard Dawkins";
+//       document.getElementById('author-frankestine').textContent = translations[language].by + " Mary Shelby";
+//       document.getElementById('author-sherlock').textContent = translations[language].by + " Sir Arthur Conan Doyle";
+//       document.getElementById('author-sapiens').textContent = translations[language].by + " Yuval Noah Harari";
+//       document.getElementById('author-gd1').textContent = translations[language].by + " Richard Dawkins";
+//       document.getElementById('favourite').textContent = translations[language].favourite;
+//       document.getElementById('share').textContent = translations[language].share;
+//       document.getElementById('view').textContent = translations[language].view;
+//       document.getElementById('previousbook').textContent = translations[language].previousbook;
+//       document.getElementById('nextbook').textContent = translations[language].nextbook;
+//       document.getElementById('share1').textContent = translations[language].share1;
+//       document.getElementById('share2').textContent = translations[language].share2;
+//       document.getElementById('yourname').textContent = translations[language].yourname;
+//       document.getElementById('yourcomment').textContent = translations[language].yourcomment;
+//   } else {
+//       console.error('Langue non disponible');
+//   }
+// }
+
+// // À l'initialisation, récupérez la langue du localStorage et mettez à jour le sélecteur et le texte
+// document.addEventListener('DOMContentLoaded', () => {
+//   const savedLanguage = localStorage.getItem('language') || 'fr'; // Valeur par défaut : français
+//   document.getElementById('language').value = savedLanguage;
+//   updateText(savedLanguage);
+// });
