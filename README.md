@@ -86,6 +86,13 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/2MJ-DEV">
+                    <img src="https://avatars.githubusercontent.com/u/146131402?v=4" width="100;" alt="2MJ-DEV"/>
+                    <br />
+                    <sub><b>JULES MUKADI</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/AdityaBavadekar">
                     <img src="https://avatars.githubusercontent.com/u/64344960?v=4" width="100;" alt="AdityaBavadekar"/>
                     <br />
@@ -106,20 +113,13 @@ MIT License
                     <sub><b>Varad Sunil Jadhav</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/IngaleChinmay04">
                     <img src="https://avatars.githubusercontent.com/u/143017442?v=4" width="100;" alt="IngaleChinmay04"/>
                     <br />
                     <sub><b>Chinmay Ingale</b></sub>
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td align="center">
-                <a href="https://github.com/2MJ-DEV">
-                    <img src="https://avatars.githubusercontent.com/u/146131402?v=4" width="100;" alt="2MJ-DEV"/>
-                    <br />
-                    <sub><b>JULES MUKADI</b></sub>
                 </a>
             </td>
             <td align="center">
