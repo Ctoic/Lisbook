@@ -168,13 +168,6 @@ MIT License
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/Tomkndn">
-                    <img src="https://avatars.githubusercontent.com/u/105445488?v=4" width="100;" alt="Tomkndn"/>
-                    <br />
-                    <sub><b>Kundan Tamsoy</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/Vedantjn">
                     <img src="https://avatars.githubusercontent.com/u/76029713?v=4" width="100;" alt="Vedantjn"/>
                     <br />
