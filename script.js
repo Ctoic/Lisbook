@@ -225,6 +225,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Feedback Submission
+window.onload = function() {
+  document.getElementById('feedback-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      emailjs.sendForm('your_service_id', 'feedback_form', this)
+          .then(() => {
+              console.log('SUCCESS!');
+
+              // Reset the form 
+              document.getElementById("feedback-form").reset();
+          }, (error) => {
+              console.log('FAILED...', error);
+          });
+  });
+}
+
   // Theme Toggle
   const body = document.body;
 
