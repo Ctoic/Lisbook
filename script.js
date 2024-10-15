@@ -21,6 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const volumeUp = document.getElementById("volume-up");
   const volumeDown = document.getElementById("volume-down");
 
+  const seekSlider = document.getElementById("seekSlider");
+  const currentTimeLabel = document.getElementById("currentTime");
+  const durationLabel = document.getElementById("duration");
+
   // Function to display error popup
   function showErrorPopup(message) {
     const overlay = document.createElement("div");
@@ -213,11 +217,11 @@ document.addEventListener("DOMContentLoaded", function () {
   //Audio player Controls Buttons
   ctrlPlay.addEventListener("click", function () {
     if (audioPlayer.paused) {
-      ctrlPlay.innerHTML = '<i class="bi bi-pause-fill"></i>';
       audioPlayer.play();
-    } else {
       ctrlPlay.innerHTML = '<i class="bi bi-play-fill"></i>';
+    } else {
       audioPlayer.pause();
+      ctrlPlay.innerHTML = '<i class="bi bi-pause-fill"></i>';
     }
   });
 
@@ -237,6 +241,33 @@ document.addEventListener("DOMContentLoaded", function () {
     if (audioPlayer.volume > 0) {
       audioPlayer.volume = Math.max(audioPlayer.volume - 0.1, 0);
     }
+  });
+
+  // Seek Player
+  audioPlayer.addEventListener("timeupdate", () => {
+    seekSlider.value = audioPlayer.currentTime;
+    currentTimeLabel.textContent = formatTime(audioPlayer.currentTime);
+  });
+  // Seek functionality
+  seekSlider.addEventListener("input", (event) => {
+    audioPlayer.currentTime = event.target.value;
+  });
+
+  // Format time from seconds to MM:SS
+  function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secondsLeft = Math.floor(seconds % 60);
+    return `${minutes}:${secondsLeft < 10 ? "0" : ""}${secondsLeft}`;
+  }
+
+  audioPlayer.addEventListener("ended", function () {
+    ctrlPlay.innerHTML = '<i class="bi bi-play-fill"></i>';
+  });
+
+  // Update the seek slider and current time
+  audioPlayer.addEventListener("loadedmetadata", () => {
+    durationLabel.textContent = formatTime(audioPlayer.duration);
+    seekSlider.max = audioPlayer.duration;
   });
 
   // Comment Submission
