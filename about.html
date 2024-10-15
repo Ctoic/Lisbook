@@ -1,656 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <!-- Favicon -->
-    <link rel="icon" href="Images/favicon.jpg" type="image/png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
 
-    <title>My Favorite Books Music App</title>
-  </head>
-  <body
-    class="bg-gray-900 text-gray-300 dark-theme d-flex flex-column min-vh-100"
-  >
-    <div id="loader" class="spinner-container">
-      <div
-        class="spinner-border"
-        role="status"
-        style="width: 4rem; height: 4rem; color: #1db954"
-      >
-        <span class="visually-hidden">Loading...</span>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="Images/favicon.jpg" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <title>My Favorite Books Music App</title>
+</head>
+
+<body class="bg-gray-900 text-gray-300 dark-theme d-flex flex-column min-vh-100">
+  <div id="loader" class="spinner-container">
+    <div class="spinner-border" role="status" style="width: 4rem; height: 4rem; color: #1db954">
+      <span class="visually-hidden">Loading...</span>
     </div>
-    <!-- <div id="header-placeholder" class="sticky top-0 z-20"></div> -->
-    <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
-      <nav class="">
-        <div class="container mx-auto flex justify-between items-center">
-          <!-- Logo -->
-          <a class="logo-text h3 font-bold d-inline-flex" href="./index.html">
-            <img
-              src="./Images/lisbook-logo-1.png"
-              alt="Logo"
-              width="40"
-              height="auto"
-              class="align-text-center me-2"
-            />
-            Lisbook
-          </a>
+  </div>
+  <!-- <div id="header-placeholder" class="sticky top-0 z-20"></div> -->
+  <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
+    <nav class="">
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <a class="logo-text h3 font-bold d-inline-flex" href="./index.html">
+          <img src="./Images/lisbook-logo-1.png" alt="Logo" width="40" height="auto" class="align-text-center me-2" />
+          Lisbook
+        </a>
 
-          <!-- Menu Links and Theme Toggle -->
-          <div
-            id="menu"
-            class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20"
-          >
-            <div
-              id="menu-close"
-              class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </div>
-            <a
-              href="./index.html"
-              class="text-gray-300 hover:text-green-500"
-              id="home"
-              >Home</a
-            >
-            <a
-              href="./about.html"
-              class="text-gray-300 hover:text-green-500"
-              id="about"
-              >About</a
-            >
-
-            <a href="./contact.html" class="text-gray-300 hover:text-green-500"
-              >Contact</a
-            >
-            <a href="./faq.html" class="text-gray-300 hover:text-green-500"
-              >FAQs</a
-            >
-            <button
-              id="theme-toggle"
-              class="text-gray-300 hover:text-green-500"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                />
-              </svg>
-            </button>
-          </div>
-
-          <!-- Mobile Menu Toggle Button -->
-          <div
-            id="menu-toggle"
-            title="Menu"
-            class="text-gray-300 lg:hidden cursor-pointer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
+        <!-- Menu Links and Theme Toggle -->
+        <div id="menu"
+          class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20">
+          <div id="menu-close" class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </div>
-        </div>
-      </nav>
-    </header>
+          <a href="./index.html" class="text-gray-300 hover:text-green-500" id="home">Home</a>
+          <a href="./about.html" class="text-gray-300 hover:text-green-500" id="about">About</a>
 
-    <main class="container my-5">
-      <section class="row d-flex align-items-center rounded-5 p-5">
-        <div class="col-12 col-lg-6 mb-5 mb-lg-0">
-          <h1 class="display-5 fw-semibold">
-            LisBook - A Simple Audio Book Player
-          </h1>
-          <p class="mt-4">
-            LisBook is a straightforward audiobook player designed for
-            simplicity and ease of use. With LisBook, you can listen to your
-            favorite books in MP3 format. The app provides essential playback
-            features such as play, pause, stop, and the ability to skip
-            chapters. You can also adjust playback speed and volume to suit your
-            listening preferences.
-          </p>
+          <a href="./contact.html" class="text-gray-300 hover:text-green-500">Contact</a>
+          <a href="./faq.html" class="text-gray-300 hover:text-green-500">FAQs</a>
+          <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
         </div>
-        <div class="col-12 col-lg-6 pe-5 ps-lg-5">
-          <img
-            src="./Images/lisbook-about.jpg"
-            class="img-fluid rounded-4"
-            alt="lisbook logo"
-          />
+
+        <!-- Mobile Menu Toggle Button -->
+        <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
         </div>
-      </section>
+      </div>
+    </nav>
+  </header>
 
-      <!-- Features -->
-      <section class="rounded-5 p-5 my-5">
-        <h2 class="display-5 page-title fw-semibold">Key Features</h2>
+  <main class="container my-5">
+    <section class="row d-flex align-items-center rounded-5 p-5">
+      <div class="col-12 col-lg-6 mb-5 mb-lg-0">
+        <h1 class="display-5 fw-semibold">
+          LisBook - A Simple Audio Book Player
+        </h1>
+        <p class="mt-4">
+          LisBook is a straightforward audiobook player designed for
+          simplicity and ease of use. With LisBook, you can listen to your
+          favorite books in MP3 format. The app provides essential playback
+          features such as play, pause, stop, and the ability to skip
+          chapters. You can also adjust playback speed and volume to suit your
+          listening preferences.
+        </p>
+      </div>
+      <div class="col-12 col-lg-6 pe-5 ps-lg-5">
+        <img src="./Images/lisbook-about.jpg" class="img-fluid rounded-4" alt="lisbook logo" />
+      </div>
+    </section>
 
-        <div
-          class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-4 align-items-stretch"
-        >
-          <div class="col">
-            <div class="features-card border rounded-5 p-4">
-              <div class="card-body">
-                <h3 class="h3 card-title fw-semibold mb-3 features-title">
-                  Play/Pause
-                </h3>
-                <p class="card-text">
-                  Start or pause the playback of your audiobook anytime with a
-                  single click.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="features-card border rounded-5 p-4">
-              <div class="card-body">
-                <h3 class="h3 card-title fw-semibold mb-3 features-title">
-                  Stop
-                </h3>
-                <p class="card-text">
-                  Stop the audiobook and reset its position to the beginning,
-                  ready to restart.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="features-card border rounded-5 p-4">
-              <div class="card-body">
-                <h3 class="h3 card-title fw-semibold mb-3 features-title">
-                  Skip Chapters
-                </h3>
-                <p class="card-text">
-                  Effortlessly navigate between different chapters of the
-                  audiobook with ease.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="features-card border rounded-5 p-4">
-              <div class="card-body">
-                <h3 class="h3 card-title fw-semibold mb-3 features-title">
-                  Change Speed
-                </h3>
-                <p class="card-text">
-                  Adjust the playback speed of the audiobook to listen faster or
-                  slower as needed.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="features-card border rounded-5 p-4">
-              <div class="card-body">
-                <h3 class="h3 card-title fw-semibold mb-3 features-title">
-                  Change Volume
-                </h3>
-                <p class="card-text">
-                  Control the volume of your audiobook to ensure a comfortable
-                  listening experience.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="features-card border rounded-5 p-4">
-              <div class="card-body">
-                <h3 class="h3 card-title fw-semibold mb-3 features-title">
-                  Change Theme
-                </h3>
-                <p class="card-text">
-                  Customize your audiobook player by switching between themes.
-                </p>
-              </div>
+    <!-- Features -->
+    <section class="rounded-5 p-5 my-5">
+      <h2 class="display-5 page-title fw-semibold">Key Features</h2>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-4 align-items-stretch">
+        <div class="col">
+          <div class="features-card border rounded-5 p-4">
+            <div class="card-body">
+              <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                Play/Pause
+              </h3>
+              <p class="card-text">
+                Start or pause the playback of your audiobook anytime with a
+                single click.
+              </p>
             </div>
           </div>
         </div>
-      </section>
+        <div class="col">
+          <div class="features-card border rounded-5 p-4">
+            <div class="card-body">
+              <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                Stop
+              </h3>
+              <p class="card-text">
+                Stop the audiobook and reset its position to the beginning,
+                ready to restart.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border rounded-5 p-4">
+            <div class="card-body">
+              <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                Skip Chapters
+              </h3>
+              <p class="card-text">
+                Effortlessly navigate between different chapters of the
+                audiobook with ease.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border rounded-5 p-4">
+            <div class="card-body">
+              <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                Change Speed
+              </h3>
+              <p class="card-text">
+                Adjust the playback speed of the audiobook to listen faster or
+                slower as needed.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border rounded-5 p-4">
+            <div class="card-body">
+              <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                Change Volume
+              </h3>
+              <p class="card-text">
+                Control the volume of your audiobook to ensure a comfortable
+                listening experience.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border rounded-5 p-4">
+            <div class="card-body">
+              <h3 class="h3 card-title fw-semibold mb-3 features-title">
+                Change Theme
+              </h3>
+              <p class="card-text">
+                Customize your audiobook player by switching between themes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <!-- Contributors -->
-      <section class="rounded-5 p-5 my-5">
-        <h2 class="display-5 page-title fw-semibold">Contributors</h2>
+    <!-- Contributors -->
+    <section class="rounded-5 p-5 my-5">
+      <h2 class="display-5 page-title fw-semibold">Contributors</h2>
 
-        <div
-          class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 mt-4 align-items-stretch"
-        >
-          <div class="col">
-            <div
-              class="features-card border border-light-subtle rounded-5 p-3 py-4"
-            >
-              <div class="card-body text-center">
-                <img
-                  src="https://avatars.githubusercontent.com/u/90936436?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 100px; height: 100px"
-                  alt="Contributor 1"
-                />
-                <div class="card-body mt-3">
-                  <h5 class="card-title">Najam Ali Abbas</h5>
-                  <p class="card-text">
-                    <a
-                      href="https://github.com/Ctoic"
-                      target="_blank"
-                      class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                      >GitHub Profile</a
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div
-              class="features-card border border-light-subtle rounded-5 p-3 py-4"
-            >
-              <div class="card-body text-center">
-                <img
-                  src="https://avatars.githubusercontent.com/u/137875228?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 100px; height: 100px"
-                  alt="Contributor 1"
-                />
-                <div class="card-body mt-3">
-                  <h5 class="card-title">Eric Kay</h5>
-                  <p class="card-text">
-                    <a
-                      href="https://github.com/YakeDev"
-                      target="_blank"
-                      class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                      >GitHub Profile</a
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div
-              class="features-card border border-light-subtle rounded-5 p-3 py-4"
-            >
-              <div class="card-body text-center">
-                <img
-                  src="https://avatars.githubusercontent.com/u/96735054?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 100px; height: 100px"
-                  alt="Contributor 1"
-                />
-                <div class="card-body mt-3">
-                  <h5 class="card-title">Varad Sunil Jadhav</h5>
-                  <p class="card-text">
-                    <a
-                      href="https://github.com/VaradJadhav"
-                      target="_blank"
-                      class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                      >GitHub Profile</a
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div
-              class="features-card border border-light-subtle rounded-5 p-3 py-4"
-            >
-              <div class="card-body text-center">
-                <img
-                  src="https://avatars.githubusercontent.com/u/64344960?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 100px; height: 100px"
-                  alt="Contributor 1"
-                />
-                <div class="card-body mt-3">
-                  <h5 class="card-title">Aditya Bavadekar</h5>
-                  <p class="card-text">
-                    <a
-                      href="https://github.com/AdityaBavadekar"
-                      target="_blank"
-                      class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                      >GitHub Profile</a
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div
-              class="features-card border border-light-subtle rounded-5 p-3 py-4"
-            >
-              <div class="card-body text-center">
-                <img
-                  src="https://avatars.githubusercontent.com/u/58730831?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 100px; height: 100px"
-                  alt="Contributor 1"
-                />
-                <div class="card-body mt-3">
-                  <h5 class="card-title">Siddharth Khandelwal</h5>
-                  <p class="card-text">
-                    <a
-                      href="https://github.com/khandelwal20sid"
-                      target="_blank"
-                      class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                      >GitHub Profile</a
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div
-              class="features-card border border-light-subtle rounded-5 p-3 py-4"
-            >
-              <div class="card-body text-center">
-                <img
-                  src="https://avatars.githubusercontent.com/u/143017442?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 100px; height: 100px"
-                  alt="Contributor 1"
-                />
-                <div class="card-body mt-3">
-                  <h5 class="card-title">Chinmay Ingale</h5>
-                  <p class="card-text">
-                    <a
-                      href="https://github.com/IngaleChinmay04"
-                      target="_blank"
-                      class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                      >GitHub Profile</a
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div
-              class="features-card border border-light-subtle rounded-5 p-3 py-4"
-            >
-              <div class="card-body text-center">
-                <img
-                  src="https://avatars.githubusercontent.com/u/60287913?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 100px; height: 100px"
-                  alt="Contributor 1"
-                />
-                <div class="card-body mt-3">
-                  <h5 class="card-title">vatsaljain-hub</h5>
-                  <p class="card-text">
-                    <a
-                      href="https://github.com/vatsaljain-hub"
-                      target="_blank"
-                      class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                      >GitHub Profile</a
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div
-              class="features-card border border-light-subtle rounded-5 p-3 py-4"
-            >
-              <div class="card-body text-center">
-                <img
-                  src="https://avatars.githubusercontent.com/u/146131402?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 100px; height: 100px"
-                  alt="Contributor 1"
-                />
-                <div class="card-body mt-3">
-                  <h5 class="card-title">Jules Mukadi</h5>
-                  <p class="card-text">
-                    <a
-                      href="https://github.com/2MJ-DEV"
-                      target="_blank"
-                      class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                      >GitHub Profile</a
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div
-              class="features-card border border-light-subtle rounded-5 p-3 py-4"
-            >
-              <div class="card-body text-center">
-                <img
-                  src="https://avatars.githubusercontent.com/u/75677270?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 100px; height: 100px"
-                  alt="Contributor 1"
-                />
-                <div class="card-body mt-3">
-                  <h5 class="card-title">Jay Shukla</h5>
-                  <p class="card-text">
-                    <a
-                      href="https://github.com/JayShukla8"
-                      target="_blank"
-                      class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                      >GitHub Profile</a
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div
-              class="features-card border border-light-subtle rounded-5 p-3 py-4"
-            >
-              <div class="card-body text-center">
-                <img
-                  src="https://avatars.githubusercontent.com/u/76029713?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 100px; height: 100px"
-                  alt="Contributor 1"
-                />
-                <div class="card-body mt-3">
-                  <h5 class="card-title">Nirmohi</h5>
-                  <p class="card-text">
-                    <a
-                      href="https://github.com/Vedantjn"
-                      target="_blank"
-                      class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                      >GitHub Profile</a
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div
-              class="features-card border border-light-subtle rounded-5 p-3 py-4"
-            >
-              <div class="card-body text-center">
-                <img
-                  src="https://avatars.githubusercontent.com/u/121117087?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 100px; height: 100px"
-                  alt="Contributor 1"
-                />
-                <div class="card-body mt-3">
-                  <h5 class="card-title">Amarjit</h5>
-                  <p class="card-text">
-                    <a
-                      href="https://github.com/username-amarjit"
-                      target="_blank"
-                      class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                      >GitHub Profile</a
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div
-              class="features-card border border-light-subtle rounded-5 p-3 py-4"
-            >
-              <div class="card-body text-center">
-                <img
-                  src="https://avatars.githubusercontent.com/u/149725714?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 100px; height: 100px"
-                  alt="Contributor 1"
-                />
-                <div class="card-body mt-3">
-                  <h5 class="card-title">harshitkumargupta</h5>
-                  <p class="card-text">
-                    <a
-                      href="https://github.com/harshitkumargupta"
-                      target="_blank"
-                      class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                      >GitHub Profile</a
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div
-              class="features-card border border-light-subtle rounded-5 p-3 py-4"
-            >
-              <div class="card-body text-center">
-                <img
-                  src="https://avatars.githubusercontent.com/u/146851304?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 100px; height: 100px"
-                  alt="Contributor 1"
-                />
-                <div class="card-body mt-3">
-                  <h5 class="card-title">Sujal charati</h5>
-                  <p class="card-text">
-                    <a
-                      href="https://github.com/sujalcharati"
-                      target="_blank"
-                      class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                      >GitHub Profile</a
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div
-              class="features-card border border-light-subtle rounded-5 p-3 py-4"
-            >
-              <div class="card-body text-center">
-                <img
-                  src="https://avatars.githubusercontent.com/u/150781237?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 100px; height: 100px"
-                  alt="Contributor 1"
-                />
-                <div class="card-body mt-3">
-                  <h5 class="card-title">Aman Kumar</h5>
-                  <p class="card-text">
-                    <a
-                      href="https://github.com/amankumarconnect"
-                      target="_blank"
-                      class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                      >GitHub Profile</a
-                    >
-                  </p>
-                </div>
+      <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 mt-4 align-items-stretch">
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/90936436?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">Najam Ali Abbas</h5>
+                <p class="card-text">
+                  <a href="https://github.com/Ctoic" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </section>
-
-      <!-- Call to Action -->
-      <section class="rounded-5 p-5 my-5">
-        <div class="container">
-          <div
-            class="row bg-gradient-primary rounded-3 p-3 g-0 align-items-center"
-          >
-            <!-- Left side: Text content -->
-            <div class="col-lg-8">
-              <div class="text-left py-5 pe-5">
-                <h2 class="h1 fw-semibold">Join our open-source project!</h2>
-                <p class="mb-4">
-                  Join our open-source project and contribute your ideas. We
-                  look forward to collaborating and innovating with you.
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/137875228?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">Eric Kay</h5>
+                <p class="card-text">
+                  <a href="https://github.com/YakeDev" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
                 </p>
-                <a
-                  href="https://github.com/Ctoic/Lisbook"
-                  target="_blank"
-                  class="btn btn-bd-primary rounded-5"
-                  >Get involved today</a
-                >
               </div>
-            </div>
-            <!-- Right side: Image -->
-            <div class="col-lg-4">
-              <img
-                src="./Images/lisbook-about.jpg"
-                alt="Join us"
-                class="img-fluid rounded-3"
-              />
             </div>
           </div>
         </div>
-      </section>
-    </main>
-    <!-- Footer -->
-    <div id="footer-placeholder" class="mt-auto"></div>
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/146131402?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">Jules Mukadi</h5>
+                <p class="card-text">
+                  <a href="https://github.com/2MJ-DEV" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/148325158?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">Aditya Jindal</h5>
+                <p class="card-text">
+                  <a href="https://github.com/AdityaJ2305" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/64344960?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">Aditya Bavadekar</h5>
+                <p class="card-text">
+                  <a href="https://github.com/AdityaBavadekar" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/150781237?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">Aman Kumar</h5>
+                <p class="card-text">
+                  <a href="https://github.com/amankumarconnect" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/96735054?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">Varad Sunil Jadhav</h5>
+                <p class="card-text">
+                  <a href="https://github.com/VaradJadhav" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/146851304?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">Sujal charati</h5>
+                <p class="card-text">
+                  <a href="https://github.com/sujalcharati" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/58730831?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">Siddharth Khandelwal</h5>
+                <p class="card-text">
+                  <a href="https://github.com/khandelwal20sid" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/143017442?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">Chinmay Ingale</h5>
+                <p class="card-text">
+                  <a href="https://github.com/IngaleChinmay04" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/121117087?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">Amarjit</h5>
+                <p class="card-text">
+                  <a href="https://github.com/username-amarjit" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/75677270?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">Jay Shukla</h5>
+                <p class="card-text">
+                  <a href="https://github.com/JayShukla8" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/31406633?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">Mohit Kambli</h5>
+                <p class="card-text">
+                  <a href="https://github.com/MohitKambli" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/105445488?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">Tamsoy Kundan</h5>
+                <p class="card-text">
+                  <a href="https://github.com/Tomkndn" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/76029713?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">Nirmohi</h5>
+                <p class="card-text">
+                  <a href="https://github.com/Vedantjn" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/149725714?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">harshitkumargupta</h5>
+                <p class="card-text">
+                  <a href="https://github.com/harshitkumargupta" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img src="https://avatars.githubusercontent.com/u/60287913?v=4"
+                class="card-img-top rounded-circle mx-auto" style="width: 100px; height: 100px" alt="Contributor 1" />
+              <div class="card-body mt-3">
+                <h5 class="card-title">vatsaljain-hub</h5>
+                <p class="card-text">
+                  <a href="https://github.com/vatsaljain-hub" target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- JavaScript -->
-    <script src="./script.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    <!-- Call to Action -->
+    <section class="rounded-5 p-5 my-5">
+      <div class="container">
+        <div class="row bg-gradient-primary rounded-3 p-3 g-0 align-items-center">
+          <!-- Left side: Text content -->
+          <div class="col-lg-8">
+            <div class="text-left py-5 pe-5">
+              <h2 class="h1 fw-semibold">Join our open-source project!</h2>
+              <p class="mb-4">
+                Join our open-source project and contribute your ideas. We
+                look forward to collaborating and innovating with you.
+              </p>
+              <a href="https://github.com/Ctoic/Lisbook" target="_blank" class="btn btn-bd-primary rounded-5">Get
+                involved today</a>
+            </div>
+          </div>
+          <!-- Right side: Image -->
+          <div class="col-lg-4">
+            <img src="./Images/lisbook-about.jpg" alt="Join us" class="img-fluid rounded-3" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <div id="footer-placeholder" class="mt-auto"></div>
+
+  <!-- JavaScript -->
+  <script src="./script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
