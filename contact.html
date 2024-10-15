@@ -4,14 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
     <script type="text/javascript">
-        (function() {
-            // https://dashboard.emailjs.com/admin/account
-            emailjs.init({
-              publicKey: "your_public_key",
-            });
-        })();
+      (function () {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init({
+          publicKey: "your_public_key",
+        });
+      })();
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -30,19 +33,19 @@
   <body class="dark-theme bg-gray-900 text-gray-300">
     <!-- Navbar -->
     <!-- <div id="header-placeholder" class="sticky top-0 z-20"></div> -->
-    <header class="sticky top-0 z-20 bg-gray-800 p-4">
+    <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
       <nav class="">
         <div class="container mx-auto flex justify-between items-center">
           <!-- Logo -->
           <a
-            class="text-green-500 h3 font-bold d-flex"
+            class="logo-text h3 font-bold d-inline-flex"
             href="./index.html"
             class="navbar-brand"
           >
             <img
-              src="./Images/lisbook-logo.png"
+              src="./Images/lisbook-logo-1.png"
               alt="Logo"
-              width="35"
+              width="40"
               height="auto"
               class="align-text-center me-2"
             />
@@ -73,22 +76,25 @@
                 />
               </svg>
             </div>
-            <a href="./index.html" class="text-gray-300 hover:text-green-500"
+            <a
+              href="./index.html"
+              class="text-gray-300 hover:text-green-500"
+              id="home"
               >Home</a
             >
-            <a href="./about.html" class="text-gray-300 hover:text-green-500"
+            <a
+              href="./about.html"
+              class="text-gray-300 hover:text-green-500"
+              id="about"
               >About</a
             >
+
             <a href="./contact.html" class="text-gray-300 hover:text-green-500"
               >Contact</a
             >
-
-            <!-- <a href="./index.html" class="text-gray-300 hover:text-green-500"
-            >Previous</a
-          >
-          <a href="./pbd.html" class="text-gray-300 hover:text-green-500"
-            >Next</a
-          > -->
+            <a href="./faq.html" class="text-gray-300 hover:text-green-500"
+              >FAQs</a
+            >
             <button
               id="theme-toggle"
               class="text-gray-300 hover:text-green-500"
@@ -136,37 +142,41 @@
     </header>
 
     <main class="container my-5">
-       <!-- Feedback Section -->
-    <div class="container mx-auto mt-16 bg-gray-800 p-6 rounded-lg shadow-lg">
-        <h2 class="text-center text-2xl mb-6">Share Your Feedback</h2>
-        <form id="feedback-form" class="space-y-4">
-          <div>
-            <label for="username" class="block text-sm font-medium"
-              >Your Name:</label
-            >
-            <input
-              type="text"
-              name="username"
-              autocomplete="off"
-              id="username"
-              class="w-full p-2 rounded-lg bg-gray-700 text-white mt-2"
-              required
-            />
-          </div>
-          <div>
-            <label for="username" class="block text-sm font-medium"
-              >Your Email:</label
-            >
-            <input
-              type="email"
-              id="email"
-              name="email"
-              autocomplete="off"
-              class="w-full p-2 rounded-lg bg-gray-700 text-white mt-2"
-              required
-            />
-          </div>
-          <form>
+      <!-- Feedback Section -->
+
+      <section class="row d-flex align-items-stretch rounded-5 p-5">
+        <div class="container mx-auto p-6 rounded-lg">
+          <h2 class="display-5 page-title fw-semibold mb-5 text-center">
+            Share Your Feedback
+          </h2>
+          <form id="feedback-form" class="space-y-4">
+            <div>
+              <label for="username" class="block text-sm font-medium"
+                >Your Name:</label
+              >
+              <input
+                type="text"
+                name="username"
+                autocomplete="off"
+                id="username"
+                class="w-full p-2 rounded-lg bg-gray-700 text-white mt-2"
+                required
+              />
+            </div>
+            <div>
+              <label for="username" class="block text-sm font-medium"
+                >Your Email:</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="off"
+                class="w-full p-2 rounded-lg bg-gray-700 text-white mt-2"
+                required
+              />
+            </div>
+
             <label for="comment" class="block text-sm font-medium"
               >Your Feedback:</label
             >
@@ -178,12 +188,17 @@
               rows="4"
               required
             ></textarea>
-            <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600"
-                            id="share2">
-                            Share comment
-                        </button>
-                    </form>
-       
+            <div class="text-center mt-5">
+              <button
+                type="submit"
+                class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600"
+                id="share2"
+              >
+                Share Feedback
+              </button>
+            </div>
+          </form>
+        </div>
       </section>
     </main>
     <!-- Footer -->
