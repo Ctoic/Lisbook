@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
 window.onload = function() {
   document.getElementById('feedback-form').addEventListener('submit', function(event) {
       event.preventDefault();
-      emailjs.sendForm('service_hnsglkg', 'feedback_form', this)
+      emailjs.sendForm('your_service_id', 'feedback_form', this)
           .then(() => {
               console.log('SUCCESS!');
 
