@@ -229,11 +229,11 @@
     <!-- Book buttons navigations -->
     <section class="row d-flex align-items-stretch rounded-5 p-5 my-5 gx-5 text-center">
       <div class="col-md-6">
-        <a href="./index.html" class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5" id="">Previous
+        <a href="./index.html" class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5" id="previous">Previous
           Book</a>
       </div>
       <div class="col-md-6">
-        <a href="./fs.html" class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5">Next Book</a>
+        <a href="./fs.html" class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5" id="next">Next Book</a>
       </div>
     </section>
     <!-- Book buttons navigations end -->
@@ -241,21 +241,21 @@
     <!-- Comments Section -->
     <section class="row rounded-5 p-5 mt-5">
       <div class="container mx-auto p-6 rounded-lg">
-        <h2 class="display-5 page-title fw-semibold mb-6">
+        <h2 class="display-5 page-title fw-semibold mb-6" id="share1">
           Share Your Comments
         </h2>
         <form id="comment-form" class="space-y-4 mt-5">
           <div>
-            <label for="username" class="form-label">Your Name:</label>
+            <label for="username" class="form-label" id="yourname">Your Name:</label>
             <input type="text" id="username" class="form-control mt-2 rounded-5 bg-body-tertiary border" required />
           </div>
           <div>
-            <label for="comment" class="form-label">Your Comment:</label>
+            <label for="comment" class="form-label" id="yourcomment">Your Comment:</label>
             <textarea id="comment" class="form-control mt-2 rounded-5 bg-body-tertiary border" rows="6"
               required></textarea>
           </div>
           <div class="text-center">
-            <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600">
+            <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600" id="share2">
               Share comment
             </button>
           </div>
