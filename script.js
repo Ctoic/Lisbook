@@ -268,7 +268,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
 // Function to load an HTML file into an element
 function loadHTML(file, elementId) {
   fetch(file)
