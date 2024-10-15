@@ -315,92 +315,141 @@ window.addEventListener('load', function () {
 
 
 
+// document.addEventListener('DOMContentLoaded', function () {
+//   const languageDropdownItems = document.querySelectorAll('.dropdown-item');
+//   const defaultLanguage = localStorage.getItem('language') || 'en'; // Langue par défaut (anglais)
 
-// const translations = {
-//   en: {
-//     home: "Home",
-//     about: "About",
-//     topAudioBooks: "Top Audio Books",
-//     by: "By",
-//     favourite: "Save to Favourites",
-//     share: "Share",
-//     view: "View comments",
-//     previousbook : "Previous Book",
-//     nextbook: "Next Book",
-//     share1: "Share Your Comments",
-//     share2: "Share Your Comments",
-//     yourname: "Your Name:",
-//     yourcomment: "Your Comment:",
-//   },
-//   fr: {
-//       home: "Accueil",
-//       about: "À propos",
-//       topAudioBooks: "Meilleurs livres audio",
-//       by: "Par",
-//       favourite: "Enregistrer dans les favoris",
-//       share: "Partager",
-//       view: "Afficher les commentaires",
-//       previousbook : "Livre précédent",
-//       nextbook: "Livre suivant",
-//       share1: "Partagez vos commentaires",
-//       share2: "Partager le commentaire",
-//       yourname: "Votre nom :",
-//       yourcomment: "Votre commentaire :",
-//   },
-//   es: {
-//       home: "Inicio",
-//       about: "Acerca de",
-//       topAudioBooks: "Mejores libros de audio",
-//       by: "Por",
-//       favourite: "Guardar en favoritos",
-//       share: "Compartir",
-//       view: "Ver comentarios",
-//       previousbook : "Libro anterior",
-//       nextbook: "Siguiente libro",
-//       share1: "Comparte tus comentarios",
-//       share2: "Comparte tu comentario",
-//       yourname: "Tu nombre:",
-//       yourcomment: "Tu comentario:",
+//   // Fonction pour charger les traductions depuis un fichier JSON externe (ou utiliser un objet local)
+//   function loadTranslations(lang) {
+//     const translations = {
+//       en: {
+//         home: "Home",
+//         about: "About",
+//         contact: "Contact",
+//         topAudioBooks: "Top Audio Books",
+//         exampleModalToggleLabel: "Share it on :",
+//         exampleModalToggleLabel1: "Share it on :",
+//         by: "by",
+//         // julesa: "by",
+//         previous : "Previous Book",
+//         next: "Next Book",
+//         Languages: "Languages",
+//         share1: "Share Your Comments",
+//         share2: "Share Your Comments",
+//         yourname: "Your Name:",
+//         yourcomment: "Your Comment:",
+//         discover: "Discover",
+//         discover1: "Discover",
+//         discover2: "Discover",
+//         discover3: "Discover",
+//         view: "View comments",
+//         share: "Share",
+//         favourite: "Save to Favourites",
+//       },
+//       fr: {
+//         home: "Accueil",
+//         about: "À propos",
+//         contact: "Contact",
+//         topAudioBooks: "Meilleurs livres audio",
+//         exampleModalToggleLabel: "Partager sur",
+//         exampleModalToggleLabel1: "Partager sur",
+//         by: "Par",
+//         julesa: "Par",
+//         previous : "Livre précédent",
+//         next: "Livre suivant",
+//         Languages: "Langues",
+//         share1: "Partagez vos commentaires",
+//         share2: "Partager le commentaire",
+//         yourname: "Votre nom:",
+//         yourcomment: "Votre commentaire:",
+//         discover: "Découvrir",
+//         discover1: "Découvrir",
+//         discover2: "Découvrir",
+//         discover3: "Découvrir",
+//         view: "Afficher les commentaires",
+//         share: "Partager",
+//         favourite: "Enregistrer dans les favoris",
+//       },
+//       es: {
+//         home: "Inicio",
+//         about: "Acerca de",
+//         contact: "Contacto",
+//         topAudioBooks: "Mejores libros de audio",
+//         exampleModalToggleLabel: "Compàrtelo en",
+//         by: "Por",
+//         julesa: "Por",
+//         previous : "Libro anterior",
+//         next: "Siguiente libro",
+//         Languages: "Idiomas",
+//         share1: "Comparte tus comentarios",
+//         share2: "Comparte tu comentario",
+//         yourname: "Tu nombre:",
+//         yourcomment: "Tu comentario:",
+//         discover: "Descubrir",
+//         discover1: "Descubrir",
+//         discover2: "Descubrir",
+//         discover3: "Descubrir",
+//         view: "Ver comentarios",
+//         share: "Compartir",
+//         favourite: "Guardar en favoritos",
+//       }
+//     };
+
+//     // Appliquer les traductions au DOM
+//     applyTranslations(translations[lang]);
+//     localStorage.setItem('language', lang); // Sauvegarde de la langue dans localStorage
 //   }
-// };
 
-// // Fonction pour changer la langue
-// function changeLanguage() {
-//   const language = document.getElementById('language').value;
 
-//   // Mettez à jour le localStorage avec la langue choisie
-//   localStorage.setItem('language', language);
-//   updateText(language);
-// }
 
-// // Fonction pour mettre à jour le texte en fonction de la langue choisie
-// function updateText(language) {
-//   if (translations[language]) {
-//       document.getElementById('home').textContent = translations[language].home;
-//       document.getElementById('about').textContent = translations[language].about;
-//       document.getElementById('top-audio-books').textContent = translations[language].topAudioBooks;
-//       document.getElementById('author-gd').textContent = translations[language].by + " Richard Dawkins";
-//       document.getElementById('author-frankestine').textContent = translations[language].by + " Mary Shelby";
-//       document.getElementById('author-sherlock').textContent = translations[language].by + " Sir Arthur Conan Doyle";
-//       document.getElementById('author-sapiens').textContent = translations[language].by + " Yuval Noah Harari";
-//       document.getElementById('author-gd1').textContent = translations[language].by + " Richard Dawkins";
-//       document.getElementById('favourite').textContent = translations[language].favourite;
-//       document.getElementById('share').textContent = translations[language].share;
-//       document.getElementById('view').textContent = translations[language].view;
-//       document.getElementById('previousbook').textContent = translations[language].previousbook;
-//       document.getElementById('nextbook').textContent = translations[language].nextbook;
-//       document.getElementById('share1').textContent = translations[language].share1;
-//       document.getElementById('share2').textContent = translations[language].share2;
-//       document.getElementById('yourname').textContent = translations[language].yourname;
-//       document.getElementById('yourcomment').textContent = translations[language].yourcomment;
-//   } else {
-//       console.error('Langue non disponible');
+//   // Appliquer les traductions au DOM
+//   function applyTranslations(translations) {
+//     document.getElementById('home').textContent = translations.home;
+//     document.getElementById('about').textContent = translations.about;
+//     document.getElementById('contact').textContent = translations.contact;
+//     document.getElementById('Languages').textContent = translations.Languages;
+//     document.getElementById('top-audio-books').textContent = translations.topAudioBooks;
+//     document.getElementById('exampleModalToggleLabel').textContent = translations.exampleModalToggleLabel;
+//     // document.getElementById('exampleModalToggleLabel1').textContent = translations.exampleModalToggleLabel;
+//     document.getElementById('previous').textContent = translations.previous;
+//     document.getElementById('next').textContent = translations.next;
+//     document.getElementById('share1').textContent = translations.share1;
+//     document.getElementById('share2').textContent = translations.share2;
+//     document.getElementById('yourname').textContent = translations.yourname;
+//     document.getElementById('yourcomment').textContent = translations.yourcomment;
+//     document.getElementById('author-gd').textContent = translations.by + " Richard Dawkins";
+//     document.getElementById('author-frankestine').textContent = translations.by + " Mary Shelby";
+//     document.getElementById('author-sherlock').textContent = translations.by + " Sir Arthur Conan Doyle";
+//     document.getElementById('author-sapiens').textContent = translations.by + " Yuval Noah Harari";
+//     document.getElementById('author-gd1').textContent = translations.by + " Richard Dawkins";
+//     document.getElementById('discover').textContent = translations.discover;
+//     document.getElementById('discover1').textContent = translations.discover;
+//     document.getElementById('discover2').textContent = translations.discover;
+//     document.getElementById('discover3').textContent = translations.discover;
+//     document.getElementById('view').textContent = translations.view;
+//     document.getElementById('share').textContent = translations.share;
+//     document.getElementById('favourite').textContent = translations.favourite;
 //   }
-// }
 
-// // À l'initialisation, récupérez la langue du localStorage et mettez à jour le sélecteur et le texte
-// document.addEventListener('DOMContentLoaded', () => {
-//   const savedLanguage = localStorage.getItem('language') || 'fr'; // Valeur par défaut : français
-//   document.getElementById('language').value = savedLanguage;
-//   updateText(savedLanguage);
+//   // Ajouter un gestionnaire d'événements pour chaque item du dropdown
+//   languageDropdownItems.forEach(item => {
+//     item.addEventListener('click', function (event) {
+//       const selectedLanguage = event.target.getAttribute('data-lang');
+//       loadTranslations(selectedLanguage);
+//     });
+//   });
+
+//   // Charger la langue par défaut au démarrage
+//   loadTranslations(defaultLanguage);
+// });
+
+
+// // Event listener pour changer la langue avec le dropdown (si tu as un dropdown)
+// const languageDropdownItems = document.querySelectorAll('.dropdown-item');
+// languageDropdownItems.forEach(item => {
+//   item.addEventListener('click', function (event) {
+//     selectedLanguage = event.target.getAttribute('data-lang');  // Récupérer la langue sélectionnée
+//     localStorage.setItem('language', selectedLanguage);  // Stocker la langue sélectionnée dans localStorage
+//     applyTranslations(selectedLanguage);  // Appliquer la traduction
+//   });
 // });
