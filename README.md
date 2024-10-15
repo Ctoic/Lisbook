@@ -94,6 +94,13 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/AdityaJ2305">
+                    <img src="https://avatars.githubusercontent.com/u/148325158?v=4" width="100;" alt="AdityaJ2305"/>
+                    <br />
+                    <sub><b>Aditya Jindal</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/AdityaBavadekar">
                     <img src="https://avatars.githubusercontent.com/u/64344960?v=4" width="100;" alt="AdityaBavadekar"/>
                     <br />
@@ -107,6 +114,8 @@ MIT License
                     <sub><b>Aman Kumar</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/VaradJadhav">
                     <img src="https://avatars.githubusercontent.com/u/96735054?v=4" width="100;" alt="VaradJadhav"/>
@@ -114,13 +123,11 @@ MIT License
                     <sub><b>Varad Sunil Jadhav</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
-                <a href="https://github.com/IngaleChinmay04">
-                    <img src="https://avatars.githubusercontent.com/u/143017442?v=4" width="100;" alt="IngaleChinmay04"/>
+                <a href="https://github.com/sujalcharati">
+                    <img src="https://avatars.githubusercontent.com/u/146851304?v=4" width="100;" alt="sujalcharati"/>
                     <br />
-                    <sub><b>Chinmay Ingale</b></sub>
+                    <sub><b>Sujal charati</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -131,10 +138,10 @@ MIT License
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/sujalcharati">
-                    <img src="https://avatars.githubusercontent.com/u/146851304?v=4" width="100;" alt="sujalcharati"/>
+                <a href="https://github.com/IngaleChinmay04">
+                    <img src="https://avatars.githubusercontent.com/u/143017442?v=4" width="100;" alt="IngaleChinmay04"/>
                     <br />
-                    <sub><b>Sujal charati</b></sub>
+                    <sub><b>Chinmay Ingale</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -151,6 +158,15 @@ MIT License
                     <sub><b>Jay Shukla</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/MohitKambli">
+                    <img src="https://avatars.githubusercontent.com/u/31406633?v=4" width="100;" alt="MohitKambli"/>
+                    <br />
+                    <sub><b>Mohit Kambli</b></sub>
+                </a>
+            </td>
             <td align="center">
                 <a href="https://github.com/Vedantjn">
                     <img src="https://avatars.githubusercontent.com/u/76029713?v=4" width="100;" alt="Vedantjn"/>
@@ -158,8 +174,6 @@ MIT License
                     <sub><b>Nirmohi</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/harshitkumargupta">
                     <img src="https://avatars.githubusercontent.com/u/149725714?v=4" width="100;" alt="harshitkumargupta"/>
