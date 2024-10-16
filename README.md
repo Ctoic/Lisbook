@@ -189,6 +189,13 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/manoj9896">
+                    <img src="https://avatars.githubusercontent.com/u/51627080?v=4" width="100;" alt="manoj9896"/>
+                    <br />
+                    <sub><b>MANOJ KUMAR</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/vatsaljain-hub">
                     <img src="https://avatars.githubusercontent.com/u/60287913?v=4" width="100;" alt="vatsaljain-hub"/>
                     <br />
