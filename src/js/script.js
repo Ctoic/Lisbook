@@ -1,45 +1,44 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const playlistItems = document.querySelectorAll("#playlist li");
-  const audioPlayer = document.getElementById("audio-player");
-  const themeToggle = document.getElementById("theme-toggle");
-  const menuToggle = document.getElementById("menu-toggle");
-  const menuClose = document.getElementById("menu-close");
-  const menu = document.getElementById("menu");
-  const bookList = document.getElementById("audio-books-list");
-  const favBooksList = document.getElementById("fav-audio-books-list");
-  const template = document.getElementById("book-card-template");
-  const favouriteButton = document.getElementById("favourite-btn");
-  const commentForm = document.getElementById("comment-form");
-  const FAV_BOOKS_KEY = "fav_books";
-  const currentBookId = "7";
+document.addEventListener('DOMContentLoaded', function () {
+  const playlistItems = document.querySelectorAll('#playlist li');
+  const audioPlayer = document.getElementById('audio-player');
+  const themeToggle = document.getElementById('theme-toggle');
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuClose = document.getElementById('menu-close');
+  const menu = document.getElementById('menu');
+  const bookList = document.getElementById('audio-books-list');
+  const favBooksList = document.getElementById('fav-audio-books-list');
+  const template = document.getElementById('book-card-template');
+  const favouriteButton = document.getElementById('favourite-btn');
+  const commentForm = document.getElementById('comment-form');
+  const FAV_BOOKS_KEY = 'fav_books';
+  const currentBookId = '7';
   let allBooksList = [];
   let currentBook;
   // Audio Player Controls Buttons
-  const ctrlPlay = document.getElementById("ctrl-play");
-  const ctrlFastBackward = document.getElementById("fast-backward");
-  const ctrlFastForward = document.getElementById("fast-forward");
-  const volumeUp = document.getElementById("volume-up");
-  const volumeDown = document.getElementById("volume-down");
+  const ctrlPlay = document.getElementById('ctrl-play');
+  const ctrlFastBackward = document.getElementById('fast-backward');
+  const ctrlFastForward = document.getElementById('fast-forward');
+  const volumeUp = document.getElementById('volume-up');
+  const volumeDown = document.getElementById('volume-down');
 
-  const seekSlider = document.getElementById("seekSlider");
-  const currentTimeLabel = document.getElementById("currentTime");
-  const durationLabel = document.getElementById("duration");
+  const seekSlider = document.getElementById('seekSlider');
+  const currentTimeLabel = document.getElementById('currentTime');
+  const durationLabel = document.getElementById('duration');
 
   const urlParams = new URLSearchParams(window.location.search);
-  const audioFile = urlParams.get("file");
-  const startTime = urlParams.get("t");
+  const audioFile = urlParams.get('file');
+  const startTime = urlParams.get('t');
 
   if (audioFile && startTime) {
-    audioPlayer.src = `audio/${audioFile}`;
+    audioPlayer.src = `/assets/media/audio/${audioFile}`;
     audioPlayer.currentTime = startTime;
     audioPlayer.play();
   }
 
-  const shareBtn = document.getElementById("share-link");
+  const shareBtn = document.getElementById('share-link');
 
-  shareBtn.addEventListener("click", () => {
-
-    const currentAudioFile = audioPlayer.src.split("/").pop(); 
+  shareBtn.addEventListener('click', () => {
+    const currentAudioFile = audioPlayer.src.split('/').pop();
     const currentTime = audioPlayer.currentTime;
 
     const currentUrl = `${
@@ -55,35 +54,35 @@ document.addEventListener("DOMContentLoaded", function () {
         alert(`Link copied to clipboard`);
       })
       .catch((err) => {
-        console.error("Failed to copy: ", err);
+        console.error('Failed to copy: ', err);
       });
   });
 
   // Function to display error popup
   function showErrorPopup(message) {
-    const overlay = document.createElement("div");
-    overlay.id = "overlay";
-    overlay.style.position = "fixed";
-    overlay.style.top = "0";
-    overlay.style.left = "0";
-    overlay.style.width = "100%";
-    overlay.style.height = "100%";
-    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
-    overlay.style.zIndex = "9998";
-    overlay.style.backdropFilter = "blur(5px)";
+    const overlay = document.createElement('div');
+    overlay.id = 'overlay';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+    overlay.style.zIndex = '9998';
+    overlay.style.backdropFilter = 'blur(5px)';
     document.body.appendChild(overlay);
 
     // Create the error popup
-    const errorPopup = document.createElement("div");
-    errorPopup.id = "errorPopup";
-    errorPopup.style.position = "fixed";
-    errorPopup.style.top = "50%";
-    errorPopup.style.left = "50%";
-    errorPopup.style.transform = "translate(-50%, -50%)";
-    errorPopup.style.backgroundColor = "#fff";
-    errorPopup.style.padding = "20px";
-    errorPopup.style.border = "1px solid #ccc";
-    errorPopup.style.zIndex = "9999";
+    const errorPopup = document.createElement('div');
+    errorPopup.id = 'errorPopup';
+    errorPopup.style.position = 'fixed';
+    errorPopup.style.top = '50%';
+    errorPopup.style.left = '50%';
+    errorPopup.style.transform = 'translate(-50%, -50%)';
+    errorPopup.style.backgroundColor = '#fff';
+    errorPopup.style.padding = '20px';
+    errorPopup.style.border = '1px solid #ccc';
+    errorPopup.style.zIndex = '9999';
     errorPopup.innerHTML = `
       <h2 style="color: red; font-weight: 600; margin-bottom: 5px;">Error</h2>
       <p>${message}</p>
@@ -93,8 +92,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(errorPopup);
 
     // Attach event listener to the close button directly via DOM element
-    const closeButton = errorPopup.querySelector("button");
-    closeButton.addEventListener("click", () => {
+    const closeButton = errorPopup.querySelector('button');
+    closeButton.addEventListener('click', () => {
       errorPopup.remove();
       overlay.remove();
     });
@@ -104,15 +103,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const favs = localStorage.getItem(FAV_BOOKS_KEY);
 
     var favsList = JSON.parse(favs);
-    favBooksList.innerHTML = "";
+    favBooksList.innerHTML = '';
 
     if (favs == null || favsList.length == 0) {
       document
-        .getElementById("fav-empty-container")
-        .classList.remove("invisible");
+        .getElementById('fav-empty-container')
+        .classList.remove('invisible');
       return;
     } else {
-      document.getElementById("fav-empty-container").classList.add("invisible");
+      document.getElementById('fav-empty-container').classList.add('invisible');
     }
 
     if (favsList.includes(currentBookId)) {
@@ -144,8 +143,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Playlist item click event
   playlistItems.forEach((item) => {
-    item.addEventListener("click", function () {
-      const audioSource = item.getAttribute("data-src");
+    item.addEventListener('click', function () {
+      const audioSource = item.getAttribute('data-src');
+
+      // New path to audio
+      audioPlayer.src = `/assets/media/audio/${audioSource}`;
 
       // Check if the file exists before playing
       if (audioSource) {
@@ -153,46 +155,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Handle playback errors
         audioPlayer.play().catch((error) => {
-          console.error("Audio playback error:", error);
-          if (error.name === "NotSupportedError") {
+          console.error('Audio playback error:', error);
+          if (error.name === 'NotSupportedError') {
             showErrorPopup(
-              "Failed to play audio. Unsupported format or file missing."
+              'Failed to play audio. Unsupported format or file missing.'
             );
           } else {
             showErrorPopup(
-              "Failed to play audio. There was an issue with playback."
+              'Failed to play audio. There was an issue with playback.'
             );
           }
         });
       } else {
-        showErrorPopup("Audio source not available.");
+        showErrorPopup('Audio source not available.');
       }
     });
   });
 
   function toggleHeart(activate) {
     if (activate == null)
-      activate = favouriteButton.classList.contains("bi-heart");
+      activate = favouriteButton.classList.contains('bi-heart');
 
     if (activate) {
-      favouriteButton.classList.remove("bi-heart");
-      favouriteButton.classList.add("bi-heart-fill");
+      favouriteButton.classList.remove('bi-heart');
+      favouriteButton.classList.add('bi-heart-fill');
     } else {
-      favouriteButton.classList.add("bi-heart");
-      favouriteButton.classList.remove("bi-heart-fill");
+      favouriteButton.classList.add('bi-heart');
+      favouriteButton.classList.remove('bi-heart-fill');
     }
 
     return activate;
   }
 
   if (favouriteButton) {
-    favouriteButton.addEventListener("click", () => {
+    favouriteButton.addEventListener('click', () => {
       const activated = toggleHeart();
       markFavourite(currentBookId);
       if (activated) {
         document
-          .getElementById("fav-empty-container")
-          .classList.add("invisible");
+          .getElementById('fav-empty-container')
+          .classList.add('invisible');
         renderBookItem(currentBook, favBooksList);
       } else {
         loadFavourites();
@@ -201,9 +203,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   //Keyboard Shortcuts buttons
-  document.addEventListener("keydown", function (e) {
+  document.addEventListener('keydown', function (e) {
     switch (e.code) {
-      case "Space": // Play / Pause
+      case 'Space': // Play / Pause
         e.preventDefault(); // Prevents page scrolling when Space is pressed
         if (audioPlayer.paused) {
           audioPlayer.play();
@@ -212,32 +214,32 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         break;
 
-      case "ArrowRight": // Jump forward 30 seconds
+      case 'ArrowRight': // Jump forward 30 seconds
         audioPlayer.currentTime += 30;
         break;
 
-      case "ArrowLeft": // Go back 30 seconds
+      case 'ArrowLeft': // Go back 30 seconds
         audioPlayer.currentTime -= 30;
         break;
 
-      case "Equal": // Increase volume
+      case 'Equal': // Increase volume
         if (audioPlayer.volume < 1) {
           audioPlayer.volume = Math.min(audioPlayer.volume + 0.1, 1);
         }
         break;
 
-      case "NumpadAdd": // Augmenter le volume avec le pavé numérique
+      case 'NumpadAdd': // Augmenter le volume avec le pavé numérique
         if (audioPlayer.volume < 1) {
           audioPlayer.volume = Math.min(audioPlayer.volume + 0.1, 1);
         }
         break;
 
-      case "Minus": // Reduce volume
+      case 'Minus': // Reduce volume
         if (audioPlayer.volume > 0) {
           audioPlayer.volume = Math.max(audioPlayer.volume - 0.1, 0);
         }
         break;
-      case "NumpadSubtract": // Diminuer le volume avec le pavé numérique
+      case 'NumpadSubtract': // Diminuer le volume avec le pavé numérique
         if (audioPlayer.volume > 0) {
           audioPlayer.volume = Math.max(audioPlayer.volume - 0.1, 0);
         }
@@ -249,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //Audio player Controls Buttons
-  ctrlPlay.addEventListener("click", function () {
+  ctrlPlay.addEventListener('click', function () {
     if (audioPlayer.paused) {
       audioPlayer.play();
       ctrlPlay.innerHTML = '<i class="bi bi-play-fill"></i>';
@@ -259,31 +261,31 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  ctrlFastForward.addEventListener("click", function () {
+  ctrlFastForward.addEventListener('click', function () {
     audioPlayer.currentTime += 30;
   });
 
-  ctrlFastBackward.addEventListener("click", function () {
+  ctrlFastBackward.addEventListener('click', function () {
     audioPlayer.currentTime -= 30;
   });
-  volumeUp.addEventListener("click", function () {
+  volumeUp.addEventListener('click', function () {
     if (audioPlayer.volume < 1) {
       audioPlayer.volume = Math.max(audioPlayer.volume + 0.1, 0);
     }
   });
-  volumeDown.addEventListener("click", function () {
+  volumeDown.addEventListener('click', function () {
     if (audioPlayer.volume > 0) {
       audioPlayer.volume = Math.max(audioPlayer.volume - 0.1, 0);
     }
   });
 
   // Seek Player
-  audioPlayer.addEventListener("timeupdate", () => {
+  audioPlayer.addEventListener('timeupdate', () => {
     seekSlider.value = audioPlayer.currentTime;
     currentTimeLabel.textContent = formatTime(audioPlayer.currentTime);
   });
   // Seek functionality
-  seekSlider.addEventListener("input", (event) => {
+  seekSlider.addEventListener('input', (event) => {
     audioPlayer.currentTime = event.target.value;
   });
 
@@ -291,25 +293,25 @@ document.addEventListener("DOMContentLoaded", function () {
   function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const secondsLeft = Math.floor(seconds % 60);
-    return `${minutes}:${secondsLeft < 10 ? "0" : ""}${secondsLeft}`;
+    return `${minutes}:${secondsLeft < 10 ? '0' : ''}${secondsLeft}`;
   }
 
-  audioPlayer.addEventListener("ended", function () {
+  audioPlayer.addEventListener('ended', function () {
     ctrlPlay.innerHTML = '<i class="bi bi-play-fill"></i>';
   });
 
   // Update the seek slider and current time
-  audioPlayer.addEventListener("loadedmetadata", () => {
+  audioPlayer.addEventListener('loadedmetadata', () => {
     durationLabel.textContent = formatTime(audioPlayer.duration);
     seekSlider.max = audioPlayer.duration;
   });
 
   // Comment Submission
   if (commentForm) {
-    commentForm.addEventListener("submit", function (e) {
+    commentForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      const username = document.getElementById("username").value;
-      const comment = document.getElementById("comment").value;
+      const username = document.getElementById('username').value;
+      const comment = document.getElementById('comment').value;
 
       const commentHTML = `<div class="bg-gray-700 text-white p-4 rounded-lg">
                     <strong>${username}:</strong>
@@ -317,29 +319,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>`;
 
       document
-        .getElementById("comments-list")
-        .insertAdjacentHTML("beforeend", commentHTML);
+        .getElementById('comments-list')
+        .insertAdjacentHTML('beforeend', commentHTML);
 
       // Reset form
-      document.getElementById("comment-form").reset();
+      document.getElementById('comment-form').reset();
     });
   }
 
   // Feedback Submission
   window.onload = function () {
     document
-      .getElementById("feedback-form")
-      .addEventListener("submit", function (event) {
+      .getElementById('feedback-form')
+      .addEventListener('submit', function (event) {
         event.preventDefault();
-        emailjs.sendForm("your_service_id", "feedback_form", this).then(
+        emailjs.sendForm('your_service_id', 'feedback_form', this).then(
           () => {
-            console.log("SUCCESS!");
+            console.log('SUCCESS!');
 
             // Reset the form
-            document.getElementById("feedback-form").reset();
+            document.getElementById('feedback-form').reset();
           },
           (error) => {
-            console.log("FAILED...", error);
+            console.log('FAILED...', error);
           }
         );
       });
@@ -349,42 +351,42 @@ document.addEventListener("DOMContentLoaded", function () {
   const body = document.body;
 
   function initializeTheme() {
-    const currentTheme = localStorage.getItem("theme") || "dark";
-    body.classList.toggle("dark-theme", currentTheme === "dark");
-    body.classList.toggle("light-theme", currentTheme === "light");
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    body.classList.toggle('dark-theme', currentTheme === 'dark');
+    body.classList.toggle('light-theme', currentTheme === 'light');
   }
 
   function toggleTheme() {
-    body.classList.toggle("dark-theme");
-    body.classList.toggle("light-theme");
+    body.classList.toggle('dark-theme');
+    body.classList.toggle('light-theme');
 
     // Save theme in localStorage
-    const newTheme = body.classList.contains("dark-theme") ? "dark" : "light";
-    localStorage.setItem("theme", newTheme);
+    const newTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+    localStorage.setItem('theme', newTheme);
   }
 
   // Initialize theme on load
   initializeTheme();
 
   if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      console.log("clicker");
+    themeToggle.addEventListener('click', () => {
+      console.log('clicker');
       toggleTheme();
     });
   }
 
   //Mobile menu toggle
   if (menuToggle) {
-    menuToggle.addEventListener("click", () => {
-      menu.classList.remove("scale-0");
-      menu.classList.add("scale-100");
+    menuToggle.addEventListener('click', () => {
+      menu.classList.remove('scale-0');
+      menu.classList.add('scale-100');
     });
   }
 
   if (menuClose) {
-    menuClose.addEventListener("click", () => {
-      menu.classList.add("scale-0");
-      menu.classList.remove("scale-100");
+    menuClose.addEventListener('click', () => {
+      menu.classList.add('scale-0');
+      menu.classList.remove('scale-100');
     });
   }
 });
@@ -393,7 +395,7 @@ function loadHTML(file, elementId) {
   fetch(file)
     .then((response) => {
       if (!response.ok)
-        throw new Error("Erreur lors du chargement du fichier " + file);
+        throw new Error('Erreur lors du chargement du fichier ' + file);
       return response.text();
     })
     .then((data) => {
@@ -403,14 +405,14 @@ function loadHTML(file, elementId) {
 }
 
 // Load header and footer
-document.addEventListener("DOMContentLoaded", function () {
-  loadHTML("./pages/header.html", "header-placeholder");
-  loadHTML("./pages/footer.html", "footer-placeholder");
+document.addEventListener('DOMContentLoaded', function () {
+  loadHTML('./pages/header.html', 'header-placeholder');
+  loadHTML('./pages/footer.html', 'footer-placeholder');
 });
 
 // // Hide the loader when the page is fully loaded
-window.addEventListener("load", function () {
+window.addEventListener('load', function () {
   // Cache le spinner après que la page est entièrement chargée
-  const loader = document.getElementById("loader");
-  loader.classList.add("hidden");
+  const loader = document.getElementById('loader');
+  loader.classList.add('hidden');
 });

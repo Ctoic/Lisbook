@@ -1,0 +1,21 @@
+# Ignore node_modules (for JS/Node.js projects)
+node_modules/
+
+# Ignore environment variable files
+.env
+
+# Ignore macOS specific files
+.DS_Store
+
+# Ignore logs and temp files
+*.log
+tmp/
+
+# Build and generated files
+dist/
+*.min.js
+*.min.css
+
+package.json
+postcss.config.js
+tailwind.config.js
