@@ -156,7 +156,7 @@ button:hover {
   cursor: pointer;
   color: var(--accent-color) !important;
   background-color: transparent !important;
-  border: 1px solid var(--accent-color) !important;
+  border: 1px solid var(--accent -color) !important;
 }
 .btn-bd-primary:hover {
   color: #191414 !important;
@@ -295,7 +295,7 @@ body.light-theme .playlist-card {
   transition: background-color 0.3s;
 }
 
-.play-pause-button.play::before {
+.play-pause-button.pause::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -306,7 +306,7 @@ body.light-theme .playlist-card {
   border-color: transparent transparent transparent #fff;
 }
 
-.play-pause-button.pause::before {
+.play-pause-button.play::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -541,4 +541,95 @@ input[type="range"]#seekSlider:hover::-moz-range-thumb {
 
 input[type="range"]#seekSlider:hover::-ms-thumb {
   background: #e6f2e6;
+}
+
+.progress-bar {
+  font-size: 8px;
+  height: 12px;
+}
+
+/* for the FAQ section */
+/* Add space between FAQ boxes */
+/* Light Theme */
+.light-theme .faq-box {
+  margin-bottom: 20px; /* Space between boxes */
+  background-color: #fafafa; /* Light background for the FAQ box */
+}
+
+.light-theme .faq {
+  background-color: #ededed; /* Light gray background for the outer container */
+  border: 1px solid #ededed; /* Optional: Add a border for better distinction */
+}
+
+/* Dark Theme */
+.dark-theme .faq-box {
+  margin-bottom: 20px; /* Space between boxes */
+  background-color: #101010; /* Dark background for the FAQ box */
+}
+
+.dark-theme .faq {
+  background-color: #010101; /* Darker gray background for the outer container */
+  border: 1px solid #010101; /* Optional: Add a border for better distinction */
+}
+
+/* Optional: Additional styles for text color */
+.light-theme .text-green-500 {
+  color: #1db954; /* Green text color in light theme */
+}
+
+.dark-theme .text-green-500 {
+  color: #a5d6a7; /* Softer green text color in dark theme */
+}
+
+.light-theme .text-gray-300 {
+  color: #333; /* Darker text color in light theme */
+}
+
+.dark-theme .text-gray-300 {
+  color: #ccc; /* Lighter text color in dark theme */
+}
+
+/* Profile image size */
+.faq-profile {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Add hover effect to FAQ cards */
+.faq-box:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+}
+/* theme toggle button */
+/* Button styles */
+#theme-toggle {
+  background-color: transparent; /* Make the button background transparent */
+  border: none; /* Remove any borders */
+  cursor: pointer; /* Show a pointer cursor on hover */
+}
+
+/* Change the color of the icon on hover */
+#theme-toggle:hover #moon-icon,
+#theme-toggle:hover #sun-icon {
+  color: #1db954; /* Change to green on hover */
+}
+
+/* Hide the moon icon in the light theme and vice versa */
+.dark-theme #moon-icon {
+  display: none; /* Hide moon icon in dark theme */
+}
+
+.dark-theme #sun-icon {
+  display: block; /* Show sun icon in dark theme */
+}
+
+.light-theme #moon-icon {
+  display: block; /* Show moon icon in light theme */
+}
+
+.light-theme #sun-icon {
+  display: none; /* Hide sun icon in light theme */
 }
