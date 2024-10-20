@@ -60,6 +60,46 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // function to speed audio
+  const speedButton = document.getElementById("speedButton");
+  const speedDropdown = document.getElementById("speedDropdown");
+  const audio = document.getElementById("audio");
+
+  // function for dropdown 
+  speedButton.addEventListener("click", () => {
+    speedDropdown.classList.toggle("hidden");
+  });
+
+  speedDropdown.querySelectorAll("li").forEach((item) => {
+    item.addEventListener("click", () => {
+      const selectedSpeed = parseFloat(item.getAttribute("data-speed")); // Convert to float
+
+      audio.playbackRate = selectedSpeed;
+
+      speedButton.textContent = selectedSpeed + "x";
+
+      speedDropdown.classList.add("hidden");
+    });
+  });
+
+  audioPlayer.addEventListener("canplay", () => {
+    speedDropdown.querySelectorAll("li").forEach((item) => {
+      item.addEventListener("click", () => {
+        const selectedSpeed = parseFloat(item.getAttribute("data-speed"));
+        audioPlayer.playbackRate = selectedSpeed;
+        speedButton.textContent = selectedSpeed + "x";
+
+        speedDropdown.classList.add("hidden");
+      });
+    });
+  });
+
+  window.addEventListener("click", (e) => {
+    if (!speedButton.contains(e.target) && !speedDropdown.contains(e.target)) {
+      speedDropdown.classList.add("hidden");
+    }
+  });
+
   // Function to display error popup
   function showErrorPopup(message) {
     const overlay = document.createElement("div");
