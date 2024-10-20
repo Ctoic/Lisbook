@@ -443,6 +443,18 @@
                                 value="0"
                             />
                             <span id="duration">0:00</span>
+                            <!-- Speed control -->
+                            <div class="relative inline-block">
+                                <span id="speedButton" class="cursor-pointer text-green-300 font-semibold  rounded-lg py-1 px-3  hover:text-green-200 transition">1x</span>
+                                
+                                <!-- Dropdown Menu -->
+                                <ul id="speedDropdown" class="absolute hidden bg-gray-800 shadow-md rounded-xl mt-2 w-20">
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="0.5">0.5x</li>
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="1">1x</li>
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="1.5">1.5x</li>
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="2">2x</li>
+                                </ul>
+                            </div>
                         </div>
 
                         <!-- Audio Players Controls Buttons -->
