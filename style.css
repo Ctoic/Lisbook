@@ -49,6 +49,43 @@
   align-items: center;
   z-index: 9999;
 }
+/* Hide the default cursor */
+body,
+a,
+button,
+li {
+  cursor: none;
+}
+
+/* Trailing circles styles */
+.circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%; /* Creates a circle */
+  position: fixed; /* Fixed position for the circles */
+  pointer-events: none; /* Makes circles unclickable */
+  z-index: 9999; /* Ensure it stays on top of other elements */
+  background-color: transparent; /* Default color; overridden by JS */
+
+  opacity: 0.5; /* Slightly transparent */
+  transition: transform 0.1s ease-out, left 0.15s, top 0.15s; /* Smooth transition */
+}
+
+/* Scale effect on hover for buttons and list items */
+li:hover .circle,
+button:hover .circle {
+  transform: scale(6); /* Scale the circle on hover */
+}
+
+/* Custom hover effect for buttons */
+button:hover .circle {
+  background-color: #ff4081; /* Neon color when hovering over buttons */
+}
+
+/* Hover effect for list items */
+li:hover {
+  background-color: #e0e0e0; /* Change background color on hover */
+}
 
 /* Hide the spinner once the page is loaded */
 #loader.hidden {
