@@ -36,117 +36,30 @@
         <!-- Navbar -->
         <!-- <div id="header-placeholder" class="sticky top-0 z-20"></div> -->
         <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
-            <nav class="">
-                <div
-                    class="container mx-auto flex justify-between items-center"
-                >
+            <nav>
+                <div class="container mx-auto flex justify-center items-center">
                     <!-- Logo -->
-                    <a
-                        class="logo-text h3 font-bold d-inline-flex"
-                        href="./index.html"
-                    >
-                        <img
-                            src="./Images/lisbook-logo-1.png"
-                            alt="Logo"
-                            width="40"
-                            height="auto"
-                            class="align-text-center me-2"
-                        />
+                    <a class="logo-text h3 font-bold d-inline-flex" href="./index.html" style="margin-right: 20px; color: #D1D5DB;">
+                        <img src="./Images/lisbook-logo-1.png" alt="Logo" width="40" height="auto" class="align-text-center me-2" />
                         Lisbook
                     </a>
-
-                    <!-- Menu Links and Theme Toggle -->
-                    <div
-                        id="menu"
-                        class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20"
-                    >
-                        <div
-                            id="menu-close"
-                            class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-6 w-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M6 18L18 6M6 6l12 12"
-                                />
-                            </svg>
-                        </div>
-                        <a
-                            href="./index.html"
-                            class="text-gray-300 hover:text-green-500"
-                            id="home"
-                            >Home</a
-                        >
-                        <a
-                            href="./about.html"
-                            class="text-gray-300 hover:text-green-500"
-                            id="about"
-                            >About</a
-                        >
-
-                        <a
-                            href="./contact.html"
-                            class="text-gray-300 hover:text-green-500"
-                            >Contact</a
-                        >
-                        <a
-                            href="./faq.html"
-                            class="text-gray-300 hover:text-green-500"
-                            >FAQs</a
-                        >
-                        <button
-                            id="theme-toggle"
-                            class="text-gray-300 hover:text-green-500"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-6 w-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                                />
+        
+                    <!-- Menu Links -->
+                    <div id="menu" class="flex space-x-4">
+                        <a href="./index.html" class="nav-link">Home</a>
+                        <a href="./about.html" class="nav-link">About</a>
+                        <a href="./contact.html" class="nav-link">Contact</a>
+                        <a href="./faq.html" class="nav-link">FAQs</a>
+                        <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                             </svg>
                         </button>
-                    </div>
-
-                    <!-- Mobile Menu Toggle Button -->
-                    <div
-                        id="menu-toggle"
-                        title="Menu"
-                        class="text-gray-300 lg:hidden cursor-pointer"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M4 6h16M4 12h16m-7 6h7"
-                            />
-                        </svg>
                     </div>
                 </div>
             </nav>
         </header>
+        
 
         <!-- Social Share Modal -->
         <div

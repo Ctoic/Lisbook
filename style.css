@@ -123,6 +123,34 @@ h3 {
   color: var(--accent-color) !important;
   font-weight: bold;
 }
+.nav-link {
+  position: relative;
+  color: #D1D5DB; /* Text color */
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: color 0.5s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: rgba(52, 211, 153, 0.2); /* Background color */
+  border-radius: 4px;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.5s;
+}
+
+.nav-link:hover {
+  color: #fff; /* Change text color on hover */
+}
+
+.nav-link:hover::after {
+  opacity: 1; /* Show background on hover */
+}
 
 #playlist li:hover {
   background-color: #282828;
