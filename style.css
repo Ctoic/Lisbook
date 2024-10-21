@@ -56,6 +56,27 @@ button,
 li {
   cursor: none;
 }
+.hidden {
+  display: none;
+}
+
+.faq-answer {
+  display: block;
+  font-size: 1rem;
+  margin-top: 10px;
+  color: var(--accent-color); /* Existing accent color */
+}
+
+.faq-question {
+  cursor: pointer;
+  color: var(--accent-color); /* Same color for consistency */
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.faq-question:hover {
+  text-decoration: none;
+}
 
 /* Trailing circles styles */
 .circle {
