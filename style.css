@@ -9,6 +9,67 @@
   --large: 65px;
   --bar-height: 10px;
 }
+a {
+  cursor: none; /* Prevent default cursor on links */
+  text-decoration: none !important;
+}
+
+/* Hide the default cursor for the body */
+body {
+  cursor: none; /* Hide the default cursor */
+}
+
+/* Custom cursor styles */
+.cursor {
+  width: 20px; /* Adjust size as needed */
+  height: 20px;
+  background-color: #4caf50; /* Base green color */
+  border-radius: 50%; /* Makes it a circle */
+  position: fixed;
+  pointer-events: none; /* Prevents the cursor from blocking clicks */
+  transition: transform 0.1s ease-out, background-color 0.2s ease; /* Smooth transition */
+  transform: translate(-50%, -50%); /* Centers the element on the cursor */
+  z-index: 1000; /* Ensures it's above other content */
+  mix-blend-mode: difference; /* Creates negative space effect */
+}
+
+/* Styles for the trailing circles with green color fire effect */
+.circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999999; /* Ensure it stays on top of all other elements */
+}
+
+/* List styles */
+ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove padding */
+}
+
+li {
+  padding: 10px; /* Add padding to list items */
+  background-color: #f0f0f0; /* Light background */
+  margin: 5px 0; /* Space between items */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+/* List item hover effect */
+li:hover {
+  background-color: #e0e0e0; /* Darker background on hover */
+}
+
+/* Hide the default cursor for buttons */
+button {
+  cursor: none; /* Hide the default cursor for buttons */
+}
+
+/* Custom cursor scaling on hover for list items */
+ul li:hover .circle {
+  transform: scale(6); /* Scale the cursor on hover */
+}
 
 * {
   margin: 0;
@@ -105,7 +166,12 @@ body.dark-theme .playlist-card {
   background: var(--accent-background-color);
 }
 
+a:hover {
+  cursor: crosshair; /* Change to any cursor style you prefer */
+}
+
 a {
+  cursor: default; /* Change 'default' to your desired cursor style */
   text-decoration: none !important;
 }
 

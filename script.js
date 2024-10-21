@@ -327,6 +327,119 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("comment-form").reset();
     });
   }
+  // cursor following
+  // JavaScript to update the custom cursor position
+  const cursor = document.querySelector(".cursor");
+
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.pageX + "px";
+    cursor.style.top = e.pageY + "px";
+  });
+  const links = document.querySelectorAll("a");
+
+  links.forEach((link) => {
+    link.addEventListener("mouseenter", () => {
+      // Hide the cursor on hover over a link
+      cursor.style.display = "none";
+    });
+
+    link.addEventListener("mouseleave", () => {
+      // Show the cursor again when leaving the link
+      cursor.style.display = "block";
+    });
+  });
+  const circles = document.querySelectorAll(".circle");
+  const buttons = document.querySelectorAll("button"); // Select all buttons
+  const listItems = document.querySelectorAll("li"); // Select all list items
+
+  const coords = { x: 0, y: 0 };
+  const colors = [
+    "#a7e078", // Light green from the logo
+    "#9dd36c", // Slightly darker green
+    "#94c760", // Green variation for transitions
+    "#8abc55", // Mid-tone green
+    "#80b14b", // More saturated green
+    "#76a640", // Transition between light and dark greens
+    "#6cbf58", // Darker green from buttons
+    "#62a24d", // Deep green accent
+    "#579643", // Similar to the greens from the logo
+    "#4e8a3b", // Muted green
+    "#458132", // Darker green for depth
+    "#3b752a", // Deep green
+    "#336824", // Darker transition green
+    "#2c9137", // Strong green from main logo
+    "#23802c", // Darker shade of primary green
+    "#1f7628", // Near-black green shade
+    "#1b6c25", // Transition into darker tones
+    "#121212", // Very dark background color
+    "#0f0f0f", // Darker black
+    "#2b2b2b", // Light black from dark mode background
+    "#1e1e1e", // Subtle lighter gray
+    "#1a1a1a", // Accent gray
+  ];
+
+  // The rest of your existing code follows...
+
+  circles.forEach(function (circle, index) {
+    circle.x = 0;
+    circle.y = 0;
+    circle.style.backgroundColor = colors[index % colors.length];
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    coords.x = e.clientX;
+    coords.y = e.clientY;
+  });
+
+  function animateCircles() {
+    let x = coords.x;
+    let y = coords.y;
+
+    circles.forEach(function (circle, index) {
+      circle.style.left = x - 12 + "px";
+      circle.style.top = y - 12 + "px";
+
+      circle.style.transform = `scale(${
+        (circles.length - index) / circles.length
+      })`;
+
+      circle.x = x;
+      circle.y = y;
+
+      const nextCircle = circles[index + 1] || circles[0];
+      x += (nextCircle.x - x) * 0.3;
+      y += (nextCircle.y - y) * 0.3;
+    });
+
+    requestAnimationFrame(animateCircles);
+  }
+
+  animateCircles();
+
+  // Change cursor color on button hover
+  buttons.forEach((button) => {
+    button.addEventListener("mouseenter", () => {
+      cursor.style.backgroundColor = "#ff4081"; // Change to a neon color (complementing)
+    });
+
+    button.addEventListener("mouseleave", () => {
+      cursor.style.backgroundColor = "#4caf50"; // Reset to original color
+    });
+  });
+
+  // Add hover effect for list items (scaling)
+  listItems.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      cursor.style.transform += " scale(6)"; // Scale cursor when hovering over list item
+    });
+
+    item.addEventListener("mouseleave", () => {
+      cursor.style.transform = cursor.style.transform.replace(
+        / scale\(6\)/,
+        ""
+      ); // Reset cursor scale
+    });
+  });
 
   // Feedback Submission
   window.onload = function () {
