@@ -131,6 +131,13 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/thilakjo">
+                    <img src="https://avatars.githubusercontent.com/u/115476524?v=4" width="100;" alt="thilakjo"/>
+                    <br />
+                    <sub><b>Thilak S</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/khandelwal20sid">
                     <img src="https://avatars.githubusercontent.com/u/58730831?v=4" width="100;" alt="khandelwal20sid"/>
                     <br />
@@ -151,6 +158,8 @@ MIT License
                     <sub><b>Chinmay Ingale</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/username-amarjit">
                     <img src="https://avatars.githubusercontent.com/u/121117087?v=4" width="100;" alt="username-amarjit"/>
@@ -158,8 +167,6 @@ MIT License
                     <sub><b>Amarjit</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/JayShukla8">
                     <img src="https://avatars.githubusercontent.com/u/75677270?v=4" width="100;" alt="JayShukla8"/>
@@ -195,20 +202,13 @@ MIT License
                     <sub><b>harshitkumargupta</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/manoj9896">
                     <img src="https://avatars.githubusercontent.com/u/51627080?v=4" width="100;" alt="manoj9896"/>
                     <br />
                     <sub><b>MANOJ KUMAR</b></sub>
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td align="center">
-                <a href="https://github.com/thilakjo">
-                    <img src="https://avatars.githubusercontent.com/u/115476524?v=4" width="100;" alt="thilakjo"/>
-                    <br />
-                    <sub><b>Thilak S</b></sub>
                 </a>
             </td>
             <td align="center">
