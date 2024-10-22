@@ -108,14 +108,21 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/thilakjo">
+                    <img src="https://avatars.githubusercontent.com/u/115476524?v=4" width="100;" alt="thilakjo"/>
+                    <br />
+                    <sub><b>Thilak S</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
                 <a href="https://github.com/amankumarconnect">
                     <img src="https://avatars.githubusercontent.com/u/150781237?v=4" width="100;" alt="amankumarconnect"/>
                     <br />
                     <sub><b>Aman Kumar</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/VaradJadhav">
                     <img src="https://avatars.githubusercontent.com/u/96735054?v=4" width="100;" alt="VaradJadhav"/>
@@ -128,13 +135,6 @@ MIT License
                     <img src="https://avatars.githubusercontent.com/u/146851304?v=4" width="100;" alt="sujalcharati"/>
                     <br />
                     <sub><b>Sujal charati</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/thilakjo">
-                    <img src="https://avatars.githubusercontent.com/u/115476524?v=4" width="100;" alt="thilakjo"/>
-                    <br />
-                    <sub><b>Thilak S</b></sub>
                 </a>
             </td>
             <td align="center">
