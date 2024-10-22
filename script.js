@@ -666,23 +666,3 @@ document.querySelectorAll(".friend-card").forEach((card) => {
     }
   });
 });
-// features typing effect
-document.addEventListener("DOMContentLoaded", function () {
-  if (typeof Typed !== "undefined") {
-    // Initialize the typing effect for features using Typed.js
-    let typed = new Typed(".auto-input", {
-      strings: [
-        "Play/Pause",
-        "Skip Chapters",
-        "Change Speed",
-        "Change Volume",
-        "Change Theme",
-      ],
-      typeSpeed: 100, // Typing speed
-      backSpeed: 100, // Backspacing speed
-      loop: true, // Loop through the strings indefinitely
-    });
-  } else {
-    console.error("Typed.js not found. Make sure it's included correctly.");
-  }
-});
