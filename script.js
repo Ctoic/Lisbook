@@ -714,3 +714,52 @@ featureSection.addEventListener("mouseenter", function () {
     typedOnce = true;
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  // Get the saved theme from localStorage, default to "dark" if none is set
+  const currentTheme = localStorage.getItem("theme") || "dark";
+
+  // Set the theme on the <html> element
+  document.documentElement.setAttribute("data-theme", currentTheme);
+
+  // Set the correct images based on the theme
+  const img1 = document.getElementById("image1");
+  const img2 = document.getElementById("image2");
+
+  if (currentTheme === "light") {
+    img1.src = "./Images/lisbook-about-white.jpg";
+    img2.src = "./Images/lisbook-about-white.jpg";
+  } else {
+    img1.src = "./Images/lisbook-about.jpg";
+    img2.src = "./Images/lisbook-about.jpg";
+  }
+});
+
+// Function to toggle between light and dark theme
+const toggleTheme = () => {
+  // Get the current theme from the <html> element's data-theme attribute
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+
+  // Determine the new theme based on the current one
+  const newTheme = currentTheme === "light" ? "dark" : "light";
+
+  // Set the new theme on the <html> element
+  document.documentElement.setAttribute("data-theme", newTheme);
+
+  // Save the new theme to localStorage
+  localStorage.setItem("theme", newTheme);
+
+  // Update the images based on the new theme
+  const img1 = document.getElementById("image1");
+  const img2 = document.getElementById("image2");
+
+  if (newTheme === "light") {
+    img1.src = "./Images/lisbook-about-white.jpg";
+    img2.src = "./Images/lisbook-about-white.jpg";
+  } else {
+    img1.src = "./Images/lisbook-about.jpg";
+    img2.src = "./Images/lisbook-about.jpg";
+  }
+};
+
+// Add event listener for the theme toggle button
+document.getElementById("theme-toggle");
