@@ -629,3 +629,40 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
 .light-theme #sun-icon {
   display: none; /* Hide sun icon in light theme */
 }
+
+.flex-item {
+  flex: 1;
+  margin: 0 20px;
+  max-width: 550px;
+}
+
+/* Responsive for extra small devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .ctrl-player .ctrl-buttons {
+    padding: 0px; 
+  }
+
+  .ctrl-player .ctrl-buttons .ctrl-button-small {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .ctrl-player .ctrl-buttons .ctrl-button-medium {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.8rem;
+  }
+
+  .ctrl-player .ctrl-buttons .ctrl-button-large {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.8rem;
+  }
+
+  .ctrl-button-large .bi {
+    font-size: 1.5rem;
+  }
+}
