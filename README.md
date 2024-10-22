@@ -108,14 +108,21 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/thilakjo">
+                    <img src="https://avatars.githubusercontent.com/u/115476524?v=4" width="100;" alt="thilakjo"/>
+                    <br />
+                    <sub><b>Thilak S</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
                 <a href="https://github.com/amankumarconnect">
                     <img src="https://avatars.githubusercontent.com/u/150781237?v=4" width="100;" alt="amankumarconnect"/>
                     <br />
                     <sub><b>Aman Kumar</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/VaradJadhav">
                     <img src="https://avatars.githubusercontent.com/u/96735054?v=4" width="100;" alt="VaradJadhav"/>
@@ -138,12 +145,21 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/Tomkndn">
+                    <img src="https://avatars.githubusercontent.com/u/105445488?v=4" width="100;" alt="Tomkndn"/>
+                    <br />
+                    <sub><b>Kundan Tamsoy</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/IngaleChinmay04">
                     <img src="https://avatars.githubusercontent.com/u/143017442?v=4" width="100;" alt="IngaleChinmay04"/>
                     <br />
                     <sub><b>Chinmay Ingale</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/username-amarjit">
                     <img src="https://avatars.githubusercontent.com/u/121117087?v=4" width="100;" alt="username-amarjit"/>
@@ -158,8 +174,6 @@ MIT License
                     <sub><b>Jay Shukla</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/MohitKambli">
                     <img src="https://avatars.githubusercontent.com/u/31406633?v=4" width="100;" alt="MohitKambli"/>
@@ -168,10 +182,10 @@ MIT License
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/Tomkndn">
-                    <img src="https://avatars.githubusercontent.com/u/105445488?v=4" width="100;" alt="Tomkndn"/>
+                <a href="https://github.com/PModhe09">
+                    <img src="https://avatars.githubusercontent.com/u/119349738?v=4" width="100;" alt="PModhe09"/>
                     <br />
-                    <sub><b>Kundan Tamsoy</b></sub>
+                    <sub><b>Prathmesh Modhe</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -188,6 +202,8 @@ MIT License
                     <sub><b>harshitkumargupta</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/manoj9896">
                     <img src="https://avatars.githubusercontent.com/u/51627080?v=4" width="100;" alt="manoj9896"/>
