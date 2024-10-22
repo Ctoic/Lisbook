@@ -763,3 +763,66 @@ const toggleTheme = () => {
 
 // Add event listener for the theme toggle button
 document.getElementById("theme-toggle");
+
+// contributors auto update
+
+async function fetchContributors(repoOwner, repoName) {
+  try {
+    const response = await fetch(
+      `https://api.github.com/repos/${repoOwner}/${repoName}/contributors`
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const contributors = await response.json();
+    return contributors;
+  } catch (error) {
+    console.error("Error fetching contributors:", error);
+  }
+}
+
+function generateContributorsHTML(contributors) {
+  return contributors
+    .map(
+      (contributor) => `
+      <div class="col">
+        <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+          <div class="card-body text-center">
+            <img
+              src="${contributor.avatar_url}"
+              class="card-img-top rounded-circle mx-auto"
+              style="width: 100px; height: 100px"
+              alt="${contributor.login}"
+            />
+            <div class="card-body mt-3">
+              <h5 class="card-title">${contributor.login}</h5>
+              <p class="card-text">
+                <a href="${contributor.html_url}" target="_blank" class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `
+    )
+    .join("");
+}
+
+async function loadContributors() {
+  const repoOwner = "Ctoic"; // GitHub username or organization
+  const repoName = "Lisbook"; // Repository name
+
+  const contributors = await fetchContributors(repoOwner, repoName);
+
+  if (contributors) {
+    const contributorsHTML = generateContributorsHTML(contributors);
+    document.querySelector(
+      ".row.row-cols-1.row-cols-md-3.row-cols-lg-5.g-4.mt-4.align-items-stretch"
+    ).innerHTML = contributorsHTML;
+  }
+}
+
+// Call the function when the page loads
+document.addEventListener("DOMContentLoaded", loadContributors);
