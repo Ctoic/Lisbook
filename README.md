@@ -87,6 +87,13 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/thilakjo">
+                    <img src="https://avatars.githubusercontent.com/u/115476524?v=4" width="100;" alt="thilakjo"/>
+                    <br />
+                    <sub><b>Thilak S</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/2MJ-DEV">
                     <img src="https://avatars.githubusercontent.com/u/146131402?v=4" width="100;" alt="2MJ-DEV"/>
                     <br />
@@ -105,13 +112,6 @@ MIT License
                     <img src="https://avatars.githubusercontent.com/u/64344960?v=4" width="100;" alt="AdityaBavadekar"/>
                     <br />
                     <sub><b>Aditya Bavadekar</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/thilakjo">
-                    <img src="https://avatars.githubusercontent.com/u/115476524?v=4" width="100;" alt="thilakjo"/>
-                    <br />
-                    <sub><b>Thilak S</b></sub>
                 </a>
             </td>
 		</tr>
