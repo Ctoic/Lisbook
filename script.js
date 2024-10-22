@@ -680,3 +680,37 @@ var typed = new Typed(".auto-type", {
   backSpeed: 150,
   loop: true,
 });
+// Function to start typing animation
+function startTyping(target, text) {
+  new Typed(target, {
+    strings: [text],
+    typeSpeed: 50,
+    backSpeed: 0,
+    loop: false,
+    showCursor: false,
+  });
+}
+
+// Add hover listener to the correct section using existing class names
+const featureSection = document.querySelector("section.rounded-5.p-5.my-5"); // Target based on existing classes
+let typedOnce = false; // Flag to ensure typing happens only once
+
+featureSection.addEventListener("mouseenter", function () {
+  // Check if typing has already been triggered
+  if (!typedOnce) {
+    // Select all the type-target elements inside the container
+    document.querySelectorAll(".type-target").forEach((targetSpan) => {
+      // Get the text from the data-text attribute
+      const text = targetSpan.getAttribute("data-text");
+
+      // Clear any previous typed content
+      targetSpan.innerHTML = "";
+
+      // Start typing animation for each feature box
+      startTyping(targetSpan, text);
+    });
+
+    // Set the flag to true to prevent retyping on hover
+    typedOnce = true;
+  }
+});
