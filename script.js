@@ -626,3 +626,63 @@ window.addEventListener("load", function () {
   const loader = document.getElementById("loader");
   loader.classList.add("hidden");
 });
+// Profile picture change handler
+const uploadPicBtn = document.getElementById("upload-pic");
+if (uploadPicBtn) {
+  uploadPicBtn.addEventListener("click", () => {
+    alert("Profile picture change feature is coming soon!");
+    // You can add a file upload input in the future.
+  });
+}
+
+// Name change functionality
+const editNameBtn = document.getElementById("edit-name");
+if (editNameBtn) {
+  editNameBtn.addEventListener("click", () => {
+    const newName = prompt("Enter your new name:");
+    if (newName) {
+      document.querySelector(
+        ".profile-section p"
+      ).innerText = `Name: ${newName}`;
+    }
+  });
+}
+
+// Friend card expand/collapse
+// Friend cards toggle animation
+document.querySelectorAll(".friend-card").forEach((card) => {
+  card.addEventListener("click", function () {
+    const targetId = this.getAttribute("data-target");
+    const content = document.querySelector(targetId);
+    const isCollapsed = content.classList.contains("expanded");
+
+    // Toggle the card content
+    if (isCollapsed) {
+      content.classList.remove("expanded");
+      card.classList.add("collapsed");
+    } else {
+      content.classList.add("expanded");
+      card.classList.remove("collapsed");
+    }
+  });
+});
+// features typing effect
+document.addEventListener("DOMContentLoaded", function () {
+  if (typeof Typed !== "undefined") {
+    // Initialize the typing effect for features using Typed.js
+    let typed = new Typed(".auto-input", {
+      strings: [
+        "Play/Pause",
+        "Skip Chapters",
+        "Change Speed",
+        "Change Volume",
+        "Change Theme",
+      ],
+      typeSpeed: 100, // Typing speed
+      backSpeed: 100, // Backspacing speed
+      loop: true, // Loop through the strings indefinitely
+    });
+  } else {
+    console.error("Typed.js not found. Make sure it's included correctly.");
+  }
+});
