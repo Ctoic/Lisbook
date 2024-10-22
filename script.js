@@ -30,6 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const audioFile = urlParams.get("file");
   const startTime = urlParams.get("t");
 
+  // Hide the loader when data is loaded
+  const loader = document.querySelector("#loader");
+
+  if (loader) {
+    loader.style.display = "none";
+  }
+
   if (audioFile && startTime) {
     audioPlayer.src = `audio/${audioFile}`;
     audioPlayer.currentTime = startTime;
@@ -598,7 +605,53 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  // Fonction viewBook à définir globalement
+  function viewBook(bookId) {
+    // Redirection vers la page de lecture avec l'ID du livre dans l'URL
+    window.location.href = `reading.html?bookId=${bookId}`;
+  }
+
+  // Fetch des données des livres à partir du fichier JSON
+  fetch("./data/books.json")
+    .then((response) => response.json())
+    .then((books) => {
+      const bookContainer = document.querySelector(".book-container");
+
+      books.forEach((book) => {
+        const bookCard = `
+          <div class="col" data-id="${book.id}">
+            <div class="features-card border rounded-5 p-4 text-center">
+              <div
+                class="card-cover-container rounded-4 d-flex align-items-center border">
+                <img
+                  src="${book.coverImage}"
+                  class="card-img-top img-fluid"
+                  alt="${book.title}"
+                />
+              </div>
+              <div class="card-body mt-4">
+                <h4 class="card-title">${book.title}</h4>
+                <p class="card-text">${book.author}</p>
+                <button class="btn-read-book btn btn-bd-primary btn-sm mt-4 px-5 rounded-5" data-id="${book.id}">Play Book</button>
+              </div>
+            </div>
+          </div>
+        `;
+        bookContainer.innerHTML += bookCard;
+      });
+
+      // Ajouter un événement click sur chaque bouton Play Book
+      document.querySelectorAll(".btn-read-book").forEach((button) => {
+        button.addEventListener("click", (e) => {
+          const bookId = e.target.getAttribute("data-id");
+          // Redirection vers la page reading.html avec l'ID du livre
+          window.location.href = `reading.html?bookId=${bookId}`;
+        });
+      });
+    });
 });
+
 // Function to load an HTML file into an element
 function loadHTML(file, elementId) {
   fetch(file)
@@ -625,44 +678,4 @@ window.addEventListener("load", function () {
   // Cache le spinner après que la page est entièrement chargée
   const loader = document.getElementById("loader");
   loader.classList.add("hidden");
-});
-// Profile picture change handler
-const uploadPicBtn = document.getElementById("upload-pic");
-if (uploadPicBtn) {
-  uploadPicBtn.addEventListener("click", () => {
-    alert("Profile picture change feature is coming soon!");
-    // You can add a file upload input in the future.
-  });
-}
-
-// Name change functionality
-const editNameBtn = document.getElementById("edit-name");
-if (editNameBtn) {
-  editNameBtn.addEventListener("click", () => {
-    const newName = prompt("Enter your new name:");
-    if (newName) {
-      document.querySelector(
-        ".profile-section p"
-      ).innerText = `Name: ${newName}`;
-    }
-  });
-}
-
-// Friend card expand/collapse
-// Friend cards toggle animation
-document.querySelectorAll(".friend-card").forEach((card) => {
-  card.addEventListener("click", function () {
-    const targetId = this.getAttribute("data-target");
-    const content = document.querySelector(targetId);
-    const isCollapsed = content.classList.contains("expanded");
-
-    // Toggle the card content
-    if (isCollapsed) {
-      content.classList.remove("expanded");
-      card.classList.add("collapsed");
-    } else {
-      content.classList.add("expanded");
-      card.classList.remove("collapsed");
-    }
-  });
 });
