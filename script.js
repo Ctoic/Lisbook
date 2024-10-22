@@ -666,3 +666,17 @@ document.querySelectorAll(".friend-card").forEach((card) => {
     }
   });
 });
+// auto-type
+var typed = new Typed(".auto-type", {
+  strings: [
+    "Play/Pause",
+    "Stop",
+    "Skip Chapters",
+    "Change Speed",
+    "Change Volume",
+    "Change Theme",
+  ],
+  typeSpeed: 150,
+  backSpeed: 150,
+  loop: true,
+});
