@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function () {
       speedDropdown.classList.toggle("hidden");
     });
   } else {
-    console.error("speedButton element not found.");
   }
 
   // Check if speedDropdown exists before working with its list items
@@ -95,7 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   } else {
-    console.error("speedDropdown element not found.");
   }
   // Check if audioPlayer exists
   if (audioPlayer) {
@@ -118,12 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     console.warn("Audio player does not exist.");
   }
-
-  window.addEventListener("click", (e) => {
-    if (!speedButton.contains(e.target) && !speedDropdown.contains(e.target)) {
-      speedDropdown.classList.add("hidden");
-    }
-  });
 
   // Function to display error popup
   function showErrorPopup(message) {
@@ -265,8 +257,15 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+  //cursor smooth
   const circles = document.querySelectorAll(".circle");
+  const logo = document.querySelector(".logo"); // Assuming the logo has a class "logo"
   const coords = { x: 0, y: 0 };
+  if (logo) {
+    const logoRect = logo.getBoundingClientRect();
+    coords.x = logoRect.left + logoRect.width / 2; // Center of the logo horizontally
+    coords.y = logoRect.top + logoRect.height / 2; // Center of the logo vertically
+  }
 
   // Updated color palette
   const colors = [
@@ -552,6 +551,43 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
   });
+  //faq auto type answer
+  const faqBoxes = document.querySelectorAll(".faq-box");
+
+  faqBoxes.forEach((box) => {
+    // Hover event on the entire FAQ box
+    box.addEventListener("mouseenter", function () {
+      const question = box.querySelector(".faq-question");
+      const answerId = question.getAttribute("data-answer");
+      const answerElement = document.getElementById(answerId);
+
+      // Check if the answer has already been displayed
+      if (!answerElement.classList.contains("hidden")) return;
+
+      // Add the typing effect
+      typeAnswer(
+        answerElement,
+        answerElement.dataset.fulltext || answerElement.innerHTML
+      );
+    });
+  });
+
+  function typeAnswer(element, answer) {
+    element.dataset.fulltext = answer; // Store the full text in a data attribute
+    element.innerHTML = ""; // Clear the current text
+    element.classList.remove("hidden"); // Make the answer visible
+    let i = 0;
+
+    function type() {
+      if (i < answer.length) {
+        element.innerHTML += answer.charAt(i);
+        i++;
+        setTimeout(type, 50); // Adjust typing speed here
+      }
+    }
+
+    type();
+  }
 
   audioPlayer?.addEventListener("loadeddata", function () {
     playlistItems?.forEach((item) => {
