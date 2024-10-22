@@ -826,3 +826,62 @@ async function loadContributors() {
 
 // Call the function when the page loads
 document.addEventListener("DOMContentLoaded", loadContributors);
+
+//auto-type contributors
+const titles = [
+  "Collaborators",
+  "Authors",
+  "Developers",
+  "Co-authors",
+  "Team Members",
+  "Participants",
+  "Co-contributors",
+  "Supporters",
+  "Associates",
+  "Engagers",
+  "Project Allies",
+  "engineers",
+  "Contributing Members",
+];
+
+let titleIndex = 0;
+let charIndex = 0;
+const typingSpeed = 100; // Speed of typing in milliseconds
+const erasingSpeed = 50; // Speed of erasing in milliseconds
+const pauseDuration = 1500; // Pause before starting the next title
+
+const autoType = () => {
+  const currentTitle = titles[titleIndex];
+
+  if (charIndex < currentTitle.length) {
+    document.getElementById("auto-type-title").textContent +=
+      currentTitle.charAt(charIndex);
+    charIndex++;
+    setTimeout(autoType, typingSpeed);
+  } else {
+    // Pause at the end of the word before erasing
+    setTimeout(erase, pauseDuration);
+  }
+};
+
+const erase = () => {
+  const currentTitle = titles[titleIndex];
+
+  if (charIndex > 0) {
+    document.getElementById("auto-type-title").textContent = currentTitle.slice(
+      0,
+      charIndex - 1
+    );
+    charIndex--;
+    setTimeout(erase, erasingSpeed);
+  } else {
+    // Move to the next title
+    titleIndex = (titleIndex + 1) % titles.length; // Loop back to the first title
+    setTimeout(autoType, typingSpeed);
+  }
+};
+
+// Start the typing effect
+document.addEventListener("DOMContentLoaded", () => {
+  autoType();
+});

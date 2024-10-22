@@ -1025,3 +1025,11 @@ header .container {
 .nav-item:hover {
   background-color: inherit;
 }
+/* auto-type contributors */
+#auto-type-title {
+  font-size: 3.111rem; /* Adjust as needed */
+  color: #333; /* Adjust color as needed */
+  height: 2.5rem; /* Set a fixed height, adjust based on font size */
+  overflow: hidden; /* Prevent overflow */
+  line-height: 2.5rem; /* Center text vertically */
+}
