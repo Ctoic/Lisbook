@@ -65,34 +65,59 @@ document.addEventListener("DOMContentLoaded", function () {
   const speedDropdown = document.getElementById("speedDropdown");
   const audio = document.getElementById("audio");
 
-  // function for dropdown 
-  speedButton.addEventListener("click", () => {
-    speedDropdown.classList.toggle("hidden");
-  });
-
-  speedDropdown.querySelectorAll("li").forEach((item) => {
-    item.addEventListener("click", () => {
-      const selectedSpeed = parseFloat(item.getAttribute("data-speed")); // Convert to float
-
-      audio.playbackRate = selectedSpeed;
-
-      speedButton.textContent = selectedSpeed + "x";
-
-      speedDropdown.classList.add("hidden");
+  // Check if speedButton exists before adding the event listener
+  if (speedButton) {
+    speedButton.addEventListener("click", () => {
+      speedDropdown.classList.toggle("hidden");
     });
-  });
+  } else {
+    console.error("speedButton element not found.");
+  }
 
-  audioPlayer.addEventListener("canplay", () => {
-    speedDropdown.querySelectorAll("li").forEach((item) => {
+  // Check if speedDropdown exists before working with its list items
+  if (speedDropdown) {
+    const speedItems = speedDropdown.querySelectorAll("li");
+
+    speedItems.forEach((item) => {
       item.addEventListener("click", () => {
-        const selectedSpeed = parseFloat(item.getAttribute("data-speed"));
-        audioPlayer.playbackRate = selectedSpeed;
-        speedButton.textContent = selectedSpeed + "x";
+        const selectedSpeed = parseFloat(item.getAttribute("data-speed")); // Convert to float
+
+        // Assuming 'audio' element exists, otherwise you need to check that too
+        if (audio) {
+          audio.playbackRate = selectedSpeed;
+        }
+
+        if (speedButton) {
+          speedButton.textContent = selectedSpeed + "x";
+        }
 
         speedDropdown.classList.add("hidden");
       });
     });
-  });
+  } else {
+    console.error("speedDropdown element not found.");
+  }
+  // Check if audioPlayer exists
+  if (audioPlayer) {
+    audioPlayer.addEventListener("canplay", () => {
+      // Check if speedDropdown exists and has li elements
+      if (speedDropdown && speedDropdown.querySelectorAll("li").length > 0) {
+        speedDropdown.querySelectorAll("li").forEach((item) => {
+          item.addEventListener("click", () => {
+            const selectedSpeed = parseFloat(item.getAttribute("data-speed"));
+            audioPlayer.playbackRate = selectedSpeed;
+            speedButton.textContent = selectedSpeed + "x";
+
+            speedDropdown.classList.add("hidden");
+          });
+        });
+      } else {
+        console.warn("Speed dropdown or its items do not exist.");
+      }
+    });
+  } else {
+    console.warn("Audio player does not exist.");
+  }
 
   window.addEventListener("click", (e) => {
     if (!speedButton.contains(e.target) && !speedDropdown.contains(e.target)) {
@@ -240,6 +265,76 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+  const circles = document.querySelectorAll(".circle");
+  const coords = { x: 0, y: 0 };
+
+  // Updated color palette
+  const colors = [
+    "#a7e078",
+    "#9dd36c",
+    "#94c760",
+    "#8abc55",
+    "#80b14b",
+    "#76a640",
+    "#6cbf58",
+    "#62a24d",
+    "#579643",
+    "#4e8a3b",
+    "#458132",
+    "#3b752a",
+    "#336824",
+    "#2c9137",
+    "#23802c",
+    "#1f7628",
+    "#1b6c25",
+    "#121212",
+    "#0f0f0f",
+    "#2b2b2b",
+    "#1e1e1e",
+    "#1a1a1a",
+  ];
+
+  // Set colors for each circle and initialize their positions
+  circles.forEach((circle, index) => {
+    circle.style.backgroundColor = colors[index % colors.length]; // Set circle colors
+    circle.x = 0; // Initialize circle positions
+    circle.y = 0;
+  });
+
+  // Track mouse movements and update coordinates
+  document.addEventListener("mousemove", function (e) {
+    coords.x = e.clientX; // Use clientX and clientY for cursor-relative positioning
+    coords.y = e.clientY;
+  });
+
+  // Animate the circles based on mouse movement
+  function animateCircles() {
+    let x = coords.x;
+    let y = coords.y;
+
+    circles.forEach((circle, index) => {
+      // Set the position for the circles with slight offset
+      circle.style.left = `${x - 12}px`;
+      circle.style.top = `${y - 12}px`;
+
+      // Scale the circles based on their index
+      circle.style.transform = `scale(${
+        (circles.length - index) / circles.length
+      })`;
+
+      // Update the position for the next circle
+      const nextCircle = circles[index + 1] || circles[0];
+      x += (nextCircle.x - x) * 0.2; // Adjust smoothing factor
+      y += (nextCircle.y - y) * 0.2; // Adjust smoothing factor
+
+      circle.x = x; // Update current circle's position for the next iteration
+      circle.y = y; // Update current circle's position for the next iteration
+    });
+
+    requestAnimationFrame(animateCircles); // Keep the animation running
+  }
+
+  animateCircles(); // Start the circle animation
 
   //Keyboard Shortcuts buttons
   document.addEventListener("keydown", function (e) {
