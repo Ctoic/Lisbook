@@ -626,3 +626,43 @@ window.addEventListener("load", function () {
   const loader = document.getElementById("loader");
   loader.classList.add("hidden");
 });
+// Profile picture change handler
+const uploadPicBtn = document.getElementById("upload-pic");
+if (uploadPicBtn) {
+  uploadPicBtn.addEventListener("click", () => {
+    alert("Profile picture change feature is coming soon!");
+    // You can add a file upload input in the future.
+  });
+}
+
+// Name change functionality
+const editNameBtn = document.getElementById("edit-name");
+if (editNameBtn) {
+  editNameBtn.addEventListener("click", () => {
+    const newName = prompt("Enter your new name:");
+    if (newName) {
+      document.querySelector(
+        ".profile-section p"
+      ).innerText = `Name: ${newName}`;
+    }
+  });
+}
+
+// Friend card expand/collapse
+// Friend cards toggle animation
+document.querySelectorAll(".friend-card").forEach((card) => {
+  card.addEventListener("click", function () {
+    const targetId = this.getAttribute("data-target");
+    const content = document.querySelector(targetId);
+    const isCollapsed = content.classList.contains("expanded");
+
+    // Toggle the card content
+    if (isCollapsed) {
+      content.classList.remove("expanded");
+      card.classList.add("collapsed");
+    } else {
+      content.classList.add("expanded");
+      card.classList.remove("collapsed");
+    }
+  });
+});
