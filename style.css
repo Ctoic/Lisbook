@@ -49,6 +49,64 @@
   align-items: center;
   z-index: 9999;
 }
+/* Hide the default cursor */
+body,
+a,
+button,
+li {
+  cursor: none;
+}
+.hidden {
+  display: none;
+}
+
+.faq-answer {
+  display: block;
+  font-size: 1rem;
+  margin-top: 10px;
+  color: var(--accent-color); /* Existing accent color */
+}
+
+.faq-question {
+  cursor: pointer;
+  color: var(--accent-color); /* Same color for consistency */
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.faq-question:hover {
+  text-decoration: none;
+}
+
+/* Trailing circles styles */
+.circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%; /* Creates a circle */
+  position: fixed; /* Fixed position for the circles */
+  pointer-events: none; /* Makes circles unclickable */
+  z-index: 9999; /* Ensure it stays on top of other elements */
+  background-color: transparent; /* Default color; overridden by JS */
+
+  opacity: 0.5; /* Slightly transparent */
+  transition: transform 0.1s ease-out, left 0.15s, top 0.15s; /* Smooth transition */
+}
+
+/* Scale effect on hover for buttons and list items */
+li:hover .circle,
+button:hover .circle {
+  transform: scale(6); /* Scale the circle on hover */
+}
+
+/* Custom hover effect for buttons */
+button:hover .circle {
+  background-color: #ff4081; /* Neon color when hovering over buttons */
+}
+
+/* Hover effect for list items */
+li:hover {
+  background-color: #e0e0e0; /* Change background color on hover */
+}
 
 /* Hide the spinner once the page is loaded */
 #loader.hidden {
@@ -639,4 +697,342 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
 
 .light-theme #sun-icon {
   display: none; /* Hide sun icon in light theme */
+}
+
+.profile-section {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+#bookmarked-list li {
+  background-color: #121212;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+#progress-tracking div {
+  background-color: #121212;
+  padding: 15px;
+  border-radius: 8px;
+}
+.container {
+  max-width: 1200px; /* or any width you prefer */
+  margin: 0 auto; /* centers the container */
+  padding: 0 1rem; /* optional padding */
+}
+.logo-text {
+  margin-right: auto; /* push logo to the left */
+}
+
+.text-gray-300 {
+  margin: 0 1rem; /* adjust horizontal space between links */
+}
+
+#menu {
+  margin-top: 1rem; /* if needed to create space above the menu */
+}
+@media (max-width: 1024px) {
+  header {
+    padding: 8px; /* Adjust padding for smaller screens */
+    max-height: 50px; /* Optional: reduce max height */
+  }
+
+  header .container {
+    height: auto; /* Allow height to be auto, but control the max height */
+  }
+
+  /* Additional styles for the menu icon */
+  .menu-icon {
+    display: block; /* Show menu icon */
+    /* Add styles for menu icon */
+  }
+}
+
+@media (max-width: 768px) {
+}
+#menu {
+  display: flex;
+  align-items: center; /* vertically center items */
+}
+
+.text-gray-300 {
+  margin-right: 1rem; /* space between menu items */
+}
+
+#theme-toggle,
+#profile-btn {
+  margin-left: 1rem; /* space between buttons and menu items */
+}
+
+/* Profile button icon */
+#profile-btn i {
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover effect on profile icon only */
+#profile-btn:hover i {
+  color: #1db954; /* Change to green on hover */
+}
+
+/* Ensure the button itself does not change color */
+#profile-btn {
+  background-color: transparent; /* Keep button background transparent */
+  border: none; /* No border for the button */
+  cursor: pointer; /* Show pointer on hover */
+}
+
+/* Other existing styles */
+.text-gray-300 {
+  color: #d1d1d1;
+}
+/*menu section theme */
+/* Default header background (dark theme) */
+header {
+  position: fixed;
+  max-height: 120px; /* Set a maximum height */
+
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background-color: #1a1a1a; /* Ensures the header is fixed at the top */
+  padding: 10px 0;
+}
+
+#menu {
+  background-color: inherit; /* Menu should inherit the header's background color */
+}
+/* Make sure the body doesn't hide underneath the fixed header */
+body {
+  margin-top: 80px; /* Adjust this margin to match the height of the header */
+}
+
+/* Light theme adjustments */
+body.light-theme header {
+  background-color: #333333; /* Darker gray for light theme */
+}
+
+body.light-theme #menu {
+  background-color: inherit; /* Inherit light theme header background */
+}
+
+/* Dark theme adjustments */
+body.dark-theme header {
+  background-color: #1a1a1a; /* Dark theme header */
+}
+
+body.dark-theme #menu {
+  background-color: inherit; /* Inherit dark theme header background */
+}
+/* Optional hover effects */
+a.text-gray-300:hover {
+  color: #1db954; /* Green highlight on hover */
+}
+/* Header & Menu */
+header {
+  background-color: #1a1a1a;
+}
+header .container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center items vertically */
+  height: 60px; /* Fixed height */
+}
+#menu {
+  background-color: inherit;
+  position: relative;
+}
+/* Adjusting the layout */
+.profile-and-friends {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* Ensures both sections have the same height */
+  padding-top: 80px;
+}
+
+.profile-section,
+.friends-section {
+  flex: 1; /* Both sections will take equal space */
+  background-color: inherit;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column; /* Ensures content inside can expand vertically */
+}
+.dark-theme .friends-section,
+.profile-section {
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+/* Optional hover effect for both sections */
+.profile-section:hover,
+.friends-section:hover {
+  transform: scale(1.02);
+}
+
+.profile-section:hover {
+  transform: scale(1.02);
+}
+
+#profile-pic {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#profile-pic:hover {
+  transform: rotate(360deg);
+}
+#upload-pic {
+  background-color: #94d769;
+  border: #94d769;
+}
+#upload-pic:hover {
+  background-color: #1db954;
+  border: #1db954;
+}
+
+.friend-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 15px;
+  text-align: center;
+  background-color: inherit; /* Slightly darker background for the cards */
+  border-radius: 12px; /* Smooth rounded corners */
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+.dark-theme .friend-card {
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.friend-card:hover {
+  transform: scale(1.05); /* Slightly enlarges the card on hover */
+  background-color: #1db954; /* Changes background color on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deepens the shadow on hover */
+  border-radius: 16px; /* Increases the border-radius on hover */
+}
+
+.friend-card img {
+  transition: transform 0.3s ease, border-radius 0.3s ease; /* Smooth transition for image */
+  border-radius: 50%; /* Ensures profile image is rounded */
+}
+
+.friend-card:hover img {
+  transform: scale(1.1); /* Enlarges the profile picture slightly on hover */
+  border-radius: 50%; /* Keeps profile image round on hover */
+}
+
+.friend-card .card-title {
+  margin-top: 10px;
+}
+
+.friend-card .card-text a {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.friend-card:hover .card-text a {
+  color: #121212; /* Changes text color to black when hovered */
+}
+
+.friend-card .card-text a.btn {
+  background-color: #ffffff; /* Default button color */
+  color: #121212; /* Button text color */
+}
+
+.friend-card:hover .card-text a.btn {
+  background-color: inherit; /* Changes button color on hover */
+  color: #ffffff; /* Button text color on hover */
+}
+
+.friend-card.collapsed:hover {
+  transform: scale(1.05);
+}
+
+.friend-content {
+  display: none;
+  transition: all 0.3s ease;
+  background-color: inherit;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.friend-content.expanded {
+  display: block;
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: #1db954;
+  border-color: #1db954;
+}
+
+.btn-primary:hover {
+  background-color: #1db700;
+}
+/* footre things */
+/* General Footer Styles */
+.footer-col-title {
+  color: #333; /* Darker text for titles */
+  font-size: 1.25rem; /* Larger font for section titles */
+  text-transform: uppercase; /* Uppercase for titles */
+  margin-bottom: 1rem; /* Space below titles */
+}
+
+.nav {
+  padding-left: 0; /* Remove default padding */
+}
+
+/* Link Styles */
+.nav a {
+  color: #555; /* Gray color for links */
+  text-decoration: none; /* Remove underline */
+  padding: 0.5rem 0; /* Space around links */
+  font-weight: 500; /* Medium font weight for links */
+  transition: color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover Effect for Links */
+.nav a:hover {
+  color: #28a745; /* Change to green on hover (adjust this value to match your site's green) */
+}
+
+/* Button Styles */
+.nav a.button {
+  display: inline-block; /* Allow for padding */
+  background-color: transparent; /* Transparent background for buttons */
+  color: #555; /* Gray color for button text */
+  border: none; /* Remove default border */
+  border-radius: 25px; /* Rounded corners */
+  padding: 0.5rem 1rem; /* Padding for the button */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Bold font for buttons */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover Effect for Buttons */
+.nav a.button:hover {
+  color: #28a745; /* Change to green on hover */
+}
+
+/* Icon Styles */
+.nav i {
+  color: #555; /* Gray color for icons */
+  transition: color 0.3s ease; /* Smooth transition for icons */
+}
+
+/* Hover Effect for Icons */
+.nav a:hover i {
+  color: #28a745; /* Change icon color to green on hover */
+}
+.nav-item:hover {
+  background-color: inherit;
 }

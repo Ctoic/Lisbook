@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <!-- Favicon -->
+    <link rel="icon" href="Images/favicon.jpg" type="image/png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -21,6 +23,29 @@
   <body
     class="dark-theme bg-gray-900 text-gray-300 d-flex flex-column min-vh-100"
   >
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
     <div id="loader" class="spinner-container">
       <div
         class="spinner-border"
@@ -30,9 +55,205 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-    <!-- Navbar -->
-    <div id="header-placeholder" class="sticky top-0 z-20"></div>
 
+    <!-- Navbar -->
+    <!-- <div id="header-placeholder" class="sticky top-0 z-20"></div> -->
+    <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
+      <nav class="">
+        <div class="container mx-auto flex justify-between items-center">
+          <!-- Logo -->
+          <a class="logo-text h3 font-bold d-inline-flex" href="./index.html">
+            <img
+              src="./Images/lisbook-logo-1.png"
+              alt="Logo"
+              width="40"
+              height="auto"
+              class="align-text-center me-2"
+            />
+            Lisbook
+          </a>
+
+          <!-- Menu Links and Theme Toggle -->
+          <div
+            id="menu"
+            class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20"
+          >
+            <div
+              id="menu-close"
+              class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </div>
+            <a
+              href="./index.html"
+              class="text-gray-300 hover:text-green-500"
+              id="home"
+              >Home</a
+            >
+            <a
+              href="./about.html"
+              class="text-gray-300 hover:text-green-500"
+              id="about"
+              >About</a
+            >
+
+            <a href="./contact.html" class="text-gray-300 hover:text-green-500"
+              >Contact</a
+            >
+            <a href="./faq.html" class="text-gray-300 hover:text-green-500"
+              >FAQs</a
+            >
+
+            <!-- Profile Icon and Theme Toggle -->
+            <button
+              id="theme-toggle"
+              class="text-gray-300 hover:text-green-500"
+            >
+              <!-- Sun Icon (for dark theme) -->
+              <svg
+                id="sun-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 hidden"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="12"
+                  y1="1"
+                  x2="12"
+                  y2="4"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="12"
+                  y1="20"
+                  x2="12"
+                  y2="23"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="4.22"
+                  y1="4.22"
+                  x2="6.34"
+                  y2="6.34"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="17.66"
+                  y1="17.66"
+                  x2="19.78"
+                  y2="19.78"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="1"
+                  y1="12"
+                  x2="4"
+                  y2="12"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="20"
+                  y1="12"
+                  x2="23"
+                  y2="12"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="4.22"
+                  y1="19.78"
+                  x2="6.34"
+                  y2="17.66"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <line
+                  x1="17.66"
+                  y1="6.34"
+                  x2="19.78"
+                  y2="4.22"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+              </svg>
+
+              <!-- Moon Icon (for light theme) -->
+              <svg
+                id="moon-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                />
+              </svg>
+            </button>
+
+            <a
+              href="./profile.html"
+              class="text-gray-300 hover:text-green-500 me-4"
+            >
+              <i class="bi bi-person-circle h-6 w-6"></i>
+            </a>
+          </div>
+
+          <!-- Mobile Menu Toggle Button -->
+          <div
+            id="menu-toggle"
+            title="Menu"
+            class="text-gray-300 lg:hidden cursor-pointer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </div>
+        </div>
+      </nav>
+    </header>
     <!-- Main -->
     <main class="container my-5">
       <h1 class="page-title display-5 fw-bold mb-5">
@@ -50,9 +271,16 @@
                 alt="Profile"
               />
               <div>
-                <h4 class="text-green-500 mb-2">What is Lisbook?</h4>
-                <p class="text-gray-300">
-                  Lisbook is an audio-book and music streaming platform that
+                <!-- Combine the class attributes and fix the structure -->
+                <h4
+                  class="text-green-500 mb-2 faq-question"
+                  data-answer="faq1-answer"
+                >
+                  What is Lisbook?
+                </h4>
+                <!-- Combine the class attributes and ensure the answer has 'id' and 'class' correctly set -->
+                <p class="text-gray-300 faq-answer hidden" id="faq1-answer">
+                  Lisbook is an audiobook and music streaming platform that
                   helps users access a variety of books and playlists from
                   different genres and authors.
                 </p>
@@ -71,10 +299,13 @@
                 alt="Profile"
               />
               <div>
-                <h4 class="text-green-500 mb-2">
+                <h4
+                  class="text-green-500 mb-2 faq-question"
+                  data-answer="faq2-answer"
+                >
                   How can I create an account?
                 </h4>
-                <p class="text-gray-300">
+                <p class="text-gray-300 faq-answer hidden" id="faq2-answer">
                   You can create an account by clicking on the 'Sign Up' button
                   on the home page, and filling in your email and password
                   details.
@@ -94,10 +325,13 @@
                 alt="Profile"
               />
               <div>
-                <h4 class="text-green-500 mb-2">
+                <h4
+                  class="text-green-500 mb-2 faq-question"
+                  data-answer="faq3-answer"
+                >
                   Is there a mobile app available?
                 </h4>
-                <p class="text-gray-300">
+                <p class="text-gray-300 faq-answer hidden" id="faq3-answer">
                   Yes, Lisbook has mobile apps for both Android and iOS that
                   allow you to access your favorite audiobooks on the go.
                 </p>
@@ -116,10 +350,13 @@
                 alt="Profile"
               />
               <div>
-                <h4 class="text-green-500 mb-2">
+                <h4
+                  class="text-green-500 mb-2 faq-question"
+                  data-answer="faq4-answer"
+                >
                   Can I download audiobooks for offline listening?
                 </h4>
-                <p class="text-gray-300">
+                <p class="text-gray-300 faq-answer hidden" id="faq4-answer">
                   Yes, Lisbook allows premium users to download audiobooks for
                   offline listening.
                 </p>
@@ -138,10 +375,13 @@
                 alt="Profile"
               />
               <div>
-                <h4 class="text-green-500 mb-2">
+                <h4
+                  class="text-green-500 mb-2 faq-question"
+                  data-answer="faq5-answer"
+                >
                   Is there a free version of Lisbook?
                 </h4>
-                <p class="text-gray-300">
+                <p class="text-gray-300 faq-answer hidden" id="faq5-answer">
                   Yes, Lisbook offers a free version with limited access to
                   books and music, supported by ads.
                 </p>
@@ -160,10 +400,13 @@
                 alt="Profile"
               />
               <div>
-                <h4 class="text-green-500 mb-2">
+                <h4
+                  class="text-green-500 mb-2 faq-question"
+                  data-answer="faq6-answer"
+                >
                   How do I cancel my subscription?
                 </h4>
-                <p class="text-gray-300">
+                <p class="text-gray-300 faq-answer hidden" id="faq6-answer">
                   You can cancel your subscription anytime by navigating to the
                   'Account Settings' and selecting the 'Cancel Subscription'
                   option.
@@ -183,10 +426,13 @@
                 alt="Profile"
               />
               <div>
-                <h4 class="text-green-500 mb-2">
+                <h4
+                  class="text-green-500 mb-2 faq-question"
+                  data-answer="faq7-answer"
+                >
                   Does Lisbook have a family plan?
                 </h4>
-                <p class="text-gray-300">
+                <p class="text-gray-300 faq-answer hidden" id="faq7-answer">
                   Yes, Lisbook offers a family plan that allows up to 5 members
                   to share one subscription at a discounted price.
                 </p>
@@ -205,10 +451,13 @@
                 alt="Profile"
               />
               <div>
-                <h4 class="text-green-500 mb-2">
+                <h4
+                  class="text-green-500 mb-2 faq-question"
+                  data-answer="faq8-answer"
+                >
                   Can I create my own playlists?
                 </h4>
-                <p class="text-gray-300">
+                <p class="text-gray-300 faq-answer hidden" id="faq8-answer">
                   Yes, Lisbook allows users to create and share personalized
                   playlists of their favorite audiobooks and music.
                 </p>
@@ -227,8 +476,13 @@
                 alt="Profile"
               />
               <div>
-                <h4 class="text-green-500 mb-2">How do I reset my password?</h4>
-                <p class="text-gray-300">
+                <h4
+                  class="text-green-500 mb-2 faq-question"
+                  data-answer="faq9-answer"
+                >
+                  How do I reset my password?
+                </h4>
+                <p class="text-gray-300 faq-answer hidden" id="faq9-answer">
                   You can reset your password by clicking on 'Forgot Password'
                   on the login page and following the instructions sent to your
                   email.
@@ -248,10 +502,13 @@
                 alt="Profile"
               />
               <div>
-                <h4 class="text-green-500 mb-2">
+                <h4
+                  class="text-green-500 mb-2 faq-question"
+                  data-answer="faq10-answer"
+                >
                   What formats are supported for audiobooks?
                 </h4>
-                <p class="text-gray-300">
+                <p class="text-gray-300 faq-answer hidden" id="faq10-answer">
                   Lisbook supports a variety of audio formats, including MP3,
                   AAC, and WAV for audiobooks.
                 </p>
@@ -270,10 +527,13 @@
                 alt="Profile"
               />
               <div>
-                <h4 class="text-green-500 mb-2">
+                <h4
+                  class="text-green-500 mb-2 faq-question"
+                  data-answer="faq11-answer"
+                >
                   How can I share audiobooks with friends?
                 </h4>
-                <p class="text-gray-300">
+                <p class="text-gray-300 faq-answer hidden" id="faq11-answer">
                   You can share audiobooks with friends via social media or by
                   sending them a direct link from within the app.
                 </p>
@@ -292,10 +552,13 @@
                 alt="Profile"
               />
               <div>
-                <h4 class="text-green-500 mb-2">
+                <h4
+                  class="text-green-500 mb-2 faq-question"
+                  data-answer="faq12-answer"
+                >
                   Can I listen to audiobooks while offline?
                 </h4>
-                <p class="text-gray-300">
+                <p class="text-gray-300 faq-answer hidden" id="faq12-answer">
                   Yes, once downloaded, you can listen to your audiobooks
                   offline without needing an internet connection.
                 </p>
@@ -314,10 +577,13 @@
                 alt="Profile"
               />
               <div>
-                <h4 class="text-green-500 mb-2">
+                <h4
+                  class="text-green-500 mb-2 faq-question"
+                  data-answer="faq13-answer"
+                >
                   Does Lisbook offer audiobooks in different languages?
                 </h4>
-                <p class="text-gray-300">
+                <p class="text-gray-300 faq-answer hidden" id="faq13-answer">
                   Yes, Lisbook offers audiobooks in a variety of languages
                   including English, Spanish, French, and more.
                 </p>
@@ -336,10 +602,13 @@
                 alt="Profile"
               />
               <div>
-                <h4 class="text-green-500 mb-2">
+                <h4
+                  class="text-green-500 mb-2 faq-question"
+                  data-answer="faq14-answer"
+                >
                   How do I contact customer support?
                 </h4>
-                <p class="text-gray-300">
+                <p class="text-gray-300 faq-answer hidden" id="faq14-answer">
                   You can reach customer support by going to the 'Help' section
                   in the app or by emailing us at support@lisbook.com.
                 </p>
