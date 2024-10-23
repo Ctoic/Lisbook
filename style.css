@@ -60,6 +60,11 @@ li {
   display: none;
 }
 
+#loader,
+.spinner-container {
+  cursor: none; /* Cacher le curseur uniquement lors du chargement */
+}
+
 .faq-answer {
   display: block;
   font-size: 1rem;

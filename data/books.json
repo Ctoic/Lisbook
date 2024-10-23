@@ -8,15 +8,23 @@
     "chapters": [
       {
         "title": "Introduction",
-        "audio": "audio/PaleBlueDot/chap-1_you_are_here.mp3"
+        "audio": "./audio/PaleBlueDot/chap-1_you_are_here.mp3"
       },
       {
         "title": "Chapitre 1: You are here",
-        "audio": "audio/PaleBlueDot/Chap-2_aberrations of light.mp3"
+        "audio": "./audio/PaleBlueDot/Chap-2_aberrations of light.mp3"
       },
       {
         "title": "Chapitre 2: Aberrations of light",
-        "audio": "audio/PaleBlueDot/chap-3_the great demotions.mp3"
+        "audio": "./audio/PaleBlueDot/chap-3_the great demotions.mp3"
+      },
+      {
+        "title": "Chapitre 3: A universe not made for us",
+        "audio": "./audio/PaleBlueDot/chap-4_a universe not made for us.mp3"
+      },
+      {
+        "title": "Chapitre 5: Is there intelligent life on earth",
+        "audio": "./audio/PaleBlueDot/chap-5_is there intelligent life on earth.mp3"
       }
     ]
   },
@@ -29,23 +37,23 @@
     "chapters": [
       {
         "title": "Introduction",
-        "audio": "audio/FS/01.mp3"
+        "audio": "./audio/FS/01.mp3"
       },
       {
         "title": "Chapitre 1",
-        "audio": "audio/FS/02.mp3"
+        "audio": "./audio/FS/02.mp3"
       },
       {
         "title": "Chapitre 2",
-        "audio": "audio/FS/03.mp3"
+        "audio": "./audio/FS/03.mp3"
       },
       {
         "title": "Chapitre 3",
-        "audio": "audio/FS/04.mp3"
+        "audio": "./audio/FS/04.mp3"
       },
       {
         "title": "Chapitre 4",
-        "audio": "audio/FS/05.mp3"
+        "audio": "./audio/FS/05.mp3"
       }
     ]
   }

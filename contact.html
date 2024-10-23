@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Favicon -->
     <link rel="icon" href="Images/favicon.jpg" type="image/png" />
-    <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -19,7 +19,6 @@
     />
     <title>My Favorite Books Music App</title>
   </head>
-
   <body
     class="dark-theme bg-gray-900 text-gray-300 d-flex flex-column min-vh-100"
   >
@@ -62,7 +61,7 @@
       <nav class="">
         <div class="container mx-auto flex justify-between items-center">
           <!-- Logo -->
-          <a class="logo-text h3 font-bold d-inline-flex" href="./index.html">
+          <a class="logo-text h3 font-bold d-inline-flex" href="/">
             <img
               src="./Images/lisbook-logo-1.png"
               alt="Logo"
@@ -98,22 +97,22 @@
               </svg>
             </div>
             <a
-              href="./index.html"
               class="text-gray-300 hover:text-green-500"
-              id="home"
+              href="/"
+              id="home.html"
               >Home</a
             >
             <a
-              href="./about.html"
               class="text-gray-300 hover:text-green-500"
+              href="/about.html"
               id="about"
               >About</a
             >
 
-            <a href="./contact.html" class="text-gray-300 hover:text-green-500"
+            <a class="text-gray-300 hover:text-green-500" href="/contact.html"
               >Contact</a
             >
-            <a href="./faq.html" class="text-gray-300 hover:text-green-500"
+            <a class="text-gray-300 hover:text-green-500" href="/faq.html"
               >FAQs</a
             >
 
@@ -223,8 +222,8 @@
             </button>
 
             <a
-              href="./profile.html"
               class="text-gray-300 hover:text-green-500 me-4"
+              href="/profile.html"
             >
               <i class="bi bi-person-circle h-6 w-6"></i>
             </a>
@@ -254,6 +253,75 @@
         </div>
       </nav>
     </header>
+
+    <!-- Social Share Modal -->
+    <div
+      class="modal fade"
+      id="exampleModalToggle"
+      aria-hidden="true"
+      aria-labelledby="exampleModalToggleLabel"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+              Share it on :
+            </h1>
+            <button
+              type="button"
+              class="btn-close rounded-5"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!-- Modale body -->
+          <div class="modal-body">
+            <div class="flex justify-center space-x-4 mt-4">
+              <a
+                href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:5500/Lisbook/pbd.html&text=Lisbook+god Delusion"
+                target="_blank"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                  alt="Share on Facebook"
+                  style="width: 24px; height: 24px"
+                />
+              </a>
+              <a
+                href="https://twitter.com/intent/tweet?url=http://127.0.0.1:5500/Lisbook/pbd.html&text=Lisbook+god Delusion"
+                target="_blank"
+              >
+                <img
+                  src="https://abs.twimg.com/favicons/twitter.2.ico"
+                  alt="Share on X"
+                />
+              </a>
+              <a
+                href="https://api.whatsapp.com/send?text=http://127.0.0.1:5500/Lisbook/pbd.html"
+                target="_blank"
+              >
+                <img
+                  src="https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_whatsapp-512.png"
+                  alt="Share on WhatsApp"
+                  style="width: 24px; height: 24px"
+                />
+              </a>
+            </div>
+          </div>
+          <!-- <div class="modal-footer">
+            <button
+              class="btn btn-primary"
+              data-bs-target="#exampleModalToggle2"
+              data-bs-toggle="modal"
+            >
+              Open second modal
+            </button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- Social Share Modal end -->
 
     <main class="container my-5">
       <!-- Feedback Section -->
@@ -317,6 +385,6 @@
     </main>
     <!-- Footer -->
     <div id="footer-placeholder"></div>
-    <script src="script.js"></script>
+    <script src="./js/script.js" type="module"></script>
   </body>
 </html>
