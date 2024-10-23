@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function () {
       speedDropdown.classList.toggle("hidden");
     });
   } else {
-    console.error("speedButton element not found.");
   }
 
   // Check if speedDropdown exists before working with its list items
@@ -95,7 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   } else {
-    console.error("speedDropdown element not found.");
   }
   // Check if audioPlayer exists
   if (audioPlayer) {
@@ -118,12 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     console.warn("Audio player does not exist.");
   }
-
-  window.addEventListener("click", (e) => {
-    if (!speedButton.contains(e.target) && !speedDropdown.contains(e.target)) {
-      speedDropdown.classList.add("hidden");
-    }
-  });
 
   // Function to display error popup
   function showErrorPopup(message) {
@@ -265,8 +257,15 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+  //cursor smooth
   const circles = document.querySelectorAll(".circle");
+  const logo = document.querySelector(".logo"); // Assuming the logo has a class "logo"
   const coords = { x: 0, y: 0 };
+  if (logo) {
+    const logoRect = logo.getBoundingClientRect();
+    coords.x = logoRect.left + logoRect.width / 2; // Center of the logo horizontally
+    coords.y = logoRect.top + logoRect.height / 2; // Center of the logo vertically
+  }
 
   // Updated color palette
   const colors = [
@@ -552,6 +551,43 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
   });
+  //faq auto type answer
+  const faqBoxes = document.querySelectorAll(".faq-box");
+
+  faqBoxes.forEach((box) => {
+    // Hover event on the entire FAQ box
+    box.addEventListener("mouseenter", function () {
+      const question = box.querySelector(".faq-question");
+      const answerId = question.getAttribute("data-answer");
+      const answerElement = document.getElementById(answerId);
+
+      // Check if the answer has already been displayed
+      if (!answerElement.classList.contains("hidden")) return;
+
+      // Add the typing effect
+      typeAnswer(
+        answerElement,
+        answerElement.dataset.fulltext || answerElement.innerHTML
+      );
+    });
+  });
+
+  function typeAnswer(element, answer) {
+    element.dataset.fulltext = answer; // Store the full text in a data attribute
+    element.innerHTML = ""; // Clear the current text
+    element.classList.remove("hidden"); // Make the answer visible
+    let i = 0;
+
+    function type() {
+      if (i < answer.length) {
+        element.innerHTML += answer.charAt(i);
+        i++;
+        setTimeout(type, 50); // Adjust typing speed here
+      }
+    }
+
+    type();
+  }
 
   audioPlayer?.addEventListener("loadeddata", function () {
     playlistItems?.forEach((item) => {
@@ -589,4 +625,44 @@ window.addEventListener("load", function () {
   // Cache le spinner après que la page est entièrement chargée
   const loader = document.getElementById("loader");
   loader.classList.add("hidden");
+});
+// Profile picture change handler
+const uploadPicBtn = document.getElementById("upload-pic");
+if (uploadPicBtn) {
+  uploadPicBtn.addEventListener("click", () => {
+    alert("Profile picture change feature is coming soon!");
+    // You can add a file upload input in the future.
+  });
+}
+
+// Name change functionality
+const editNameBtn = document.getElementById("edit-name");
+if (editNameBtn) {
+  editNameBtn.addEventListener("click", () => {
+    const newName = prompt("Enter your new name:");
+    if (newName) {
+      document.querySelector(
+        ".profile-section p"
+      ).innerText = `Name: ${newName}`;
+    }
+  });
+}
+
+// Friend card expand/collapse
+// Friend cards toggle animation
+document.querySelectorAll(".friend-card").forEach((card) => {
+  card.addEventListener("click", function () {
+    const targetId = this.getAttribute("data-target");
+    const content = document.querySelector(targetId);
+    const isCollapsed = content.classList.contains("expanded");
+
+    // Toggle the card content
+    if (isCollapsed) {
+      content.classList.remove("expanded");
+      card.classList.add("collapsed");
+    } else {
+      content.classList.add("expanded");
+      card.classList.remove("collapsed");
+    }
+  });
 });
