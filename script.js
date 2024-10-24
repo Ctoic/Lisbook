@@ -666,3 +666,222 @@ document.querySelectorAll(".friend-card").forEach((card) => {
     }
   });
 });
+// auto-type
+var typed = new Typed(".auto-type", {
+  strings: [
+    "Play/Pause",
+    "Stop",
+    "Skip Chapters",
+    "Change Speed",
+    "Change Volume",
+    "Change Theme",
+  ],
+  typeSpeed: 150,
+  backSpeed: 150,
+  loop: true,
+});
+// Function to start typing animation
+function startTyping(target, text) {
+  new Typed(target, {
+    strings: [text],
+    typeSpeed: 50,
+    backSpeed: 0,
+    loop: false,
+    showCursor: false,
+  });
+}
+
+// Add hover listener to the correct section using existing class names
+const featureSection = document.querySelector("section.rounded-5.p-5.my-5"); // Target based on existing classes
+let typedOnce = false; // Flag to ensure typing happens only once
+
+featureSection.addEventListener("mouseenter", function () {
+  // Check if typing has already been triggered
+  if (!typedOnce) {
+    // Select all the type-target elements inside the container
+    document.querySelectorAll(".type-target").forEach((targetSpan) => {
+      // Get the text from the data-text attribute
+      const text = targetSpan.getAttribute("data-text");
+
+      // Clear any previous typed content
+      targetSpan.innerHTML = "";
+
+      // Start typing animation for each feature box
+      startTyping(targetSpan, text);
+    });
+
+    // Set the flag to true to prevent retyping on hover
+    typedOnce = true;
+  }
+});
+document.addEventListener("DOMContentLoaded", () => {
+  // Get the saved theme from localStorage, default to "dark" if none is set
+  const currentTheme = localStorage.getItem("theme") || "dark";
+
+  // Set the theme on the <html> element
+  document.documentElement.setAttribute("data-theme", currentTheme);
+
+  // Set the correct images based on the theme
+  const img1 = document.getElementById("image1");
+  const img2 = document.getElementById("image2");
+
+  if (currentTheme === "light") {
+    img1.src = "./Images/lisbook-about-white.jpg";
+    img2.src = "./Images/lisbook-about-white.jpg";
+  } else {
+    img1.src = "./Images/lisbook-about.jpg";
+    img2.src = "./Images/lisbook-about.jpg";
+  }
+});
+
+// Function to toggle between light and dark theme
+const toggleTheme = () => {
+  // Get the current theme from the <html> element's data-theme attribute
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+
+  // Determine the new theme based on the current one
+  const newTheme = currentTheme === "light" ? "dark" : "light";
+
+  // Set the new theme on the <html> element
+  document.documentElement.setAttribute("data-theme", newTheme);
+
+  // Save the new theme to localStorage
+  localStorage.setItem("theme", newTheme);
+
+  // Update the images based on the new theme
+  const img1 = document.getElementById("image1");
+  const img2 = document.getElementById("image2");
+
+  if (newTheme === "light") {
+    img1.src = "./Images/lisbook-about-white.jpg";
+    img2.src = "./Images/lisbook-about-white.jpg";
+  } else {
+    img1.src = "./Images/lisbook-about.jpg";
+    img2.src = "./Images/lisbook-about.jpg";
+  }
+};
+
+// Add event listener for the theme toggle button
+document.getElementById("theme-toggle");
+
+// contributors auto update
+
+async function fetchContributors(repoOwner, repoName) {
+  try {
+    const response = await fetch(
+      `https://api.github.com/repos/${repoOwner}/${repoName}/contributors`
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const contributors = await response.json();
+    return contributors;
+  } catch (error) {
+    console.error("Error fetching contributors:", error);
+  }
+}
+
+function generateContributorsHTML(contributors) {
+  return contributors
+    .map(
+      (contributor) => `
+      <div class="col">
+        <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+          <div class="card-body text-center">
+            <img
+              src="${contributor.avatar_url}"
+              class="card-img-top rounded-circle mx-auto"
+              style="width: 100px; height: 100px"
+              alt="${contributor.login}"
+            />
+            <div class="card-body mt-3">
+              <h5 class="card-title">${contributor.login}</h5>
+              <p class="card-text">
+                <a href="${contributor.html_url}" target="_blank" class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `
+    )
+    .join("");
+}
+
+async function loadContributors() {
+  const repoOwner = "Ctoic"; // GitHub username or organization
+  const repoName = "Lisbook"; // Repository name
+
+  const contributors = await fetchContributors(repoOwner, repoName);
+
+  if (contributors) {
+    const contributorsHTML = generateContributorsHTML(contributors);
+    document.querySelector(
+      ".row.row-cols-1.row-cols-md-3.row-cols-lg-5.g-4.mt-4.align-items-stretch"
+    ).innerHTML = contributorsHTML;
+  }
+}
+
+// Call the function when the page loads
+document.addEventListener("DOMContentLoaded", loadContributors);
+
+//auto-type contributors
+const titles = [
+  "Collaborators",
+  "Authors",
+  "Developers",
+  "Co-authors",
+  "Team Members",
+  "Participants",
+  "Co-contributors",
+  "Supporters",
+  "Associates",
+  "Engagers",
+  "Project Allies",
+  "engineers",
+  "Contributing Members",
+];
+
+let titleIndex = 0;
+let charIndex = 0;
+const typingSpeed = 100; // Speed of typing in milliseconds
+const erasingSpeed = 50; // Speed of erasing in milliseconds
+const pauseDuration = 1500; // Pause before starting the next title
+
+const autoType = () => {
+  const currentTitle = titles[titleIndex];
+
+  if (charIndex < currentTitle.length) {
+    document.getElementById("auto-type-title").textContent +=
+      currentTitle.charAt(charIndex);
+    charIndex++;
+    setTimeout(autoType, typingSpeed);
+  } else {
+    // Pause at the end of the word before erasing
+    setTimeout(erase, pauseDuration);
+  }
+};
+
+const erase = () => {
+  const currentTitle = titles[titleIndex];
+
+  if (charIndex > 0) {
+    document.getElementById("auto-type-title").textContent = currentTitle.slice(
+      0,
+      charIndex - 1
+    );
+    charIndex--;
+    setTimeout(erase, erasingSpeed);
+  } else {
+    // Move to the next title
+    titleIndex = (titleIndex + 1) % titles.length; // Loop back to the first title
+    setTimeout(autoType, typingSpeed);
+  }
+};
+
+// Start the typing effect
+document.addEventListener("DOMContentLoaded", () => {
+  autoType();
+});
