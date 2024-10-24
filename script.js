@@ -885,3 +885,25 @@ const erase = () => {
 document.addEventListener("DOMContentLoaded", () => {
   autoType();
 });
+//contact page
+document
+  .getElementById("contact-form")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const message = document.getElementById("message").value;
+
+    if (name && email && phone && message) {
+      document.getElementById("success-msg").classList.remove("hidden");
+      setTimeout(
+        () => document.getElementById("success-msg").classList.add("hidden"),
+        5000
+      );
+
+      // Reset form after submission
+      this.reset();
+    }
+  });
