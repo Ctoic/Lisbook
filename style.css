@@ -185,7 +185,6 @@ h3 {
 #playlist li:hover {
   background-color: #282828;
   color: var(--accent-color);
-  cursor: pointer;
 }
 
 #audio-player {
@@ -207,7 +206,6 @@ button:hover {
 }
 
 .btn-bd-primary {
-  cursor: pointer;
   color: var(--accent-color) !important;
   background-color: transparent !important;
   border: 1px solid var(--accent -color) !important;
@@ -268,7 +266,6 @@ body.light-theme section {
 .book-card {
   background-color: #181818;
   transition: transform 0.3s, box-shadow 0.3s;
-  /* cursor: pointer; */
 }
 
 .book-card:hover {
@@ -276,7 +273,7 @@ body.light-theme section {
 }
 
 .bi {
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: var(--transition-transform);
   will-change: transform;
   color: var(--accent-color);
@@ -344,7 +341,7 @@ body.light-theme .playlist-card {
   height: 50px;
   background-color: #1db954;
   border-radius: 50%;
-  cursor: pointer;
+  /* cursor: pointer; */
   position: relative;
   transition: background-color 0.3s;
 }
@@ -463,7 +460,7 @@ audio {
 }
 
 #audio-book-list-item {
-  cursor: pointer;
+  /* cursor: pointer; */
   list-style: none;
 }
 
@@ -662,7 +659,7 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
 #theme-toggle {
   background-color: transparent; /* Make the button background transparent */
   border: none; /* Remove any borders */
-  cursor: pointer; /* Show a pointer cursor on hover */
+  /* cursor: pointer; Show a pointer cursor on hover */
 }
 
 /* Change the color of the icon on hover */
@@ -769,7 +766,7 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
 #profile-btn {
   background-color: transparent; /* Keep button background transparent */
   border: none; /* No border for the button */
-  cursor: pointer; /* Show pointer on hover */
+  /* cursor: pointer; Show pointer on hover */
 }
 
 /* Other existing styles */
@@ -868,7 +865,7 @@ header .container {
 }
 
 #profile-pic {
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: transform 0.3s ease;
 }
 
@@ -885,7 +882,7 @@ header .container {
 }
 
 .friend-card {
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: all 0.3s ease;
   padding: 15px;
   text-align: center;
@@ -1024,4 +1021,12 @@ header .container {
 }
 .nav-item:hover {
   background-color: inherit;
+}
+/* auto-type contributors */
+#auto-type-title {
+  font-size: 3.111rem; /* Adjust as needed */
+  color: #333; /* Adjust color as needed */
+  height: 2.5rem; /* Set a fixed height, adjust based on font size */
+  overflow: hidden; /* Prevent overflow */
+  line-height: 2.5rem; /* Center text vertically */
 }
