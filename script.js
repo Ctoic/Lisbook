@@ -413,14 +413,51 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    // Update the slider background based on the current time
+    function updateSliderBackground() {
+      if (audioPlayer.duration > 0) {
+        let playedPercentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        playedPercentage = Math.min(playedPercentage, 100);
+    
+        // Dynamically update the slider track background for WebKit and Mozilla
+        const sliderStyle = document.querySelector('style#sliderStyle');
+        if (sliderStyle) {
+          sliderStyle.innerHTML = `
+            input[type="range"]#seekSlider::-webkit-slider-runnable-track {
+              background: linear-gradient(to right, var(--accent-background-color) ${playedPercentage}%, gray ${playedPercentage}%);
+            }
+            input[type="range"]#seekSlider::-moz-range-track {
+              background: linear-gradient(to right, var(--accent-background-color) ${playedPercentage}%, gray ${playedPercentage}%);
+            }
+          `;
+        } else {
+          const styleTag = document.createElement('style');
+          styleTag.id = 'sliderStyle';
+          styleTag.innerHTML = `
+            input[type="range"]#seekSlider::-webkit-slider-runnable-track {
+              background: linear-gradient(to right, var(--accent-background-color) ${playedPercentage}%, gray ${playedPercentage}%);
+            }
+            input[type="range"]#seekSlider::-moz-range-track {
+              background: linear-gradient(to right, var(--accent-background-color) ${playedPercentage}%, gray ${playedPercentage}%);
+            }
+          `;
+          document.head.appendChild(styleTag);
+        }
+      }
+    }
+    
+    
+
     // Seek Player
     audioPlayer.addEventListener("timeupdate", () => {
       seekSlider.value = audioPlayer.currentTime;
       currentTimeLabel.textContent = formatTime(audioPlayer.currentTime);
+      updateSliderBackground();
     });
     // Seek functionality
     seekSlider.addEventListener("input", (event) => {
       audioPlayer.currentTime = event.target.value;
+      updateSliderBackground();
     });
 
     // Format time from seconds to MM:SS
@@ -438,6 +475,7 @@ document.addEventListener("DOMContentLoaded", function () {
     audioPlayer.addEventListener("loadedmetadata", () => {
       durationLabel.textContent = formatTime(audioPlayer.duration);
       seekSlider.max = audioPlayer.duration;
+      updateSliderBackground();
     });
   }
 
