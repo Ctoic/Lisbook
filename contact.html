@@ -254,69 +254,98 @@
         </div>
       </nav>
     </header>
+  <body class="dark-theme bg-gray-900 text-gray-300 d-flex flex-column min-vh-100">
+  <div class="container my-5">
+    <h2 class="display-5 fw-semibold mb-3 text-center">Contact Us</h2>
+    <p class="text-center mb-5">Our friendly team would love to hear from you!</p>
 
-    <main class="container my-5">
-      <!-- Feedback Section -->
+    <!-- Contact Form -->
+<form id="contact-form" class="space-y-4">
+  <!-- First and Last Name in Two Columns -->
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="first-name" class="block text-sm font-medium">First name:</label>
+      <input type="text" id="first-name" name="first-name" placeholder="john" class="w-full p-2 rounded-lg bg-gray-700 text-gray-900 dark:text-white mt-2" required />
+    </div>
+    <div class="col-md-6">
+      <label for="last-name" class="block text-sm font-medium">Last name:</label>
+      <input type="text" id="last-name" name="last-name" placeholder="dre" class="w-full p-2 rounded-lg bg-gray-700 text-gray-900 dark:text-white mt-2" required />
+    </div>
+  </div>
 
-      <section class="row d-flex align-items-stretch rounded-5 p-5">
-        <div class="container mx-auto p-6 rounded-lg">
-          <h2 class="display-5 page-title fw-semibold mb-5 text-center">
-            Share Your Feedback
-          </h2>
-          <form id="feedback-form" class="space-y-4">
-            <div>
-              <label for="username" class="block text-sm font-medium"
-                >Your Name:</label
-              >
-              <input
-                type="text"
-                name="username"
-                autocomplete="off"
-                id="username"
-                class="w-full p-2 rounded-lg bg-gray-700 text-white mt-2"
-                required
-              />
-            </div>
-            <div>
-              <label for="username" class="block text-sm font-medium"
-                >Your Email:</label
-              >
-              <input
-                type="email"
-                id="email"
-                name="email"
-                autocomplete="off"
-                class="w-full p-2 rounded-lg bg-gray-700 text-white mt-2"
-                required
-              />
-            </div>
+  <!-- Email -->
+  <div class="mb-3">
+    <label for="email" class="block text-sm font-medium">Email:</label>
+    <input type="email" id="email" name="email" placeholder="contact-us@gmail.com" class="w-full p-2 rounded-lg bg-gray-700 text-gray-900 dark:text-white mt-2" required />
+  </div>
 
-            <label for="comment" class="block text-sm font-medium"
-              >Your Feedback:</label
-            >
-            <textarea
-              id="feedback"
-              name="feedback"
-              autocomplete="off"
-              class="w-full p-2 rounded-lg bg-gray-700 text-white mt-2"
-              rows="4"
-              required
-            ></textarea>
-            <div class="text-center mt-5">
-              <button
-                type="submit"
-                class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600"
-                id="share2"
-              >
-                Share Feedback
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
-    </main>
-    <!-- Footer -->
-    <div id="footer-placeholder"></div>
-    <script src="script.js"></script>
+  <!-- Phone -->
+  <div class="mb-3">
+    <label for="phone" class="block text-sm font-medium">Phone number:</label>
+    <input type="tel" id="phone" name="phone" placeholder="IN +91 000-000-0000" class="w-full p-2 rounded-lg bg-gray-700 text-gray-900 dark:text-white mt-2" pattern="[0-9]{10}" required />
+  </div>
+
+  <!-- Message -->
+  <div class="mb-3">
+    <label for="message" class="block text-sm font-medium">Message:</label>
+    <textarea id="message" name="message" rows="4" class="w-full p-2 rounded-lg bg-gray-700 text-gray-900 dark:text-white mt-2" required></textarea>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="text-center mt-5">
+    <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600">Send Message</button>
+  </div>
+
+  <!-- Success Message -->
+  <p id="success-msg" class="text-green-500 mt-4 hidden">Message sent successfully!</p>
+</form>
+
+  </div>
+</body>
+
+
+     <!-- Map Section -->
+<div class="map-container mt-5">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.491339599082!2d77.59456291440737!3d12.971598616057055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1687391781db%3A0x5ef3b46e7aa569b6!2sBangalore%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sin!4v1638827560011"
+    width="100%"
+    height="350"
+    style="border: 0"
+    allowfullscreen=""
+    loading="lazy"
+  ></iframe>
+</div>
+
+
+     <!-- Social Media Icons -->
+<div class="social-icons text-center mt-5">
+  <a href="https://www.instagram.com/dev_with_ctoic" class="text-gray-300 hover:text-green-500" target="_blank">
+    <i class="bi bi-instagram me-2"></i>
+  </a>
+  <a href="https://x.com/Ct0ic" class="text-gray-300 hover:text-green-500 mx-4" target="_blank">
+    <i class="bi bi-twitter-x me-2"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/ctoic/" class="text-gray-300 hover:text-green-500" target="_blank">
+    <i class="bi bi-linkedin me-2"></i>
+  </a>
+  <a href="https://github.com/Ctoic" class="text-gray-300 hover:text-green-500 mx-4" target="_blank">
+    <i class="bi bi-github me-2"></i>
+  </a>
+</div>
+
+
+    </div>
+   <!-- Footer -->
+    <div id="footer-placeholder" class="mt-auto"></div>
+    <!-- auto-type script  -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- JavaScript -->
+    <script src="./script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
   </body>
 </html>
