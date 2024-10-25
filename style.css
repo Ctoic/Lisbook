@@ -822,8 +822,9 @@ header {
 header .container {
   width: 100%;
   display: flex;
+  font-weight: bold;
   justify-content: space-between;
-  align-items: center; /* Center items vertically */
+  align-items: flex-end; /* Center items vertically */
   height: 60px; /* Fixed height */
 }
 #menu {
