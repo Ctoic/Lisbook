@@ -60,6 +60,11 @@ li {
   display: none;
 }
 
+#loader,
+.spinner-container {
+  cursor: none; /* Cacher le curseur uniquement lors du chargement */
+}
+
 .faq-answer {
   display: block;
   font-size: 1rem;
@@ -185,6 +190,7 @@ h3 {
 #playlist li:hover {
   background-color: #282828;
   color: var(--accent-color);
+  cursor: pointer;
 }
 
 #audio-player {
@@ -206,6 +212,7 @@ button:hover {
 }
 
 .btn-bd-primary {
+  cursor: pointer;
   color: var(--accent-color) !important;
   background-color: transparent !important;
   border: 1px solid var(--accent -color) !important;
@@ -266,6 +273,7 @@ body.light-theme section {
 .book-card {
   background-color: #181818;
   transition: transform 0.3s, box-shadow 0.3s;
+  /* cursor: pointer; */
 }
 
 .book-card:hover {
@@ -273,7 +281,7 @@ body.light-theme section {
 }
 
 .bi {
-  /* cursor: pointer; */
+  cursor: pointer;
   transition: var(--transition-transform);
   will-change: transform;
   color: var(--accent-color);
@@ -341,7 +349,7 @@ body.light-theme .playlist-card {
   height: 50px;
   background-color: #1db954;
   border-radius: 50%;
-  /* cursor: pointer; */
+  cursor: pointer;
   position: relative;
   transition: background-color 0.3s;
 }
@@ -460,7 +468,7 @@ audio {
 }
 
 #audio-book-list-item {
-  /* cursor: pointer; */
+  cursor: pointer;
   list-style: none;
 }
 
@@ -659,7 +667,7 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
 #theme-toggle {
   background-color: transparent; /* Make the button background transparent */
   border: none; /* Remove any borders */
-  /* cursor: pointer; Show a pointer cursor on hover */
+  cursor: pointer; /* Show a pointer cursor on hover */
 }
 
 /* Change the color of the icon on hover */
@@ -766,7 +774,7 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
 #profile-btn {
   background-color: transparent; /* Keep button background transparent */
   border: none; /* No border for the button */
-  /* cursor: pointer; Show pointer on hover */
+  cursor: pointer; /* Show pointer on hover */
 }
 
 /* Other existing styles */
@@ -865,7 +873,7 @@ header .container {
 }
 
 #profile-pic {
-  /* cursor: pointer; */
+  cursor: pointer;
   transition: transform 0.3s ease;
 }
 
@@ -882,7 +890,7 @@ header .container {
 }
 
 .friend-card {
-  /* cursor: pointer; */
+  cursor: pointer;
   transition: all 0.3s ease;
   padding: 15px;
   text-align: center;
@@ -1021,104 +1029,4 @@ header .container {
 }
 .nav-item:hover {
   background-color: inherit;
-}
-
-.flex-item {
-  flex: 1;
-  margin: 0 20px;
-  max-width: 550px;
-}
-
-/* Responsive for extra small devices (max-width: 480px) */
-@media (max-width: 480px) {
-  .ctrl-player .ctrl-buttons {
-    padding: 0px; 
-  }
-
-  .ctrl-player .ctrl-buttons .ctrl-button-small {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-  }
-
-  .ctrl-player .ctrl-buttons .ctrl-button-medium {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 0.8rem;
-  }
-
-  .ctrl-player .ctrl-buttons .ctrl-button-large {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    font-size: 1.8rem;
-  }
-
-  .ctrl-button-large .bi {
-    font-size: 1.5rem;
-  }
-}
-
-/* Contact Section */
-h2.display-5 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: #94d769;
-
-  padding: 1rem 2rem;
-
-  border-radius: 12px; /* Rounded corners for a smooth look */
-
-  margin: 0 auto 1rem; /* Centered and space below */
-}
-
-p {
-  font-size: 1.2rem;
-  color: #b3b3b3;
-  text-align: center;
-  font-style: italic;
-  transition: color 0.3s ease-in-out;
-  margin-bottom: 2rem;
-}
-p:hover {
-  color: #94d769;
-}
-
-/* Contact Form */
-form input,
-form textarea {
-  transition: all 0.3s ease-in-out;
-  color: black; /* Change input text color to black */
-  background-color: #f9f9f9; /* Light background for input boxes */
-}
-form input:focus,
-form textarea:focus {
-  border-color: #1db954;
-}
-
-button {
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-button:hover {
-  background-color: #1db954;
-}
-
-/* Map */
-.map-container iframe {
-  border-radius: 12px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Social Icons */
-.social-icons a {
-  font-size: 1.75rem;
-  margin: 0 1.5rem;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-.social-icons a:hover {
-  color: #1db954;
-  transform: scale(1.1); /* Slightly enlarge icons on hover */
 }

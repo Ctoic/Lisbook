@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Favicon -->
     <link rel="icon" href="Images/favicon.jpg" type="image/png" />
-    <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -19,7 +19,6 @@
     />
     <title>My Favorite Books Music App</title>
   </head>
-
   <body
     class="dark-theme bg-gray-900 text-gray-300 d-flex flex-column min-vh-100"
   >
@@ -62,7 +61,7 @@
       <nav class="">
         <div class="container mx-auto flex justify-between items-center">
           <!-- Logo -->
-          <a class="logo-text h3 font-bold d-inline-flex" href="./index.html">
+          <a class="logo-text h3 font-bold d-inline-flex" href="/">
             <img
               src="./Images/lisbook-logo-1.png"
               alt="Logo"
@@ -98,27 +97,26 @@
               </svg>
             </div>
             <a
-              href="./index.html"
               class="text-gray-300 hover:text-green-500"
-              id="home"
+              href="/"
+              id="home.html"
               >Home</a
             >
             <a
-              href="./about.html"
               class="text-gray-300 hover:text-green-500"
+              href="/about.html"
               id="about"
               >About</a
             >
 
-            <a href="./contact.html" class="text-gray-300 hover:text-green-500"
+            <a class="text-gray-300 hover:text-green-500" href="/contact.html"
               >Contact</a
             >
-            <a href="./faq.html" class="text-gray-300 hover:text-green-500"
+            <a class="text-gray-300 hover:text-green-500" href="/faq.html"
               >FAQs</a
             >
 
             <!-- Profile Icon and Theme Toggle -->
-
             <button
               id="theme-toggle"
               class="text-gray-300 hover:text-green-500"
@@ -224,8 +222,8 @@
             </button>
 
             <a
-              href="./profile.html"
               class="text-gray-300 hover:text-green-500 me-4"
+              href="/profile.html"
             >
               <i class="bi bi-person-circle h-6 w-6"></i>
             </a>
@@ -255,216 +253,288 @@
         </div>
       </nav>
     </header>
-    <div class="profile-and-friends row">
-      <!-- Profile Section -->
-      <div class="col-md-4">
-        <section class="profile-section p-5 text-center">
-          <h1 class="text-3xl font-bold mb-4">Your Profile</h1>
-          <img
-            src="https://avatars.githubusercontent.com/u/90936436?v=4"
-            alt="Profile Icon"
-            class="rounded-full w-24 h-24 mx-auto mb-4"
-            id="profile-pic"
-          />
-          <p class="text-lg">
-            Name: Najam Ali Abbas <i class="bi bi-pencil" id="edit-name"></i>
-          </p>
-          <p class="text-lg">
-            Audiobooks Bookmarked: <span id="audiobook-count">5</span>
-          </p>
-          <p class="text-lg">
-            Total Time Listened: <span id="total-time">20 hrs</span>
-          </p>
-          <button id="upload-pic" class="btn btn-primary">
-            Change Picture
-          </button>
-        </section>
-      </div>
 
-      <!-- Friends Section -->
-      <div class="col-md-8">
-        <section class="friends-section p-5">
-          <h2 class="text-2xl font-bold mb-4">Friends</h2>
-          <div class="row" id="friends-list">
-            <!-- Friend Cards -->
-
-            <!-- Eric Kay -->
-            <div class="col-sm-4 mb-4">
-              <div class="friend-card collapsed" data-target="#friend1">
+    <!-- Social Share Modal -->
+    <div
+      class="modal fade"
+      id="exampleModalToggle"
+      aria-hidden="true"
+      aria-labelledby="exampleModalToggleLabel"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+              Share it on :
+            </h1>
+            <button
+              type="button"
+              class="btn-close rounded-5"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!-- Modale body -->
+          <div class="modal-body">
+            <div class="flex justify-center space-x-4 mt-4">
+              <a
+                href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:5500/Lisbook/pbd.html&text=Lisbook+god Delusion"
+                target="_blank"
+              >
                 <img
-                  src="https://avatars.githubusercontent.com/u/137875228?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 60px; height: 60px"
-                  alt="Eric Kay"
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                  alt="Share on Facebook"
+                  style="width: 24px; height: 24px"
                 />
-                <h5 class="card-title mt-3">Eric Kay</h5>
-              </div>
-              <div class="friend-content" id="friend1">
-                <a
-                  href="https://github.com/YakeDev"
-                  target="_blank"
-                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                  >GitHub Profile</a
-                >
-              </div>
-            </div>
-
-            <!-- Varad Sunil Jadhav -->
-            <div class="col-sm-4 mb-4">
-              <div class="friend-card collapsed" data-target="#friend2">
+              </a>
+              <a
+                href="https://twitter.com/intent/tweet?url=http://127.0.0.1:5500/Lisbook/pbd.html&text=Lisbook+god Delusion"
+                target="_blank"
+              >
                 <img
-                  src="https://avatars.githubusercontent.com/u/96735054?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 60px; height: 60px"
-                  alt="Varad Sunil Jadhav"
+                  src="https://abs.twimg.com/favicons/twitter.2.ico"
+                  alt="Share on X"
                 />
-                <h5 class="card-title mt-3">Varad Sunil Jadhav</h5>
-              </div>
-              <div class="friend-content" id="friend2">
-                <a
-                  href="https://github.com/VaradJadhav"
-                  target="_blank"
-                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                  >GitHub Profile</a
-                >
-              </div>
-            </div>
-
-            <!-- Aditya Bavadekar -->
-            <div class="col-sm-4 mb-4">
-              <div class="friend-card collapsed" data-target="#friend3">
+              </a>
+              <a
+                href="https://api.whatsapp.com/send?text=http://127.0.0.1:5500/Lisbook/pbd.html"
+                target="_blank"
+              >
                 <img
-                  src="https://avatars.githubusercontent.com/u/64344960?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 60px; height: 60px"
-                  alt="Aditya Bavadekar"
+                  src="https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_whatsapp-512.png"
+                  alt="Share on WhatsApp"
+                  style="width: 24px; height: 24px"
                 />
-                <h5 class="card-title mt-3">Aditya Bavadekar</h5>
-              </div>
-              <div class="friend-content" id="friend3">
-                <a
-                  href="https://github.com/AdityaBavadekar"
-                  target="_blank"
-                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                  >GitHub Profile</a
-                >
-              </div>
-            </div>
-
-            <!-- Siddharth Khandelwal -->
-            <div class="col-sm-4 mb-4">
-              <div class="friend-card collapsed" data-target="#friend4">
-                <img
-                  src="https://avatars.githubusercontent.com/u/58730831?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 60px; height: 60px"
-                  alt="Siddharth Khandelwal"
-                />
-                <h5 class="card-title mt-3">Siddharth Khandelwal</h5>
-              </div>
-              <div class="friend-content" id="friend4">
-                <a
-                  href="https://github.com/khandelwal20sid"
-                  target="_blank"
-                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                  >GitHub Profile</a
-                >
-              </div>
-            </div>
-
-            <!-- Chinmay Ingale -->
-            <div class="col-sm-4 mb-4">
-              <div class="friend-card collapsed" data-target="#friend5">
-                <img
-                  src="https://avatars.githubusercontent.com/u/143017442?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 60px; height: 60px"
-                  alt="Chinmay Ingale"
-                />
-                <h5 class="card-title mt-3">Chinmay Ingale</h5>
-              </div>
-              <div class="friend-content" id="friend5">
-                <a
-                  href="https://github.com/IngaleChinmay04"
-                  target="_blank"
-                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                  >GitHub Profile</a
-                >
-              </div>
-            </div>
-
-            <!-- vatsaljain-hub -->
-            <div class="col-sm-4 mb-4">
-              <div class="friend-card collapsed" data-target="#friend6">
-                <img
-                  src="https://avatars.githubusercontent.com/u/60287913?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 60px; height: 60px"
-                  alt="vatsaljain-hub"
-                />
-                <h5 class="card-title mt-3">vatsaljain-hub</h5>
-              </div>
-              <div class="friend-content" id="friend6">
-                <a
-                  href="https://github.com/vatsaljain-hub"
-                  target="_blank"
-                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                  >GitHub Profile</a
-                >
-              </div>
-            </div>
-
-            <!-- Shalom Riona Fernandes -->
-            <div class="col-sm-4 mb-4">
-              <div class="friend-card collapsed" data-target="#friend7">
-                <img
-                  src="https://avatars.githubusercontent.com/u/132253795?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 60px; height: 60px"
-                  alt="Shalom Riona Fernandes"
-                />
-                <h5 class="card-title mt-3">Shalom Fernandes</h5>
-              </div>
-              <div class="friend-content" id="friend7">
-                <a
-                  href="https://github.com/shalomrionafernandes"
-                  target="_blank"
-                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                  >GitHub Profile</a
-                >
-              </div>
-            </div>
-
-            <!-- Thilak Jo -->
-            <div class="col-sm-4 mb-4">
-              <div class="friend-card collapsed" data-target="#friend8">
-                <img
-                  src="https://avatars.githubusercontent.com/u/115476524?v=4"
-                  class="card-img-top rounded-circle mx-auto"
-                  style="width: 60px; height: 60px"
-                  alt="Thilak Jo"
-                />
-                <h5 class="card-title mt-3">Thilak Jo</h5>
-              </div>
-              <div class="friend-content" id="friend8">
-                <a
-                  href="https://github.com/thilakjo"
-                  target="_blank"
-                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
-                  >GitHub Profile</a
-                >
-              </div>
+              </a>
             </div>
           </div>
-        </section>
+          <!-- <div class="modal-footer">
+            <button
+              class="btn btn-primary"
+              data-bs-target="#exampleModalToggle2"
+              data-bs-toggle="modal"
+            >
+              Open second modal
+            </button>
+          </div> -->
+        </div>
       </div>
     </div>
+    <!-- Social Share Modal end -->
+
+    <main class="container my-5">
+      <div class="profile-and-friends row">
+        <!-- Profile Section -->
+        <div class="col-md-4">
+          <section class="profile-section p-5 text-center">
+            <h1 class="text-3xl font-bold mb-4">Your Profile</h1>
+            <img
+              src="https://avatars.githubusercontent.com/u/90936436?v=4"
+              alt="Profile Icon"
+              class="rounded-full w-24 h-24 mx-auto mb-4"
+              id="profile-pic"
+            />
+            <p class="text-lg">
+              Name: Najam Ali Abbas <i class="bi bi-pencil" id="edit-name"></i>
+            </p>
+            <p class="text-lg">
+              Audiobooks Bookmarked: <span id="audiobook-count">5</span>
+            </p>
+            <p class="text-lg">
+              Total Time Listened: <span id="total-time">20 hrs</span>
+            </p>
+            <button id="upload-pic" class="btn btn-primary">
+              Change Picture
+            </button>
+          </section>
+        </div>
+
+        <!-- Friends Section -->
+        <div class="col-md-8">
+          <section class="friends-section p-5">
+            <h2 class="text-2xl font-bold mb-4">Friends</h2>
+            <div class="row" id="friends-list">
+              <!-- Friend Cards -->
+
+              <!-- Eric Kay -->
+              <div class="col-sm-4 mb-4">
+                <div class="friend-card collapsed" data-target="#friend1">
+                  <img
+                    src="https://avatars.githubusercontent.com/u/137875228?v=4"
+                    class="card-img-top rounded-circle mx-auto"
+                    style="width: 60px; height: 60px"
+                    alt="Eric Kay"
+                  />
+                  <h5 class="card-title mt-3">Eric Kay</h5>
+                </div>
+                <div class="friend-content" id="friend1">
+                  <a
+                    href="https://github.com/YakeDev"
+                    target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                    >GitHub Profile</a
+                  >
+                </div>
+              </div>
+
+              <!-- Varad Sunil Jadhav -->
+              <div class="col-sm-4 mb-4">
+                <div class="friend-card collapsed" data-target="#friend2">
+                  <img
+                    src="https://avatars.githubusercontent.com/u/96735054?v=4"
+                    class="card-img-top rounded-circle mx-auto"
+                    style="width: 60px; height: 60px"
+                    alt="Varad Sunil Jadhav"
+                  />
+                  <h5 class="card-title mt-3">Varad Sunil Jadhav</h5>
+                </div>
+                <div class="friend-content" id="friend2">
+                  <a
+                    href="https://github.com/VaradJadhav"
+                    target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                    >GitHub Profile</a
+                  >
+                </div>
+              </div>
+
+              <!-- Aditya Bavadekar -->
+              <div class="col-sm-4 mb-4">
+                <div class="friend-card collapsed" data-target="#friend3">
+                  <img
+                    src="https://avatars.githubusercontent.com/u/64344960?v=4"
+                    class="card-img-top rounded-circle mx-auto"
+                    style="width: 60px; height: 60px"
+                    alt="Aditya Bavadekar"
+                  />
+                  <h5 class="card-title mt-3">Aditya Bavadekar</h5>
+                </div>
+                <div class="friend-content" id="friend3">
+                  <a
+                    href="https://github.com/AdityaBavadekar"
+                    target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                    >GitHub Profile</a
+                  >
+                </div>
+              </div>
+
+              <!-- Siddharth Khandelwal -->
+              <div class="col-sm-4 mb-4">
+                <div class="friend-card collapsed" data-target="#friend4">
+                  <img
+                    src="https://avatars.githubusercontent.com/u/58730831?v=4"
+                    class="card-img-top rounded-circle mx-auto"
+                    style="width: 60px; height: 60px"
+                    alt="Siddharth Khandelwal"
+                  />
+                  <h5 class="card-title mt-3">Siddharth Khandelwal</h5>
+                </div>
+                <div class="friend-content" id="friend4">
+                  <a
+                    href="https://github.com/khandelwal20sid"
+                    target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                    >GitHub Profile</a
+                  >
+                </div>
+              </div>
+
+              <!-- Chinmay Ingale -->
+              <div class="col-sm-4 mb-4">
+                <div class="friend-card collapsed" data-target="#friend5">
+                  <img
+                    src="https://avatars.githubusercontent.com/u/143017442?v=4"
+                    class="card-img-top rounded-circle mx-auto"
+                    style="width: 60px; height: 60px"
+                    alt="Chinmay Ingale"
+                  />
+                  <h5 class="card-title mt-3">Chinmay Ingale</h5>
+                </div>
+                <div class="friend-content" id="friend5">
+                  <a
+                    href="https://github.com/IngaleChinmay04"
+                    target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                    >GitHub Profile</a
+                  >
+                </div>
+              </div>
+
+              <!-- vatsaljain-hub -->
+              <div class="col-sm-4 mb-4">
+                <div class="friend-card collapsed" data-target="#friend6">
+                  <img
+                    src="https://avatars.githubusercontent.com/u/60287913?v=4"
+                    class="card-img-top rounded-circle mx-auto"
+                    style="width: 60px; height: 60px"
+                    alt="vatsaljain-hub"
+                  />
+                  <h5 class="card-title mt-3">vatsaljain-hub</h5>
+                </div>
+                <div class="friend-content" id="friend6">
+                  <a
+                    href="https://github.com/vatsaljain-hub"
+                    target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                    >GitHub Profile</a
+                  >
+                </div>
+              </div>
+
+              <!-- Shalom Riona Fernandes -->
+              <div class="col-sm-4 mb-4">
+                <div class="friend-card collapsed" data-target="#friend7">
+                  <img
+                    src="https://avatars.githubusercontent.com/u/132253795?v=4"
+                    class="card-img-top rounded-circle mx-auto"
+                    style="width: 60px; height: 60px"
+                    alt="Shalom Riona Fernandes"
+                  />
+                  <h5 class="card-title mt-3">Shalom Fernandes</h5>
+                </div>
+                <div class="friend-content" id="friend7">
+                  <a
+                    href="https://github.com/shalomrionafernandes"
+                    target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                    >GitHub Profile</a
+                  >
+                </div>
+              </div>
+
+              <!-- Thilak Jo -->
+              <div class="col-sm-4 mb-4">
+                <div class="friend-card collapsed" data-target="#friend8">
+                  <img
+                    src="https://avatars.githubusercontent.com/u/115476524?v=4"
+                    class="card-img-top rounded-circle mx-auto"
+                    style="width: 60px; height: 60px"
+                    alt="Thilak Jo"
+                  />
+                  <h5 class="card-title mt-3">Thilak Jo</h5>
+                </div>
+                <div class="friend-content" id="friend8">
+                  <a
+                    href="https://github.com/thilakjo"
+                    target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                    >GitHub Profile</a
+                  >
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
 
     <div id="footer-placeholder" class="mt-auto"></div>
 
     <!-- JavaScript -->
 
-    <script src="./script.js"></script>
+    <script src="./js/script.js" type="module"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
