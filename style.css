@@ -1022,14 +1022,44 @@ header .container {
 .nav-item:hover {
   background-color: inherit;
 }
-/* auto-type contributors */
-#auto-type-title {
-  font-size: 3.111rem; /* Adjust as needed */
-  color: #333; /* Adjust color as needed */
-  height: 2.5rem; /* Set a fixed height, adjust based on font size */
-  overflow: hidden; /* Prevent overflow */
-  line-height: 2.5rem; /* Center text vertically */
+
+.flex-item {
+  flex: 1;
+  margin: 0 20px;
+  max-width: 550px;
 }
+
+/* Responsive for extra small devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .ctrl-player .ctrl-buttons {
+    padding: 0px; 
+  }
+
+  .ctrl-player .ctrl-buttons .ctrl-button-small {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .ctrl-player .ctrl-buttons .ctrl-button-medium {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.8rem;
+  }
+
+  .ctrl-player .ctrl-buttons .ctrl-button-large {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.8rem;
+  }
+
+  .ctrl-button-large .bi {
+    font-size: 1.5rem;
+  }
+}
+
 /* Contact Section */
 h2.display-5 {
   font-size: 2.5rem;
