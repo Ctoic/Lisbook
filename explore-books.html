@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Explore Books</title>
+  </head>
+  <body class="dark-theme bg-gray-900 text-gray-300 d-flex flex-column min-vh-100">
+    <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
+      <nav>
+        <div class="container mx-auto flex justify-between items-center">
+          <a class="logo-text h3 font-bold d-inline-flex" href="./index.html">
+            <img src="./Images/lisbook-logo-1.png" alt="Logo" width="40" height="auto" class="align-text-center me-2" />
+            Lisbook
+          </a>
+          <div id="menu" class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20">
+            <a href="./index.html" class="text-gray-300 hover:text-green-500">Home</a>
+            <a href="./about.html" class="text-gray-300 hover:text-green-500">About</a>
+            <a href="./explore-books.html" class="text-gray-300 hover:text-green-500">Explore Books</a>
+            <a href="./contact.html" class="text-gray-300 hover:text-green-500">Contact</a>
+            <a href="./faq.html" class="text-gray-300 hover:text-green-500">FAQs</a>
+          </div>
+          <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container my-5">
+      <h1 class="display-5 fw-semibold mb-5 text-center">Explore Books</h1>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <!-- Book cards will be dynamically inserted here -->
+      </div>
+    </main>
+    <div id="footer-placeholder" class="mt-auto"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -598,6 +598,15 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  // Add event listener for "Explore Books" option in the navbar
+  const exploreBooksLink = document.getElementById("explore-books");
+  if (exploreBooksLink) {
+    exploreBooksLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = "explore-books.html";
+    });
+  }
 });
 // Function to load an HTML file into an element
 function loadHTML(file, elementId) {

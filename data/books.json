@@ -87,6 +87,29 @@
             {"id": "6", "index": 6, "title": "Part 6", "audio_file": "audio/part6.mp3"},
             {"id": "7", "index": 7, "title": "Part 7", "audio_file": "audio/part7.mp3"}
         ]
+    },
+    {
+        "id": "8",
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "cover": "https://picsum.photos/200",
+        "genre": "Fantasy",
+        "description": "A fantasy novel that follows the journey of Bilbo Baggins, a hobbit who embarks on an adventure to win a share of the treasure guarded by Smaug the dragon.",
+        "chapters": [
+            {"id": "1", "index": 1, "title": "An Unexpected Party", "audio_file": "audio/hobbit_ch1.mp3"},
+            {"id": "2", "index": 2, "title": "Roast Mutton", "audio_file": "audio/hobbit_ch2.mp3"}
+        ]
+    },
+    {
+        "id": "9",
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "cover": "https://picsum.photos/200",
+        "genre": "Adventure",
+        "description": "A philosophical book that tells the story of Santiago, a shepherd boy who dreams of finding a treasure located in the Egyptian pyramids.",
+        "chapters": [
+            {"id": "1", "index": 1, "title": "The Boy's Dream", "audio_file": "audio/alchemist_ch1.mp3"},
+            {"id": "2", "index": 2, "title": "The Journey Begins", "audio_file": "audio/alchemist_ch2.mp3"}
+        ]
     }
-    
 ]
