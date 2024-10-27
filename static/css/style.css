@@ -1,0 +1,198 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+}
+
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 10px;
+    background-color: #007bff;
+    
+
+}
+
+.image
+{
+    width: 100px;
+    height: 100px;
+    align-self: center;
+    margin-right: 100px;
+}
+
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+#playlist {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#playlist li {
+    cursor: pointer;
+    padding: 15px;
+    background-color: #59db6b;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#playlist li:hover {
+    background-color: #ccc;
+}
+
+#audio-player {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Styling for the play button */
+#audio-player::-webkit-media-controls-start-playback-button {
+    display: none;
+}
+
+#audio-player {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+#audio-player::-webkit-media-controls-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#audio-player::-webkit-media-controls-play-button {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#audio-player::-webkit-media-controls-play-button:hover {
+    background-color: #0056b3;
+}
+
+/* Add style for the comments section */
+.comments-section {
+    margin-top: 30px;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comments-section h2 {
+    color: #333;
+    font-size: 20px;
+}
+#img{
+    width: 100%;
+    height: 100%;
+}
+
+#comment-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#comment-form label {
+    margin-top: 10px;
+}
+
+#comment-form input,
+#comment-form textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#comment-form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#comment-form button:hover {
+    background-color: #0056b3;
+}
+
+#comments-list {
+    margin-top: 20px;
+    text-align: left; /* Align comments to the left */
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comment {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.comment strong {
+    color: #007bff;
+}
+
+.comment p {
+    margin: 0;
+}
+
+/* Add style for the footer */
+.footer {
+    text-align: center;
+    background-color: #000000;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 100px;
+    width: 100%;
+
+}
+
+/*Add style nav-link */
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+

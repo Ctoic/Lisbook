@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>My Favorite Books Music App</title>
+
+    <style>
+        body {
+            background-color: #121212;
+            color: #b3b3b3;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        h1, h2, h3 {
+            color: #fff;
+        }
+
+        #playlist li:hover {
+            background-color: #282828;
+            color: #1DB954;
+            cursor: pointer;
+        }
+
+        #audio-player {
+            background-color: #282828;
+            color: #1DB954;
+        }
+
+        button {
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1ed760;
+        }
+
+        footer {
+            background-color: #191414;
+            color: #b3b3b3;
+        }
+
+        footer a:hover {
+            color: #1DB954;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a class="text-green-500 text-2xl font-bold" href="#">Lisbook</a>
+            <div class="space-x-4">
+                <a href="index.html" class="text-gray-300 hover:text-green-500">Home</a>
+                <a href="fs.html" class="text-gray-300 hover:text-green-500">Next Book</a>
+                <a href="#" class="text-gray-300 hover:text-green-500">Previous Book</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container mx-auto mt-10">
+        <h1 class="text-center text-3xl font-bold">Pale Blue Dot</h1>
+        <h3 class="text-center text-xl mt-2">By Carl Sagan</h3>
+
+        <!-- Image -->
+        <div class="flex justify-center mt-5">
+            <img id="img" src="./Images/cs.jpg" alt="bookify logo" class="w-48 h-48 rounded-lg shadow-lg">
+        </div>
+
+        <!-- Playlist -->
+        <h2 class="text-center text-2xl mt-10">My Favorite Books</h2>
+        <ul id="playlist" class="list-none mt-5 bg-gray-800 rounded-lg shadow-lg p-4">
+            <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/Introduction.mp3">Introduction: Pale Blue Dot</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/chap-1.mp3">Chapter 1: The Shores of the Cosmic Ocean</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/Chap-2.mp3">Chapter 2: One Voice in the Cosmic Fugue</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/chap-3.mp3">Chapter 3: The Harmony of the Worlds</li>
+            <li class="p-2 hover:bg-gray-700" data-src="audio/PaleBlueDot/chap-4.mp3">Chapter 4: Heaven and Hell</li>
+        </ul>
+
+        <!-- Audio Player -->
+        <div class="mt-5 flex justify-center">
+            <audio id="audio-player" class="w-full max-w-lg" controls></audio>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="mt-10 text-center">
+        <a href="index.html" class="text-gray-300 hover:text-green-500 p-3">Previous Book</a>
+        <a href="fs.html" class="text-gray-300 hover:text-green-500 p-3">Next Book</a>
+    </div>
+
+    <!-- Comments Section -->
+    <div class="container mx-auto mt-16 bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h2 class="text-center text-2xl mb-6">Share Your Thoughts</h2>
+        <form id="comment-form" class="space-y-4">
+            <div>
+                <label for="username" class="block text-sm font-medium">Your Name:</label>
+                <input type="text" id="username" class="w-full p-2 rounded-lg bg-gray-700 text-white" required>
+            </div>
+            <div>
+                <label for="comment" class="block text-sm font-medium">Your Comment:</label>
+                <textarea id="comment" class="w-full p-2 rounded-lg bg-gray-700 text-white" rows="4" required></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600">Submit</button>
+            </div>
+        </form>
+
+        <div id="comments-list" class="mt-10 space-y-4"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-20 py-6 text-center">
+        <div class="flex justify-center space-x-4">
+            <a href="https://www.facebook.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-linkedin"></i></a>
+            <a href="https://www.twitter.com" class="text-gray-300 hover:text-green-500"><i class="fa fa-twitter"></i></a>
+        </div>
+        <p class="mt-4 text-gray-400">&copy; 2020 Developed by Najam Ali Abass aka ctoic</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const playlistItems = document.querySelectorAll('#playlist li');
+            const audioPlayer = document.getElementById('audio-player');
+
+            playlistItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    audioPlayer.src = item.getAttribute('data-src');
+                    audioPlayer.play();
+                });
+            });
+
+            // Comment Submission
+            document.getElementById('comment-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const username = document.getElementById('username').value;
+                const comment = document.getElementById('comment').value;
+
+                const commentHTML = `<div class="bg-gray-700 text-white p-4 rounded-lg">
+                    <strong>${username}:</strong>
+                    <p>${comment}</p>
+                </div>`;
+
+                document.getElementById('comments-list').insertAdjacentHTML('beforeend', commentHTML);
+
+                // Reset form
+                document.getElementById('comment-form').reset();
+            });
+        });
+    </script>
+</body>
+
+</html>
