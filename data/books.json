@@ -1,92 +1,186 @@
 [
-    {
+  {
+    "id": "1",
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "cover": "https://picsum.photos/200",
+    "genre": "Fiction",
+    "description": "A novel that explores racial injustice in the Deep South through the eyes of young Scout Finch, as her father, Atticus, defends a black man wrongly accused of raping a white woman.",
+    "chapters": [
+      {
         "id": "1",
-        "title": "To Kill a Mockingbird",
-        "author": "Harper Lee",
-        "cover":"https://picsum.photos/200",
-        "genre": "Fiction",
-        "description": "A novel that explores racial injustice in the Deep South through the eyes of young Scout Finch, as her father, Atticus, defends a black man wrongly accused of raping a white woman.",
-        "chapters": [
-            {"id": "1", "index": 1, "title": "Chapter 1", "audio_file": "audio/mockingbird_ch1.mp3"},
-            {"id": "2", "index": 2, "title": "Chapter 2", "audio_file": "audio/mockingbird_ch2.mp3"}
-        ]
-    },
-    {
+        "index": 1,
+        "title": "Chapter 1",
+        "audio_file": "audio/mockingbird_ch1.mp3"
+      },
+      {
         "id": "2",
-        "title": "1984",
-        "author": "George Orwell",
-        "cover":"https://picsum.photos/200",
-        "genre": "Dystopian",
-        "description": "A harrowing vision of a totalitarian future, where surveillance and propaganda are omnipresent and individualism is crushed by the Party led by Big Brother.",
-        "chapters": [
-            {"id": "1", "index": 1, "title": "Chapter 1", "audio_file": "audio/1984_ch1.mp3"},
-            {"id": "2", "index": 2, "title": "Chapter 2", "audio_file": "audio/1984_ch2.mp3"}
-        ]
-    },
-    {
+        "index": 2,
+        "title": "Chapter 2",
+        "audio_file": "audio/mockingbird_ch2.mp3"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "1984",
+    "author": "George Orwell",
+    "cover": "https://picsum.photos/200",
+    "genre": "Dystopian",
+    "description": "A harrowing vision of a totalitarian future, where surveillance and propaganda are omnipresent and individualism is crushed by the Party led by Big Brother.",
+    "chapters": [
+      {
+        "id": "1",
+        "index": 1,
+        "title": "Chapter 1",
+        "audio_file": "audio/1984_ch1.mp3"
+      },
+      {
+        "id": "2",
+        "index": 2,
+        "title": "Chapter 2",
+        "audio_file": "audio/1984_ch2.mp3"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "cover": "https://picsum.photos/200",
+    "genre": "Tragedy",
+    "description": "A story of wealth, obsession, and the American dream, set in the Jazz Age, centering on the mysterious millionaire Jay Gatsby and his love for Daisy Buchanan.",
+    "chapters": [
+      {
+        "id": "1",
+        "index": 1,
+        "title": "Chapter 1",
+        "audio_file": "audio/gatsby_ch1.mp3"
+      },
+      {
+        "id": "2",
+        "index": 2,
+        "title": "Chapter 2",
+        "audio_file": "audio/gatsby_ch2.mp3"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "cover": "https://picsum.photos/200",
+    "genre": "Romance",
+    "description": "A classic romantic tale of the strong-willed Elizabeth Bennet and the wealthy but reserved Mr. Darcy, exploring themes of class, love, and misunderstandings.",
+    "chapters": [
+      {
+        "id": "1",
+        "index": 1,
+        "title": "Chapter 1",
+        "audio_file": "audio/pride_ch1.mp3"
+      },
+      {
+        "id": "2",
+        "index": 2,
+        "title": "Chapter 2",
+        "audio_file": "audio/pride_ch2.mp3"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "cover": "Images/TheCatcher.jpg",
+    "genre": "Fiction",
+    "description": "A deeply personal exploration of teenage rebellion and alienation, following Holden Caulfield as he roams the streets of New York City after being expelled from his prep school.",
+    "chapters": [
+      {
+        "id": "1",
+        "index": 1,
+        "title": "Chapter 1",
+        "audio_file": "audio/catcher_ch1.mp3"
+      },
+      {
+        "id": "2",
+        "index": 2,
+        "title": "Chapter 2",
+        "audio_file": "audio/catcher_ch2.mp3"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Moby-Dick",
+    "author": "Herman Melville",
+    "cover": "https://picsum.photos/200",
+    "genre": "Adventure",
+    "description": "An epic tale of obsession and revenge, chronicling Captain Ahab’s relentless pursuit of the white whale Moby Dick, while exploring themes of fate, religion, and the human condition.",
+    "chapters": [
+      {
+        "id": "1",
+        "index": 1,
+        "title": "Chapter 1",
+        "audio_file": "audio/mobydick_ch1.mp3"
+      },
+      {
+        "id": "2",
+        "index": 2,
+        "title": "Chapter 2",
+        "audio_file": "audio/mobydick_ch2.mp3"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "title": "God Delusion",
+    "author": "Richard Dawkins",
+    "cover": "Images/GD.jpeg",
+    "description": "The God Delusion is a book by English biologist Richard Dawkins that argues against the existence of a supernatural creator.",
+    "genre": "Adventure",
+    "chapters": [
+      {
+        "id": "1",
+        "index": 1,
+        "title": "Introduction: God Delusion",
+        "audio_file": "audio/part1.mp3"
+      },
+      {
+        "id": "2",
+        "index": 2,
+        "title": "Part 2",
+        "audio_file": "audio/part2.mp3"
+      },
+      {
         "id": "3",
-        "title": "The Great Gatsby",
-        "author": "F. Scott Fitzgerald",
-        "cover":"https://picsum.photos/200",
-        "genre": "Tragedy",
-        "description": "A story of wealth, obsession, and the American dream, set in the Jazz Age, centering on the mysterious millionaire Jay Gatsby and his love for Daisy Buchanan.",
-        "chapters": [
-            {"id": "1", "index": 1, "title": "Chapter 1", "audio_file": "audio/gatsby_ch1.mp3"},
-            {"id": "2", "index": 2, "title": "Chapter 2", "audio_file": "audio/gatsby_ch2.mp3"}
-        ]
-    },
-    {
+        "index": 3,
+        "title": "Part 3",
+        "audio_file": "audio/part3.mp3"
+      },
+      {
         "id": "4",
-        "title": "Pride and Prejudice",
-        "author": "Jane Austen",
-        "cover":"https://picsum.photos/200",
-        "genre": "Romance",
-        "description": "A classic romantic tale of the strong-willed Elizabeth Bennet and the wealthy but reserved Mr. Darcy, exploring themes of class, love, and misunderstandings.",
-        "chapters": [
-            {"id": "1", "index": 1, "title": "Chapter 1", "audio_file": "audio/pride_ch1.mp3"},
-            {"id": "2", "index": 2, "title": "Chapter 2", "audio_file": "audio/pride_ch2.mp3"}
-        ]
-    },
-    {
+        "index": 4,
+        "title": "Part 4",
+        "audio_file": "audio/part4.mp3"
+      },
+      {
         "id": "5",
-        "title": "The Catcher in the Rye",
-        "author": "J.D. Salinger",
-        "cover":"https://picsum.photos/200",
-        "genre": "Fiction",
-        "description": "A deeply personal exploration of teenage rebellion and alienation, following Holden Caulfield as he roams the streets of New York City after being expelled from his prep school.",
-        "chapters": [
-            {"id": "1", "index": 1, "title": "Chapter 1", "audio_file": "audio/catcher_ch1.mp3"},
-            {"id": "2", "index": 2, "title": "Chapter 2", "audio_file": "audio/catcher_ch2.mp3"}
-        ]
-    },
-    {
+        "index": 5,
+        "title": "Part 5",
+        "audio_file": "audio/part5.mp3"
+      },
+      {
         "id": "6",
-        "title": "Moby-Dick",
-        "author": "Herman Melville",
-        "cover":"https://picsum.photos/200",
-        "genre": "Adventure",
-        "description": "An epic tale of obsession and revenge, chronicling Captain Ahab’s relentless pursuit of the white whale Moby Dick, while exploring themes of fate, religion, and the human condition.",
-        "chapters": [
-            {"id": "1", "index": 1, "title": "Chapter 1", "audio_file": "audio/mobydick_ch1.mp3"},
-            {"id": "2", "index": 2, "title": "Chapter 2", "audio_file": "audio/mobydick_ch2.mp3"}
-        ]
-    },
-    {
+        "index": 6,
+        "title": "Part 6",
+        "audio_file": "audio/part6.mp3"
+      },
+      {
         "id": "7",
-        "title": "God Delusion",
-        "author": "Richard Dawkins",
-        "cover": "Images/GD.jpeg",
-        "description": "The God Delusion is a book by English biologist Richard Dawkins that argues against the existence of a supernatural creator.",
-        "genre": "Adventure",
-        "chapters": [
-            {"id": "1", "index": 1, "title": "Introduction: God Delusion", "audio_file": "audio/part1.mp3"},
-            {"id": "2", "index": 2, "title": "Part 2", "audio_file": "audio/part2.mp3"},
-            {"id": "3", "index": 3, "title": "Part 3", "audio_file": "audio/part3.mp3"},
-            {"id": "4", "index": 4, "title": "Part 4", "audio_file": "audio/part4.mp3"},
-            {"id": "5", "index": 5, "title": "Part 5", "audio_file": "audio/part5.mp3"},
-            {"id": "6", "index": 6, "title": "Part 6", "audio_file": "audio/part6.mp3"},
-            {"id": "7", "index": 7, "title": "Part 7", "audio_file": "audio/part7.mp3"}
-        ]
-    }
-    
+        "index": 7,
+        "title": "Part 7",
+        "audio_file": "audio/part7.mp3"
+      }
+    ]
+  }
 ]
