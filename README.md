@@ -117,6 +117,13 @@ MIT License
 		</tr>
 		<tr>
             <td align="center">
+                <a href="https://github.com/solanki03">
+                    <img src="https://avatars.githubusercontent.com/u/147741415?v=4" width="100;" alt="solanki03"/>
+                    <br />
+                    <sub><b>Solanki Singha</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/amankumarconnect">
                     <img src="https://avatars.githubusercontent.com/u/150781237?v=4" width="100;" alt="amankumarconnect"/>
                     <br />
@@ -151,6 +158,8 @@ MIT License
                     <sub><b>Kundan Tamsoy</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/IngaleChinmay04">
                     <img src="https://avatars.githubusercontent.com/u/143017442?v=4" width="100;" alt="IngaleChinmay04"/>
@@ -158,8 +167,6 @@ MIT License
                     <sub><b>Chinmay Ingale</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/username-amarjit">
                     <img src="https://avatars.githubusercontent.com/u/121117087?v=4" width="100;" alt="username-amarjit"/>
@@ -195,6 +202,15 @@ MIT License
                     <sub><b>Nirmohi</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/aliabbasnagari">
+                    <img src="https://avatars.githubusercontent.com/u/70366131?v=4" width="100;" alt="aliabbasnagari"/>
+                    <br />
+                    <sub><b>Ali Abbas</b></sub>
+                </a>
+            </td>
             <td align="center">
                 <a href="https://github.com/harshitkumargupta">
                     <img src="https://avatars.githubusercontent.com/u/149725714?v=4" width="100;" alt="harshitkumargupta"/>
@@ -202,8 +218,6 @@ MIT License
                     <sub><b>harshitkumargupta</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/manoj9896">
                     <img src="https://avatars.githubusercontent.com/u/51627080?v=4" width="100;" alt="manoj9896"/>
