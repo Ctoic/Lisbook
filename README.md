@@ -131,6 +131,13 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/AkierRaee">
+                    <img src="https://avatars.githubusercontent.com/u/151558456?v=4" width="100;" alt="AkierRaee"/>
+                    <br />
+                    <sub><b>Au Huishan</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/VaradJadhav">
                     <img src="https://avatars.githubusercontent.com/u/96735054?v=4" width="100;" alt="VaradJadhav"/>
                     <br />
@@ -151,6 +158,8 @@ MIT License
                     <sub><b>Siddharth Khandelwal</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Tomkndn">
                     <img src="https://avatars.githubusercontent.com/u/105445488?v=4" width="100;" alt="Tomkndn"/>
@@ -158,20 +167,11 @@ MIT License
                     <sub><b>Kundan Tamsoy</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/IngaleChinmay04">
                     <img src="https://avatars.githubusercontent.com/u/143017442?v=4" width="100;" alt="IngaleChinmay04"/>
                     <br />
                     <sub><b>Chinmay Ingale</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/AkierRaee">
-                    <img src="https://avatars.githubusercontent.com/u/151558456?v=4" width="100;" alt="AkierRaee"/>
-                    <br />
-                    <sub><b>Au Huishan</b></sub>
                 </a>
             </td>
             <td align="center">
