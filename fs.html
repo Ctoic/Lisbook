@@ -746,54 +746,7 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"
         ></script>
-        <!-- Translation Script -->
-        <script>
-            const translations = {
-            en: {
-                books: {
-                frankenstein: {
-                    title: "Frankenstein",
-                    author: "By Mary Shelley",
-                    description: "Frankenstein tells the story of Victor Frankenstein, a scientist who creates a monstrous creature, leading to tragic consequences."
-                }
-                }
-            },
-            zh: {
-                books: {
-                frankenstein: {
-                    title: "弗兰肯斯坦",
-                    author: "玛丽·雪莱",
-                    description: "《弗兰肯斯坦》讲述了科学家维克多·弗兰肯斯坦创造了一个怪物，导致悲剧性后果的故事。"
-                }
-                }
-            }
-            };
-
-            function changeLanguage() {
-            const selectedLanguage = document.getElementById('language').value;
-            applyTranslations(selectedLanguage);
-            }
-
-            function applyTranslations(language) {
-            const bookElements = document.querySelectorAll('[data-book]');
-            bookElements.forEach(bookElement => {
-                const bookKey = bookElement.getAttribute('data-book');
-                const bookTranslations = translations[language].books[bookKey];
-                if (bookTranslations) {
-                bookElement.querySelector('[data-translate="title"]').innerText = bookTranslations.title;
-                bookElement.querySelector('[data-translate="author"]').innerText = bookTranslations.author;
-                bookElement.querySelector('[data-translate="description"]').innerText = bookTranslations.description;
-                }
-            });
-            }
-
-            document.addEventListener('DOMContentLoaded', function() {
-            const defaultLanguage = 'en';
-            applyTranslations(defaultLanguage);
-        });
-        </script>
     </body>
 </html>
-
 
 
