@@ -131,6 +131,13 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/AkierRaee">
+                    <img src="https://avatars.githubusercontent.com/u/151558456?v=4" width="100;" alt="AkierRaee"/>
+                    <br />
+                    <sub><b>Au Huishan</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/VaradJadhav">
                     <img src="https://avatars.githubusercontent.com/u/96735054?v=4" width="100;" alt="VaradJadhav"/>
                     <br />
@@ -151,6 +158,8 @@ MIT License
                     <sub><b>Siddharth Khandelwal</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Tomkndn">
                     <img src="https://avatars.githubusercontent.com/u/105445488?v=4" width="100;" alt="Tomkndn"/>
@@ -158,8 +167,6 @@ MIT License
                     <sub><b>Kundan Tamsoy</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/IngaleChinmay04">
                     <img src="https://avatars.githubusercontent.com/u/143017442?v=4" width="100;" alt="IngaleChinmay04"/>
@@ -195,6 +202,8 @@ MIT License
                     <sub><b>Prathmesh Modhe</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Vedantjn">
                     <img src="https://avatars.githubusercontent.com/u/76029713?v=4" width="100;" alt="Vedantjn"/>
@@ -202,8 +211,6 @@ MIT License
                     <sub><b>Nirmohi</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/aliabbasnagari">
                     <img src="https://avatars.githubusercontent.com/u/70366131?v=4" width="100;" alt="aliabbasnagari"/>

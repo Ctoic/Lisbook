@@ -50,11 +50,13 @@
   z-index: 9999;
 }
 /* Hide the default cursor */
-body,
+body{
+  cursor: none;
+}
 a,
 button,
 li {
-  cursor: none;
+  cursor: pointer;
 }
 .hidden {
   display: none;
