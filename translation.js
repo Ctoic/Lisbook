@@ -19,11 +19,6 @@ const translations = {
         author: "By Sir Arthur Conan Doyle",
         description: " Adventures of Sherlock Holmes by Sir Arthur Conan Doyle is a collection of twelve detective mysteries featuring Sherlock Holmes and Dr. Watson."
       },
-      paleBlueDot: {
-        title: "Pale Blue Dot",
-        author: "By Carl Sagan",
-        description: "Pale Blue Dot Sagan traces the spellbinding history of our launch into the cosmos and assesses the future that looms before us as we move out into our own solar system and on to distant galaxies beyond."
-      },
       sapiens: {
         title: "Sapiens: A Brief History of Humankind",
         author: "By Yuval Noah Harari",
