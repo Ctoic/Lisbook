@@ -117,6 +117,13 @@ MIT License
 		</tr>
 		<tr>
             <td align="center">
+                <a href="https://github.com/AkierRaee">
+                    <img src="https://avatars.githubusercontent.com/u/151558456?v=4" width="100;" alt="AkierRaee"/>
+                    <br />
+                    <sub><b>Au Huishan</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/solanki03">
                     <img src="https://avatars.githubusercontent.com/u/147741415?v=4" width="100;" alt="solanki03"/>
                     <br />
@@ -128,13 +135,6 @@ MIT License
                     <img src="https://avatars.githubusercontent.com/u/150781237?v=4" width="100;" alt="amankumarconnect"/>
                     <br />
                     <sub><b>Aman Kumar</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/AkierRaee">
-                    <img src="https://avatars.githubusercontent.com/u/151558456?v=4" width="100;" alt="AkierRaee"/>
-                    <br />
-                    <sub><b>Au Huishan</b></sub>
                 </a>
             </td>
             <td align="center">
