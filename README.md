@@ -101,26 +101,26 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/AkierRaee">
+                    <img src="https://avatars.githubusercontent.com/u/151558456?v=4" width="100;" alt="AkierRaee"/>
+                    <br />
+                    <sub><b>Au Huishan</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/AdityaJ2305">
                     <img src="https://avatars.githubusercontent.com/u/148325158?v=4" width="100;" alt="AdityaJ2305"/>
                     <br />
                     <sub><b>Aditya Jindal</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/AdityaBavadekar">
                     <img src="https://avatars.githubusercontent.com/u/64344960?v=4" width="100;" alt="AdityaBavadekar"/>
                     <br />
                     <sub><b>Aditya Bavadekar</b></sub>
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td align="center">
-                <a href="https://github.com/AkierRaee">
-                    <img src="https://avatars.githubusercontent.com/u/151558456?v=4" width="100;" alt="AkierRaee"/>
-                    <br />
-                    <sub><b>Au Huishan</b></sub>
                 </a>
             </td>
             <td align="center">
