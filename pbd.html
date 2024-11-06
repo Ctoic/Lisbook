@@ -103,11 +103,13 @@
                         <a
                             href="./index.html"
                             class="text-gray-300 hover:text-green-500"
+                            id="home"
                             >Home</a
                         >
                         <a
                             href="./about.html"
                             class="text-gray-300 hover:text-green-500"
+                            id="about"
                             >About</a
                         >
 
@@ -140,6 +142,20 @@
                                 />
                             </svg>
                         </button>
+                        
+                        <div class="language-selector">
+                            <select
+                                id="language"
+                                onchange="changeLanguage()"
+                                style="background-color: #1db954; color: #fff"
+                            >
+                                <option value="en">English</option>
+                                <option value="fr">Français</option>
+                                <option value="es">Español</option>
+                                <option value="zh">简体中文</option>
+                                <!-- Ajoutez d'autres langues ici -->
+                            </select>
+                        </div>
                     </div>
 
                     <!-- Mobile Menu Toggle Button -->
@@ -260,12 +276,12 @@
                             />
                         </div>
                         <!-- Book Details -->
-                        <div class="mt-4">
-                            <h1 class="text-2xl font-bold text-green-500">
+                        <div class="mt-4" data-book="paleBlueDot">
+                            <h1 class="text-2xl font-bold text-green-500" data-translate="title">
                                 Pale Blue Dot
                             </h1>
-                            <h3 class="text-lg mt-2">By Carl Sagan</h3>
-                            <p class="text-sm mt-2">
+                            <h3 class="text-lg mt-2" data-translate="author">By Carl Sagan</h3>
+                            <p class="text-sm mt-2" data-translate="description">
                                 Pale Blue Dot Sagan traces the spellbinding
                                 history of our launch into the cosmos and
                                 assesses the future that looms before us as we
@@ -660,6 +676,7 @@
 
         <!-- JavaScript -->
         <script src="./script.js"></script>
+        <script src="./translation.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
