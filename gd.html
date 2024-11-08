@@ -150,7 +150,7 @@
                             <div class="language-selector">
                                 <select
                                     id="language"
-                                    onchange="changeLanguage()"
+                                    onchange="changeLanguageLocally()"
                                     style="background-color: #1db954; color: #fff"
                                 >
                                     <option value="en">English</option>
@@ -799,6 +799,12 @@
 
         <!-- Ensure language sync in iframe -->
         <script>
+            function changeLanguageLocally() {
+                const language = document.getElementById('language').value;
+                console.log('Local language change in gd.html:', language);
+                applyTranslations(language);  // Directly apply translations within gd.html
+            }
+
             function changeLanguage(language) {
                 applyTranslations(language); // Call the translation function from translation.js
             }
@@ -810,9 +816,15 @@
             // Listener for postMessage from index.html
             window.addEventListener('message', (event) => {
                 if (event.data.type === 'changeLanguage') {
-                const language = event.data.language;
-                applyTranslations(language);
+                    const language = event.data.language;
+                    console.log('Message received in gd.html, applying translations for language:', language);
+                    applyTranslations(language);
                 }
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const defaultLanguage = 'en';
+                applyTranslations(defaultLanguage);
             });
         </script>
 
