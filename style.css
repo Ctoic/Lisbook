@@ -1124,3 +1124,50 @@ button:hover {
   color: #1db954;
   transform: scale(1.1); /* Slightly enlarge icons on hover */
 }
+
+
+.friend-card {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.friend-card:hover {
+  transform: scale(1.05);
+}
+.friend-content {
+  display: none;
+  text-align: center;
+}
+.friend-card.collapsed + .friend-content {
+  display: none;
+}
+.friend-card.expanded + .friend-content {
+  display: block;
+}
+#friendList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.friend-card {
+  flex: 1 1 calc(33.333% - 20px); /* Adjusts each card to take up one-third of the width */
+}
+
+/* CSS for responsive button and search bar */
+#add-friend {
+  transition: width 0.3s ease; /* Smooth transition for button width */
+}
+
+#search-bar-container {
+  width: 0;
+  max-width: 500px; /* Optional: adjust based on your layout */
+  transition: width 0.3s ease; /* Smooth transition for search bar */
+  overflow: hidden;
+}
+
+#search-github {
+  width: 100%;
+  padding: 5px;
+}
+

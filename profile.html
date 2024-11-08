@@ -453,13 +453,48 @@
                   class="btn btn-bd-primary btn-sm rounded-4 mt-2"
                   >GitHub Profile</a
                 >
-              </div>
+              
+            </div>
+            <!-- Friend List -->
+            <div id="friends-list" class="col-sm-4 mb-4 row">
+              <!-- Existing friend cards and newly added friends will appear here -->
+          </div>
+        </div>
+      </div>
+            
+            
+          <div class="container mt-4">
+            <!-- Add Friend Button with Icon, Responsive Layout -->
+            <div class="d-flex justify-content-between mb-4">
+                <!-- Add Friend Button -->
+                <button id="add-friend" class="btn btn-success" style="width: 100%; max-width: 200px;">
+                    <i class="bi bi-person-plus me-2"></i>
+                    Add Friend
+                </button>
+        
+                <!-- Search Bar with Search Icon -->
+                <div class="input-group ms-2" style="width: 0; transition: width 0.3s; overflow: hidden;" id="search-bar-container">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input
+                        type="text"
+                        id="search-github"
+                        class="form-control"
+                        placeholder="Enter GitHub username..."
+                        onkeypress="handleEnter(event)"
+                    />
+                </div>
+            </div>
+        
+            
+        
+              
+          </div>
             </div>
           </div>
         </section>
       </div>
     </div>
-
+    
     <div id="footer-placeholder" class="mt-auto"></div>
 
     <!-- JavaScript -->
@@ -470,5 +505,138 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script>
+      // Toggle visibility of search bar and button width
+      document.getElementById("add-friend").addEventListener("click", function () {
+          const addFriendButton = document.getElementById("add-friend");
+          const searchBarContainer = document.getElementById("search-bar-container");
+    
+          // Toggle visibility of the search bar
+          if (searchBarContainer.style.width === "0px" || searchBarContainer.style.width === "") {
+              addFriendButton.style.width = "25%";
+              searchBarContainer.style.width = "75%";
+              document.getElementById("search-github").focus();  // Focus on the input field
+          } else {
+              addFriendButton.style.width = "100%";
+              searchBarContainer.style.width = "0";
+          }
+      });
+    
+      // Function to add a friend when Enter is pressed in the search bar
+      function handleEnter(event) {
+          if (event.key === "Enter") {
+              addFriend();
+          }
+      }
+    
+      // Function to add friend to the friend list
+      async function addFriend() {
+          const username = document.getElementById("search-github").value.trim();
+          if (username) {
+              try {
+                  // Fetch the GitHub profile data
+                  const response = await fetch(`https://api.github.com/users/${username}`);
+                  if (response.ok) {
+                      const data = await response.json();
+    
+                      // Create a new friend card with the specified format
+                      const friendDiv = document.createElement("div");
+                      friendDiv.className = "col-sm-4 mb-4";
+    
+                      // Friend card structure
+                      friendDiv.innerHTML = `
+                          <div class="friend-card collapsed" onclick="toggleFriendContent(this)">
+                              <img
+                                  src="${data.avatar_url}"
+                                  class="card-img-top rounded-circle mx-auto"
+                                  style="width: 60px; height: 60px"
+                                  alt="${data.login}"
+                              />
+                              <h5 class="card-title mt-3">${data.name || data.login}</h5>
+                          </div>
+                          <div class="friend-content">
+                              <a
+                                  href="${data.html_url}"
+                                  target="_blank"
+                                  class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                              >
+                                  GitHub Profile
+                              </a>
+                          </div>
+                      `;
+    
+                      // Append the friend card to the friend list
+                      document.getElementById("friends-list").appendChild(friendDiv);
+    
+                      // Save the new friend data in local storage
+                      const storedFriends = JSON.parse(localStorage.getItem("friends")) || [];
+                      storedFriends.push(data); // Add new friend
+                      localStorage.setItem("friends", JSON.stringify(storedFriends));
+    
+                      // Clear the input field and reset the search bar
+                      document.getElementById("search-github").value = "";
+                      document.getElementById("add-friend").style.width = "100%";
+                      document.getElementById("search-bar-container").style.width = "0";
+                  } else {
+                      alert("GitHub user not found.");
+                  }
+              } catch (error) {
+                  console.error("Error fetching GitHub profile:", error);
+                  alert("There was an error fetching the GitHub profile.");
+              }
+          } else {
+              alert("Please enter a GitHub username.");
+          }
+      }
+    
+      // Function to toggle the display of the friend content
+      function toggleFriendContent(card) {
+          card.classList.toggle("expanded");
+          card.classList.toggle("collapsed");
+      }
+    
+      // Render stored friends when the page loads
+      window.onload = function() {
+          const storedFriends = JSON.parse(localStorage.getItem("friends")) || [];
+          storedFriends.forEach(friend => {
+              renderFriendCard(friend);
+          });
+      };
+    
+      // Function to render a single friend's card
+      function renderFriendCard(friendData) {
+          const friendDiv = document.createElement("div");
+          friendDiv.className = "col-sm-4 mb-4";
+    
+          // Friend card structure
+          friendDiv.innerHTML = `
+              <div class="friend-card collapsed" onclick="toggleFriendContent(this)">
+                  <img
+                      src="${friendData.avatar_url}"
+                      class="card-img-top rounded-circle mx-auto"
+                      style="width: 60px; height: 60px"
+                      alt="${friendData.login}"
+                  />
+                  <h5 class="card-title mt-3">${friendData.name || friendData.login}</h5>
+              </div>
+              <div class="friend-content">
+                  <a
+                      href="${friendData.html_url}"
+                      target="_blank"
+                      class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                  >
+                      GitHub Profile
+                  </a>
+              </div>
+          `;
+    
+          // Append the friend card to the friend list
+          document.getElementById("friends-list").appendChild(friendDiv);
+      }
+    </script>
+    
+  
+  <!-- Add Bootstrap JS for better UI responsiveness -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
