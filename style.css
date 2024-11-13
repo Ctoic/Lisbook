@@ -1124,3 +1124,62 @@ button:hover {
   color: #1db954;
   transform: scale(1.1); /* Slightly enlarge icons on hover */
 }
+/* Friend Card Styling */
+.friend-card {
+  cursor: pointer;
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  background: #2a2a2a;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+.friend-card:hover {
+  transform: scale(1.05);
+}
+.friend-content {
+  display: none;
+  text-align: center;
+  padding: 10px;
+}
+.friend-card.collapsed + .friend-content {
+  display: none;
+}
+.friend-card.expanded + .friend-content {
+  display: block;
+}
+
+/* Style for GitHub Profile Button */
+.friend-content .btn {
+  background-color: #25a56a; /* Consistent green color */
+  color: #fff;               /* White text for visibility */
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.friend-content .btn:hover {
+  background-color: #1e8c56; /* Darker green on hover */
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Responsive styling for button and search bar */
+#add-friend {
+  width: 100%;
+  transition: width 0.3s ease;
+  background-color: #25a56a;
+  border: none;
+}
+#search-bar-container {
+  display: none;
+  transition: width 0.3s ease, display 0.3s ease;
+  overflow: hidden;
+}
+#search-bar-container.expanded {
+  display: flex !important;
+}
+#search-github {
+  width: 100%;
+  padding: 5px;
+}
