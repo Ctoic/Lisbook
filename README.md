@@ -205,6 +205,13 @@ MIT License
 		</tr>
 		<tr>
             <td align="center">
+                <a href="https://github.com/Saiharitha3">
+                    <img src="https://avatars.githubusercontent.com/u/167031893?v=4" width="100;" alt="Saiharitha3"/>
+                    <br />
+                    <sub><b>Sai Haritha Sardena</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/Vedantjn">
                     <img src="https://avatars.githubusercontent.com/u/76029713?v=4" width="100;" alt="Vedantjn"/>
                     <br />
