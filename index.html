@@ -250,18 +250,26 @@
     </section>
 
     <!-- Embed gd.html -->
-    <section class="row rounded-5 p-5 mt-5">
-      <iframe id="gd-iframe" src="gd.html" width="150%" height="850px" frameborder="0"></iframe>
+    <section class="row rounded-5 mt-5 overflow-hidden">
+      <iframe id="gd-iframe" src="gd.html" width="100%" height="1000vh" ></iframe>
     </section>
 
     <!-- Book buttons navigations -->
-    <section class="d-flex justify-content-evenly align-items-stretch rounded-5 p-4 my-5 gx-5 text-center">
-      <div class="flex-item w-auto" style="min-width: 150px;">
-        <a href="./index.html" class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5">Previous
-          Book</a>
+    <section class="flex flex-col md:flex-row justify-evenly items-stretch rounded-5 p-4 my-5 gap-5 text-center">
+      <!-- Previous Book -->
+      <div class="flex-item min-w-[150px]">
+        <a href="./index.html" 
+           class="text-gray-300 hover:text-green-500 border p-3 block rounded-l-lg">
+          Previous Book
+        </a>
       </div>
-      <div class="flex-item w-auto" style="min-width: 150px;">
-        <a href="./pbd.html" class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5">Next Book</a>
+  
+      <!-- Next Book -->
+      <div class="flex-item min-w-[150px]">
+        <a href="./pbd.html" 
+           class="text-gray-300 hover:text-green-500 border p-3 block rounded-r-lg">
+          Next Book
+        </a>
       </div>
     </section>
 
