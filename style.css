@@ -1183,3 +1183,95 @@ button:hover {
   width: 100%;
   padding: 5px;
 }
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .profile-and-friends {
+    flex-direction: column;
+  }
+
+  .profile-section,
+  .friends-section {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .profile-and-friends {
+    flex-direction: column;
+  }
+
+  .profile-section,
+  .friends-section {
+    margin-bottom: 20px;
+  }
+
+  .header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header .container .logo-text {
+    margin-bottom: 10px;
+  }
+
+  .header .container .menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header .container .menu a {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .profile-and-friends {
+    flex-direction: column;
+  }
+
+  .profile-section,
+  .friends-section {
+    margin-bottom: 20px;
+  }
+
+  .header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header .container .logo-text {
+    margin-bottom: 10px;
+  }
+
+  .header .container .menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header .container .menu a {
+    margin-bottom: 10px;
+  }
+}
