@@ -1183,3 +1183,81 @@ button:hover {
   width: 100%;
   padding: 5px;
 }
+
+/* Chatbot Interface Styles */
+.chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  max-width: 100%;
+  background-color: #444;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.chatbot-header {
+  background-color: #555;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #333;
+}
+
+.chatbot-input-container {
+  display: flex;
+  border-top: 1px solid #fff;
+}
+
+.chatbot-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background-color: #444;
+  color: #fff;
+}
+
+.chatbot-send {
+  padding: 10px;
+  background-color: #555;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.chatbot-send:hover {
+  background-color: #666;
+}
+
+.chatbot-close {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.chatbot-close:hover {
+  color: #f00;
+}
+
+/* Responsive Design for Chatbot */
+@media (max-width: 600px) {
+  .chatbot {
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+  }
+}
