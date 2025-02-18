@@ -19,7 +19,8 @@
         "title": "Chapter 2",
         "audio_file": "audio/mockingbird_ch2.mp3"
       }
-    ]
+    ],
+    "summary": "A novel that explores racial injustice in the Deep South through the eyes of young Scout Finch."
   },
   {
     "id": "2",
@@ -41,7 +42,8 @@
         "title": "Chapter 2",
         "audio_file": "audio/1984_ch2.mp3"
       }
-    ]
+    ],
+    "summary": "A harrowing vision of a totalitarian future, where surveillance and propaganda are omnipresent."
   },
   {
     "id": "3",
@@ -63,7 +65,8 @@
         "title": "Chapter 2",
         "audio_file": "audio/gatsby_ch2.mp3"
       }
-    ]
+    ],
+    "summary": "A story of wealth, obsession, and the American dream, set in the Jazz Age."
   },
   {
     "id": "4",
@@ -85,7 +88,8 @@
         "title": "Chapter 2",
         "audio_file": "audio/pride_ch2.mp3"
       }
-    ]
+    ],
+    "summary": "A classic romantic tale of the strong-willed Elizabeth Bennet and the wealthy but reserved Mr. Darcy."
   },
   {
     "id": "5",
@@ -107,7 +111,8 @@
         "title": "Chapter 2",
         "audio_file": "audio/catcher_ch2.mp3"
       }
-    ]
+    ],
+    "summary": "A deeply personal exploration of teenage rebellion and alienation, following Holden Caulfield."
   },
   {
     "id": "6",
@@ -129,7 +134,8 @@
         "title": "Chapter 2",
         "audio_file": "audio/mobydick_ch2.mp3"
       }
-    ]
+    ],
+    "summary": "An epic tale of obsession and revenge, chronicling Captain Ahab’s relentless pursuit of the white whale Moby Dick."
   },
   {
     "id": "7",
@@ -181,6 +187,60 @@
         "title": "Part 7",
         "audio_file": "audio/part7.mp3"
       }
-    ]
+    ],
+    "summary": "The God Delusion is a book by English biologist Richard Dawkins that argues against the existence of a supernatural creator."
+  },
+  {
+    "id": "8",
+    "title": "The Adventures of Sherlock Holmes",
+    "author": "Sir Arthur Conan Doyle",
+    "cover": "Images/Adventures_Sherlock_Holmes.jpg",
+    "genre": "Mystery",
+    "description": "A collection of twelve detective mysteries featuring Sherlock Holmes and Dr. Watson.",
+    "chapters": [
+      {
+        "id": "1",
+        "index": 1,
+        "title": "Introduction",
+        "audio_file": "audio/FS/01.mp3"
+      },
+      {
+        "id": "2",
+        "index": 2,
+        "title": "Chapter 01",
+        "audio_file": "audio/FS/02.mp3"
+      },
+      {
+        "id": "3",
+        "index": 3,
+        "title": "Chapter 02",
+        "audio_file": "audio/FS/03.mp3"
+      },
+      {
+        "id": "4",
+        "index": 4,
+        "title": "Chapter 03",
+        "audio_file": "audio/part4.mp3"
+      },
+      {
+        "id": "5",
+        "index": 5,
+        "title": "Chapter 04",
+        "audio_file": "audio/part5.mp3"
+      },
+      {
+        "id": "6",
+        "index": 6,
+        "title": "Chapter 05",
+        "audio_file": "audio/part6.mp3"
+      },
+      {
+        "id": "7",
+        "index": 7,
+        "title": "Chapter 06",
+        "audio_file": "audio/part7.mp3"
+      }
+    ],
+    "summary": "A collection of twelve detective mysteries featuring Sherlock Holmes and Dr. Watson."
   }
 ]
