@@ -117,4 +117,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event listener for "Previous" button
   if (prevBtn) prevBtn.addEventListener("click", prevPage);
+
+  // Speed control buttons functionality
+  const speedButtons = document.querySelectorAll("[id^='speed-']");
+  speedButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const speed = parseFloat(this.id.split("-")[1]);
+      audioPlayer.playbackRate = speed;
+    });
+  });
 });

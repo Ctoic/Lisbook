@@ -598,6 +598,15 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  // Speed control buttons functionality
+  const speedButtons = document.querySelectorAll("[id^='speed-']");
+  speedButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const speed = parseFloat(this.id.split("-")[1]);
+      audioPlayer.playbackRate = speed;
+    });
+  });
 });
 // Function to load an HTML file into an element
 function loadHTML(file, elementId) {
