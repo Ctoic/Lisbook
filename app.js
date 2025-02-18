@@ -1,3 +1,5 @@
+import { downloadTorrent, handleError, displayProgress, manageStorage } from './torrent.js';
+
 document.addEventListener("DOMContentLoaded", function () {
   const audioPlayer = document.getElementById("audio-player");
   const playlistItems = document.querySelectorAll("#playlist li");
@@ -117,4 +119,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event listener for "Previous" button
   if (prevBtn) prevBtn.addEventListener("click", prevPage);
+
+  // Torrent download button functionality
+  const downloadBtn = document.getElementById("downloadBtn");
+  if (downloadBtn) {
+    downloadBtn.addEventListener("click", () => {
+      const torrentId = "magnet:?xt=urn:btih:...";
+      const downloadPath = "downloads/";
+      downloadTorrent(torrentId, downloadPath);
+    });
+  }
+
+  // Display torrent download progress
+  const progressBar = document.getElementById("torrent-progress-bar");
+  if (progressBar) {
+    displayProgress(progressBar);
+  }
+
+  // Handle torrent download errors
+  client.on('error', handleError);
+
+  // Manage torrent download storage
+  const storagePath = "downloads/";
+  manageStorage(storagePath);
 });

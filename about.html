@@ -269,6 +269,11 @@
             chapters. You can also adjust playback speed and volume to suit your
             listening preferences.
           </p>
+          <button id="downloadBtn" class="btn btn-primary mt-4">Download Torrent</button>
+          <div class="progress mt-3">
+            <div id="torrent-progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div id="error-message" class="alert alert-danger mt-3" style="display: none;"></div>
         </div>
         <div class="col-12 col-lg-6 pe-5 ps-lg-5">
           <img
