@@ -1,0 +1,121 @@
+section {
+  box-shadow: none !important;
+}
+
+.dark-theme h1,
+.dark-theme h2 {
+  color: white; /* Ensure h1 and h2 are white */
+}
+
+.hero-section {
+  background: url("https://via.placeholder.com/1500x800") no-repeat center
+    center/cover;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: none !important;
+  text-align: center;
+  margin-bottom: 200px;
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  /* height: 0vw; */
+  max-height: 960px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 1%,
+    rgb(188, 243, 207) 99%
+  );
+}
+.hero-content {
+  position: relative;
+  z-index: 0;
+  text-align: start;
+  align-self: center;
+  padding-right: 3rem;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.hero-content h2 {
+  font-size: 1.1rem !important;
+  margin: 20px 0;
+  font-style: none !important;
+  font-weight: 200 !important;
+}
+.hero-content .btn {
+  font-size: 1.4rem;
+  padding: 10px 30px;
+  background-color: rgb(93, 190, 106);
+  border: none;
+  font-weight: 600 !important;
+  border-radius: 20px;
+}
+
+.hero-content .btn:hover {
+  background-color: rgb(66, 141, 76);
+}
+
+.img-container {
+  z-index: 1;
+  max-width: 300px;
+  display: flex;
+}
+
+.img-container img {
+  width: 100%;
+}
+@media (max-width: 1500px) {
+  .hero-content {
+    margin: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    margin-top: 190px;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 150px;
+  }
+
+  .hero-section::before {
+    height: 750px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.15rem !important;
+    padding: 0.8rem;
+  }
+  .hero-section h2 {
+    font-size: 1.7rem !important;
+  }
+  .hero-content {
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .img-container {
+    max-width: 300px;
+    padding-bottom: 120px !important;
+  }
+}
+
+@media (max-width: 690px) {
+  .hero-section::before {
+    height: 780px;
+  }
+  .img-container {
+    max-width: 250px;
+  }
+}
