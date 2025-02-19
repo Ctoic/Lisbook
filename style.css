@@ -533,24 +533,35 @@ input[type="range"]#seekSlider {
 input[type="range"]#seekSlider::-webkit-slider-runnable-track {
   width: 100%;
   height: 5px;
-  background: var(--accent-background-color);
+  background: linear-gradient(to right, var(--accent-background-color) 0%, gray 0%);
   border-radius: 5px;
 }
 
 input[type="range"]#seekSlider::-moz-range-track {
   width: 100%;
   height: 5px;
-  background: var(--accent-background-color);
+  background: linear-gradient(to right, var(--accent-background-color) 0%, gray 0%);
   border-radius: 5px;
 }
 
 input[type="range"]#seekSlider::-ms-track {
   width: 100%;
   height: 5px;
-  background: var(--accent-background-color);
+  background: transparent;
   border-radius: 5px;
   border-color: transparent;
   color: transparent;
+}
+
+/* Hide the default slider appearance for IE */
+input[type="range"]#seekSlider::-ms-fill-lower {
+  background: var(--accent-background-color);
+  border-radius: 5px;
+}
+
+input[type="range"]#seekSlider::-ms-fill-upper {
+  background: gray;
+  border-radius: 5px;
 }
 
 /* Slider thumb (the draggable part) */
