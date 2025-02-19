@@ -30,6 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const audioFile = urlParams.get("file");
   const startTime = urlParams.get("t");
 
+  const downloadBtn = document.querySelectorAll('[download]');
+  
+  for (let i = 0; i < downloadBtn.length; i++) {
+    downloadBtn[i].addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
+  }
+
   if (audioFile && startTime) {
     audioPlayer.src = `audio/${audioFile}`;
     audioPlayer.currentTime = startTime;
