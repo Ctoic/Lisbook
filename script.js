@@ -598,6 +598,63 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  // Chat Bot Functionality
+  const chatContainer = document.getElementById("chat-container");
+  const chatMessages = document.getElementById("chat-messages");
+  const chatInput = document.getElementById("chat-input");
+  const chatSend = document.getElementById("chat-send");
+
+  if (chatContainer && chatMessages && chatInput && chatSend) {
+    chatSend.addEventListener("click", () => {
+      const userMessage = chatInput.value.trim();
+      if (userMessage) {
+        appendMessage("user", userMessage);
+        chatInput.value = "";
+        fetchBotResponse(userMessage);
+      }
+    });
+
+    chatInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        chatSend.click();
+      }
+    });
+  }
+
+  function appendMessage(sender, message) {
+    const messageElement = document.createElement("div");
+    messageElement.classList.add("chat-message", sender);
+    messageElement.innerText = message;
+    chatMessages.appendChild(messageElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  async function fetchBotResponse(message) {
+    try {
+      const response = await fetch("https://api.openai.com/v1/engines/davinci-codex/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer YOUR_OPENAI_API_KEY`
+        },
+        body: JSON.stringify({
+          prompt: `User: ${message}\nBot:`,
+          max_tokens: 150,
+          n: 1,
+          stop: ["\n", "User:"],
+          temperature: 0.9
+        })
+      });
+
+      const data = await response.json();
+      const botMessage = data.choices[0].text.trim();
+      appendMessage("bot", botMessage);
+    } catch (error) {
+      console.error("Error fetching bot response:", error);
+      appendMessage("bot", "Sorry, I couldn't process your request. Please try again.");
+    }
+  }
 });
 // Function to load an HTML file into an element
 function loadHTML(file, elementId) {

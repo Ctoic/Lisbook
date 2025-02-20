@@ -19,6 +19,7 @@
   <div class="circle"></div>
   <div class="circle"></div>
   <div class="circle"></div>
+  <div "circle"></div>
   <div class="circle"></div>
   <div class="circle"></div>
   <div class="circle"></div>
@@ -291,6 +292,22 @@
         <div id="comments-list" class="mt-10 space-y-4"></div>
       </div>
     </section>
+
+    <!-- Chat Bot Section -->
+    <section class="row rounded-5 p-5 mt-5">
+      <div class="container mx-auto p-6 rounded-lg">
+        <h2 class="display-5 page-title fw-semibold mb-6 text-center" id="chat-bot">
+          Chat with our Bot
+        </h2>
+        <div id="chat-container" class="chat-container">
+          <div id="chat-messages" class="chat-messages"></div>
+          <div class="chat-input-container">
+            <input type="text" id="chat-input" class="chat-input" placeholder="Ask about our books..." />
+            <button id="chat-send" class="chat-send">Send</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -303,6 +320,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <script src="./chatbot.js"></script>
 </body>
 
 </html>

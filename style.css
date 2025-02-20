@@ -1183,3 +1183,66 @@ button:hover {
   width: 100%;
   padding: 5px;
 }
+
+/* Chat Bot Styles */
+.chat-container {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.chat-messages {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.chat-message {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.chat-message.user {
+  background-color: #1db954;
+  color: #fff;
+  text-align: right;
+}
+
+.chat-message.bot {
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+}
+
+.chat-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #2a2a2a;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.chat-send {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #1db954;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chat-send:hover {
+  background-color: #1db700;
+}
