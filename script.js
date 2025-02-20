@@ -636,7 +636,7 @@ document.addEventListener("DOMContentLoaded", function () {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer YOUR_OPENAI_API_KEY`
+          "Authorization": `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`
         },
         body: JSON.stringify({
           prompt: `User: ${message}\nBot:`,
