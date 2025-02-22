@@ -1,0 +1,131 @@
+body.light-theme .hero-container::before {
+  background: url("svg/background-hero-light.svg") no-repeat center center/cover;
+}
+
+body.dark-theme .hero-container h1,
+body.dark-theme .hero-container h2 {
+  color: #fff;
+}
+
+body.dark-theme .hero-container::before {
+  background: url("svg/background-hero-dark.svg") no-repeat center center/cover;
+}
+
+section {
+  box-shadow: none !important;
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent !important;
+  /* text-align: center; */
+}
+
+.hero-container {
+  max-width: 1000px;
+}
+
+.hero-container::before {
+  content: " ";
+  position: absolute;
+  height: 100vh;
+  max-height: 500px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 0;
+  text-align: start;
+  margin: 6rem;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.hero-content h2 {
+  font-size: 1.5rem !important;
+  margin: 20px 0;
+  font-style: none !important;
+  font-weight: 400 !important;
+  opacity: 0.8;
+}
+.hero-content .btn {
+  font-size: 1.4rem;
+  padding: 10px 30px;
+  background-color: rgb(29, 185, 84);
+  border: none;
+  font-weight: 600 !important;
+  border-radius: 20px;
+}
+
+.hero-content .btn:hover {
+  background-color: rgb(66, 141, 76);
+}
+
+.img-container {
+  z-index: 2;
+  max-width: 300px;
+}
+
+.img-container img {
+  width: 100%;
+  margin: 2.5rem;
+}
+@media (max-width: 1500px) {
+  .hero-content {
+    margin: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-section::before {
+    height: 750px;
+  }
+  .hero-container {
+    flex-direction: column;
+    justify-content: start !important;
+  }
+
+  .hero-container::before {
+    max-height: 900px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.15rem !important;
+    padding: 0.8rem;
+  }
+  .hero-section h2 {
+    font-size: 1.7rem !important;
+  }
+  .hero-content {
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .img-container {
+    max-width: 20rem;
+    padding-bottom: 120px !important;
+  }
+}
+
+@media (max-width: 690px) {
+  .hero-section::before {
+    height: 780px;
+  }
+  .img-container {
+  }
+}

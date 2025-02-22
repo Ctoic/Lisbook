@@ -50,7 +50,7 @@
   z-index: 9999;
 }
 /* Hide the default cursor */
-body{
+body {
   cursor: none;
 }
 a,
@@ -1034,7 +1034,7 @@ header .container {
 /* Responsive for extra small devices (max-width: 480px) */
 @media (max-width: 480px) {
   .ctrl-player .ctrl-buttons {
-    padding: 0px; 
+    padding: 0px;
   }
 
   .ctrl-player .ctrl-buttons .ctrl-button-small {
@@ -1152,7 +1152,7 @@ button:hover {
 /* Style for GitHub Profile Button */
 .friend-content .btn {
   background-color: #25a56a; /* Consistent green color */
-  color: #fff;               /* White text for visibility */
+  color: #fff; /* White text for visibility */
   border: none;
   padding: 8px 16px;
   font-size: 0.9rem;
