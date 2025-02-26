@@ -1183,3 +1183,27 @@ button:hover {
   width: 100%;
   padding: 5px;
 }
+
+/* Pec60 */
+@media (max-width: 768px) {
+  .playlist {
+    max-height: 30vh;
+    overflow-y: auto;
+  }
+}
+
+/* P3e6c */
+@media (max-width: 480px) {
+  .playlist {
+    max-height: 20vh;
+    overflow-y: auto;
+  }
+}
+
+/* P680b */
+@media (max-width: 768px) {
+  .adiobk-sub-item {
+    padding: 15px 20px;
+    font-size: 1.2rem;
+  }
+}
