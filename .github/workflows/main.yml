@@ -1,17 +1,139 @@
+name: Lisbook CI/CD Pipeline
+
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
 
 jobs:
-    contrib-readme-job:
-        runs-on: ubuntu-latest
-        name: A job to automate contrib in readme
-        permissions:
-          contents: write
-          pull-requests: write
-        steps:
-            - name: Contribute List
-              uses: akhilmhdh/contributors-readme-action@v2.3.10
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # Keep existing contributors update job
+  contrib-readme-job:
+    runs-on: ubuntu-latest
+    name: Update contributors in readme
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Contribute List
+        uses: akhilmhdh/contributors-readme-action@v2.3.10
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # Add new jobs for full CI/CD pipeline
+  lint:
+    runs-on: ubuntu-latest
+    name: Lint code
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: |
+          npm install -g htmlhint
+          npm install -g stylelint stylelint-config-standard
+          npm install -g eslint
+          
+      - name: Lint HTML
+        run: htmlhint "*.html"
+        
+      - name: Lint CSS
+        run: stylelint "*.css"
+        
+      - name: Lint JavaScript
+        run: eslint "*.js"
+
+  test:
+    runs-on: ubuntu-latest
+    name: Run tests
+    needs: lint
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install test dependencies
+        run: |
+          npm install -g jest
+          npm install --save-dev jest jest-environment-jsdom @testing-library/dom
+          
+      - name: Run unit tests
+        run: jest --passWithNoTests
+
+  build:
+    runs-on: ubuntu-latest
+    name: Build and optimize
+    needs: test
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install build tools
+        run: |
+          npm install -g gulp-cli
+          npm install --save-dev gulp gulp-htmlmin gulp-clean-css gulp-uglify gulp-imagemin
+          
+      - name: Optimize assets
+        run: |
+          # This would run your build process
+          # For simple static sites, we might just optimize files
+          mkdir -p dist
+          cp -R *.html *.css *.js Images audio dist/
+          
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: website-build
+          path: dist/
+
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy to production
+    needs: build
+    # Only run deployment on main branch pushes, not PRs
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: website-build
+          path: dist
+          
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
+        with:
+          branch: gh-pages
+          folder: dist
+          
+      # Alternative deployment methods
+      # Uncomment the appropriate section based on your hosting platform
+      
+      # - name: Deploy to AWS S3
+      #   uses: jakejarvis/s3-sync-action@master
+      #   with:
+      #     args: --acl public-read --follow-symlinks --delete
+      #   env:
+      #     AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     SOURCE_DIR: 'dist'
+      
+      # - name: Deploy to Netlify
+      #   uses: nwtgck/actions-netlify@v2.0
+      #   with:
+      #     publish-dir: './dist'
+      #     production-branch: main
+      #   env:
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

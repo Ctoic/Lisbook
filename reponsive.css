@@ -1,0 +1,126 @@
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  /* Book details section */
+  .book-details section {
+    padding: 1rem !important;
+  }
+  
+  @media (max-width: 768px) {
+    /* Adjust padding for mobile */
+    .book-details section {
+      padding: 0.5rem !important;
+    }
+    
+    /* Make cover image container responsive */
+    .card-cover-container {
+      height: auto !important;
+      max-height: 14rem;
+    }
+    
+    /* Adjust book image */
+    .card-img-top {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Stack buttons vertically on mobile */
+    .icon-action-btn-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    /* Adjust playlist container */
+    .playlist {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    
+    /* Make audio player controls more touch-friendly */
+    .ctrl-player {
+      padding: 0.5rem !important;
+    }
+    
+    .ctrl-buttons {
+      gap: 0.5rem;
+    }
+    
+    .ctrl-button {
+      min-width: 40px;
+      min-height: 40px;
+    }
+    
+    /* Adjust seek slider for better touch interaction */
+    #seekSlider {
+      width: 100%;
+      margin: 1rem 0;
+    }
+    
+    /* Make time display more readable */
+    #currentTime, #duration {
+      font-size: 0.875rem;
+    }
+    
+    /* Improve form elements spacing */
+    #comment-form input,
+    #comment-form textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  /* Header adjustments */
+  @media (max-width: 992px) {
+    .logo-text {
+      font-size: 1.25rem;
+    }
+    
+    #menu {
+      padding: 2rem;
+    }
+    
+    #menu a {
+      margin: 0.5rem 0;
+    }
+    
+    .language-selector {
+      margin-top: 1rem;
+    }
+  }
+  
+  /* Footer adjustments */
+  @media (max-width: 768px) {
+    footer {
+      text-align: center;
+    }
+    
+    .footer-logo-text {
+      font-size: 1.5rem;
+    }
+    
+    .footer-col-title {
+      margin-top: 1.5rem;
+    }
+  }
+  
+  /* Modal adjustments */
+  @media (max-width: 576px) {
+    .modal-dialog {
+      margin: 0.5rem;
+    }
+    
+    .modal-content {
+      padding: 1rem;
+    }
+    
+    .social-share-buttons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
