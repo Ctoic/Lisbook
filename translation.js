@@ -1,4 +1,19 @@
 // translations.js
+const LANGUAGES_KEY = {
+  EN: "en",
+  FR: "fr",
+  ES: "es",
+  ZH: "zh"
+};
+
+
+const LANGUAGES_KEY_TO_DESCRIPTION = {
+  en: "English",
+  fr: "Français",
+  es: "Español",
+  zh: "简体中文"
+};
+
 
 // Translation Script
 const translations = {
@@ -367,7 +382,7 @@ const translations = {
 console.log('Translations object:', translations);
 
 function changeLanguage() {
-  const selectedLanguage = document.getElementById('language').value;
+  const selectedLanguage = document.getElementById('language').getAttribute('value');
   console.log('Selected language:', selectedLanguage);
   applyTranslations(selectedLanguage);
 }
