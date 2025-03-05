@@ -103,34 +103,11 @@
         </div>
 
         <!-- Language-selector Toggle -->
-        <div class="language-selector">
-          <select
-              id="language"
-              onchange="changeLanguage()"
-              style="background-color: #1db954; color: #fff"
-          >
-              <option value="en">English</option>
-              <option value="fr">Français</option>
-              <option value="es">Español</option>
-              <option value="zh">简体中文</option>
-              <!-- Ajoutez d'autres langues ici -->
-          </select>
-        </div>
+        <div class="language-selector" ></div>
+        
+       
 
-        <!-- Ensure language sync in iframe-->
-        <script>
-          function changeLanguage() {
-            const language = document.getElementById('language').value;
-            const iframe = document.getElementById('gd-iframe');
-            if (iframe && iframe.contentWindow) {
-              //set up postMessage to send the selected language to iframe
-              iframe.contentWindow.postMessage({ type: 'changeLanguage', language: language }, '*');
-            }
-          }
-
-          // Add event listener for dropdown change to trigger the function
-          document.getElementById('language').addEventListener('change', changeLanguage);
-        </script>
+       
 
         <!-- Mobile Menu Toggle Button -->
         <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
@@ -299,8 +276,9 @@
 
   <!-- JavaScript -->
 
+  <script src="./language-handler.js"></script>
   <script src="./script.js"></script>
-  <script src="./translation.js"></script>
+  <script src="./translation.js"></script>  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
