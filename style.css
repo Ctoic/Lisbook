@@ -15,18 +15,40 @@
 }
 
 /* Loader Styles */
-#loader {
+/* /* #loader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: white; /* Fond blanc pour masquer le contenu */
-  z-index: 9999; /* S'assurer que le loader est au-dessus de tout */
+  /* z-index: 9999; /* S'assurer que le loader est au-dessus de tout */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+/*} */  
+
+/* Fullscreen overlay */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black; /* or black, or gradient */
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999; /* stays above everything */
 }
+
+/* Prevent body from scrolling while loader is active */
+body.loading {
+  overflow: hidden;
+}
+
+
+
 
 /* Spinner size */
 /* .spinner-border {
@@ -37,18 +59,18 @@
 
 /* Spinner container */
 
-.spinner-container {
+/* .spinner-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.8); 
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-}
+} */
 /* Hide the default cursor */
 body{
   cursor: none;
@@ -1164,7 +1186,7 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Responsive styling for button and search bar */
+
 #add-friend {
   width: 100%;
   transition: width 0.3s ease;
@@ -1182,4 +1204,183 @@ button:hover {
 #search-github {
   width: 100%;
   padding: 5px;
+}
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+}
+
+.phone-frame {
+  position: relative;
+  width: 350px;
+  height: 700px;
+  background: #f9f9f9;
+  border: 3px solid #ffcccb;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-top {
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.phone-speaker {
+  width: 70px;
+  height: 6px;
+  background: #444;
+  border-radius: 3px;
+}
+
+.phone-camera {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: #444;
+  border-radius: 50%;
+}
+
+.phone-screen {
+  flex-grow: 1;
+  background: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-bottom {
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone-home-button {
+  width: 58px;
+  height: 58px;
+  border: 3px solid  #ffcccb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.pacman {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.pacman-top,
+.pacman-bottom {
+  position: absolute;
+  width: 50px;
+  height: 25px;
+  background: #1a1a1a;
+  border-radius: 50px 50px 0 0;
+  transform-origin: 50% 100%;
+}
+
+.pacman-top {
+  animation: pacman-top 0.6s ease-in-out infinite;
+}
+
+.pacman-bottom {
+  top: 25px;
+  border-radius: 0 0 50px 50px;
+  transform-origin: 50% 0%;
+  animation: pacman-bottom 0.6s ease-in-out infinite;
+}
+
+@keyframes pacman-top {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-35deg); }
+}
+
+@keyframes pacman-bottom {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(35deg); }
+}
+
+.pacman-container {
+  position: absolute;
+  left: 40px;
+  animation: move-horizontal 13s ease-in-out infinite;
+}
+
+@keyframes move-horizontal {
+  0% { left: 40px; transform: scaleX(1); }
+  45% { left: calc(100% - 100px); transform: scaleX(1); }
+  50% { left: calc(100% - 100px); transform: scaleX(-1); }
+  95% { left: 40px; transform: scaleX(-1); }
+  100% { left: 40px; transform: scaleX(1); }
+}
+
+.dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.05s ease;
+}
+
+.dot-1 { left: 30%; }
+.dot-2 { left: 40%; }
+.dot-3 { left: 50%; }
+.dot-4 { left: 60%; }
+
+.iphone-side-buttons {
+  position: absolute;
+  left: -3px;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 5;
+}
+
+.silent-switch {
+  width: 3px;
+  height: 30px;
+  background: #ffcccb;
+  border-radius: 2px 0 0 2px;
+  box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.3), 1px 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.volume-button {
+  width: 3px;
+  height: 50px;
+  background: #ffcccb;
+  border-radius: 2px 0 0 2px;
+  box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.3), 1px 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.volume-down {
+  margin-top: 5px;
+}
+
+.screen-border {
+ position: absolute;
+  top: 83px;      
+  bottom: 90px;   
+  left: 15px;     
+  right: 15px;    
+  border: 4px solid black; 
+  border-radius: 8px;     
+  pointer-events: none; 
 }
