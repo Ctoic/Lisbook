@@ -1108,6 +1108,8 @@ header .container {
   }
 }
 
+
+
 /* Contact Section */
 h2.display-5 {
   font-size: 2.5rem;
@@ -1170,6 +1172,8 @@ button:hover {
   color: #1db954;
   transform: scale(1.1); /* Slightly enlarge icons on hover */
 }
+
+
 /* Friend Card Styling */
 .friend-card {
   cursor: pointer;
@@ -1323,7 +1327,6 @@ button:hover {
     padding: 4rem 1rem;
   }
 }
-=======
 
 body {
   margin: 0;
