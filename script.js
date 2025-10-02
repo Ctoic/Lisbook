@@ -885,6 +885,8 @@ const erase = () => {
 document.addEventListener("DOMContentLoaded", () => {
   autoType();
 });
+
+
 //contact page
 document
   .getElementById("contact-form")
