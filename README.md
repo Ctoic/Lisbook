@@ -283,6 +283,13 @@ MIT License
                     <sub><b>vatsaljain-hub</b></sub>
                 </a>
             </td>
+            <td align="center">
+                <a href="https://github.com/Wellitsabhi">
+                    <img src="https://avatars.githubusercontent.com/u/99867024?v=4" width="100;" alt="Wellitsabhi"/>
+                    <br />
+                    <sub><b>Abhishek Singh</b></sub>
+                </a>
+            </td>
 		</tr>
 	<tbody>
 </table>
