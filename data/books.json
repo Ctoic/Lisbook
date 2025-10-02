@@ -47,7 +47,7 @@
     "id": "3",
     "title": "The Great Gatsby",
     "author": "F. Scott Fitzgerald",
-    "cover": "Images/great_gatsby.jpg",
+    "cover": "Images/great_gatsby.jpeg",
     "genre": "Tragedy",
     "description": "A story of wealth, obsession, and the American dream, set in the Jazz Age, centering on the mysterious millionaire Jay Gatsby and his love for Daisy Buchanan.",
     "chapters": [
@@ -69,7 +69,7 @@
     "id": "4",
     "title": "Pride and Prejudice",
     "author": "Jane Austen",
-    "cover": "Images/Pride-and-Prejudice.jpg",
+    "cover": "Images/Pride-and-prejudice.jpg",
     "genre": "Romance",
     "description": "A classic romantic tale of the strong-willed Elizabeth Bennet and the wealthy but reserved Mr. Darcy, exploring themes of class, love, and misunderstandings.",
     "chapters": [
@@ -113,7 +113,7 @@
     "id": "6",
     "title": "Moby-Dick",
     "author": "Herman Melville",
-    "cover": "Images/Frankestine.jpg",
+    "cover": "Images/moby-dick.jpg",
     "genre": "Adventure",
     "description": "An epic tale of obsession and revenge, chronicling Captain Ahab’s relentless pursuit of the white whale Moby Dick, while exploring themes of fate, religion, and the human condition.",
     "chapters": [
@@ -135,7 +135,7 @@
     "id": "7",
     "title": "God Delusion",
     "author": "Richard Dawkins",
-    "cover": "Images/god_delusion.jpeg",
+    "cover": "Images/god_delusion.jpg",
     "description": "The God Delusion is a book by English biologist Richard Dawkins that argues against the existence of a supernatural creator.",
     "genre": "Adventure",
     "chapters": [
