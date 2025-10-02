@@ -15,18 +15,40 @@
 }
 
 /* Loader Styles */
-#loader {
+/* /* #loader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: white; /* Fond blanc pour masquer le contenu */
-  z-index: 9999; /* S'assurer que le loader est au-dessus de tout */
+  /* z-index: 9999; /* S'assurer que le loader est au-dessus de tout */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+/*} */  
+
+/* Fullscreen overlay */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black; /* or black, or gradient */
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999; /* stays above everything */
 }
+
+/* Prevent body from scrolling while loader is active */
+body.loading {
+  overflow: hidden;
+}
+
+
+
 
 /* Spinner size */
 /* .spinner-border {
@@ -37,18 +59,18 @@
 
 /* Spinner container */
 
-.spinner-container {
+/* .spinner-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.8); 
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-}
+} */
 /* Hide the default cursor */
 body{
   cursor: none;
@@ -1188,7 +1210,7 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Responsive styling for button and search bar */
+
 #add-friend {
   width: 100%;
   transition: width 0.3s ease;
@@ -1207,3 +1229,142 @@ button:hover {
   width: 100%;
   padding: 5px;
 }
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+}
+
+
+.pacman {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+
+/* Pac-Man body parts — fixed size */
+.pacman-top,
+.pacman-bottom {
+  position: absolute;
+  width: 50px;         /* fixed size */
+  height: 25px;        /* fixed size */
+  background: #e0cd5e; /* Pac-Man yellow */
+  border-radius: 50px 50px 0 0;
+  transform-origin: 50% 100%;
+  z-index: 1;
+}
+
+/* Glow effect */
+.pacman-top::after,
+.pacman-bottom::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: #EDD130;
+  opacity: 0.4;
+  z-index: -1;
+  animation: pacman-shine 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes pacman-shine {
+  0% {
+    box-shadow: 0 0 6px #EDD130, 0 0 12px #EDD130;
+    opacity: 0.6;
+  }
+  100% {
+    box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+    opacity: 1;
+  }
+}
+
+/* Mouth animation */
+.pacman-top {
+  animation: pacman-top 0.6s ease-in-out infinite;
+}
+
+.pacman-bottom {
+  top: 25px;
+  border-radius: 0 0 50px 50px;
+  transform-origin: 50% 0%;
+  animation: pacman-bottom 0.6s ease-in-out infinite;
+}
+
+@keyframes pacman-top {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-35deg); }
+}
+
+@keyframes pacman-bottom {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(35deg); }
+}
+
+/* Pac-Man container movement — responsive margins */
+.pacman-container {
+  position: absolute;
+  left: 10vw; /* relative starting position */
+  animation: move-horizontal 10s ease-in-out infinite;
+}
+
+
+@keyframes move-horizontal {
+  0% { left: 20vw; transform: scaleX(1); }
+  45% { left: 75vw; transform: scaleX(1); }
+  50% { left: 75vw; transform: scaleX(-1); }
+  95% { left: 20vw; transform: scaleX(-1); }
+  100% { left: 20vw; transform: scaleX(1); }
+}
+
+
+/* Dot style — fixed size but relative position */
+.dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.02s ease;
+}
+
+.dot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #22c55e;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  animation: shine 1s ease-in-out infinite alternate;
+}
+
+@keyframes shine {
+  0% {
+    box-shadow: 0 0 4px #22c55e, 0 0 8px #22c55e;
+  }
+  100% {
+    box-shadow: 0 0 8px #22c55e, 0 0 16px #22c55e;
+  }
+}
+
+/* Dot positions relative */
+.dot-1 { left: 35%; }
+.dot-2 { left: 40%; }
+.dot-3 { left: 45%; }
+.dot-4 { left: 50%; }
+.dot-5 { left: 55%; }
+.dot-6 { left: 60%; }
