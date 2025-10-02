@@ -70,218 +70,123 @@
  
     <!-- Navbar -->
     <!-- <div id="header-placeholder" class="sticky top-0 z-20"></div> -->
-    <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
-      <nav class="">
-        <div class="container mx-auto flex justify-between items-center">
-          <!-- Logo -->
-          <a class="logo-text h3 font-bold d-inline-flex" href="./index.html">
-            <img
-              src="./Images/lisbook-logo-1.png"
-              alt="Logo"
-              width="40"
-              height="auto"
-              class="align-text-center me-2"
-            />
-            Lisbook
-          </a>
-
-          <!-- Menu Links and Theme Toggle -->
-          <div
-            id="menu"
-            class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20"
-          >
-            <div
-              id="menu-close"
-              class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </div>
-            <a
-              href="./index.html"
-              class="text-gray-300 hover:text-green-500"
-              id="home"
-              data-translate="nav-home"
-              >Home</a
-            >
-            <a
-              href="./explore.html"
-              class="text-gray-300 hover:text-green-500"
-              id="explore"
-              data-translate="nav-explore"
-              >Explore</a
-            >
-            <a
-              href="./about.html"
-              class="text-gray-300 hover:text-green-500"
-              id="about"
-              data-translate="nav-about"
-              >About</a
-            >
-
-            <a href="./contact.html" class="text-gray-300 hover:text-green-500"
-              data-translate="nav-contact"
-              >Contact</a
-            >
-            <a href="./faq.html" class="text-gray-300 hover:text-green-500"
-              data-translate="nav-faqs"
-              >FAQs</a
-            >
-
-            <!-- Profile Icon and Theme Toggle -->
-            <button
-              id="theme-toggle"
-              class="text-gray-300 hover:text-green-500"
-            >
-              <!-- Sun Icon (for dark theme) -->
-              <svg
-                id="sun-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 hidden"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="5"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="12"
-                  y1="1"
-                  x2="12"
-                  y2="4"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="12"
-                  y1="20"
-                  x2="12"
-                  y2="23"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="4.22"
-                  y1="4.22"
-                  x2="6.34"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="17.66"
-                  y1="17.66"
-                  x2="19.78"
-                  y2="19.78"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="1"
-                  y1="12"
-                  x2="4"
-                  y2="12"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="20"
-                  y1="12"
-                  x2="23"
-                  y2="12"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="4.22"
-                  y1="19.78"
-                  x2="6.34"
-                  y2="17.66"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="17.66"
-                  y1="6.34"
-                  x2="19.78"
-                  y2="4.22"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-              </svg>
-
-              <!-- Moon Icon (for light theme) -->
-              <svg
-                id="moon-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                />
-              </svg>
-            </button>
-
-            <!-- Language-selector Toggle -->
-            <div class="language-selector">
-              <select id="language" onchange="changeLanguage()">
-                <option value="en">English</option>
-                <option value="fr">Français</option>
-                <option value="es">Español</option>
-                <option value="zh">简体中文</option>
-              </select>
-            </div>
-
-            <a
-              href="./profile.html"
-              class="text-gray-300 hover:text-green-500 me-4"
-            >
-              <i class="bi bi-person-circle h-6 w-6"></i>
+    <!-- Navbar - Redesigned for Better UX and Accessibility -->
+    <header class="navbar-header" role="banner">
+      <nav class="navbar-container" role="navigation" aria-label="Main navigation">
+        <div class="container">
+          <div class="navbar-content">
+            <!-- Logo with improved accessibility -->
+            <a class="navbar-brand" href="./index.html" aria-label="Lisbook Home">
+              <img src="./Images/lisbook-logo-1.png" alt="Lisbook logo" class="navbar-logo" width="40" height="40" />
+              <span class="navbar-brand-text">Lisbook</span>
             </a>
-          </div>
 
-          <!-- Mobile Menu Toggle Button -->
-          <div
-            id="menu-toggle"
-            title="Menu"
-            class="text-gray-300 lg:hidden cursor-pointer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
+            <!-- Desktop Navigation -->
+            <div class="navbar-nav-desktop" aria-label="Primary navigation">
+              <a href="./index.html" class="nav-link" id="home" data-translate="nav-home">
+                <i class="bi bi-house-door" aria-hidden="true"></i>
+                <span>Home</span>
+              </a>
+              <a href="./explore.html" class="nav-link" id="explore" data-translate="nav-explore">
+                <i class="bi bi-compass" aria-hidden="true"></i>
+                <span>Explore</span>
+              </a>
+              <a href="./about.html" class="nav-link" id="about" data-translate="nav-about">
+                <i class="bi bi-info-circle" aria-hidden="true"></i>
+                <span>About</span>
+              </a>
+              <a href="./contact.html" class="nav-link" data-translate="nav-contact">
+                <i class="bi bi-envelope" aria-hidden="true"></i>
+                <span>Contact</span>
+              </a>
+              <a href="./faq.html" class="nav-link" data-translate="nav-faqs" aria-current="page">
+                <i class="bi bi-question-circle" aria-hidden="true"></i>
+                <span>FAQs</span>
+              </a>
+            </div>
+
+            <!-- Utility Navigation -->
+            <div class="navbar-utilities">
+              <!-- Language Selector with improved accessibility -->
+              <div class="language-selector-wrapper">
+                <label for="language" class="visually-hidden">Select language</label>
+                <select id="language" class="language-selector" onchange="changeLanguage()" aria-label="Language selection">
+                  <option value="en">EN</option>
+                  <option value="fr">FR</option>
+                  <option value="es">ES</option>
+                  <option value="zh">中文</option>
+                </select>
+              </div>
+
+              <!-- Theme Toggle Button with improved accessibility -->
+              <button id="theme-toggle" class="icon-button" aria-label="Toggle dark/light theme" aria-pressed="true">
+                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="icon-svg hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
+                  <line x1="12" y1="1" x2="12" y2="4" stroke="currentColor" stroke-width="2" />
+                  <line x1="12" y1="20" x2="12" y2="23" stroke="currentColor" stroke-width="2" />
+                  <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="currentColor" stroke-width="2" />
+                  <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" />
+                  <line x1="1" y1="12" x2="4" y2="12" stroke="currentColor" stroke-width="2" />
+                  <line x1="20" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" />
+                  <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" stroke="currentColor" stroke-width="2" />
+                  <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" />
+                </svg>
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+              </button>
+
+              <!-- Profile Link with improved accessibility -->
+              <a href="./profile.html" class="icon-button" aria-label="User profile">
+                <i class="bi bi-person-circle" aria-hidden="true"></i>
+              </a>
+
+              <!-- Mobile Menu Toggle Button -->
+              <button id="menu-toggle" class="mobile-menu-button" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                <span class="hamburger-icon" aria-hidden="true">
+                  <span class="hamburger-line"></span>
+                  <span class="hamburger-line"></span>
+                  <span class="hamburger-line"></span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Menu with improved accessibility -->
+        <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation menu">
+          <div class="mobile-menu-overlay"></div>
+          <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+              <span class="mobile-menu-title">Menu</span>
+              <button id="menu-close" class="mobile-menu-close" aria-label="Close mobile menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <nav class="mobile-menu-nav" aria-label="Mobile navigation">
+              <a href="./index.html" class="mobile-nav-link" data-translate="nav-home">
+                <i class="bi bi-house-door" aria-hidden="true"></i>
+                <span>Home</span>
+              </a>
+              <a href="./explore.html" class="mobile-nav-link" data-translate="nav-explore">
+                <i class="bi bi-compass" aria-hidden="true"></i>
+                <span>Explore</span>
+              </a>
+              <a href="./about.html" class="mobile-nav-link" data-translate="nav-about">
+                <i class="bi bi-info-circle" aria-hidden="true"></i>
+                <span>About</span>
+              </a>
+              <a href="./contact.html" class="mobile-nav-link" data-translate="nav-contact">
+                <i class="bi bi-envelope" aria-hidden="true"></i>
+                <span>Contact</span>
+              </a>
+              <a href="./faq.html" class="mobile-nav-link" data-translate="nav-faqs">
+                <i class="bi bi-question-circle" aria-hidden="true"></i>
+                <span>FAQs</span>
+              </a>
+            </nav>
           </div>
         </div>
       </nav>

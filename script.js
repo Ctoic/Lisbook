@@ -568,18 +568,97 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  //Mobile menu toggle
-  if (menuToggle) {
-    menuToggle.addEventListener("click", () => {
-      menu.classList.remove("scale-0");
-      menu.classList.add("scale-100");
+  // Mobile menu toggle with improved accessibility
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuToggleBtn = document.getElementById("menu-toggle");
+  const menuCloseBtn = document.getElementById("menu-close");
+  const mobileMenuOverlay = document.querySelector(".mobile-menu-overlay");
+  const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+  // Function to open mobile menu
+  function openMobileMenu() {
+    mobileMenu.classList.add("active");
+    menuToggleBtn.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden"; // Prevent background scrolling
+    
+    // Focus on close button for accessibility
+    setTimeout(() => {
+      menuCloseBtn.focus();
+    }, 300);
+    
+    // Trap focus within mobile menu
+    trapFocus(mobileMenu);
+  }
+
+  // Function to close mobile menu
+  function closeMobileMenu() {
+    mobileMenu.classList.remove("active");
+    menuToggleBtn.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = ""; // Restore scrolling
+    
+    // Return focus to toggle button
+    menuToggleBtn.focus();
+  }
+
+  // Function to trap focus within mobile menu
+  function trapFocus(element) {
+    const focusableElements = element.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+
+    element.addEventListener("keydown", function (e) {
+      if (e.key === "Tab") {
+        if (e.shiftKey) {
+          // Shift + Tab
+          if (document.activeElement === firstFocusable) {
+            lastFocusable.focus();
+            e.preventDefault();
+          }
+        } else {
+          // Tab
+          if (document.activeElement === lastFocusable) {
+            firstFocusable.focus();
+            e.preventDefault();
+          }
+        }
+      }
+      
+      // Close menu on Escape key
+      if (e.key === "Escape") {
+        closeMobileMenu();
+      }
     });
   }
 
-  if (menuClose) {
-    menuClose.addEventListener("click", () => {
-      menu.classList.add("scale-0");
-      menu.classList.remove("scale-100");
+  // Event listeners for mobile menu
+  if (menuToggleBtn) {
+    menuToggleBtn.addEventListener("click", openMobileMenu);
+  }
+
+  if (menuCloseBtn) {
+    menuCloseBtn.addEventListener("click", closeMobileMenu);
+  }
+
+  if (mobileMenuOverlay) {
+    mobileMenuOverlay.addEventListener("click", closeMobileMenu);
+  }
+
+  // Close mobile menu when a nav link is clicked
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener("click", closeMobileMenu);
+  });
+
+  // Update theme toggle button aria-pressed state
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const isDark = body.classList.contains("dark-theme");
+      themeToggle.setAttribute("aria-pressed", isDark ? "false" : "true");
+      themeToggle.setAttribute(
+        "aria-label",
+        isDark ? "Switch to dark theme" : "Switch to light theme"
+      );
     });
   }
 
