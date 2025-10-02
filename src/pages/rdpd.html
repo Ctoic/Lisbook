@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="../styles/style.css" />
         <!-- Favicon -->
-        <link rel="icon" href="Images/favicon.jpg" type="image/png" />
+        <link rel="icon" href="../../assets/images/favicon.jpg" type="image/png" />
         <script src="https://cdn.tailwindcss.com"></script>
         <link
             rel="stylesheet"
@@ -14,7 +14,7 @@
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
             rel="stylesheet"
-            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
             crossorigin="anonymous"
         />
 
@@ -63,10 +63,10 @@
                     <!-- Logo -->
                     <a
                         class="logo-text h3 font-bold d-inline-flex"
-                        href="./index.html"
+                        href="../../index.html"
                     >
                         <img
-                            src="./Images/lisbook-logo-1.png"
+                            src="../../assets/images/lisbook-logo-1.png"
                             alt="Logo"
                             width="40"
                             height="auto"
@@ -100,7 +100,7 @@
                             </svg>
                         </div>
                         <a
-                            href="./index.html"
+                            href="../../index.html"
                             class="text-gray-300 hover:text-green-500"
                             id="home"
                             data-translate="nav-home"
@@ -152,7 +152,7 @@
                                 />
                             </svg>
                         </button>
-
+                        
                         <!-- Language-selector Toggle -->
                         <div class="language-selector">
                             <select
@@ -253,22 +253,22 @@
                         </div>
                     </div>
                     <!-- <div class="modal-footer">
-            <button
-              class="btn btn-primary"
-              data-bs-target="#exampleModalToggle2"
-              data-bs-toggle="modal"
-            >
-              Open second modal
-            </button>
-          </div> -->
+                <button
+                    class="btn btn-primary"
+                    data-bs-target="#exampleModalToggle2"
+                    data-bs-toggle="modal"
+                >
+                    Open second modal
+                </button>
+                </div> -->
                 </div>
             </div>
         </div>
         <!-- Social Share Modal end -->
 
         <main class="container my-5">
+            <!-- Book Card Display -->
             <section class="row d-flex align-items-stretch rounded-5 p-5">
-                <!-- Book Card Display -->
                 <div class="col-12 col-lg-4 mb-5 mb-lg-0">
                     <div
                         class="features-card border rounded-5 p-4 text-center h-100"
@@ -280,21 +280,19 @@
                         >
                             <img
                                 id="img"
-                                src="./Images/Sapiens.jpg"
-                                alt="Sapiens: A Brief History of Humankind Cover"
+                                src="../../assets/images/rdpd.jpeg"
+                                alt="Rich Dad Poor Dad Cover"
                                 class="card-img-top img-fluid"
                             />
                         </div>
                         <!-- Book Details -->
-                        <div class="mt-4" data-book="sapiens">
+                        <div class="mt-4" data-book="richDadPoorDad">
                             <h1 class="text-2xl font-bold text-green-500" data-translate="title">
-                                Sapiens: A Brief History of Humankind
+                                Rich Dad Poor Dad
                             </h1>
-                            <h3 class="text-lg mt-2" data-translate="author">By Yuval Noah Harari</h3>
+                            <h3 class="text-lg mt-2" data-translate="author">By Robert T. Kiyosaki</h3>
                             <p class="text-sm mt-2" data-translate="description">
-                                Sapiens explores the history and evolution of
-                                humanity, from early Homo sapiens to modern
-                                society.
+                                Rich Dad Poor Dad is a book that advocates for financial literacy and financial independence by investing in assets.
                             </p>
                         </div>
 
@@ -307,7 +305,7 @@
                             <i
                                 class="bi bi-heart mx-4 icon-action-btn tooltip-parent tooltip-bottom"
                                 id="favourite-btn"
-                                ><span class="tooltip" id="favourite"
+                                ><span class="tooltip"
                                     >Save to Favourites</span
                                 ></i
                             >
@@ -316,23 +314,19 @@
                                 id="share-btn"
                                 data-bs-target="#exampleModalToggle"
                                 data-bs-toggle="modal"
-                                ><span class="tooltip" id="share"
-                                    >Share</span>
-                                </i
+                                ><span class="tooltip">Share</span></i
                             >
 
                             <i
                                 class="bi bi-chat mx-4 icon-action-btn tooltip-parent tooltip-bottom"
                                 id="view-comments-btn"
-                                ><span class="tooltip" id="view"
-                                    >View comments</span
-                                ></i
+                                ><span class="tooltip">View comments</span></i
                             >
                         </div>
                     </div>
                 </div>
                 <!-- playlist -->
-                <div class="col-12 col-lg-8 ps-4" data-book="sapiens">
+                <div class="col-12 col-lg-8 ps-4" data-book="richDadPoorDad">
                     <div
                         class="eatures-card border rounded-5 p-4 text-center h-100"
                     >
@@ -342,11 +336,11 @@
                         >
                             <li
                                 class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                data-src="audio/part1.mp3"
+                                data-src="../../assets/audio/part1.mp3"
                             >
                                 <div class="d-flex justify-content-between">
-                                    <p data-translate="t0">Introduction: God Delusion</p>
-                                    <a href="audio/part1.mp3" download
+                                    <p data-translate="t0">Introduction</p>
+                                    <a href="../../assets/audio/part1.mp3" download
                                         ><i
                                             class="bi bi-cloud-arrow-down-fill"
                                         ></i
@@ -362,11 +356,11 @@
                             </li>
                             <li
                                 class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                data-src="audio/part2.mp3"
+                                data-src="../../assets/audio/part2.mp3"
                             >
                                 <div class="d-flex justify-content-between">
                                     <p data-translate="t1">Chapter 01</p>
-                                    <a href="audio/part2.mp3" download
+                                    <a href="../../assets/audio/part2.mp3" download
                                         ><i
                                             class="bi bi-cloud-arrow-down-fill"
                                         ></i
@@ -382,91 +376,11 @@
                             </li>
                             <li
                                 class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                data-src="audio/part3.mp3"
+                                data-src="../../assets/audio/part3.mp3"
                             >
                                 <div class="d-flex justify-content-between">
                                     <p data-translate="t2">Chapter 02</p>
-                                    <a href="audio/part3.mp3" download
-                                        ><i
-                                            class="bi bi-cloud-arrow-down-fill"
-                                        ></i
-                                    ></a>
-                                </div>
-                                <div
-                                    class="bg-gray-700 flex-1 rounded-full ring-1"
-                                >
-                                    <div
-                                        class="progress-bar bg-red bg-white rounded-full"
-                                    ></div>
-                                </div>
-                            </li>
-                            <li
-                                class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                data-src="audio/part4.mp3"
-                            >
-                                <div class="d-flex justify-content-between">
-                                    <p data-translate="t3">Chapter 03</p>
-                                    <a href="audio/part4.mp3" download
-                                        ><i
-                                            class="bi bi-cloud-arrow-down-fill"
-                                        ></i
-                                    ></a>
-                                </div>
-                                <div
-                                    class="bg-gray-700 flex-1 rounded-full ring-1"
-                                >
-                                    <div
-                                        class="progress-bar bg-red bg-white rounded-full"
-                                    ></div>
-                                </div>
-                            </li>
-                            <li
-                                class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                data-src="audio/part5.mp3"
-                            >
-                                <div class="d-flex justify-content-between">
-                                    <p data-translate="t4">Chapter 04</p>
-                                    <a href="audio/part5.mp3" download
-                                        ><i
-                                            class="bi bi-cloud-arrow-down-fill"
-                                        ></i
-                                    ></a>
-                                </div>
-                                <div
-                                    class="bg-gray-700 flex-1 rounded-full ring-1"
-                                >
-                                    <div
-                                        class="progress-bar bg-red bg-white rounded-full"
-                                    ></div>
-                                </div>
-                            </li>
-                            <li
-                                class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                data-src="audio/part6.mp3"
-                            >
-                                <div class="d-flex justify-content-between">
-                                    <p data-translate="t5">Chapter 05</p>
-                                    <a href="audio/part6.mp3" download
-                                        ><i
-                                            class="bi bi-cloud-arrow-down-fill"
-                                        ></i
-                                    ></a>
-                                </div>
-                                <div
-                                    class="bg-gray-700 flex-1 rounded-full ring-1"
-                                >
-                                    <div
-                                        class="progress-bar bg-red bg-white rounded-full"
-                                    ></div>
-                                </div>
-                            </li>
-                            <li
-                                class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                data-src="audio/part7.mp3"
-                            >
-                                <div class="d-flex justify-content-between">
-                                    <p data-translate="t6">Chapter 06</p>
-                                    <a href="audio/part7.mp3" download
+                                    <a href="../../assets/audio/part3.mp3" download
                                         ><i
                                             class="bi bi-cloud-arrow-down-fill"
                                         ></i
@@ -559,14 +473,14 @@
             >
                 <div class="col-md-6">
                     <a
-                        href="./fs.html"
+                        href="./gd.html"
                         class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5"
                         >Previous Book</a
                     >
                 </div>
                 <div class="col-md-6">
                     <a
-                        href="./adventures.html"
+                        href="./fs.html"
                         class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5"
                         >Next Book</a
                     >
@@ -622,11 +536,12 @@
         <div id="footer-placeholder" class="mt-auto"></div>
 
         <!-- JavaScript -->
-        <script src="./script.js"></script>
-        <script src="./translation.js"></script>
+
+        <script src="../scripts/script.js"></script>
+        <script src="../scripts/translation.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"
         ></script>
     </body>
