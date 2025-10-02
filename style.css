@@ -1223,29 +1223,20 @@ body {
   height: 50px;
 }
 
-/* .pacman-top,
-.pacman-bottom {
-  position: absolute;
-  width: 50px;
-  height: 25px;
-  background: #edd130 ;
-  border-radius: 50px 50px 0 0;
-  transform-origin: 50% 100%;
-} */
 
-
+/* Pac-Man body parts — fixed size */
 .pacman-top,
 .pacman-bottom {
   position: absolute;
-  width: 50px;
-  height: 25px;
+  width: 50px;         /* fixed size */
+  height: 25px;        /* fixed size */
   background: #e0cd5e; /* Pac-Man yellow */
   border-radius: 50px 50px 0 0;
   transform-origin: 50% 100%;
   z-index: 1;
 }
 
-/* Add glow using pseudo-element */
+/* Glow effect */
 .pacman-top::after,
 .pacman-bottom::after {
   content: "";
@@ -1263,15 +1254,16 @@ body {
 
 @keyframes pacman-shine {
   0% {
-    box-shadow: 0 0 6px #EDD130, 0 0 12px #EDD130, 0 0 18px #EDD130;
+    box-shadow: 0 0 6px #EDD130, 0 0 12px #EDD130;
     opacity: 0.6;
   }
   100% {
-    box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700;
+    box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
     opacity: 1;
   }
 }
 
+/* Mouth animation */
 .pacman-top {
   animation: pacman-top 0.6s ease-in-out infinite;
 }
@@ -1293,33 +1285,33 @@ body {
   50% { transform: rotate(35deg); }
 }
 
+/* Pac-Man container movement — responsive margins */
 .pacman-container {
   position: absolute;
-  left: 40px;
+  left: 10vw; /* relative starting position */
   animation: move-horizontal 10s ease-in-out infinite;
 }
 
 
 @keyframes move-horizontal {
-  0% { left: 300px; transform: scaleX(1); }             
-  45% { left: calc(100% - 400px); transform: scaleX(1); } /* stop before right edge */
-  50% { left: calc(100% - 400px); transform: scaleX(-1); }
-  95% { left: 300px; transform: scaleX(-1); }
-  100% { left: 300px; transform: scaleX(1); }
+  0% { left: 20vw; transform: scaleX(1); }
+  45% { left: 75vw; transform: scaleX(1); }
+  50% { left: 75vw; transform: scaleX(-1); }
+  95% { left: 20vw; transform: scaleX(-1); }
+  100% { left: 20vw; transform: scaleX(1); }
 }
 
 
-
+/* Dot style — fixed size but relative position */
 .dot {
   position: absolute;
   width: 10px;
   height: 10px;
-  background: #22c55e;  
+  background: #22c55e;
   border-radius: 50%;
   top: 50%;
   transform: translateY(-50%);
   transition: opacity 0.02s ease;
-  
 }
 
 .dot::after {
@@ -1345,11 +1337,10 @@ body {
   }
 }
 
+/* Dot positions relative */
 .dot-1 { left: 35%; }
 .dot-2 { left: 40%; }
 .dot-3 { left: 45%; }
 .dot-4 { left: 50%; }
 .dot-5 { left: 55%; }
 .dot-6 { left: 60%; }
-
-
