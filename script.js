@@ -1,3 +1,44 @@
+// Show contributors dynamicaly
+async function loadContributors() {
+  const container = document.getElementById("contributors");
+
+  try {
+    const res = await fetch("https://api.github.com/repos/Ctoic/Lisbook/contributors");
+    const contributors = await res.json();
+
+    contributors.forEach(c => {
+      const card = `
+        <div class="col">
+          <div class="features-card border border-light-subtle rounded-5 p-3 py-4">
+            <div class="card-body text-center">
+              <img
+                src="${c.avatar_url}"
+                class="card-img-top rounded-circle mx-auto"
+                style="width: 100px; height: 100px"
+                alt="${c.login}"
+              />
+              <div class="card-body mt-3">
+                <h5 class="card-title">${c.login}</h5>
+                <p class="card-text">
+                  <a
+                    href="${c.html_url}"
+                    target="_blank"
+                    class="btn btn-bd-primary btn-sm rounded-4 mt-2"
+                  >GitHub Profile</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>`;
+      container.insertAdjacentHTML("beforeend", card);
+    });
+  } catch (err) {
+    console.error("Failed to load contributors", err);
+  }
+}
+document.addEventListener("DOMContentLoaded", loadContributors);
+
+
   //  Scroll to Top 
 document.addEventListener("DOMContentLoaded", function () {
   console.log("✓ DOM fully loaded, creating scroll button...");
@@ -967,6 +1008,3 @@ document
       this.reset();
     }
   });
-
-
-
