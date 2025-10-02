@@ -863,20 +863,79 @@ body.dark-theme #menu {
 a.text-gray-300:hover {
   color: #1db954; /* Green highlight on hover */
 }
-/* Header & Menu */
-header {
-  background-color: #1a1a1a;
-}
+/* Header & Menu - Enhanced with modern effects */
+
 header .container {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center; /* Center items vertically */
-  height: 60px; /* Fixed height */
+  height: 70px; /* Slightly increased height for better spacing */
+  padding: 0 20px;
+  overflow: visible; /* Prevent logo from being cut off */
 }
+
 #menu {
   background-color: inherit;
   position: relative;
+}
+
+/* Logo enhancement - Fixed overflow issues */
+.logo-text {
+  transition: all 0.3s ease;
+  display: flex !important;
+  align-items: center;
+  text-decoration: none !important;
+  white-space: nowrap; /* Prevent text wrapping */
+  flex-shrink: 0; /* Prevent logo from shrinking */
+  min-width: fit-content; /* Ensure logo always has enough space */
+  overflow: visible; /* Ensure logo content is not clipped */
+  z-index: 10; /* Ensure logo is above other elements */
+}
+
+.logo-text:hover {
+  transform: scale(1.05);
+  color: #1db954 !important;
+}
+
+.logo-text img {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(29, 185, 84, 0.3));
+  flex-shrink: 0; /* Prevent image from shrinking */
+  max-height: 50px; /* Limit height to fit within header */
+  width: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure proper display */
+  object-fit: contain; /* Maintain aspect ratio */
+}
+
+.logo-text:hover img {
+  filter: drop-shadow(0 4px 8px rgba(29, 185, 84, 0.5));
+}
+
+/* Ensure header doesn't clip content */
+header {
+  background-color: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(29, 185, 84, 0.1);
+  transition: all 0.3s ease;
+  overflow: visible; /* Prevent clipping */
+}
+
+/* Header scroll effect */
+header.scrolled {
+  background-color: rgba(26, 26, 26, 0.98);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Fix for Bootstrap/Tailwind class conflicts */
+.logo-text.h3 {
+  margin-bottom: 0 !important; /* Override Bootstrap h3 margin */
+  line-height: 1.2 !important; /* Better line height for logo */
+}
+
+.logo-text.d-inline-flex {
+  display: flex !important; /* Override any conflicting display properties */
 }
 /* Adjusting the layout */
 .profile-and-friends {
@@ -1069,6 +1128,290 @@ header .container {
 }
 .nav-item:hover {
   background-color: inherit;
+}
+
+/* Enhanced navbar tab styling */
+nav a[href*=".html"] {
+  position: relative;
+  padding: 12px 20px !important;
+  margin: 0 4px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none !important;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+}
+
+/* Navbar tab hover effects */
+nav a[href*=".html"]:hover {
+  background-color: rgba(29, 185, 84, 0.1) !important;
+  color: #1db954 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(29, 185, 84, 0.2);
+}
+
+/* Active navbar tab styling with enhanced effects */
+.navbar-active {
+  color: #1db954 !important;
+  background-color: rgba(29, 185, 84, 0.15) !important;
+  font-weight: 600;
+  position: relative;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
+}
+
+/* Subtle glow effect for active tab */
+.navbar-active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(29, 185, 84, 0.1), rgba(30, 215, 96, 0.05));
+  border-radius: 12px;
+  z-index: -1;
+}
+
+/* Mobile navbar enhancements */
+@media (max-width: 1024px) {
+  nav a[href*=".html"] {
+    padding: 16px 24px !important;
+    margin: 8px 0;
+    font-size: 1.1rem;
+    border-radius: 16px;
+  }
+}
+
+/* Enhanced Theme Toggle and Action Buttons */
+#theme-toggle, 
+a[href*="profile.html"],
+#menu-toggle {
+  padding: 10px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(29, 185, 84, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+#theme-toggle:hover,
+a[href*="profile.html"]:hover,
+#menu-toggle:hover {
+  background-color: rgba(29, 185, 84, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(29, 185, 84, 0.2);
+  border-color: rgba(29, 185, 84, 0.4);
+}
+
+/* Icon glow effect */
+#theme-toggle svg,
+a[href*="profile.html"] i,
+#menu-toggle svg {
+  filter: drop-shadow(0 0 4px rgba(29, 185, 84, 0.3));
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover svg,
+a[href*="profile.html"]:hover i,
+#menu-toggle:hover svg {
+  filter: drop-shadow(0 0 8px rgba(29, 185, 84, 0.6));
+  transform: scale(1.1);
+}
+
+/* Enhanced Language selector styling */
+.language-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.language-selector select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(29, 185, 84, 0.3);
+  border-radius: 12px;
+  padding: 10px 35px 10px 15px;
+  color: #e5e7eb;
+  font-size: 0.9rem;
+  font-weight: 500;
+  min-width: 120px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Custom dropdown arrow */
+.language-selector::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #e5e7eb;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Globe icon before text */
+.language-selector::before {
+  content: '🌐';
+  position: absolute;
+  left: 45px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.language-selector select:hover {
+  background-color: rgba(29, 185, 84, 0.12);
+  border-color: rgba(29, 185, 84, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(29, 185, 84, 0.2);
+}
+
+.language-selector select:hover + ::after {
+  border-top-color: #1db954;
+}
+
+.language-selector:hover::after {
+  border-top-color: #1db954;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.language-selector:hover::before {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.language-selector select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.3);
+  border-color: rgba(29, 185, 84, 0.6);
+}
+
+/* Style the options */
+.language-selector select option {
+  background-color: #2d2d2d;
+  color: #e5e7eb;
+  padding: 8px 12px;
+  border: none;
+}
+
+.language-selector select option:hover,
+.language-selector select option:checked {
+  background-color: rgba(29, 185, 84, 0.2);
+  color: #1db954;
+}
+
+/* Light theme support for language selector */
+body.light-theme .language-selector select {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #374151;
+  border-color: rgba(29, 185, 84, 0.3);
+}
+
+body.light-theme .language-selector::after {
+  border-top-color: #374151;
+}
+
+body.light-theme .language-selector:hover::after {
+  border-top-color: #1db954;
+}
+
+body.light-theme .language-selector select option {
+  background-color: #ffffff;
+  color: #374151;
+}
+
+body.light-theme .language-selector select option:hover,
+body.light-theme .language-selector select option:checked {
+  background-color: rgba(29, 185, 84, 0.1);
+  color: #1db954;
+}
+
+/* Additional responsive enhancements */
+@media (max-width: 768px) {
+  header .container {
+    padding: 0 16px;
+    height: 65px;
+    min-height: 65px; /* Ensure minimum height */
+  }
+  
+  .logo-text {
+    font-size: 1.2rem;
+    flex-shrink: 0; /* Prevent logo from shrinking on mobile */
+  }
+  
+  .logo-text img {
+    width: 35px;
+    max-height: 40px; /* Adjust for mobile header height */
+    height: auto;
+  }
+  
+  /* Enhanced mobile menu */
+  #menu {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(17, 17, 17, 0.98));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(29, 185, 84, 0.2);
+  }
+  
+  /* Mobile language selector adjustments */
+  .language-selector select {
+    min-width: 80px;
+    padding: 8px 30px 8px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .language-selector::after {
+    right: 8px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid #e5e7eb;
+  }
+  
+  .language-selector::before {
+    left: 35px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Focus states for accessibility */
+nav a[href*=".html"]:focus,
+#theme-toggle:focus,
+a[href*="profile.html"]:focus,
+#menu-toggle:focus {
+  outline: 2px solid rgba(29, 185, 84, 0.6);
+  outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .flex-item {
