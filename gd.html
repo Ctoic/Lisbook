@@ -65,7 +65,7 @@
                         <!-- Logo -->
                         <a
                             class="logo-text h3 font-bold d-inline-flex"
-                            href="./index.html"
+                            href="./home.html"
                         >
                             <img
                                 src="./Images/lisbook-logo-1.png"
@@ -103,7 +103,7 @@
                                 </svg>
                             </div>
                             <a
-                                href="./index.html"
+                                href="./home.html"
                                 class="text-gray-300 hover:text-green-500"
                                 id="home"
                                 >Home</a
@@ -700,7 +700,7 @@
                 >
                     <div class="col-md-6">
                         <a
-                            href="./index.html"
+                            href="./home.html"
                             class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5"
                             >Previous Book</a
                         >
@@ -787,7 +787,7 @@
             crossorigin="anonymous"
         ></script>
         
-        <!-- Show embed section in index.html -->
+        <!-- Show embed section in home.html -->
         <style>
             body.embedded #book-details {
               display: block;
@@ -813,7 +813,7 @@
               document.body.classList.add('embedded');
             }
             
-            // Listener for postMessage from index.html
+            // Listener for postMessage from home.html
             window.addEventListener('message', (event) => {
                 if (event.data.type === 'changeLanguage') {
                     const language = event.data.language;

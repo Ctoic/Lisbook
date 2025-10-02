@@ -1062,6 +1062,286 @@ header .container {
   }
 }
 
+/* Landing Page Styles */
+.hero-section {
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(40, 40, 40, 0.8) 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(148, 215, 105, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(29, 185, 84, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #94d769 0%, #1db954 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced buttons for landing page with better visibility */
+.btn-primary-enhanced {
+  background: linear-gradient(135deg, #94d769 0%, #1db954 100%);
+  border: 2px solid #94d769;
+  color: #121212 !important;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(148, 215, 105, 0.4);
+  text-shadow: none;
+}
+
+.btn-primary-enhanced:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(148, 215, 105, 0.6);
+  color: #121212 !important;
+  background: linear-gradient(135deg, #a5e078 0%, #25c965 100%);
+  border-color: #a5e078;
+}
+
+.btn-outline-enhanced {
+  border: 3px solid var(--accent-color);
+  color: var(--accent-color) !important;
+  background: rgba(148, 215, 105, 0.1);
+  font-weight: 700;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.btn-outline-enhanced:hover {
+  background: var(--accent-color);
+  /* color: #121212 !important; */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(148, 215, 105, 0.4);
+  border-color: var(--accent-color);
+  text-shadow: none;
+}
+
+/* Legacy buttons for backward compatibility */
+.btn-primary-custom {
+  background: linear-gradient(135deg, #94d769 0%, #1db954 100%);
+  border: none;
+  color: #121212;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(148, 215, 105, 0.3);
+}
+
+.btn-primary-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(148, 215, 105, 0.4);
+  color: #121212;
+}
+
+.btn-outline-custom {
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  background: transparent;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+  background: var(--accent-color);
+  color: #121212;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(148, 215, 105, 0.3);
+}
+
+.hero-image {
+  position: relative;
+  z-index: 2;
+}
+
+.floating-card {
+  top: 20%;
+  left: -10%;
+  z-index: 3;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.hero-stats .stat-item {
+  text-align: center;
+}
+
+.features-section {
+  background: rgba(24, 24, 24, 0.5);
+}
+
+.feature-card {
+  background: rgba(40, 40, 40, 0.3);
+  border: 1px solid rgba(148, 215, 105, 0.2) !important;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 10px 30px rgba(148, 215, 105, 0.2);
+}
+
+.featured-books-section {
+  background: rgba(18, 18, 18, 0.8);
+}
+
+/* Light theme adjustments */
+.light-theme .hero-section {
+  background: linear-gradient(135deg, rgba(240, 240, 240, 0.9) 0%, rgba(220, 220, 220, 0.8) 100%);
+}
+
+.light-theme .hero-section::before {
+  background: radial-gradient(circle at 30% 20%, rgba(148, 215, 105, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(29, 185, 84, 0.15) 0%, transparent 50%);
+}
+
+.light-theme .features-section {
+  background: rgba(250, 250, 250, 0.8);
+}
+
+.light-theme .feature-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(148, 215, 105, 0.3) !important;
+}
+
+.light-theme .featured-books-section {
+  background: rgba(245, 245, 245, 0.9);
+}
+
+/* CTA Section */
+.cta-section {
+  background: rgba(18, 18, 18, 0.9);
+}
+
+.cta-card {
+  background: linear-gradient(135deg, rgba(148, 215, 105, 0.1) 0%, rgba(29, 185, 84, 0.1) 100%);
+  border: 1px solid rgba(148, 215, 105, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.cta-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(148, 215, 105, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.z-index-2 {
+  z-index: 2;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  background: rgba(24, 24, 24, 0.6);
+}
+
+.testimonial-card {
+  background: rgba(40, 40, 40, 0.4);
+  border: 1px solid rgba(148, 215, 105, 0.2);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 30px rgba(148, 215, 105, 0.2);
+}
+
+.testimonial-stars i {
+  font-size: 1rem;
+  margin: 0 2px;
+}
+
+/* Light theme adjustments for new sections */
+.light-theme .cta-section {
+  background: rgba(245, 245, 245, 0.9);
+}
+
+.light-theme .cta-card {
+  background: linear-gradient(135deg, rgba(148, 215, 105, 0.15) 0%, rgba(29, 185, 84, 0.15) 100%);
+  border: 1px solid rgba(148, 215, 105, 0.4);
+}
+
+.light-theme .testimonials-section {
+  background: rgba(250, 250, 250, 0.8);
+}
+
+.light-theme .testimonial-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(148, 215, 105, 0.3);
+}
+
+/* Light theme button adjustments */
+.light-theme .btn-outline-enhanced {
+  background: rgba(148, 215, 105, 0.2);
+  color: #2d5a2d !important;
+  border-color: #2d5a2d;
+  text-shadow: none;
+}
+
+.light-theme .btn-outline-enhanced i{
+  /* background: rgba(148, 215, 105, 0.2); */
+  color: #2d5a2d !important;
+  border-color: #2d5a2d;
+  text-shadow: none;
+}
+
+.light-theme .btn-outline-enhanced:hover {
+  background: #94d769;
+  color: #121212 !important;
+  border-color: #94d769;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    padding: 2rem 0;
+  }
+  
+  .floating-card {
+    position: static;
+    margin-bottom: 2rem;
+    animation: none;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+  }
+  
+  .hero-stats {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .cta-card {
+    margin: 1rem;
+    padding: 2rem 1rem !important;
+  }
+  
+  .testimonial-card {
+    margin-bottom: 1rem;
+  }
+}
+
 /* Contact Section */
 h2.display-5 {
   font-size: 2.5rem;

@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const nextBtn = document.getElementById("next-btn");
 
   // Define the pages for navigation
-  const pages = ["index.html", "genres.html", "about.html"];
+  const pages = ["home.html", "genres.html", "about.html"];
   let currentPageIndex = pages.indexOf(window.location.pathname);
 
   // Function to navigate to the next page

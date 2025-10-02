@@ -4,6 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lisbook - The ultimate audiobook player for book lovers. Enjoy seamless playback, chapter navigation, speed control, and more. Listen to your favorite books anywhere, anytime." />
+  <meta name="keywords" content="audiobook player, listen to books, audiobooks, book player, reading app, audio books" />
+  <meta name="author" content="Lisbook Team" />
+  <meta property="og:title" content="Lisbook - Your Ultimate Audiobook Player" />
+  <meta property="og:description" content="Discover the joy of audiobooks with Lisbook. Simple, elegant audiobook player with advanced features." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./Images/lisbook-about.jpg" />
   <link rel="stylesheet" href="style.css" />
   <!-- Favicon -->
   <link rel="icon" href="Images/favicon.jpg" type="image/png" />
@@ -12,7 +19,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/1dae96c2c2031.js" data-cmp-host="a.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="16"></script>
-  <title>My Favorite Books Music App</title>
+  <title>Welcome to Lisbook - Your Ultimate Audiobook Experience</title>
 </head>
 
 <body class="dark-theme bg-gray-900 text-gray-300 d-flex flex-column min-vh-100">
@@ -46,12 +53,11 @@
   </div>
 
   <!-- Navbar -->
-  <!-- <div id="header-placeholder" class="sticky top-0 z-20"></div> -->
   <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
     <nav class="">
       <div class="container mx-auto flex justify-between items-center">
         <!-- Logo -->
-        <a class="logo-text h3 font-bold d-inline-flex" href="./index.html">
+        <a class="logo-text h3 font-bold d-inline-flex" href="./home.html">
           <img src="./Images/lisbook-logo-1.png" alt="Logo" width="40" height="auto" class="align-text-center me-2" />
           Lisbook
         </a>
@@ -65,11 +71,9 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </div>
-          <a href="./index.html" class="text-gray-300 hover:text-green-500" id="home">Home</a>
-
-          <a href="./explore.html" class="text-gray-300 hover:text-green-500" id="home">Explore</a>
+          <a href="./home.html" class="text-gray-300 hover:text-green-500" id="home">Home</a>
+          <a href="./explore.html" class="text-gray-300 hover:text-green-500" id="explore">Explore</a>
           <a href="./about.html" class="text-gray-300 hover:text-green-500" id="about">About</a>
-
           <a href="./contact.html" class="text-gray-300 hover:text-green-500">Contact</a>
           <a href="./faq.html" class="text-gray-300 hover:text-green-500">FAQs</a>
 
@@ -103,34 +107,14 @@
         </div>
 
         <!-- Language-selector Toggle -->
-        <div class="language-selector">
-          <select
-              id="language"
-              onchange="changeLanguage()"
-              style="background-color: #1db954; color: #fff"
-          >
-              <option value="en">English</option>
-              <option value="fr">Français</option>
-              <option value="es">Español</option>
-              <option value="zh">简体中文</option>
-              <!-- Ajoutez d'autres langues ici -->
+        <!-- <div class="language-selector">
+          <select id="language" onchange="changeLanguage()" style="background-color: #1db954; color: #fff">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="zh">简体中文</option>
           </select>
-        </div>
-
-        <!-- Ensure language sync in iframe-->
-        <script>
-          function changeLanguage() {
-            const language = document.getElementById('language').value;
-            const iframe = document.getElementById('gd-iframe');
-            if (iframe && iframe.contentWindow) {
-              //set up postMessage to send the selected language to iframe
-              iframe.contentWindow.postMessage({ type: 'changeLanguage', language: language }, '*');
-            }
-          }
-
-          // Add event listener for dropdown change to trigger the function
-          document.getElementById('language').addEventListener('change', changeLanguage);
-        </script>
+        </div> -->
 
         <!-- Mobile Menu Toggle Button -->
         <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
@@ -142,154 +126,301 @@
     </nav>
   </header>
 
-  <!-- Social Share Modal -->
-  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
-    tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
-            Share it on :
-          </h1>
-          <button type="button" class="btn-close rounded-5" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <!-- Modale body -->
-        <div class="modal-body">
-          <div class="flex justify-center space-x-4 mt-4">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:5500/Lisbook/pbd.html&text=Lisbook+god Delusion"
-              target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-                alt="Share on Facebook" style="width: 24px; height: 24px" />
-            </a>
-            <a href="https://twitter.com/intent/tweet?url=http://127.0.0.1:5500/Lisbook/pbd.html&text=Lisbook+god Delusion"
-              target="_blank">
-              <img src="https://abs.twimg.com/favicons/twitter.2.ico" alt="Share on X" />
-            </a>
-            <a href="https://api.whatsapp.com/send?text=http://127.0.0.1:5500/Lisbook/pbd.html" target="_blank">
-              <img
-                src="https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_whatsapp-512.png"
-                alt="Share on WhatsApp" style="width: 24px; height: 24px" />
-            </a>
-          </div>
-        </div>
-        <!-- <div class="modal-footer">
-            <button
-              class="btn btn-primary"
-              data-bs-target="#exampleModalToggle2"
-              data-bs-toggle="modal"
-            >
-              Open second modal
-            </button>
-          </div> -->
-      </div>
-    </div>
-  </div>
-  <!-- Social Share Modal end -->
-
-  <main class="container my-5">
-    <!-- Top audio book -->
-    <section class="rounded-5 p-5 my-5">
-      <h2 class="display-5 page-title fw-semibold" id="top-audio-books">
-        Top Audio Books
-      </h2>
-
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4 align-items-stretch">
-        <!-- book card -->
-        <div class="col" data-book="paleBlueDot">
-          <div class="features-card border rounded-5 p-4 text-center">
-            <div class="card-cover-container rounded-4 d-flex align-items-center border">
-              <img src="./Images/cs.jpg" class="card-img-top img-fluid" alt="Audio book cover" />
-            </div>
-            <div class="card-body mt-4">
-              <h4 class="card-title h6 page-title" data-translate="title">Pale Blue Dot</h4>
-              <p class="card-text" data-translate="author">By Carl Sagan</p>
-              <a href="pbd.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
+  <main class="container-fluid px-0">
+    <!-- Hero Section -->
+    <section class="hero-section position-relative overflow-hidden" aria-label="Hero section">
+      <div class="container">
+        <div class="row min-vh-100 d-flex align-items-center py-5">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="hero-content">
+              <h1 class="display-3 fw-bold mb-4" role="banner">
+                <span class="page-title">Listen to Your</span><br>
+                <span class="text-gradient">Favorite Books</span><br>
+                <span class="page-title">Anywhere</span>
+              </h1>
+              <p class="lead mb-4 text-gray-300" role="text">
+                Discover the joy of audiobooks with Lisbook - a simple, elegant audiobook player designed for book lovers. 
+                Enjoy seamless playback, chapter navigation, and customizable listening experience.
+              </p>
+              <div class="hero-buttons d-flex flex-column flex-sm-row gap-3 mb-4" role="group" aria-label="Main action buttons">
+                <a href="./home.html" class="btn btn-lg btn-primary-enhanced px-5 py-3 rounded-5 fw-semibold" aria-label="Enter Lisbook application">
+                  <i class="bi bi-play-circle me-2" style="color: black;" aria-hidden="true"></i>Enter Lisbook
+                </a>
+                <a href="./about.html" class="btn btn-lg btn-outline-enhanced px-5 py-3 rounded-5 fw-semibold" aria-label="Learn more about Lisbook">
+                  <i class="bi bi-info-circle me-2" aria-hidden="true"></i>Learn More
+                </a>
+              </div>
+              <div class="hero-stats d-flex flex-wrap gap-4 mt-5" role="region" aria-label="Platform statistics">
+                <div class="stat-item">
+                  <h3 class="h4 page-title mb-1" aria-label="50 plus audiobooks available">50+</h3>
+                  <p class="small text-gray-300 mb-0">Audio Books</p>
+                </div>
+                <div class="stat-item">
+                  <h3 class="h4 page-title mb-1" aria-label="Over 1000 happy listeners">1000+</h3>
+                  <p class="small text-gray-300 mb-0">Happy Listeners</p>
+                </div>
+                <div class="stat-item">
+                  <h3 class="h4 page-title mb-1" aria-label="Available 24 hours a day, 7 days a week">24/7</h3>
+                  <p class="small text-gray-300 mb-0">Available</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- book card -->
-        <div class="col" data-book="frankenstein">
-          <div class="features-card border rounded-5 p-4 text-center">
-            <div class="card-cover-container rounded-4 d-flex align-items-center border">
-              <img src="./Images/Frankestine.jpg" class="card-img-top img-fluid" alt="Audio book cover" />
-            </div>
-            <div class="card-body mt-4">
-              <h4 class="card-title h6 page-title" data-translate="title">Frankestine</h4>
-              <p class="card-text" data-translate="author">By Mary Shelby</p>
-              <a href="fs.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
-            </div>
-          </div>
-        </div>
-        <!-- book card -->
-        <div class="col" data-book="sherlock">
-          <div class="features-card border rounded-5 p-4 text-center">
-            <div class="card-cover-container rounded-4 d-flex align-items-center border">
-              <img src="./Images/Adventures_Sherlock_Holmes.jpg" class="card-img-top img-fluid"
-                alt="Audio book cover" />
-            </div>
-            <div class="card-body mt-4">
-              <h4 class="card-title h6 page-title" data-translate="title">Adventures of Sherlock Holmes</h4>
-              <p class="card-text" data-translate="author">By Sir Arthur Conan Doyle</p>
-              <a href="adventures.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
-            </div>
-          </div>
-        </div>
-        <!-- book card -->
-        <div class="col" data-book="sapiens">
-          <div class="features-card border rounded-5 p-4 text-center">
-            <div class="card-cover-container rounded-4 d-flex align-items-center border">
-              <img src="./Images/Sapiens.jpg" class="card-img-top img-fluid" alt="Audio book cover" />
-            </div>
-            <div class="card-body mt-4">
-              <h4 class="card-title h6 page-title" data-translate="title">Sapiens: A Brief History of Humankind</h4>
-              <p class="card-text" data-translate="author">By Yuval Noah Harari</p>
-              <a href="rdpd.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
+          <div class="col-lg-6">
+            <div class="hero-image position-relative">
+              <div class="floating-card position-absolute">
+                <div class="card bg-dark border-0 shadow-lg rounded-4 p-3">
+                  <div class="d-flex align-items-center">
+                    <img src="./Images/cs.jpg" alt="Now Playing" class="rounded-3 me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                    <div>
+                      <h6 class="mb-1 page-title">Pale Blue Dot</h6>
+                      <p class="small text-gray-300 mb-0">Carl Sagan</p>
+                    </div>
+                    <button class="btn btn-sm btn-success ms-auto rounded-circle">
+                      <i class="bi bi-play-fill"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <img src="./Images/lisbook-about.jpg" alt="Lisbook App" class="img-fluid rounded-4 shadow-lg">
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Embed gd.html -->
-    <section class="row rounded-5 p-5 mt-5">
-      <iframe id="gd-iframe" src="gd.html" width="150%" height="850px" frameborder="0"></iframe>
+    <!-- Features Section -->
+    <section class="features-section py-5">
+      <div class="container">
+        <div class="row text-center mb-5">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="display-5 fw-bold page-title mb-4">Why Choose Lisbook?</h2>
+            <p class="lead text-gray-300">Experience audiobooks like never before with our intuitive features designed for the modern listener.</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-card h-100 text-center p-4 rounded-4 border">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-play-circle display-4 page-title"></i>
+              </div>
+              <h4 class="h5 fw-semibold mb-3">Easy Playback</h4>
+              <p class="text-gray-300">Simple and intuitive controls for play, pause, and navigation through your audiobooks.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-card h-100 text-center p-4 rounded-4 border">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-speedometer2 display-4 page-title"></i>
+              </div>
+              <h4 class="h5 fw-semibold mb-3">Speed Control</h4>
+              <p class="text-gray-300">Adjust playback speed to match your listening preference and comprehension level.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-card h-100 text-center p-4 rounded-4 border">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-bookmark display-4 page-title"></i>
+              </div>
+              <h4 class="h5 fw-semibold mb-3">Chapter Navigation</h4>
+              <p class="text-gray-300">Jump between chapters effortlessly and never lose your place in the story.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-card h-100 text-center p-4 rounded-4 border">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-palette display-4 page-title"></i>
+              </div>
+              <h4 class="h5 fw-semibold mb-3">Theme Options</h4>
+              <p class="text-gray-300">Switch between light and dark themes for comfortable listening in any environment.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-card h-100 text-center p-4 rounded-4 border">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-phone display-4 page-title"></i>
+              </div>
+              <h4 class="h5 fw-semibold mb-3">Responsive Design</h4>
+              <p class="text-gray-300">Enjoy your audiobooks on any device - desktop, tablet, or mobile phone.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="feature-card h-100 text-center p-4 rounded-4 border">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-heart display-4 page-title"></i>
+              </div>
+              <h4 class="h5 fw-semibold mb-3">Favorites</h4>
+              <p class="text-gray-300">Save your favorite books and create personalized playlists for easy access.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Book buttons navigations -->
-    <section class="d-flex justify-content-evenly align-items-stretch rounded-5 p-4 my-5 gx-5 text-center">
-      <div class="flex-item w-auto" style="min-width: 150px;">
-        <a href="./index.html" class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5">Previous
-          Book</a>
-      </div>
-      <div class="flex-item w-auto" style="min-width: 150px;">
-        <a href="./pbd.html" class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5">Next Book</a>
+    <!-- Featured Books Preview -->
+    <section class="featured-books-section py-5">
+      <div class="container">
+        <div class="row text-center mb-5">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="display-5 fw-bold page-title mb-4">Featured Audiobooks</h2>
+            <p class="lead text-gray-300">Discover our curated selection of popular audiobooks across various genres.</p>
+          </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+          <!-- book card -->
+          <div class="col" data-book="paleBlueDot">
+            <div class="features-card border rounded-5 p-4 text-center h-100">
+              <div class="card-cover-container rounded-4 d-flex align-items-center border mb-3">
+                <img src="./Images/cs.jpg" class="card-img-top img-fluid" alt="Audio book cover" />
+              </div>
+              <div class="card-body">
+                <h4 class="card-title h6 page-title mb-2" data-translate="title">Pale Blue Dot</h4>
+                <p class="card-text text-gray-300 mb-3" data-translate="author">By Carl Sagan</p>
+                <a href="./home.html" class="btn btn-bd-primary btn-sm px-4 rounded-5">
+                  Discover
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- book card -->
+          <div class="col" data-book="frankenstein">
+            <div class="features-card border rounded-5 p-4 text-center h-100">
+              <div class="card-cover-container rounded-4 d-flex align-items-center border mb-3">
+                <img src="./Images/Frankestine.jpg" class="card-img-top img-fluid" alt="Audio book cover" />
+              </div>
+              <div class="card-body">
+                <h4 class="card-title h6 page-title mb-2" data-translate="title">Frankenstein</h4>
+                <p class="card-text text-gray-300 mb-3" data-translate="author">By Mary Shelley</p>
+                <a href="./home.html" class="btn btn-bd-primary btn-sm px-4 rounded-5">
+                  Discover
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- book card -->
+          <div class="col" data-book="sherlock">
+            <div class="features-card border rounded-5 p-4 text-center h-100">
+              <div class="card-cover-container rounded-4 d-flex align-items-center border mb-3">
+                <img src="./Images/Adventures_Sherlock_Holmes.jpg" class="card-img-top img-fluid"
+                  alt="Audio book cover" />
+              </div>
+              <div class="card-body">
+                <h4 class="card-title h6 page-title mb-2" data-translate="title">Adventures of Sherlock Holmes</h4>
+                <p class="card-text text-gray-300 mb-3" data-translate="author">By Sir Arthur Conan Doyle</p>
+                <a href="./home.html" class="btn btn-bd-primary btn-sm px-4 rounded-5">
+                  Discover
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- book card -->
+          <div class="col" data-book="sapiens">
+            <div class="features-card border rounded-5 p-4 text-center h-100">
+              <div class="card-cover-container rounded-4 d-flex align-items-center border mb-3">
+                <img src="./Images/Sapiens.jpg" class="card-img-top img-fluid" alt="Audio book cover" />
+              </div>
+              <div class="card-body">
+                <h4 class="card-title h6 page-title mb-2" data-translate="title">Sapiens: A Brief History of Humankind</h4>
+                <p class="card-text text-gray-300 mb-3" data-translate="author">By Yuval Noah Harari</p>
+                <a href="./home.html" class="btn btn-bd-primary btn-sm px-4 rounded-5">
+                  Discover
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-5">
+          <a href="./home.html" class="btn btn-lg btn-outline-enhanced px-5 py-3 rounded-5 fw-semibold">
+            <i class="bi bi-house me-2"></i>Enter Lisbook
+          </a>
+        </div>
       </div>
     </section>
 
-    <section class="row rounded-5 p-5 mt-5">
-      <!-- Comments Section -->
-      <div class="container mx-auto p-6 rounded-lg">
-        <h2 class="display-5 page-title fw-semibold mb-6 text-center" id="share">
-          Share Your Comments
-        </h2>
-        <form id="comment-form" class="space-y-4 mt-5">
-          <div>
-            <label for="username" class="form-label" id="yourname">Your Name:</label>
-            <input type="text" id="username" class="form-control mt-2 rounded-5 bg-body-tertiary border" required />
+    <!-- Call to Action Section -->
+    <section class="cta-section py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="cta-card text-center p-5 rounded-5 position-relative overflow-hidden">
+              <div class="cta-background"></div>
+              <div class="position-relative z-index-2">
+                <h2 class="display-5 fw-bold page-title mb-4">Ready to Start Your Audio Journey?</h2>
+                <p class="lead text-gray-300 mb-5">Join thousands of book lovers who have discovered the joy of audiobooks with Lisbook. Start listening today!</p>
+                <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                  <a href="./home.html" class="btn btn-lg btn-primary-enhanced px-5 py-3 rounded-5 fw-semibold">
+                    <i class="bi bi-headphones me-2" style="color: black;"></i>Start Listening
+                  </a>
+                  <a href="./about.html" class="btn btn-lg btn-outline-enhanced px-5 py-3 rounded-5 fw-semibold">
+                    <i class="bi bi-question-circle me-2"></i>Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <label for="comment" class="form-label" id="yourcomment">Your Comment:</label>
-            <textarea id="comment" class="form-control mt-2 rounded-5 bg-body-tertiary border" rows="6"
-              required></textarea>
-          </div>
-          <div class="text-center">
-            <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600" id="share2">
-              Share comment
-            </button>
-          </div>
-        </form>
+        </div>
+      </div>
+    </section>
 
-        <div id="comments-list" class="mt-10 space-y-4"></div>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section py-5">
+      <div class="container">
+        <div class="row text-center mb-5">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="display-5 fw-bold page-title mb-4">What Our Listeners Say</h2>
+            <p class="lead text-gray-300">Discover why book lovers choose Lisbook for their audiobook experience.</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="testimonial-card h-100 p-4 rounded-4 text-center">
+              <div class="testimonial-stars mb-3">
+                <i class="bi bi-star-fill page-title"></i>
+                <i class="bi bi-star-fill page-title"></i>
+                <i class="bi bi-star-fill page-title"></i>
+                <i class="bi bi-star-fill page-title"></i>
+                <i class="bi bi-star-fill page-title"></i>
+              </div>
+              <p class="text-gray-300 mb-4">"Lisbook has completely changed how I consume books. The interface is clean and the audio quality is excellent!"</p>
+              <div class="testimonial-author">
+                <h6 class="page-title mb-1">Sarah Johnson</h6>
+                <small class="text-gray-300">Book Enthusiast</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="testimonial-card h-100 p-4 rounded-4 text-center">
+              <div class="testimonial-stars mb-3">
+                <i class="bi bi-star-fill page-title"></i>
+                <i class="bi bi-star-fill page-title"></i>
+                <i class="bi bi-star-fill page-title"></i>
+                <i class="bi bi-star-fill page-title"></i>
+                <i class="bi bi-star-fill page-title"></i>
+              </div>
+              <p class="text-gray-300 mb-4">"Perfect for my daily commute. The chapter navigation and speed controls are exactly what I needed."</p>
+              <div class="testimonial-author">
+                <h6 class="page-title mb-1">Mike Chen</h6>
+                <small class="text-gray-300">Daily Commuter</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="testimonial-card h-100 p-4 rounded-4 text-center">
+              <div class="testimonial-stars mb-3">
+                <i class="bi bi-star-fill page-title"></i>
+                <i class="bi bi-star-fill page-title"></i>
+                <i class="bi bi-star-fill page-title"></i>
+                <i class="bi bi-star-fill page-title"></i>
+                <i class="bi bi-star-fill page-title"></i>
+              </div>
+              <p class="text-gray-300 mb-4">"Simple, elegant, and effective. Lisbook makes listening to audiobooks a pleasure."</p>
+              <div class="testimonial-author">
+                <h6 class="page-title mb-1">Emma Davis</h6>
+                <small class="text-gray-300">Literature Teacher</small>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -298,7 +429,12 @@
   <div id="footer-placeholder" class="mt-auto"></div>
 
   <!-- JavaScript -->
-
+  <script>
+    function changeLanguage() {
+      const language = document.getElementById('language').value;
+      // Language change functionality can be added here
+    }
+  </script>
   <script src="./script.js"></script>
   <script src="./translation.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
