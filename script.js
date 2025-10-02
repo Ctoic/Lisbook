@@ -1,3 +1,48 @@
+  //  Scroll to Top 
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("✓ DOM fully loaded, creating scroll button...");
+
+  if (document.getElementById("scrollToTopBtn")) return;
+
+  const scrollBtn = document.createElement("button");
+  scrollBtn.id = "scrollToTopBtn";
+  scrollBtn.className = "scroll-to-top-btn";
+  scrollBtn.setAttribute("aria-label", "Scroll to top");
+  scrollBtn.setAttribute("title", "Scroll to top");
+  scrollBtn.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" class="scroll-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  `;
+
+  document.body.appendChild(scrollBtn);
+
+  // toggle visibility on scroll
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      scrollBtn.classList.add("show");
+    } else {
+      scrollBtn.classList.remove("show");
+    }
+  });
+
+  // smooth scroll to top
+  scrollBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // accessibility
+  scrollBtn.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  });
+
+  console.log("✓ Scroll button attached");
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   const playlistItems = document.querySelectorAll("#playlist li");
   const progressBars = document.querySelectorAll(".progress-bar");
@@ -922,3 +967,6 @@ document
       this.reset();
     }
   });
+
+
+
