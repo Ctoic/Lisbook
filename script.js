@@ -43,6 +43,92 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("✓ Scroll button attached");
 });
 
+// Navbar Active Tab Highlighting
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("✓ Setting up navbar active tab highlighting...");
+  
+  function setActiveNavTab() {
+    // Get current page filename from URL
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Remove active class from all navbar links
+    const navLinks = document.querySelectorAll('nav a[href*=".html"]');
+    navLinks.forEach(link => link.classList.remove('navbar-active'));
+    
+    // Define page mappings - try ID first, then href attribute
+    const pageMapping = {
+      'index.html': ['#home', 'a[href*="index.html"]'],
+      '': ['#home', 'a[href*="index.html"]'], // For root path
+      'explore.html': ['#explore', 'a[href*="explore.html"]'], 
+      'about.html': ['#about', 'a[href*="about.html"]'],
+      'contact.html': ['a[href*="contact.html"]'],
+      'faq.html': ['a[href*="faq.html"]'],
+      'profile.html': ['a[href*="profile.html"]'],
+      // Book pages - highlight "Explore" tab as these are accessed from explore page
+      'adventures.html': ['#explore', 'a[href*="explore.html"]'],
+      'gd.html': ['#explore', 'a[href*="explore.html"]'],
+      'fs.html': ['#explore', 'a[href*="explore.html"]'],
+      'pbd.html': ['#explore', 'a[href*="explore.html"]'],
+      'rdpd.html': ['#explore', 'a[href*="explore.html"]'],
+      'test.html': ['#explore', 'a[href*="explore.html"]'] // If this is also a book page
+    };
+    
+    // Find and highlight the active tab
+    const selectors = pageMapping[currentPage];
+    if (selectors) {
+      for (const selector of selectors) {
+        const activeTab = document.querySelector(selector);
+        if (activeTab) {
+          activeTab.classList.add('navbar-active');
+          console.log(`✓ Active tab set for: ${currentPage}`);
+          break; // Stop after finding the first match
+        }
+      }
+    }
+  }
+  
+  // Set active tab on page load
+  setActiveNavTab();
+  
+  // Optional: Update active tab when navigating via JavaScript (for SPAs)
+  window.addEventListener('popstate', setActiveNavTab);
+});
+
+// Enhanced Header Scroll Effect
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("✓ Setting up enhanced header scroll effects...");
+  
+  const header = document.querySelector('header');
+  let lastScrollY = window.scrollY;
+  
+  function updateHeaderOnScroll() {
+    const scrollY = window.scrollY;
+    
+    // Add/remove scrolled class for backdrop effect
+    if (scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    
+    lastScrollY = scrollY;
+  }
+  
+  // Throttle scroll events for better performance
+  let ticking = false;
+  function handleScroll() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateHeaderOnScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  
+  window.addEventListener('scroll', handleScroll, { passive: true });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   const playlistItems = document.querySelectorAll("#playlist li");
   const progressBars = document.querySelectorAll(".progress-bar");
