@@ -1,3 +1,12 @@
+const consentManagerScript = document.createElement('script');
+consentManagerScript.type = 'text/javascript';
+consentManagerScript.setAttribute('data-cmp-ab', '1');
+consentManagerScript.src = 'https://cdn.consentmanager.net/delivery/autoblocking/1dae96c2c2031.js';
+consentManagerScript.setAttribute('data-cmp-host', 'a.delivery.consentmanager.net');
+consentManagerScript.setAttribute('data-cmp-cdn', 'cdn.consentmanager.net');
+consentManagerScript.setAttribute('data-cmp-codesrc', '16');
+document.head.appendChild(consentManagerScript);
+
 document.addEventListener("DOMContentLoaded", function () {
   const playlistItems = document.querySelectorAll("#playlist li");
   const progressBars = document.querySelectorAll(".progress-bar");
