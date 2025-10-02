@@ -832,8 +832,7 @@ header {
   z-index: 1000;
   background-color: #1a1a1a; /* Ensures the header is fixed at the top */
   padding: 10px 0;
-}
-
+} 
 #menu {
   background-color: inherit; /* Menu should inherit the header's background color */
 }
@@ -848,16 +847,23 @@ body.light-theme header {
 }
 
 body.light-theme #menu {
-  background-color: inherit; /* Inherit light theme header background */
+  background-color: rgba(248, 239, 239, 0.8); /* Inherit light theme header background */
+  color: #000000;
+}
+body.dark-theme #menu {
+  background-color: rgba(31, 41, 55, 0.8); /* Inherit dark theme header background */
+  color: #fff;
+}
+body.light-theme .profile{
+  color: #1db700;
+}
+body.dark-theme .profile{
+  color: #eef3ed;
 }
 
 /* Dark theme adjustments */
 body.dark-theme header {
   background-color: #1a1a1a; /* Dark theme header */
-}
-
-body.dark-theme #menu {
-  background-color: inherit; /* Inherit dark theme header background */
 }
 /* Optional hover effects */
 a.text-gray-300:hover {
@@ -876,7 +882,8 @@ header .container {
 }
 #menu {
   background-color: inherit;
-  position: relative;
+  position: absolute; 
+  margin: 0;
 }
 /* Adjusting the layout */
 .profile-and-friends {
@@ -1322,8 +1329,7 @@ button:hover {
     min-height: 70vh;
     padding: 4rem 1rem;
   }
-}
-=======
+} 
 
 body {
   margin: 0;
