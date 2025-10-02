@@ -209,6 +209,45 @@
   </div>
   <!-- Social Share Modal end -->
 
+  <!-- Hero Section -->
+  <section class="hero-section bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-center py-20 px-4 relative overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="hero-bg-element hero-book-icon absolute top-10 left-10 opacity-20 animate-float">
+      📚
+    </div>
+    <div class="hero-bg-element hero-headphone-icon absolute top-20 right-20 opacity-20 animate-float-delayed">
+      🎧
+    </div>
+    <div class="hero-bg-element hero-star-icon absolute bottom-20 left-20 opacity-20 animate-float">
+      ⭐
+    </div>
+    <div class="hero-bg-element hero-music-icon absolute bottom-10 right-10 opacity-20 animate-float-delayed">
+      🎵
+    </div>
+
+    <div class="container mx-auto max-w-4xl relative z-10">
+      <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 animate-fade-in-up">
+        Welcome to <span class="text-green-400 animate-pulse">Lisbook</span>
+      </h1>
+      <div class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-up-delayed">
+        <span id="typed-text"></span>
+      </div>
+      <div class="animate-fade-in-up-delayed-2">
+        <a href="./explore-books.html" class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300 animate-bounce-subtle">
+          Explore Books
+        </a>
+        <p class="text-sm text-gray-400 mt-4 animate-fade-in">Discover amazing stories and knowledge</p>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </section>
+
   <main class="container my-5">
     <!-- Top audio book -->
     <section class="rounded-5 p-5 my-5">
@@ -328,6 +367,27 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
+  <!-- Hero Section Animations -->
+  <script>
+    // Typing effect for hero description
+    document.addEventListener('DOMContentLoaded', function() {
+      const typedTextElement = document.getElementById('typed-text');
+      const text = "Discover and enjoy amazing audio books from around the world. Immerse yourself in captivating stories and knowledge at your fingertips.";
+
+      let index = 0;
+      function typeWriter() {
+        if (index < text.length) {
+          typedTextElement.innerHTML += text.charAt(index);
+          index++;
+          setTimeout(typeWriter, 50);
+        }
+      }
+
+      // Start typing after a short delay
+      setTimeout(typeWriter, 1000);
+    });
+  </script>
+=======
 
 
 
