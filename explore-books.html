@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="Images/favicon.jpg" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/1dae96c2c2031.js" data-cmp-host="a.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="16"></script>
+  <title>Explore Books - Lisbook</title>
+</head>
+
+<body class="dark-theme bg-gray-900 text-gray-300 d-flex flex-column min-vh-100">
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+  <div id="loader" class="spinner-container">
+    <div class="spinner-border" role="status" style="width: 4rem; height: 4rem; color: #1db954">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
+    <nav class="">
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <a class="logo-text h3 font-bold d-inline-flex" href="./index.html">
+          <img src="./Images/lisbook-logo-1.png" alt="Logo" width="40" height="auto" class="align-text-center me-2" />
+          Lisbook
+        </a>
+
+        <!-- Menu Links and Theme Toggle -->
+        <div id="menu" class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20">
+          <div id="menu-close" class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
+          <a href="./index.html" class="text-gray-300 hover:text-green-500">Home</a>
+          <a href="./explore-books.html" class="text-gray-300 hover:text-green-500">Explore Books</a>
+          <a href="./about.html" class="text-gray-300 hover:text-green-500">About</a>
+          <a href="./contact.html" class="text-gray-300 hover:text-green-500">Contact</a>
+          <a href="./faq.html" class="text-gray-300 hover:text-green-500">FAQs</a>
+
+          <!-- Profile Icon and Theme Toggle -->
+          <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
+            <!-- Sun Icon (for dark theme) -->
+            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
+              <line x1="12" y1="1" x2="12" y2="4" stroke="currentColor" stroke-width="2" />
+              <line x1="12" y1="20" x2="12" y2="23" stroke="currentColor" stroke-width="2" />
+              <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="currentColor" stroke-width="2" />
+              <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" />
+              <line x1="1" y1="12" x2="4" y2="12" stroke="currentColor" stroke-width="2" />
+              <line x1="20" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" />
+              <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" stroke="currentColor" stroke-width="2" />
+              <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" />
+            </svg>
+
+            <!-- Moon Icon (for light theme) -->
+            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <a href="./profile.html" class="text-gray-300 hover:text-green-500 me-4">
+            <i class="bi bi-person-circle h-6 w-6"></i>
+          </a>
+        </div>
+
+        <!-- Language-selector Toggle -->
+        <div class="language-selector">
+          <select id="language" onchange="changeLanguage()" style="background-color: #1db954; color: #fff">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="zh">简体中文</option>
+            <!-- Ajoutez d'autres langues ici -->
+          </select>
+        </div>
+
+        <!-- Ensure language sync in iframe-->
+        <script>
+          function changeLanguage() {
+            const language = document.getElementById('language').value;
+            const iframe = document.getElementById('gd-iframe');
+            if (iframe && iframe.contentWindow) {
+              //set up postMessage to send the selected language to iframe
+              iframe.contentWindow.postMessage({ type: 'changeLanguage', language: language }, '*');
+            }
+          }
+
+          // Add event listener for dropdown change to trigger the function
+          document.getElementById('language').addEventListener('change', changeLanguage);
+        </script>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-center py-20 px-4">
+    <div class="container mx-auto max-w-4xl">
+      <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+        Explore <span class="text-green-400">Books</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
+        Discover amazing books shared by Hacktoberfest contributors. Hover over the cards to reveal fascinating descriptions and find your next great read!
+      </p>
+    </div>
+  </section>
+
+  <main class="container my-5">
+    <!-- Books Grid -->
+    <section class="rounded-5 p-5 my-5">
+      <h2 class="display-5 page-title fw-semibold mb-5 text-center">Books Collection</h2>
+      <div id="books-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <!-- Books will be loaded here dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-placeholder" class="mt-auto"></div>
+
+  <!-- JavaScript -->
+  <script src="./script.js"></script>
+  <script src="./translation.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <script>
+    // Load books data and create cards
+    async function loadBooks() {
+      try {
+        const response = await fetch('./data/explore-books.json');
+        const books = await response.json();
+        const container = document.getElementById('books-container');
+
+        books.forEach(book => {
+          const bookCard = document.createElement('div');
+          bookCard.className = 'col';
+          bookCard.innerHTML = `
+            <div class="book-card">
+              <div class="book-card-inner">
+                <div class="book-card-front">
+                  <img src="${book.coverImage}" alt="${book.title} cover" onerror="this.src='Images/bookify.jpg'">
+                  <h5>${book.title}</h5>
+                  <p class="book-card-author">By ${book.author}</p>
+                </div>
+                <div class="book-card-back">
+                  <h5>${book.title}</h5>
+                  <p class="book-card-author">By ${book.author}</p>
+                  <p>${book.description}</p>
+                </div>
+              </div>
+            </div>
+          `;
+          container.appendChild(bookCard);
+        });
+      } catch (error) {
+        console.error('Error loading books:', error);
+        document.getElementById('books-container').innerHTML = '<p class="text-center">Failed to load books. Please try again later.</p>';
+      }
+    }
+
+    // Load books when page loads
+    document.addEventListener('DOMContentLoaded', loadBooks);
+  </script>
+</body>
+
+</html>

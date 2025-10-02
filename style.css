@@ -1183,3 +1183,87 @@ button:hover {
   width: 100%;
   padding: 5px;
 }
+
+/* Explore Books Card Flip Styles */
+.book-card {
+  background-color: transparent;
+  perspective: 1000px;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.book-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.book-card:hover .book-card-inner {
+  transform: rotateY(180deg);
+}
+
+.book-card-front, .book-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.book-card-front {
+  background-color: #181818;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.book-card-back {
+  background-color: #1a1a1a;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: #e0e0e0;
+}
+
+.book-card img {
+  max-width: 120px;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.book-card h5 {
+  color: #94d769;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.book-card p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}
+
+.book-card-author {
+  color: #b3b3b3;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
