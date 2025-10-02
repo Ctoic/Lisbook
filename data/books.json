@@ -3,7 +3,7 @@
     "id": "1",
     "title": "To Kill a Mockingbird",
     "author": "Harper Lee",
-    "cover": "https://picsum.photos/200",
+    "cover": "Images/Adventures_Sherlock_Holmes.jpg",
     "genre": "Fiction",
     "description": "A novel that explores racial injustice in the Deep South through the eyes of young Scout Finch, as her father, Atticus, defends a black man wrongly accused of raping a white woman.",
     "chapters": [
@@ -25,7 +25,7 @@
     "id": "2",
     "title": "1984",
     "author": "George Orwell",
-    "cover": "https://picsum.photos/200",
+    "cover": "Images/Sapiens.jpg",
     "genre": "Dystopian",
     "description": "A harrowing vision of a totalitarian future, where surveillance and propaganda are omnipresent and individualism is crushed by the Party led by Big Brother.",
     "chapters": [
@@ -47,7 +47,7 @@
     "id": "3",
     "title": "The Great Gatsby",
     "author": "F. Scott Fitzgerald",
-    "cover": "https://picsum.photos/200",
+    "cover": "Images/cs.jpg",
     "genre": "Tragedy",
     "description": "A story of wealth, obsession, and the American dream, set in the Jazz Age, centering on the mysterious millionaire Jay Gatsby and his love for Daisy Buchanan.",
     "chapters": [
@@ -69,7 +69,7 @@
     "id": "4",
     "title": "Pride and Prejudice",
     "author": "Jane Austen",
-    "cover": "https://picsum.photos/200",
+    "cover": "Images/Pride-and-Prejudice.jpg",
     "genre": "Romance",
     "description": "A classic romantic tale of the strong-willed Elizabeth Bennet and the wealthy but reserved Mr. Darcy, exploring themes of class, love, and misunderstandings.",
     "chapters": [
@@ -113,7 +113,7 @@
     "id": "6",
     "title": "Moby-Dick",
     "author": "Herman Melville",
-    "cover": "https://picsum.photos/200",
+    "cover": "Images/Frankestine.jpg",
     "genre": "Adventure",
     "description": "An epic tale of obsession and revenge, chronicling Captain Ahab’s relentless pursuit of the white whale Moby Dick, while exploring themes of fate, religion, and the human condition.",
     "chapters": [
