@@ -338,14 +338,17 @@ document.addEventListener("DOMContentLoaded", function () {
   //Keyboard Shortcuts buttons
   document.addEventListener("keydown", function (e) {
     switch (e.code) {
-      case "Space": // Play / Pause
-        e.preventDefault(); // Prevents page scrolling when Space is pressed
-        if (audioPlayer.paused) {
-          audioPlayer.play();
-        } else {
-          audioPlayer.pause();
-        }
-        break;
+      case "Space": 
+      e.preventDefault(); 
+      if (audioPlayer.paused) {
+        audioPlayer.play();
+        ctrlPlay.innerHTML = '<i class="bi bi-pause-fill"></i>';
+      } else {
+        audioPlayer.pause();
+        ctrlPlay.innerHTML = '<i class="bi bi-play-fill"></i>';
+      }
+      break;
+
 
       case "ArrowRight": // Jump forward 30 seconds
         audioPlayer.currentTime += 30;
