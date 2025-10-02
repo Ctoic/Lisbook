@@ -182,6 +182,13 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/mrkeshav-05">
+                    <img src="https://avatars.githubusercontent.com/u/145784447?v=4" width="100;" alt="mrkeshav-05"/>
+                    <br />
+                    <sub><b>Keshav Thakur</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/khandelwal20sid">
                     <img src="https://avatars.githubusercontent.com/u/58730831?v=4" width="100;" alt="khandelwal20sid"/>
                     <br />
@@ -195,6 +202,8 @@ MIT License
                     <sub><b>Kundan Tamsoy</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/IngaleChinmay04">
                     <img src="https://avatars.githubusercontent.com/u/143017442?v=4" width="100;" alt="IngaleChinmay04"/>
@@ -202,8 +211,6 @@ MIT License
                     <sub><b>Chinmay Ingale</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/username-amarjit">
                     <img src="https://avatars.githubusercontent.com/u/121117087?v=4" width="100;" alt="username-amarjit"/>
@@ -239,6 +246,8 @@ MIT License
                     <sub><b>Sai Haritha Sardena</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Vedantjn">
                     <img src="https://avatars.githubusercontent.com/u/76029713?v=4" width="100;" alt="Vedantjn"/>
@@ -246,8 +255,6 @@ MIT License
                     <sub><b>Nirmohi</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/aliabbasnagari">
                     <img src="https://avatars.githubusercontent.com/u/70366131?v=4" width="100;" alt="aliabbasnagari"/>
@@ -270,17 +277,17 @@ MIT License
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/mrkeshav-05">
-                    <img src="https://avatars.githubusercontent.com/u/145784447?v=4" width="100;" alt="mrkeshav-05"/>
-                    <br />
-                    <sub><b>Keshav Thakur</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/vatsaljain-hub">
                     <img src="https://avatars.githubusercontent.com/u/60287913?v=4" width="100;" alt="vatsaljain-hub"/>
                     <br />
                     <sub><b>vatsaljain-hub</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Wellitsabhi">
+                    <img src="https://avatars.githubusercontent.com/u/99867024?v=4" width="100;" alt="Wellitsabhi"/>
+                    <br />
+                    <sub><b>Abhishek Singh</b></sub>
                 </a>
             </td>
 		</tr>
