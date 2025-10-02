@@ -1183,3 +1183,93 @@ button:hover {
   width: 100%;
   padding: 5px;
 }
+
+/* Consent Manager UI Customization */
+.cmp-banner {
+  background-color: #1a1a1a !important;
+  border: 1px solid #333 !important;
+  color: #e0e0e0 !important;
+}
+
+.cmp-banner .cmp-title {
+  color: #94d769 !important;
+  font-weight: bold !important;
+}
+
+.cmp-banner .cmp-text {
+  color: #b3b3b3 !important;
+}
+
+.cmp-banner .cmp-button {
+  background-color: #1db954 !important;
+  border-color: #1db954 !important;
+  color: #fff !important;
+  border-radius: 25px !important;
+  padding: 8px 16px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+}
+
+.cmp-banner .cmp-button:hover {
+  background-color: #25a56a !important;
+  border-color: #25a56a !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(29, 185, 84, 0.3) !important;
+}
+
+.cmp-banner .cmp-link {
+  color: #94d769 !important;
+  text-decoration: underline !important;
+}
+
+.cmp-banner .cmp-link:hover {
+  color: #1db954 !important;
+}
+
+.cmp-modal {
+  background-color: #1a1a1a !important;
+  border: 1px solid #333 !important;
+  color: #e0e0e0 !important;
+}
+
+.cmp-modal .cmp-title {
+  color: #94d769 !important;
+}
+
+.cmp-modal .cmp-text {
+  color: #b3b3b3 !important;
+}
+
+.cmp-modal .cmp-button {
+  background-color: #1db954 !important;
+  border-color: #1db954 !important;
+  color: #fff !important;
+  border-radius: 25px !important;
+  padding: 10px 20px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+}
+
+.cmp-modal .cmp-button:hover {
+  background-color: #25a56a !important;
+  border-color: #25a56a !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(29, 185, 84, 0.3) !important;
+}
+
+.cmp-modal .cmp-checkbox {
+  accent-color: #1db954 !important;
+}
+
+.cmp-modal .cmp-accordion-toggle {
+  color: #94d769 !important;
+  cursor: pointer !important;
+}
+
+.cmp-modal .cmp-accordion-toggle:hover {
+  color: #1db954 !important;
+}
+
+.cmp-modal .cmp-accordion-content {
+  color: #b3b3b3 !important;
+}
