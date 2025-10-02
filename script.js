@@ -33,7 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (audioFile && startTime) {
     audioPlayer.src = `audio/${audioFile}`;
     audioPlayer.currentTime = startTime;
-    audioPlayer.play();
+    audioPlayer.play().catch((error) => {
+      console.error("Auto-play failed:", error);
+    });
   }
 
   const shareBtn = document.getElementById("share-link");
@@ -388,10 +390,8 @@ document.addEventListener("DOMContentLoaded", function () {
     ctrlPlay.addEventListener("click", function () {
       if (audioPlayer.paused) {
         audioPlayer.play();
-        ctrlPlay.innerHTML = '<i class="bi bi-play-fill"></i>';
       } else {
         audioPlayer.pause();
-        ctrlPlay.innerHTML = '<i class="bi bi-pause-fill"></i>';
       }
     });
 
@@ -432,6 +432,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     audioPlayer.addEventListener("ended", function () {
       ctrlPlay.innerHTML = '<i class="bi bi-play-fill"></i>';
+    });
+
+    // Automatically sync play/pause button with audio state changes
+    audioPlayer.addEventListener("play", function () {
+      if (ctrlPlay) {
+        ctrlPlay.innerHTML = '<i class="bi bi-pause-fill"></i>';
+      }
+    });
+
+    audioPlayer.addEventListener("pause", function () {
+      if (ctrlPlay) {
+        ctrlPlay.innerHTML = '<i class="bi bi-play-fill"></i>';
+      }
     });
 
     // Update the seek slider and current time

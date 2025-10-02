@@ -101,12 +101,21 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/Anand-Raut">
+                    <img src="https://avatars.githubusercontent.com/u/87059912?v=4" width="100;" alt="Anand-Raut"/>
+                    <br />
+                    <sub><b>Anand Raut</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/2MJ-DEV">
                     <img src="https://avatars.githubusercontent.com/u/146131402?v=4" width="100;" alt="2MJ-DEV"/>
                     <br />
                     <sub><b>JULES MUKADI</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/AdityaJ2305">
                     <img src="https://avatars.githubusercontent.com/u/148325158?v=4" width="100;" alt="AdityaJ2305"/>
@@ -114,8 +123,6 @@ MIT License
                     <sub><b>Aditya Jindal</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/AdityaBavadekar">
                     <img src="https://avatars.githubusercontent.com/u/64344960?v=4" width="100;" alt="AdityaBavadekar"/>
@@ -151,6 +158,8 @@ MIT License
                     <sub><b>Debargha Sarkar</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/sujalcharati">
                     <img src="https://avatars.githubusercontent.com/u/146851304?v=4" width="100;" alt="sujalcharati"/>
@@ -158,8 +167,6 @@ MIT License
                     <sub><b>Sujal charati</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/khandelwal20sid">
                     <img src="https://avatars.githubusercontent.com/u/58730831?v=4" width="100;" alt="khandelwal20sid"/>
@@ -195,6 +202,8 @@ MIT License
                     <sub><b>Jay Shukla</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/MohitKambli">
                     <img src="https://avatars.githubusercontent.com/u/31406633?v=4" width="100;" alt="MohitKambli"/>
@@ -202,8 +211,6 @@ MIT License
                     <sub><b>Mohit Kambli</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/PModhe09">
                     <img src="https://avatars.githubusercontent.com/u/119349738?v=4" width="100;" alt="PModhe09"/>
@@ -239,6 +246,8 @@ MIT License
                     <sub><b>harshitkumargupta</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/manoj9896">
                     <img src="https://avatars.githubusercontent.com/u/51627080?v=4" width="100;" alt="manoj9896"/>
@@ -246,8 +255,6 @@ MIT License
                     <sub><b>MANOJ KUMAR</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/vatsaljain-hub">
                     <img src="https://avatars.githubusercontent.com/u/60287913?v=4" width="100;" alt="vatsaljain-hub"/>
