@@ -117,13 +117,37 @@ li:hover {
 
 .language-selector {
   margin: 20px;
+  position: relative;
 }
 
 .language-selector select {
-  padding: 10px;
-  font-size: 10px;
-  border-radius: 7px;
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 25px;
   font-weight: 500;
+  border: 2px solid #1db954;
+  background-color: #1db954;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none; /* Remove default arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+  padding-right: 40px; /* Space for the icon */
+}
+
+.language-selector select:hover {
+  background-color: #25a56a;
+  border-color: #25a56a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3);
+}
+
+.language-selector select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.5);
 }
 
 body {
