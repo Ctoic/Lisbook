@@ -196,14 +196,21 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/My-Mation">
+                    <img src="https://avatars.githubusercontent.com/u/215493851?v=4" width="100;" alt="My-Mation"/>
+                    <br />
+                    <sub><b>Debargha Sarkar</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
                 <a href="https://github.com/PModhe09">
                     <img src="https://avatars.githubusercontent.com/u/119349738?v=4" width="100;" alt="PModhe09"/>
                     <br />
                     <sub><b>Prathmesh Modhe</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Saiharitha3">
                     <img src="https://avatars.githubusercontent.com/u/167031893?v=4" width="100;" alt="Saiharitha3"/>
@@ -239,6 +246,8 @@ MIT License
                     <sub><b>MANOJ KUMAR</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/vatsaljain-hub">
                     <img src="https://avatars.githubusercontent.com/u/60287913?v=4" width="100;" alt="vatsaljain-hub"/>
