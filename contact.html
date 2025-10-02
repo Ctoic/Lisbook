@@ -265,87 +265,213 @@
         </div>
       </nav>
     </header>
-  <body class="dark-theme bg-gray-900 text-gray-300 d-flex flex-column min-vh-100">
-  <div class="container my-5">
-    <h2 class="display-5 fw-semibold mb-3 text-center">Contact Us</h2>
-    <p class="text-center mb-5">Our friendly team would love to hear from you!</p>
 
-    <!-- Contact Form -->
-<form id="contact-form" class="space-y-4">
-  <!-- First and Last Name in Two Columns -->
-  <div class="row mb-3">
-    <div class="col-md-6">
-      <label for="first-name" class="block text-sm font-medium">First name:</label>
-      <input type="text" id="first-name" name="first-name" placeholder="john" class="w-full p-2 rounded-lg bg-gray-700 text-gray-900 dark:text-white mt-2" required />
-    </div>
-    <div class="col-md-6">
-      <label for="last-name" class="block text-sm font-medium">Last name:</label>
-      <input type="text" id="last-name" name="last-name" placeholder="dre" class="w-full p-2 rounded-lg bg-gray-700 text-gray-900 dark:text-white mt-2" required />
-    </div>
-  </div>
+    <!-- Main Content -->
+    <main class="flex-grow-1">
+      <div class="container-fluid py-5">
+        <!-- Header Section -->
+        <div class="text-center mb-5">
+          <h1 class="display-4 fw-bold text-green-500 mb-3">Get In Touch</h1>
+          <p class="lead text-gray-400 mx-auto" style="max-width: 600px;">
+            We'd love to hear from you! Send us a message and we'll respond as soon as possible.
+          </p>
+        </div>
 
-  <!-- Email -->
-  <div class="mb-3">
-    <label for="email" class="block text-sm font-medium">Email:</label>
-    <input type="email" id="email" name="email" placeholder="contact-us@gmail.com" class="w-full p-2 rounded-lg bg-gray-700 text-gray-900 dark:text-white mt-2" required />
-  </div>
+        <!-- Main Contact Grid -->
+        <div class="row g-4 justify-content-center">
+          <!-- Contact Form Section -->
+          <div class="col-lg-8">
+            <div class="contact-form-card bg-gray-800 rounded-3 p-4 p-md-5 shadow-lg">
+              <h3 class="h4 fw-semibold mb-4 text-center text-green-500">
+                <i class="bi bi-envelope-fill me-2"></i>Send us a Message
+              </h3>
+              
+              <form id="contact-form" class="contact-form">
+                <!-- Name Fields -->
+                <div class="row mb-4">
+                  <div class="col-md-6 mb-3 mb-md-0">
+                    <label for="first-name" class="form-label text-gray-300 fw-medium">
+                      <i class="bi bi-person me-1"></i>First Name
+                    </label>
+                    <input 
+                      type="text" 
+                      id="first-name" 
+                      name="first-name" 
+                      placeholder="John" 
+                      class="form-control contact-input bg-gray-700 border-gray-600 text-white" 
+                      required 
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="last-name" class="form-label text-gray-300 fw-medium">
+                      <i class="bi bi-person me-1"></i>Last Name
+                    </label>
+                    <input 
+                      type="text" 
+                      id="last-name" 
+                      name="last-name" 
+                      placeholder="Doe" 
+                      class="form-control contact-input bg-gray-700 border-gray-600 text-white" 
+                      required 
+                    />
+                  </div>
+                </div>
 
-  <!-- Phone -->
-  <div class="mb-3">
-    <label for="phone" class="block text-sm font-medium">Phone number:</label>
-    <input type="tel" id="phone" name="phone" placeholder="IN +91 000-000-0000" class="w-full p-2 rounded-lg bg-gray-700 text-gray-900 dark:text-white mt-2" pattern="[0-9]{10}" required />
-  </div>
+                <!-- Email -->
+                <div class="mb-4">
+                  <label for="email" class="form-label text-gray-300 fw-medium">
+                    <i class="bi bi-envelope me-1"></i>Email Address
+                  </label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="john.doe@example.com" 
+                    class="form-control contact-input bg-gray-700 border-gray-600 text-white" 
+                    required 
+                  />
+                </div>
 
-  <!-- Message -->
-  <div class="mb-3">
-    <label for="message" class="block text-sm font-medium">Message:</label>
-    <textarea id="message" name="message" rows="4" class="w-full p-2 rounded-lg bg-gray-700 text-gray-900 dark:text-white mt-2" required></textarea>
-  </div>
+                <!-- Phone -->
+                <div class="mb-4">
+                  <label for="phone" class="form-label text-gray-300 fw-medium">
+                    <i class="bi bi-telephone me-1"></i>Phone Number
+                  </label>
+                  <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    placeholder="+91 98765 43210" 
+                    class="form-control contact-input bg-gray-700 border-gray-600 text-white" 
+                    required 
+                  />
+                </div>
 
-  <!-- Submit Button -->
-  <div class="text-center mt-5">
-    <button type="submit" class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600">Send Message</button>
-  </div>
+                <!-- Message -->
+                <div class="mb-4">
+                  <label for="message" class="form-label text-gray-300 fw-medium">
+                    <i class="bi bi-chat-text me-1"></i>Message
+                  </label>
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    rows="5" 
+                    placeholder="Tell us how we can help you..."
+                    class="form-control contact-input bg-gray-700 border-gray-600 text-white" 
+                    required
+                  ></textarea>
+                </div>
 
-  <!-- Success Message -->
-  <p id="success-msg" class="text-green-500 mt-4 hidden">Message sent successfully!</p>
-</form>
+                <!-- Submit Button -->
+                <div class="text-center">
+                  <button type="submit" class="btn btn-success btn-lg px-5 py-3 rounded-pill shadow-sm contact-submit-btn">
+                    <i class="bi bi-send me-2"></i>Send Message
+                  </button>
+                </div>
 
-  </div>
-</body>
+                <!-- Success Message -->
+                <div id="success-msg" class="alert alert-success mt-4 d-none text-center">
+                  <i class="bi bi-check-circle me-2"></i>Message sent successfully! We'll get back to you soon.
+                </div>
+              </form>
+            </div>
+          </div>
 
+          <!-- Contact Information Sidebar -->
+          <div class="col-lg-4">
+            <div class="contact-info-card bg-gray-800 rounded-3 p-4 shadow-lg h-100">
+              <h3 class="h4 fw-semibold mb-4 text-center text-green-500">
+                <i class="bi bi-info-circle-fill me-2"></i>Contact Information
+              </h3>
+              
+              <!-- Contact Details -->
+              <div class="contact-info-list">
+                <div class="contact-info-item mb-4 p-3 bg-gray-700 rounded-2">
+                  <div class="d-flex align-items-center">
+                    <div class="contact-icon bg-green-500 text-white rounded-circle p-2 me-3">
+                      <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <div>
+                      <h6 class="fw-semibold text-white mb-1">Address</h6>
+                      <p class="text-gray-400 mb-0 small">Bangalore, Karnataka, India</p>
+                    </div>
+                  </div>
+                </div>
 
-     <!-- Map Section -->
-<div class="map-container mt-5">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.491339599082!2d77.59456291440737!3d12.971598616057055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1687391781db%3A0x5ef3b46e7aa569b6!2sBangalore%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sin!4v1638827560011"
-    width="100%"
-    height="350"
-    style="border: 0"
-    allowfullscreen=""
-    loading="lazy"
-  ></iframe>
-</div>
+                <div class="contact-info-item mb-4 p-3 bg-gray-700 rounded-2">
+                  <div class="d-flex align-items-center">
+                    <div class="contact-icon bg-green-500 text-white rounded-circle p-2 me-3">
+                      <i class="bi bi-envelope-fill"></i>
+                    </div>
+                    <div>
+                      <h6 class="fw-semibold text-white mb-1">Email</h6>
+                      <a href="mailto:contact@lisbook.com" class="text-green-400 text-decoration-none small hover-green">
+                        contact@lisbook.com
+                      </a>
+                    </div>
+                  </div>
+                </div>
 
+                <div class="contact-info-item mb-4 p-3 bg-gray-700 rounded-2">
+                  <div class="d-flex align-items-center">
+                    <div class="contact-icon bg-green-500 text-white rounded-circle p-2 me-3">
+                      <i class="bi bi-telephone-fill"></i>
+                    </div>
+                    <div>
+                      <h6 class="fw-semibold text-white mb-1">Phone</h6>
+                      <a href="tel:+919876543210" class="text-green-400 text-decoration-none small hover-green">
+                        +91 98765 43210
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-     <!-- Social Media Icons -->
-<div class="social-icons text-center mt-5">
-  <a href="https://www.instagram.com/dev_with_ctoic" class="text-gray-300 hover:text-green-500" target="_blank">
-    <i class="bi bi-instagram me-2"></i>
-  </a>
-  <a href="https://x.com/Ct0ic" class="text-gray-300 hover:text-green-500 mx-4" target="_blank">
-    <i class="bi bi-twitter-x me-2"></i>
-  </a>
-  <a href="https://www.linkedin.com/in/ctoic/" class="text-gray-300 hover:text-green-500" target="_blank">
-    <i class="bi bi-linkedin me-2"></i>
-  </a>
-  <a href="https://github.com/Ctoic" class="text-gray-300 hover:text-green-500 mx-4" target="_blank">
-    <i class="bi bi-github me-2"></i>
-  </a>
-</div>
+              <!-- Social Media -->
+              <div class="text-center mt-4 pt-4 border-top border-gray-600">
+                <h6 class="fw-semibold text-white mb-3">Follow Us</h6>
+                <div class="social-links d-flex justify-content-center gap-3">
+                  <a href="https://www.instagram.com/dev_with_ctoic" class="social-link" target="_blank" title="Instagram">
+                    <i class="bi bi-instagram"></i>
+                  </a>
+                  <a href="https://x.com/Ct0ic" class="social-link" target="_blank" title="Twitter">
+                    <i class="bi bi-twitter-x"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/in/ctoic/" class="social-link" target="_blank" title="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                  </a>
+                  <a href="https://github.com/Ctoic" class="social-link" target="_blank" title="GitHub">
+                    <i class="bi bi-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-
-    </div>
+        <!-- Map Section -->
+        <div class="row mt-5">
+          <div class="col-12">
+            <div class="map-container bg-gray-800 rounded-3 p-4 shadow-lg">
+              <h3 class="h4 fw-semibold mb-4 text-center text-green-500">
+                <i class="bi bi-map-fill me-2"></i>Find Us
+              </h3>
+              <div class="map-wrapper rounded-3 overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.491339599082!2d77.59456291440737!3d12.971598616057055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1687391781db%3A0x5ef3b46e7aa569b6!2sBangalore%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sin!4v1638827560011"
+                  width="100%"
+                  height="350"
+                  style="border: 0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  class="contact-map"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
    <!-- Footer -->
     <div id="footer-placeholder" class="mt-auto"></div>
     <!-- auto-type script  -->
