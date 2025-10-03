@@ -1108,6 +1108,29 @@ body.light-theme header {
   color: #28a745; /* Change to green on hover (adjust this value to match your site's green) */
 }
 
+/* Active Tab Styles for Navbar */
+#menu a.active {
+  color: #10b981 !important; /* Green color for active tab */
+  background-color: rgba(16, 185, 129, 0.1); /* Light green background */
+  border-radius: 6px; /* Rounded corners */
+  padding: 0.5rem 1rem; /* Padding for better visual */
+  font-weight: 600; /* Bold font for active tab */
+  position: relative;
+}
+
+/* Active tab indicator line */
+#menu a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background-color: #10b981; /* Green underline */
+  border-radius: 1px;
+}
+
 /* Button Styles */
 .nav a.button {
   display: inline-block; /* Allow for padding */
