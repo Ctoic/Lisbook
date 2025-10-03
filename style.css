@@ -1141,6 +1141,59 @@ body.light-theme header {
   background-color: inherit;
 }
 
+/* Share Modal Styles */
+#shareModal {
+  transition: opacity 0.3s ease-in-out;
+}
+
+#shareModal:not(.hidden) {
+  display: flex !important;
+}
+
+#shareModal .bg-gray-800 {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#shareLink {
+  font-size: 0.875rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Toast Notification Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+#toast {
+  animation: slideUp 0.3s ease-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#toast.hidden {
+  display: none;
+}
+
 /* Footer size and position tweaks (compact and slightly lower) */
 .container.border-top {
   margin-top: 180px !important; /* push footer down a bit */
