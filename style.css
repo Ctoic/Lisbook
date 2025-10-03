@@ -1141,6 +1141,59 @@ body.light-theme header {
   background-color: inherit;
 }
 
+/* Share Modal Styles */
+#shareModal {
+  transition: opacity 0.3s ease-in-out;
+}
+
+#shareModal:not(.hidden) {
+  display: flex !important;
+}
+
+#shareModal .bg-gray-800 {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#shareLink {
+  font-size: 0.875rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Toast Notification Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+#toast {
+  animation: slideUp 0.3s ease-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#toast.hidden {
+  display: none;
+}
+
 /* Footer size and position tweaks (compact and slightly lower) */
 .container.border-top {
   margin-top: 180px !important; /* push footer down a bit */
@@ -2011,5 +2064,66 @@ body {
   color: #fff; 
   font-size: 1.5rem; 
   cursor: pointer;
+}
+
+
+
+/*
+ Footer Styles */
+.footer-col-title {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.brand-tagline {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.5rem;
+}
+
+#newsletterForm .form-control {
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+#newsletterForm .btn {
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+footer a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--color-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  footer .row { 
+    text-align: center; 
+  }
+  footer .d-inline-flex { 
+    justify-content: center; 
+  }
+  .footer-brand {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
