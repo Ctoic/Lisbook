@@ -835,9 +835,8 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
   background-color: #1a1a1a !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   z-index: 1000;
-  transition: background-color 0.3s ease;
-  display: flex;
-  align-items: center;
+  background-color: #1a1a1a; /* Ensures the header is fixed at the top */
+  padding: 6px 0;
 }
 
 @media (max-width: 480px) {
@@ -882,7 +881,7 @@ body.light-theme .navbar-header {
 
 /* Adjust body margin for fixed navbar */
 body {
-  margin-top: 76px;
+  margin-top: 68px; /* Adjust this margin to match the height of the header */
 }
 
 /* Navbar Brand - Logo and Text */
@@ -1238,9 +1237,8 @@ body.light-theme .mobile-menu-content {
 .mobile-menu-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem;
-  border-bottom: 1px solid rgba(148, 215, 105, 0.2);
+  align-items: center; /* Center items vertically */
+  height: 52px; /* Fixed height */
 }
 
 .mobile-menu-title {
@@ -1334,6 +1332,76 @@ body.light-theme .mobile-menu-content {
   .mobile-menu-close,
   .mobile-nav-link {
     transition: none;
+  }
+}
+
+/* Elegant header spacing and hover states */
+header {
+  backdrop-filter: saturate(120%) blur(6px);
+  -webkit-backdrop-filter: saturate(120%) blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Desktop menu layout: even spacing with gap */
+#menu {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem; /* 20px between items */
+}
+
+/* Subtle upward nudge for desktop alignment */
+@media (min-width: 1024px) {
+  #menu {
+    margin-top: -4px;
+  }
+}
+
+/* Remove legacy margins inside header menu to rely on gap spacing */
+#menu .text-gray-300 {
+  margin: 0;
+}
+
+/* Click targets and elegant hover */
+#menu a,
+#menu button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  line-height: 1;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+#menu a:hover,
+#menu button:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: var(--accent-color);
+}
+
+/* Logo spacing so it breathes */
+a.logo-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: 10px;
+}
+
+/* Light theme header refinements */
+body.light-theme header {
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Mobile menu spacing: larger targets and vertical rhythm */
+@media (max-width: 1024px) {
+  #menu {
+    gap: 1.75rem;
+  }
+
+  #menu a,
+  #menu button {
+    padding: 10px 14px;
+    font-size: 1.05rem;
   }
 }
 /* Adjusting the layout */
@@ -1528,6 +1596,103 @@ body.light-theme .mobile-menu-content {
 .nav-item:hover {
   background-color: inherit;
 }
+
+/* Footer size and position tweaks (compact and slightly lower) */
+.container.border-top {
+  margin-top: 180px !important; /* push footer down a bit */
+}
+
+footer.row {
+  padding-top: 6px;  /* smaller footer height */
+  padding-bottom: 10px; /* smaller footer height */
+}
+
+.bg-white-900.text-center {
+  padding-top: 10px; /* smaller bottom bar */
+  padding-bottom: 10px;
+}
+
+/* Align footer contents directly under their headings */
+footer.row .nav.flex-column.ms-2 {
+  margin-left: 0 !important;
+}
+
+/* Spacing between footer headings and their content */
+footer.row .footer-col-title {
+  margin-bottom: 12px !important; /* ensure clear gap under headings */
+}
+
+footer.row .nav.flex-column {
+  margin-top: 0; /* uniform spacing governed by heading margin */
+}
+
+/* Stay Updated block spacing below heading */
+footer.row .col.mb-3:last-child > p {
+  margin-top: 0; /* uniform spacing governed by heading margin */
+}
+
+/* Ensure "Stay Updated" content aligns under its heading */
+footer.row .col.mb-3:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center under heading */
+  text-align: center;
+}
+
+footer.row .col.mb-3:last-child p,
+footer.row .col.mb-3:last-child form,
+footer.row .col.mb-3:last-child #newsletterMessage {
+  margin-left: 0 !important;
+  align-self: center;
+}
+
+/* Shift ONLY the footer logo slightly left on desktop */
+@media (min-width: 992px) {
+  footer.row .col.mb-3:first-child a img {
+    margin-left: -14px;
+  }
+}
+
+/* Reduce space between footer logo and its heading (move heading left a bit) */
+@media (min-width: 992px) {
+  footer.row .col.mb-3:first-child .footer-logo-text {
+    margin-left: 6px !important; /* legacy selector; safe to keep */
+  }
+}
+
+/* Footer brand (left column) */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-brand .brand-link img {
+  display: block;
+}
+
+.footer-brand .brand-title {
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.footer-brand .brand-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center tagline under title */
+}
+
+.footer-brand .brand-tagline {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  text-align: center;
+  max-width: 300px;
+}
+
+/* Reverted: no left shift for first footer column */
 
 .flex-item {
   flex: 1;

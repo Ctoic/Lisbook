@@ -182,6 +182,29 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/Nishat30">
+                    <img src="https://avatars.githubusercontent.com/u/159575377?v=4" width="100;" alt="Nishat30"/>
+                    <br />
+                    <sub><b>Mjtbvs</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Wellitsabhi">
+                    <img src="https://avatars.githubusercontent.com/u/99867024?v=4" width="100;" alt="Wellitsabhi"/>
+                    <br />
+                    <sub><b>Abhishek Singh</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/mrkeshav-05">
+                    <img src="https://avatars.githubusercontent.com/u/145784447?v=4" width="100;" alt="mrkeshav-05"/>
+                    <br />
+                    <sub><b>Keshav Thakur</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
                 <a href="https://github.com/khandelwal20sid">
                     <img src="https://avatars.githubusercontent.com/u/58730831?v=4" width="100;" alt="khandelwal20sid"/>
                     <br />
@@ -202,8 +225,6 @@ MIT License
                     <sub><b>Chinmay Ingale</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/username-amarjit">
                     <img src="https://avatars.githubusercontent.com/u/121117087?v=4" width="100;" alt="username-amarjit"/>
@@ -225,6 +246,8 @@ MIT License
                     <sub><b>Mohit Kambli</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/PModhe09">
                     <img src="https://avatars.githubusercontent.com/u/119349738?v=4" width="100;" alt="PModhe09"/>
@@ -240,14 +263,19 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/Soumyosish">
+                    <img src="https://avatars.githubusercontent.com/u/144246473?v=4" width="100;" alt="Soumyosish"/>
+                    <br />
+                    <sub><b>Soumyosish Pal</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/Vedantjn">
                     <img src="https://avatars.githubusercontent.com/u/76029713?v=4" width="100;" alt="Vedantjn"/>
                     <br />
                     <sub><b>Nirmohi</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/aliabbasnagari">
                     <img src="https://avatars.githubusercontent.com/u/70366131?v=4" width="100;" alt="aliabbasnagari"/>
@@ -262,6 +290,15 @@ MIT License
                     <sub><b>harshitkumargupta</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/maanuu5">
+                    <img src="https://avatars.githubusercontent.com/u/208244004?v=4" width="100;" alt="maanuu5"/>
+                    <br />
+                    <sub><b>Manu</b></sub>
+                </a>
+            </td>
             <td align="center">
                 <a href="https://github.com/manoj9896">
                     <img src="https://avatars.githubusercontent.com/u/51627080?v=4" width="100;" alt="manoj9896"/>
@@ -270,24 +307,10 @@ MIT License
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/mrkeshav-05">
-                    <img src="https://avatars.githubusercontent.com/u/145784447?v=4" width="100;" alt="mrkeshav-05"/>
-                    <br />
-                    <sub><b>Keshav Thakur</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/vatsaljain-hub">
                     <img src="https://avatars.githubusercontent.com/u/60287913?v=4" width="100;" alt="vatsaljain-hub"/>
                     <br />
                     <sub><b>vatsaljain-hub</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Wellitsabhi">
-                    <img src="https://avatars.githubusercontent.com/u/99867024?v=4" width="100;" alt="Wellitsabhi"/>
-                    <br />
-                    <sub><b>Abhishek Singh</b></sub>
                 </a>
             </td>
 		</tr>
