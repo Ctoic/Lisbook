@@ -226,77 +226,10 @@ MIT License
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/username-amarjit">
-                    <img src="https://avatars.githubusercontent.com/u/121117087?v=4" width="100;" alt="username-amarjit"/>
+                <a href="https://github.com/vatsaljain-hub">
+                    <img src="https://avatars.githubusercontent.com/u/60287913?v=4" width="100;" alt="vatsaljain-hub"/>
                     <br />
-                    <sub><b>Amarjit</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/JayShukla8">
-                    <img src="https://avatars.githubusercontent.com/u/75677270?v=4" width="100;" alt="JayShukla8"/>
-                    <br />
-                    <sub><b>Jay Shukla</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/MohitKambli">
-                    <img src="https://avatars.githubusercontent.com/u/31406633?v=4" width="100;" alt="MohitKambli"/>
-                    <br />
-                    <sub><b>Mohit Kambli</b></sub>
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td align="center">
-                <a href="https://github.com/PModhe09">
-                    <img src="https://avatars.githubusercontent.com/u/119349738?v=4" width="100;" alt="PModhe09"/>
-                    <br />
-                    <sub><b>Prathmesh Modhe</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Saiharitha3">
-                    <img src="https://avatars.githubusercontent.com/u/167031893?v=4" width="100;" alt="Saiharitha3"/>
-                    <br />
-                    <sub><b>Sai Haritha Sardena</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Soumyosish">
-                    <img src="https://avatars.githubusercontent.com/u/144246473?v=4" width="100;" alt="Soumyosish"/>
-                    <br />
-                    <sub><b>Soumyosish Pal</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Vedantjn">
-                    <img src="https://avatars.githubusercontent.com/u/76029713?v=4" width="100;" alt="Vedantjn"/>
-                    <br />
-                    <sub><b>Nirmohi</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/aliabbasnagari">
-                    <img src="https://avatars.githubusercontent.com/u/70366131?v=4" width="100;" alt="aliabbasnagari"/>
-                    <br />
-                    <sub><b>Ali Abbas</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/harshitkumargupta">
-                    <img src="https://avatars.githubusercontent.com/u/149725714?v=4" width="100;" alt="harshitkumargupta"/>
-                    <br />
-                    <sub><b>harshitkumargupta</b></sub>
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td align="center">
-                <a href="https://github.com/maanuu5">
-                    <img src="https://avatars.githubusercontent.com/u/208244004?v=4" width="100;" alt="maanuu5"/>
-                    <br />
-                    <sub><b>Manu</b></sub>
+                    <sub><b>vatsaljain-hub</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -307,10 +240,84 @@ MIT License
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/vatsaljain-hub">
-                    <img src="https://avatars.githubusercontent.com/u/60287913?v=4" width="100;" alt="vatsaljain-hub"/>
+                <a href="https://github.com/maanuu5">
+                    <img src="https://avatars.githubusercontent.com/u/208244004?v=4" width="100;" alt="maanuu5"/>
                     <br />
-                    <sub><b>vatsaljain-hub</b></sub>
+                    <sub><b>Manu</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/harshitkumargupta">
+                    <img src="https://avatars.githubusercontent.com/u/149725714?v=4" width="100;" alt="harshitkumargupta"/>
+                    <br />
+                    <sub><b>harshitkumargupta</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/aliabbasnagari">
+                    <img src="https://avatars.githubusercontent.com/u/70366131?v=4" width="100;" alt="aliabbasnagari"/>
+                    <br />
+                    <sub><b>Ali Abbas</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Vedantjn">
+                    <img src="https://avatars.githubusercontent.com/u/76029713?v=4" width="100;" alt="Vedantjn"/>
+                    <br />
+                    <sub><b>Nirmohi</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Soumyosish">
+                    <img src="https://avatars.githubusercontent.com/u/144246473?v=4" width="100;" alt="Soumyosish"/>
+                    <br />
+                    <sub><b>Soumyosish Pal</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Saiharitha3">
+                    <img src="https://avatars.githubusercontent.com/u/167031893?v=4" width="100;" alt="Saiharitha3"/>
+                    <br />
+                    <sub><b>Sai Haritha Sardena</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/PModhe09">
+                    <img src="https://avatars.githubusercontent.com/u/119349738?v=4" width="100;" alt="PModhe09"/>
+                    <br />
+                    <sub><b>Prathmesh Modhe</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/MohitKambli">
+                    <img src="https://avatars.githubusercontent.com/u/31406633?v=4" width="100;" alt="MohitKambli"/>
+                    <br />
+                    <sub><b>Mohit Kambli</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/JayShukla8">
+                    <img src="https://avatars.githubusercontent.com/u/75677270?v=4" width="100;" alt="JayShukla8"/>
+                    <br />
+                    <sub><b>Jay Shukla</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/username-amarjit">
+                    <img src="https://avatars.githubusercontent.com/u/121117087?v=4" width="100;" alt="username-amarjit"/>
+                    <br />
+                    <sub><b>Amarjit</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Akarsh979">
+                    <img src="https://avatars.githubusercontent.com/u/123117986?v=4" width="100;" alt="Akarsh979"/>
+                    <br />
+                    <sub><b>Akarsh979</b></sub>
                 </a>
             </td>
 		</tr>
