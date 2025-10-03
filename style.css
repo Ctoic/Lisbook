@@ -1879,3 +1879,61 @@ body {
   font-size: 1.5rem; 
   cursor: pointer;
 }
+/*
+ Footer Styles */
+.footer-col-title {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.brand-tagline {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.5rem;
+}
+
+#newsletterForm .form-control {
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+#newsletterForm .btn {
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+footer a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--color-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  footer .row { 
+    text-align: center; 
+  }
+  footer .d-inline-flex { 
+    justify-content: center; 
+  }
+  .footer-brand {
+    flex-direction: column;
+    text-align: center;
+  }
+}
