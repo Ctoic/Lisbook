@@ -21,6 +21,112 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Share functionality
+    const shareModal = document.getElementById('shareModal');
+    const closeShareModal = document.getElementById('closeShareModal');
+    const copyLinkBtn = document.getElementById('copyLinkBtn');
+    const shareLink = document.getElementById('shareLink');
+    const toast = document.getElementById('toast');
+
+    function openShareModal(book) {
+        const shareBookCover = document.getElementById('shareBookCover');
+        const shareBookTitle = document.getElementById('shareBookTitle');
+        const shareBookAuthor = document.getElementById('shareBookAuthor');
+        const shareBookTagline = document.getElementById('shareBookTagline');
+        
+        // Set book details in the modal with better defaults and error handling
+        const coverUrl = book.cover || book.coverImage || 'https://via.placeholder.com/300x400?text=No+Cover';
+        shareBookCover.src = coverUrl;
+        shareBookCover.onerror = function() {
+            this.src = 'https://via.placeholder.com/300x400?text=No+Cover';
+        };
+        
+        // Set title and author with proper formatting
+        shareBookTitle.textContent = book.title || 'Audiobook Title';
+        shareBookAuthor.textContent = book.author ? `by ${book.author}` : 'by Unknown Author';
+        
+        // Generate a dynamic tagline if not provided
+        const genre = book.genre || 'adventure';
+        const defaultTaglines = [
+            `A ${genre} journey that will keep you listening for hours`,
+            `Immerse yourself in this ${genre} masterpiece`,
+            `Experience the ${genre} story everyone's talking about`,
+            `The ${genre} audiobook you've been waiting for`
+        ];
+        const randomTagline = defaultTaglines[Math.floor(Math.random() * defaultTaglines.length)];
+        
+        // Use the book's tagline, first 50 chars of description, or a generated one
+        shareBookTagline.textContent = book.tagline || 
+                                     (book.description ? 
+                                         (book.description.length > 50 ? 
+                                             book.description.substring(0, 80) + '...' : 
+                                             book.description) : 
+                                         randomTagline);
+        
+        // Set the share link with book ID if available, otherwise use a default
+        const bookId = book.id || '123';
+        const shareUrl = `https://audiobook.app/book/${bookId}`;
+        shareLink.value = shareUrl;
+        
+        // Show the modal
+        shareModal.classList.remove('hidden');
+        
+        // Log for backend integration reference
+        console.log('Sharing book:', { 
+            id: bookId, 
+            title: book.title,
+            author: book.author,
+            // Add other fields that would come from backend
+            coverUrl: coverUrl,
+            shareUrl: shareUrl
+        });
+    }
+
+    // Close modal when clicking the close button or outside the modal
+    if (closeShareModal) {
+        closeShareModal.addEventListener('click', () => {
+            shareModal.classList.add('hidden');
+        });
+    }
+
+    shareModal.addEventListener('click', (e) => {
+        if (e.target === shareModal) {
+            shareModal.classList.add('hidden');
+        }
+    });
+
+    // Copy link to clipboard
+    if (copyLinkBtn) {
+        copyLinkBtn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(shareLink.value);
+                showToast();
+            } catch (err) {
+                // Fallback for browsers that don't support clipboard API
+                shareLink.select();
+                document.execCommand('copy');
+                showToast();
+            }
+        });
+    }
+
+    // Show toast notification
+    function showToast() {
+        if (!toast) return;
+        
+        toast.classList.remove('hidden');
+        setTimeout(() => {
+            toast.classList.add('hidden');
+        }, 3000);
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !shareModal.classList.contains('hidden')) {
+            shareModal.classList.add('hidden');
+        }
+    });
+
     const createBookCard = (book) => {
         const card = document.createElement('div');
         card.className = 'card';
@@ -88,6 +194,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             <button class="btn-listen" onclick="listenBook('${book.id}')">
                                 <i class="bi bi-headphones"></i> Listen
                             </button>
+                            <button class="btn-share" data-book-id="${book.id}">
+                                <i class="bi bi-share"></i> Share
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -115,6 +224,15 @@ document.addEventListener('DOMContentLoaded', () => {
         data.forEach(book => {
             const card = createBookCard(book);
             bookContainer.appendChild(card);
+            
+            // Add click handler for the share button
+            const shareBtn = card.querySelector('.btn-share');
+            if (shareBtn) {
+                shareBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openShareModal(book);
+                });
+            }
         });
         
         // Re-apply error handling to dynamically created images
