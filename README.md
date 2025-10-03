@@ -263,6 +263,13 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/Soumyosish">
+                    <img src="https://avatars.githubusercontent.com/u/144246473?v=4" width="100;" alt="Soumyosish"/>
+                    <br />
+                    <sub><b>Soumyosish Pal</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/Vedantjn">
                     <img src="https://avatars.githubusercontent.com/u/76029713?v=4" width="100;" alt="Vedantjn"/>
                     <br />
@@ -283,6 +290,8 @@ MIT License
                     <sub><b>harshitkumargupta</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/maanuu5">
                     <img src="https://avatars.githubusercontent.com/u/208244004?v=4" width="100;" alt="maanuu5"/>
@@ -290,8 +299,6 @@ MIT License
                     <sub><b>Manu</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/manoj9896">
                     <img src="https://avatars.githubusercontent.com/u/51627080?v=4" width="100;" alt="manoj9896"/>
