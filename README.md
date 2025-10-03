@@ -432,6 +432,14 @@ git push origin feature/your-amazing-feature
 </td>
 <td align="center" width="150">
 <div style="padding: 20px;">
+<p><strong>🚀 Want to see your face here?</strong></p>
+<a href="#-hacktoberfest-contribution-guide">
+<img src="https://via.placeholder.com/80x80/7c3aed/ffffff?text=YOU" width="80" height="80" style="border-radius: 50%; border: 3px dashed #7c3aed; object-fit: cover;" alt="Your contribution"/>
+<br />
+<sub><b>✨ Your Name Here!</b></sub>
+<br />
+<sub><i>Future Contributor</i></sub>
+</a>
 </div>
 </td>
 <td align="center" width="150">
