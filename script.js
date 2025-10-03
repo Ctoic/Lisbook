@@ -763,11 +763,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // --- Profile/Friendship Features ---
     const uploadPicBtn = document.getElementById("upload-pic");
-    if (uploadPicBtn) {
-        uploadPicBtn.addEventListener("click", () => {
-            showErrorPopup("Profile picture change feature is coming soon!");
-        });
-    }
+    // if (uploadPicBtn) {
+    //     uploadPicBtn.addEventListener("click", () => {
+    //         showErrorPopup("Profile picture change feature is coming soon!");
+    //     });
+    // }
 
     const editNameBtn = document.getElementById("edit-name");
     if (editNameBtn) {
