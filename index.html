@@ -356,11 +356,28 @@
     </section>
   </main>
 
+  <!-- Chatbot Floating Button and Window -->
+  <div id="chatbot-button">
+    <i class="bi bi-chat-dots" style="font-size: 2rem; color: white;"></i>
+  </div>
+  <div id="chatbot-window">
+    <div id="chat-header">
+      <span style="font-weight: bold; font-size: 1.2rem;">Assistant <i class="bi bi-robot" style="font-size: 1.2rem; color: white;"></i></span>
+      <button id="chatbot-close">&times;</button>
+    </div>
+    <div id="chatbot-messages"></div>
+    <form id="chatbot-form">
+      <input id="chatbot-input" type="text" placeholder="Ask about audiobooks..." autocomplete="off">
+      <button id="send" type="submit"><i class="bi bi-send" style="font-size: 1.5rem; color: white;"></i></button>
+    </form>
+  </div>
+
   <!-- Footer -->
   <div id="footer-placeholder" class="mt-auto"></div>
 
   <!-- JavaScript -->
-
+  
+  <script src="./marked.min.js"></script>
   <script src="./script.js"></script>
   <script src="./translation.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
