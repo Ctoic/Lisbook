@@ -490,6 +490,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // --- Keyboard Shortcuts ---
     if (audioPlayer) {
         document.addEventListener("keydown", function (e) {
+        // Don't block space/shortcuts if typing in an input, textarea, or contenteditable
+          const tag = e.target.tagName.toLowerCase();
+          const isEditable = e.target.isContentEditable;
+          if (tag === "input" || tag === "textarea" || isEditable) return;
+
             switch (e.code) {
                 case "Space": // Play / Pause
                     e.preventDefault();
@@ -932,6 +937,92 @@ document.addEventListener("DOMContentLoaded", function () {
     if (document.querySelector(".row.row-cols-1.row-cols-md-3.row-cols-lg-5.g-4.mt-4.align-items-stretch")) {
         loadContributors();
     }
+
+    let booksData = null;
+    const chatbotButton = document.getElementById("chatbot-button");
+    const chatbotWindow = document.getElementById("chatbot-window");
+    const chatbotClose = document.getElementById("chatbot-close");
+    const chatbotForm = document.getElementById("chatbot-form");
+    const chatbotInput = document.getElementById("chatbot-input");
+    const chatbotMessages = document.getElementById("chatbot-messages");
+  
+    // Show/hide chatbot window
+    chatbotButton.onclick = () => {
+      chatbotWindow.style.display = "flex";
+      chatbotButton.style.display = "none";
+    };
+    chatbotClose.onclick = () => {
+      chatbotWindow.style.display = "none";
+      chatbotButton.style.display = "flex";
+    };
+  
+    // Fetch books data when chat opens (only once)
+    chatbotButton.addEventListener("click", async () => {
+      console.log("ChatbotButton Clicked");
+      if (!booksData) {
+        try {
+          const res = await fetch("https://raw.githubusercontent.com/Ctoic/Lisbook/refs/heads/main/data/books.json");
+          booksData = await res.json();
+        } catch (e) {
+          booksData = null;
+          addChatbotMessage("assistant", "Sorry, I couldn't load the book data. Please try again later.");
+        }
+      }
+    });
+  
+    // Add message to chat window
+    function addChatbotMessage(sender, text) {
+      const msgDiv = document.createElement("div");
+      msgDiv.className = sender;
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+      if (sender === "assistant") {
+        bubble.innerHTML = marked.parse(text);
+      } else {
+        bubble.textContent = text;
+      }
+      msgDiv.appendChild(bubble);
+      chatbotMessages.appendChild(msgDiv);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+  
+    // Handle chat form submit
+    chatbotForm.onsubmit = async (e) => {
+      e.preventDefault();
+      const userMsg = chatbotInput.value.trim();
+      if (!userMsg) return;
+      addChatbotMessage("user", userMsg);
+      chatbotInput.value = "";
+      addChatbotMessage("assistant", "Thinking...");
+  
+      // Prepare prompt for Gemini
+      let context = "You are Lisbook Assistant, a friendly and knowledgeable chatbot for the Lisbook audiobook web app. Use the following audiobook data to answer user questions:\n";
+      context += JSON.stringify(booksData, null, 2);
+      context += "\nUser: " + userMsg + "\nAssistant:";
+  
+      // Call Gemini API (replace YOUR_GEMINI_API_KEY with your actual key)
+      try {
+        const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyBD_Ah7sLgnHKgUZHFqoWjpwMEdFoAznoI", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: context }] }]
+          })
+        });
+        const data = await response.json();
+        // Remove "Thinking..." message
+        chatbotMessages.removeChild(chatbotMessages.lastChild);
+        if (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0].text) {
+          addChatbotMessage("assistant", data.candidates[0].content.parts[0].text);
+        } else {
+          addChatbotMessage("assistant", "Sorry, I couldn't get a response. Please try again.");
+        }
+      } catch (err) {
+        chatbotMessages.removeChild(chatbotMessages.lastChild);
+        addChatbotMessage("assistant", "Sorry, there was an error connecting to the assistant.");
+      }
+    };
+  
 });
 
 // Hide the loader when the page is fully loaded
