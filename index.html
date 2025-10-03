@@ -359,7 +359,7 @@
     </section>
   </main>
 
-  <!-- Chatbot Floating Button and Window -->
+<!-- Chatbot Floating Button and Window -->
   <div id="chatbot-button">
     <i class="bi bi-chat-dots" style="font-size: 2rem; color: white;"></i>
   </div>
@@ -372,44 +372,16 @@
     <div id="chatbot-messages"></div>
     <form id="chatbot-form">
       <input id="chatbot-input" type="text" placeholder="Ask about audiobooks..." autocomplete="off">
-      <button id="send" type="submit"><i class="bi bi-send" style="font-size: 1.5rem; color: white;"></i></button>
-    </form>
-  </div>
-
-  <!-- Footer -->
-  <div id="footer-placeholder" class="mt-auto"></div>
-
-  <!-- JavaScript -->
-  <script src="./marked.min.js"></script>
-  <script src="./header-footer.js"></script>
-  <script src="./script.js"></script>
-  <script src="./translation.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-
-  <!-- Hero Section Animations -->
-  <script>
-    // Typing effect for hero description
-    document.addEventListener('DOMContentLoaded', function () {
-      const typedTextElement = document.getElementById('typed-text');
-      const text = "Discover and enjoy amazing audio books from around the world. Immerse yourself in captivating stories and knowledge at your fingertips.";
-
-      let index = 0;
-      function typeWriter() {
-        if (index < text.length) {
-          typedTextElement.innerHTML += text.charAt(index);
-          index++;
-          setTimeout(typeWriter, 50);
-        }
-      }
-
-      // Start typing after a short delay
-      setTimeout(typeWriter, 1000);
-    });
-  </script>
+  <script src="script.js"></script>
+  <script src="app.js"></script>
+  <script src="explore.js"></script>
+  <script src="translation.js"></script>
+  <script src="marked.min.js"></script>
+  <script src="share.js"></script>
 
   <script src="scripts.js"></script>
-</body>
 
 </html>
