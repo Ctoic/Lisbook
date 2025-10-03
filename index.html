@@ -295,8 +295,8 @@
 </section>
 
 
-    <section class="row rounded-5 p-5 mt-5">
-      <!-- Comments Section -->
+    <!-- <section class="row rounded-5 p-5 mt-5">
+     
       <div class="container mx-auto p-6 rounded-lg">
         <h2 class="display-5 page-title fw-semibold mb-6 text-center" id="share">
           Share Your Comments
@@ -320,7 +320,28 @@
 
         <div id="comments-list" class="mt-10 space-y-4"></div>
       </div>
-    </section>
+    </section> -->
+
+ <div class="container">
+  <div class="comments-box">
+    <h2>Share Your Comments</h2>
+
+    <!-- Comment Form -->
+    <form id="comment-form">
+      <div>
+        <label for="username">Your Name:</label>
+        <input type="text" id="username" placeholder="" required />
+      </div>
+      <div>
+        <label for="comment">Your Comment:</label>
+        <textarea id="comment" rows="6" placeholder="" required></textarea>
+      </div>
+      <div style="text-align: center; padding-top: 0.5rem; ">
+        <button class="btn">Share comment</button>
+      </div>
+    </form>
+  </div>
+</div>
   </main>
 
   <!-- Footer -->
@@ -338,6 +359,60 @@
 
 
       <script src="scripts.js"></script>
+
+      <script>
+         const form = document.getElementById('comment-form');
+    const usernameInput = document.getElementById('username');
+    const commentInput = document.getElementById('comment');
+    const commentsList = document.getElementById('comments-list');
+    let comments = [];
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = usernameInput.value.trim();
+      const comment = commentInput.value.trim();
+      if (!username || !comment) return;
+
+      const newComment = {
+        id: Date.now(),
+        username,
+        comment,
+        created_date: new Date()
+      };
+
+      comments.unshift(newComment);
+      usernameInput.value = '';
+      commentInput.value = '';
+      renderComments();
+    });
+
+    function renderComments() {
+      commentsList.innerHTML = '';
+      if (comments.length === 0) {
+        commentsList.innerHTML = '<div class="no-comments">No comments yet. Be the first to share your thoughts!</div>';
+        return;
+      }
+
+      comments.forEach(c => {
+        const card = document.createElement('div');
+        card.className = 'comment-card';
+        card.innerHTML = `
+          <div class="comment-header">
+            <div class="comment-user">
+              <div class="avatar">${c.username.charAt(0).toUpperCase()}</div>
+              <span class="comment-username">${c.username}</span>
+            </div>
+            <div class="comment-date">${c.created_date.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}</div>
+          </div>
+          <p class="comment-text">${c.comment}</p>
+        `;
+        commentsList.appendChild(card);
+      });
+    }
+
+    // Initial render
+    renderComments();
+      </script>
 </body>
 
 </html>
