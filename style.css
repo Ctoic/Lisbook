@@ -831,8 +831,7 @@ header {
   top: 0;
   z-index: 1000;
   background-color: #1a1a1a; /* Ensures the header is fixed at the top */ 
- 
-  padding: 6px 0;
+  padding: 10px 0;  
 } 
 #menu {
   background-color: inherit; /* Menu should inherit the header's background color */
