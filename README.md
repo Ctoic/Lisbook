@@ -182,6 +182,13 @@ MIT License
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/Nishat30">
+                    <img src="https://avatars.githubusercontent.com/u/159575377?v=4" width="100;" alt="Nishat30"/>
+                    <br />
+                    <sub><b>Mjtbvs</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/Wellitsabhi">
                     <img src="https://avatars.githubusercontent.com/u/99867024?v=4" width="100;" alt="Wellitsabhi"/>
                     <br />
@@ -195,6 +202,8 @@ MIT License
                     <sub><b>Keshav Thakur</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/khandelwal20sid">
                     <img src="https://avatars.githubusercontent.com/u/58730831?v=4" width="100;" alt="khandelwal20sid"/>
@@ -202,8 +211,6 @@ MIT License
                     <sub><b>Siddharth Khandelwal</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Tomkndn">
                     <img src="https://avatars.githubusercontent.com/u/105445488?v=4" width="100;" alt="Tomkndn"/>
@@ -239,6 +246,8 @@ MIT License
                     <sub><b>Mohit Kambli</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/PModhe09">
                     <img src="https://avatars.githubusercontent.com/u/119349738?v=4" width="100;" alt="PModhe09"/>
@@ -246,8 +255,6 @@ MIT License
                     <sub><b>Prathmesh Modhe</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Saiharitha3">
                     <img src="https://avatars.githubusercontent.com/u/167031893?v=4" width="100;" alt="Saiharitha3"/>
@@ -276,6 +283,15 @@ MIT License
                     <sub><b>harshitkumargupta</b></sub>
                 </a>
             </td>
+            <td align="center">
+                <a href="https://github.com/maanuu5">
+                    <img src="https://avatars.githubusercontent.com/u/208244004?v=4" width="100;" alt="maanuu5"/>
+                    <br />
+                    <sub><b>Manu</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/manoj9896">
                     <img src="https://avatars.githubusercontent.com/u/51627080?v=4" width="100;" alt="manoj9896"/>
