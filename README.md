@@ -431,6 +431,15 @@ git push origin feature/your-amazing-feature
 </a>
 </td>
 <td align="center" width="150">
+<a href="https://github.com/Akarsh979">
+<img src="https://avatars.githubusercontent.com/u/123117986?v=4" width="80" height="80" style="border-radius: 50%; border: 3px solid #f97316; object-fit: cover;" alt="Akarsh979"/>
+<br />
+<sub><b>🎖️ Akarsh979</b></sub>
+<br />
+<sub><i>Developer</i></sub>
+</a>
+</td>
+<td align="center" width="150">
 <div style="padding: 20px;">
 <p><strong>🚀 Want to see your face here?</strong></p>
 <a href="#-hacktoberfest-contribution-guide">
@@ -441,8 +450,6 @@ git push origin feature/your-amazing-feature
 <sub><i>Future Contributor</i></sub>
 </a>
 </div>
-</td>
-<td align="center" width="150">
 </td>
 </tr>
 </table>
