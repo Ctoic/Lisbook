@@ -63,4 +63,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Call the function to highlight active tab
   highlightActiveNavTab();
+  
 });
