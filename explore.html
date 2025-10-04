@@ -123,65 +123,73 @@
     </header>
     
     <!-- Search and Filter Section -->
-    <section class="search-filter-section">
+    <section class="search-filter-section" style="background-color: #121212;">
         <div class="container mx-auto px-4 py-8">
-            <!-- Search Bar -->
-            <div class="search-container mb-6">
-                <div class="relative max-w-lg mx-auto">
-                    <input type="text" 
-                           id="searchInput" 
-                           placeholder="Search by title, author, or genre..." 
-                           class="w-full px-4 py-3 pl-4 pr-12 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500/20 transition-all text-base backdrop-blur-sm">
-                    <button id="clearSearch" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white hidden p-1 rounded-full hover:bg-gray-700 transition-all">
-                        <i class="bi bi-x-lg text-sm"></i>
-                    </button>
-                    <i class="bi bi-search absolute right-10 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
-                </div>
-            </div>
-
-            <!-- Filter Controls -->
-            <div class="filter-container mb-6">
-                <div class="flex flex-wrap gap-4 justify-center items-end">
-                    <!-- Genre Filter -->
-                    <div class="filter-group">
-                        <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wide">Genre</label>
-                        <select id="genreFilter" class="bg-gray-800/50 border border-gray-600 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500/20 transition-all min-w-[140px] text-sm backdrop-blur-sm">
-                            <option value="">All Genres</option>
-                        </select>
-                    </div>
-
-                    <!-- Duration Filter -->
-                    <div class="filter-group">
-                        <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wide">Duration</label>
-                        <select id="durationFilter" class="bg-gray-800/50 border border-gray-600 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500/20 transition-all min-w-[150px] text-sm backdrop-blur-sm">
-                            <option value="">Any Duration</option>
-                            <option value="short">Short (< 4h)</option>
-                            <option value="medium">Medium (4-8h)</option>
-                            <option value="long">Long (> 8h)</option>
-                        </select>
-                    </div>
-
-                    <!-- Sort Options -->
-                    <div class="filter-group">
-                        <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wide">Sort By</label>
-                        <select id="sortFilter" class="bg-gray-800/50 border border-gray-600 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500/20 transition-all min-w-[140px] text-sm backdrop-blur-sm">
-                            <option value="title">Title A-Z</option>
-                            <option value="author">Author A-Z</option>
-                            <option value="genre">Genre</option>
-                            <option value="popularity">Popularity</option>
-                            <option value="newest">Newest First</option>
-                        </select>
-                    </div>
-
-                    <!-- Clear Filters -->
-                    <div class="filter-group">
-                        <button id="clearFilters" class="px-4 py-2 bg-gray-800/50 hover:bg-gray-600/50 text-white rounded-lg transition-all font-medium text-sm backdrop-blur-sm border border-gray-600 hover:border-green-500">
-                            <i class="bi bi-arrow-clockwise me-1" style="font-size: 0.9rem;"></i>Clear
-                        </button>
+            <!-- Search and Filter Container -->
+            <div class="search-filter-wrapper max-w-7xl mx-auto">
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <div class="search-wrapper flex items-center gap-4">
+                        <!-- Search Icon -->
+                        <div class="search-icon-container">
+                            <i class="bi bi-search text-gray-400 text-xl"></i>
+                        </div>
+                        <!-- Search Input -->
+                        <div class="search-input-container flex-1 relative">
+                            <input type="text" 
+                                   id="searchInput" 
+                                   placeholder="Search by title, author, or genre..." 
+                                   class="w-full px-4 py-3 pl-4 pr-12 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500/20 transition-all text-base backdrop-blur-sm">
+                            <button id="clearSearch" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white hidden p-1 rounded-full hover:bg-gray-700 transition-all">
+                                <i class="bi bi-x-lg text-sm"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+                <!-- Filter Controls -->
+                <div class="filter-container">
+                    <div class="filter-wrapper flex flex-wrap gap-4 items-end">
+                        <!-- Genre Filter -->
+                        <div class="filter-group">
+                            <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wide">Genre</label>
+                            <select id="genreFilter" class="bg-gray-800/50 border border-gray-600 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500/20 transition-all min-w-[140px] text-sm backdrop-blur-sm">
+                                <option value="">All Genres</option>
+                            </select>
+                        </div>
+
+                        <!-- Duration Filter -->
+                        <div class="filter-group">
+                            <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wide">Duration</label>
+                            <select id="durationFilter" class="bg-gray-800/50 border border-gray-600 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500/20 transition-all min-w-[150px] text-sm backdrop-blur-sm">
+                                <option value="">Any Duration</option>
+                                <option value="short">Short (< 4h)</option>
+                                <option value="medium">Medium (4-8h)</option>
+                                <option value="long">Long (> 8h)</option>
+                            </select>
+                        </div>
+
+                        <!-- Sort Options -->
+                        <div class="filter-group">
+                            <label class="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wide">Sort By</label>
+                            <select id="sortFilter" class="bg-gray-800/50 border border-gray-600 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500/20 transition-all min-w-[140px] text-sm backdrop-blur-sm">
+                                <option value="title">Title A-Z</option>
+                                <option value="author">Author A-Z</option>
+                                <option value="genre">Genre</option>
+                                <option value="popularity">Popularity</option>
+                                <option value="newest">Newest First</option>
+                            </select>
+                        </div>
+
+                        <!-- Clear Filters -->
+                        <div class="filter-group">
+                            <button id="clearFilters" class="px-4 py-2 bg-gray-800/50 hover:bg-gray-600/50 text-white rounded-lg transition-all font-medium text-sm backdrop-blur-sm border border-gray-600 hover:border-green-500">
+                                <i class="bi bi-arrow-clockwise me-1" style="font-size: 0.9rem;"></i>Clear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
