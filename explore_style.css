@@ -171,20 +171,23 @@ body {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     line-clamp: 4;
-    -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
 .book-actions {
     display: flex;
-    gap: 10px;
-    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
-.btn-read,
-.btn-listen {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+.book-actions button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
     color: white;
     border: none;
     padding: 8px 16px;

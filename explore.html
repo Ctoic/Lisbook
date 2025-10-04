@@ -124,6 +124,67 @@
     <main id="book-container" class="book-container">
     </main>
     <div id="footer-placeholder" class="mt-auto"></div>
+    
+    <!-- Share Modal -->
+    <div id="shareModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+      <div class="bg-gray-800 rounded-xl p-6 w-full max-w-md mx-4">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-semibold text-white">Share Audiobook</h3>
+          <button id="closeShareModal" class="text-gray-400 hover:text-white">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <!-- Book Cover -->
+      <div class="flex justify-center mb-4">
+        <img id="shareBookCover" 
+             src="" 
+             alt="Audiobook Cover" 
+             class="w-32 h-48 object-cover rounded-lg shadow-lg">
+      </div>
+      
+      <!-- Book Details -->
+      <div class="text-center mb-6">
+        <h3 class="text-white font-semibold text-2xl mb-1" id="shareBookTitle">Audiobook Title</h3>
+        <p class="text-gray-300 text-base mb-3" id="shareBookAuthor">by Author Name</p>
+        
+        <!-- Tagline -->
+        <div class="bg-gray-700 rounded-lg p-3 mb-4">
+          <p class="text-gray-300 text-sm italic" id="shareBookTagline">
+            <!-- Backend Integration Note: 
+              This will be populated with a short, engaging tagline 
+              from the book's metadata or AI-generated summary
+            -->
+            A captivating journey through [genre] that will keep you listening for hours.
+          </p>
+        </div>
+        
+        <!-- Metadata Placeholder (Hidden by default, can be enabled later) -->
+        <div class="hidden" id="bookMetadata">
+          <!-- Backend Integration Placeholder: 
+            Future metadata like length, narrator, release date can go here
+          -->
+          <div class="flex justify-center space-x-4 text-xs text-gray-400">
+            <span>⏱️ 8h 45m</span>
+            <span>🎙️ Narrator Name</span>
+            <span>📅 2023</span>
+          </div>
+        </div>
+      </div>
+        <div class="flex">
+          <input type="text" id="shareLink" value="" readonly 
+            class="flex-1 bg-gray-700 text-white p-3 rounded-l-lg focus:outline-none text-sm">
+          <button id="copyLinkBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 rounded-r-lg transition-colors">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg hidden z-50">
+      📋 Link copied to clipboard!
+    </div>
+
     <script src="./script.js"></script>
     <script src="./translation.js"></script>
     <script src="explore.js"></script> <!-- Include your JS file -->
