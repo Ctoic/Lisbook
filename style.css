@@ -1687,6 +1687,192 @@ body {
 .dot-6 { left: 60%; }
 
 
+
+
+
+
+@media (max-width: 768px) {
+    .col-12.col-lg-8 {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        width: 100% !important;
+    }
+
+    #playlist {
+        overflow-x: hidden; /* no horizontal scrolling */
+        overflow-y: auto; /* vertical scroll for small screens */
+        max-height: 300px;
+        padding-right: 10px;
+    }
+
+    .adiobk-sub-item {
+        flex-direction: column; /* stack items vertically */
+        align-items: flex-start;
+        font-size: clamp(0.8rem, 1vw, 1rem);
+        padding: 0.5rem;
+        width: 100%;
+    }
+
+    .adiobk-sub-item p {
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .adiobk-sub-item a {
+        margin-top: 4px;
+    }
+}
+
+ body {
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+
+  }
+
+  .comments-box {
+    background: rgba(24, 24, 27, 0.8);
+    border-radius: 2rem;
+    padding: 2rem;
+    word-wrap: break-word;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 2rem;
+    word-wrap: break-word;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: clamp(0.8rem, 2vw, 1rem); /* responsive label font size */
+    word-wrap: break-word;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 1.25rem;
+    border: none;
+    font-size: clamp(0.8rem, 2vw, 1rem); /* responsive font size */
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  .btn {
+    background:#22c55e !important;
+    color: white !important;;
+    padding: 0.75rem 1rem;
+    border-radius: 9999px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: clamp(0.8rem, 2vw, 1rem); 
+    word-break: break-word;
+    white-space: normal;
+    text-align: center;
+    display: inline-block;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .comments-box {
+      padding: 1rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+    }
+    label, input, textarea, .btn {
+      font-size: clamp(0.7rem, 2vw, 0.9rem);
+    }
+  }
+
+  /* card*/
+
+  .features-card {
+    word-wrap: break-word;
+}
+
+.card-title {
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    word-wrap: break-word;
+}
+
+.card-text {
+    font-size: clamp(0.8rem, 1.8vw, 1rem);
+    word-wrap: break-word;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Force grid to wrap and stack */
+.row .col {
+    flex: 1 1 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Responsive Buttons */
+.row .btn.btn-bd-primary {
+    background: #22c55e !important; /* solid green */
+    color: white !important; /* white text */
+    padding: 0.5rem 1rem !important;
+    border-radius: 9999px !important;
+    border: none !important;
+    font-weight: 500 !important;
+    font-size: clamp(0.8rem, 1.5vw, 1rem) !important; /* responsive font size */
+    word-break: break-word !important;
+    white-space: normal !important;
+    text-align: center !important;
+    display: inline-block !important;
+    margin: 0 auto !important; /* center horizontally */
+}
+
+/* Shift slightly left on small screens */
+@media (max-width: 768px) {
+    .row .btn.btn-bd-primary {
+        font-size: clamp(0.7rem, 1.2vw, 0.9rem) !important;
+        padding: 0.4rem 0.8rem !important;
+        margin-left: 0 !important; /* remove centering */
+        display: block !important;   /* make button block so margin works */
+        margin-right: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .row .col {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    .card-title {
+        font-size: clamp(0.8rem, 2vw, 1rem);
+    }
+    .card-text {
+        font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+    }
+    .row .btn.btn-bd-primary {
+        font-size: clamp(0.7rem, 1.2vw, 0.9rem) !important;
+        padding: 0.4rem 0.8rem !important;
+    }
+}
 /* Scroll to top button styles */
 .scroll-to-top-btn {
   position: fixed;
@@ -1879,6 +2065,9 @@ body {
   font-size: 1.5rem; 
   cursor: pointer;
 }
+
+
+
 /*
  Footer Styles */
 .footer-col-title {
@@ -1937,3 +2126,4 @@ footer a:hover {
     text-align: center;
   }
 }
+
