@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="src/styles/style.css" />
   <!-- Favicon -->
-  <link rel="icon" href="Images/favicon.jpg" type="image/png" />
+  <link rel="icon" href="assets/images/favicon.jpg" type="image/png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -78,7 +78,7 @@
       <div class="container mx-auto flex justify-between items-center">
         <!-- Logo -->
         <a class="logo-text h3 font-bold d-inline-flex" href="./index.html">
-          <img src="./Images/lisbook-logo-1.png" alt="Logo" width="40" height="auto" class="align-text-center me-2" />
+          <img src="./assets/images/lisbook-logo-1.png" alt="Logo" width="40" height="auto" class="align-text-center me-2" />
           Lisbook
         </a>
 
@@ -93,16 +93,11 @@
           </div>
           <a href="./index.html" class="text-gray-300 hover:text-green-500" id="home" data-translate="nav-home">Home</a>
 
-          <a href="./explore.html" class="text-gray-300 hover:text-green-500" id="explore"
-            data-translate="nav-explore">Explore</a>
-          <a href="./scan.html" class="text-gray-300 hover:text-green-500">
-            <i class="bi bi-camera-fill"></i> Scan Book
-          </a>
-          <a href="./about.html" class="text-gray-300 hover:text-green-500" id="about"
-            data-translate="nav-about">About</a>
+          <a href="./src/pages/explore.html" class="text-gray-300 hover:text-green-500" id="home">Explore</a>
+          <a href="./src/pages/about.html" class="text-gray-300 hover:text-green-500" id="about">About</a>
 
-          <a href="./contact.html" class="text-gray-300 hover:text-green-500" data-translate="nav-contact">Contact</a>
-          <a href="./faq.html" class="text-gray-300 hover:text-green-500" data-translate="nav-faqs">FAQs</a>
+          <a href="./src/pages/contact.html" class="text-gray-300 hover:text-green-500">Contact</a>
+          <a href="./src/pages/faq.html" class="text-gray-300 hover:text-green-500">FAQs</a>
 
           <!-- Profile Icon and Theme Toggle -->
           <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
@@ -128,7 +123,7 @@
             </svg>
           </button>
 
-          <a href="./profile.html" class="text-gray-300 hover:text-green-500 me-4">
+          <a href="./src/pages/profile.html" class="text-gray-300 hover:text-green-500 me-4">
             <i class="bi bi-person-circle h-6 w-6"></i>
           </a>
         </div>
@@ -266,12 +261,12 @@
         <div class="col" data-book="paleBlueDot">
           <div class="features-card border rounded-5 p-4 text-center">
             <div class="card-cover-container rounded-4 d-flex align-items-center border">
-              <img src="./Images/cs.jpg" class="card-img-top img-fluid" alt="Audio book cover" />
+              <img src="./assets/images/cs.jpg" class="card-img-top img-fluid" alt="Audio book cover" />
             </div>
             <div class="card-body mt-4">
               <h4 class="card-title h6 page-title" data-translate="title">Pale Blue Dot</h4>
               <p class="card-text" data-translate="author">By Carl Sagan</p>
-              <a href="pbd.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
+              <a href="src/pages/pbd.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
             </div>
           </div>
         </div>
@@ -279,12 +274,12 @@
         <div class="col" data-book="frankenstein">
           <div class="features-card border rounded-5 p-4 text-center">
             <div class="card-cover-container rounded-4 d-flex align-items-center border">
-              <img src="./Images/Frankestine.jpg" class="card-img-top img-fluid" alt="Audio book cover" />
+              <img src="./assets/images/Frankestine.jpg" class="card-img-top img-fluid" alt="Audio book cover" />
             </div>
             <div class="card-body mt-4">
               <h4 class="card-title h6 page-title" data-translate="title">Frankestine</h4>
               <p class="card-text" data-translate="author">By Mary Shelby</p>
-              <a href="fs.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
+              <a href="src/pages/fs.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
             </div>
           </div>
         </div>
@@ -292,13 +287,13 @@
         <div class="col" data-book="sherlock">
           <div class="features-card border rounded-5 p-4 text-center">
             <div class="card-cover-container rounded-4 d-flex align-items-center border">
-              <img src="./Images/Adventures_Sherlock_Holmes.jpg" class="card-img-top img-fluid"
+              <img src="./assets/images/Adventures_Sherlock_Holmes.jpg" class="card-img-top img-fluid"
                 alt="Audio book cover" />
             </div>
             <div class="card-body mt-4">
               <h4 class="card-title h6 page-title" data-translate="title">Adventures of Sherlock Holmes</h4>
               <p class="card-text" data-translate="author">By Sir Arthur Conan Doyle</p>
-              <a href="adventures.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
+              <a href="src/pages/adventures.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
             </div>
           </div>
         </div>
@@ -306,12 +301,12 @@
         <div class="col" data-book="sapiens">
           <div class="features-card border rounded-5 p-4 text-center">
             <div class="card-cover-container rounded-4 d-flex align-items-center border">
-              <img src="./Images/Sapiens.jpg" class="card-img-top img-fluid" alt="Audio book cover" />
+              <img src="./assets/images/Sapiens.jpg" class="card-img-top img-fluid" alt="Audio book cover" />
             </div>
             <div class="card-body mt-4">
               <h4 class="card-title h6 page-title" data-translate="title">Sapiens: A Brief History of Humankind</h4>
               <p class="card-text" data-translate="author">By Yuval Noah Harari</p>
-              <a href="rdpd.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
+              <a href="src/pages/rdpd.html" class="btn btn-bd-primary btn-sm mt-4 px-5 rounded-5">Discover</a>
             </div>
           </div>
         </div>
@@ -320,7 +315,7 @@
 
     <!-- Embed gd.html -->
     <section class="row rounded-5 p-5 mt-5">
-      <iframe id="gd-iframe" src="gd.html" width="150%" height="850px" frameborder="0"></iframe>
+      <iframe id="gd-iframe" src="./src/pages/gd.html" width="150%" height="850px" frameborder="0"></iframe>
     </section>
 
     <!-- Book buttons navigations -->
@@ -330,7 +325,7 @@
           Book</a>
       </div>
       <div class="flex-item w-auto" style="min-width: 150px;">
-        <a href="./pbd.html" class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5">Next Book</a>
+        <a href="./src/pages/pbd.html" class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5">Next Book</a>
       </div>
     </section>
 
@@ -362,20 +357,14 @@
     </section>
   </main>
 
-<!-- Chatbot Floating Button and Window -->
-  <div id="chatbot-button">
-    <i class="bi bi-chat-dots" style="font-size: 2rem; color: white;"></i>
-  </div>
-  <div id="chatbot-window">
-    <div id="chat-header">
-      <span style="font-weight: bold; font-size: 1.2rem;">Assistant <i class="bi bi-robot"
-          style="font-size: 1.2rem; color: white;"></i></span>
-      <button id="chatbot-close">&times;</button>
-    </div>
-    <div id="chatbot-messages"></div>
-    <form id="chatbot-form">
-      <input id="chatbot-input" type="text" placeholder="Ask about audiobooks..." autocomplete="off">
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  <!-- Footer -->
+  <div id="footer-placeholder" class="mt-auto"></div>
+
+  <!-- JavaScript -->
+
+  <script src="./src/scripts/script.js"></script>
+  <script src="./src/scripts/translation.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="script.js"></script>
