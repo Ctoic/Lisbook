@@ -22,11 +22,11 @@
   width: 100%;
   height: 100%;
   background-color: white; /* Fond blanc pour masquer le contenu */
-  /* z-index: 9999; /* S'assurer que le loader est au-dessus de tout */
-  /* display: flex;
+/* z-index: 9999; /* S'assurer que le loader est au-dessus de tout */
+/* display: flex;
   justify-content: center;
   align-items: center; */
-/*} */  
+/*} */
 
 /* Fullscreen overlay */
 #loader {
@@ -46,9 +46,6 @@
 body.loading {
   overflow: hidden;
 }
-
-
-
 
 /* Spinner size */
 /* .spinner-border {
@@ -72,7 +69,7 @@ body.loading {
   z-index: 9999;
 } */
 /* Hide the default cursor */
-body{
+body {
   cursor: none;
 }
 a,
@@ -80,8 +77,9 @@ button,
 li {
   cursor: pointer;
 }
+
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .faq-answer {
@@ -1147,7 +1145,7 @@ body.light-theme header {
 }
 
 footer.row {
-  padding-top: 6px;  /* smaller footer height */
+  padding-top: 6px; /* smaller footer height */
   padding-bottom: 10px; /* smaller footer height */
 }
 
@@ -1247,7 +1245,7 @@ footer.row .col.mb-3:last-child #newsletterMessage {
 /* Responsive for extra small devices (max-width: 480px) */
 @media (max-width: 480px) {
   .ctrl-player .ctrl-buttons {
-    padding: 0px; 
+    padding: 0px;
   }
 
   .ctrl-player .ctrl-buttons .ctrl-button-small {
@@ -1274,8 +1272,6 @@ footer.row .col.mb-3:last-child #newsletterMessage {
     font-size: 1.5rem;
   }
 }
-
-
 
 /* Contact Section */
 h2.display-5 {
@@ -1340,7 +1336,6 @@ button:hover {
   transform: scale(1.1); /* Slightly enlarge icons on hover */
 }
 
-
 /* Friend Card Styling */
 .friend-card {
   cursor: pointer;
@@ -1369,7 +1364,7 @@ button:hover {
 /* Style for GitHub Profile Button */
 .friend-content .btn {
   background-color: #25a56a; /* Consistent green color */
-  color: #fff;               /* White text for visibility */
+  color: #fff; /* White text for visibility */
   border: none;
   padding: 8px 16px;
   font-size: 0.9rem;
@@ -1380,7 +1375,6 @@ button:hover {
   color: #fff;
   transform: scale(1.05);
 }
-
 
 #add-friend {
   width: 100%;
@@ -1403,7 +1397,8 @@ button:hover {
 
 /* Hero Section Animations */
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -1423,7 +1418,8 @@ button:hover {
 }
 
 @keyframes bounce-subtle {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -1504,20 +1500,18 @@ body {
   background: #000000;
 }
 
-
 .pacman {
   position: relative;
   width: 50px;
   height: 50px;
 }
 
-
 /* Pac-Man body parts — fixed size */
 .pacman-top,
 .pacman-bottom {
   position: absolute;
-  width: 50px;         /* fixed size */
-  height: 25px;        /* fixed size */
+  width: 50px; /* fixed size */
+  height: 25px; /* fixed size */
   background: #e0cd5e; /* Pac-Man yellow */
   border-radius: 50px 50px 0 0;
   transform-origin: 50% 100%;
@@ -1534,7 +1528,7 @@ body {
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  background: #EDD130;
+  background: #edd130;
   opacity: 0.4;
   z-index: -1;
   animation: pacman-shine 1.2s ease-in-out infinite alternate;
@@ -1542,11 +1536,11 @@ body {
 
 @keyframes pacman-shine {
   0% {
-    box-shadow: 0 0 6px #EDD130, 0 0 12px #EDD130;
+    box-shadow: 0 0 6px #edd130, 0 0 12px #edd130;
     opacity: 0.6;
   }
   100% {
-    box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+    box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
     opacity: 1;
   }
 }
@@ -1564,13 +1558,23 @@ body {
 }
 
 @keyframes pacman-top {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(-35deg); }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-35deg);
+  }
 }
 
 @keyframes pacman-bottom {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(35deg); }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(35deg);
+  }
 }
 
 /* Pac-Man container movement — responsive margins */
@@ -1580,15 +1584,28 @@ body {
   animation: move-horizontal 10s ease-in-out infinite;
 }
 
-
 @keyframes move-horizontal {
-  0% { left: 20vw; transform: scaleX(1); }
-  45% { left: 75vw; transform: scaleX(1); }
-  50% { left: 75vw; transform: scaleX(-1); }
-  95% { left: 20vw; transform: scaleX(-1); }
-  100% { left: 20vw; transform: scaleX(1); }
+  0% {
+    left: 20vw;
+    transform: scaleX(1);
+  }
+  45% {
+    left: 75vw;
+    transform: scaleX(1);
+  }
+  50% {
+    left: 75vw;
+    transform: scaleX(-1);
+  }
+  95% {
+    left: 20vw;
+    transform: scaleX(-1);
+  }
+  100% {
+    left: 20vw;
+    transform: scaleX(1);
+  }
 }
-
 
 /* Dot style — fixed size but relative position */
 .dot {
@@ -1626,13 +1643,24 @@ body {
 }
 
 /* Dot positions relative */
-.dot-1 { left: 35%; }
-.dot-2 { left: 40%; }
-.dot-3 { left: 45%; }
-.dot-4 { left: 50%; }
-.dot-5 { left: 55%; }
-.dot-6 { left: 60%; }
-
+.dot-1 {
+  left: 35%;
+}
+.dot-2 {
+  left: 40%;
+}
+.dot-3 {
+  left: 45%;
+}
+.dot-4 {
+  left: 50%;
+}
+.dot-5 {
+  left: 55%;
+}
+.dot-6 {
+  left: 60%;
+}
 
 /* Scroll to top button styles */
 .scroll-to-top-btn {
@@ -1681,7 +1709,8 @@ body {
 }
 
 @keyframes bounce-arrow {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -1697,7 +1726,7 @@ body {
     width: 45px;
     height: 45px;
   }
-  
+
   .scroll-arrow {
     width: 20px;
     height: 20px;
