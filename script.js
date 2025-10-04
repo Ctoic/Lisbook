@@ -557,18 +557,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   // --- End Cursor Smooth Animation ---
 
-  // --- Keyboard Shortcuts ---
-  if (audioPlayer) {
-    document.addEventListener("keydown", function (e) {
-      switch (e.code) {
-        case "Space": // Play / Pause
-          e.preventDefault();
-          if (audioPlayer.paused) {
-            audioPlayer.play();
-          } else {
-            audioPlayer.pause();
-          }
-          break;
+    // --- Keyboard Shortcuts ---
+    if (audioPlayer) {
+        document.addEventListener("keydown", function (e) {
+        // Don't block space/shortcuts if typing in an input, textarea, or contenteditable
+          const tag = e.target.tagName.toLowerCase();
+          const isEditable = e.target.isContentEditable;
+          if (tag === "input" || tag === "textarea" || isEditable) return;
+
+            switch (e.code) {
+                case "Space": // Play / Pause
+                    e.preventDefault();
+                    if (audioPlayer.paused) {
+                        audioPlayer.play();
+                    } else {
+                        audioPlayer.pause();
+                    }
+                    break;
 
         case "ArrowRight": // Jump forward 30 seconds
           audioPlayer.currentTime += 30;
@@ -614,10 +619,55 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    if (ctrlFastBackward) {
-      ctrlFastBackward.addEventListener("click", function () {
-        audioPlayer.currentTime -= 30;
-      });
+    if (circles.length > 0) {
+        animateCircles();
+    }
+    // --- End Cursor Smooth Animation ---
+
+    // --- Keyboard Shortcuts ---
+    if (audioPlayer) {
+        document.addEventListener("keydown", function (e) {
+        // Don't block space/shortcuts if typing in an input, textarea, or contenteditable
+          const tag = e.target.tagName.toLowerCase();
+          const isEditable = e.target.isContentEditable;
+          if (tag === "input" || tag === "textarea" || isEditable) return;
+
+            switch (e.code) {
+                case "Space": // Play / Pause
+                    e.preventDefault();
+                    if (audioPlayer.paused) {
+                        audioPlayer.play();
+                    } else {
+                        audioPlayer.pause();
+                    }
+                    break;
+
+                case "ArrowRight": // Jump forward 30 seconds
+                    audioPlayer.currentTime += 30;
+                    break;
+
+                case "ArrowLeft": // Go back 30 seconds
+                    audioPlayer.currentTime -= 30;
+                    break;
+
+                case "Equal": 
+                case "NumpadAdd": // Increase volume
+                    if (audioPlayer.volume < 1) {
+                        audioPlayer.volume = Math.min(audioPlayer.volume + 0.1, 1);
+                    }
+                    break;
+
+                case "Minus": 
+                case "NumpadSubtract": // Reduce volume
+                    if (audioPlayer.volume > 0) {
+                        audioPlayer.volume = Math.max(audioPlayer.volume - 0.1, 0);
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        });
     }
 
     if (volumeUp) {
@@ -931,61 +981,92 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (autoTypeTitleElement) {
       setTimeout(eraseTitle, pauseDuration);
     }
-  };
 
-  const eraseTitle = () => {
-    const currentTitle = titles[titleIndex];
-
-    if (autoTypeTitleElement && charIndex > 0) {
-      autoTypeTitleElement.textContent = currentTitle.slice(0, charIndex - 1);
-      charIndex--;
-      setTimeout(eraseTitle, erasingSpeed);
-    } else {
-      titleIndex = (titleIndex + 1) % titles.length;
-      setTimeout(autoTypeTitle, typingSpeed);
-    }
-  };
-
-  if (autoTypeTitleElement) {
-    autoTypeTitle();
-  }
-  // --- End Contributor Title Auto-Type ---
-
-  // --- Contact Page Submission ---
-  const contactForm = document.getElementById("contact-form");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const name = document.getElementById("name")?.value;
-      const email = document.getElementById("email")?.value;
-      const phone = document.getElementById("phone")?.value;
-      const message = document.getElementById("message")?.value;
-      const successMsg = document.getElementById("success-msg");
-
-      if (name && email && phone && message && successMsg) {
-        successMsg.classList.remove("hidden");
-        setTimeout(() => successMsg.classList.add("hidden"), 5000);
-
-        this.reset();
+    let booksData = null;
+    const chatbotButton = document.getElementById("chatbot-button");
+    const chatbotWindow = document.getElementById("chatbot-window");
+    const chatbotClose = document.getElementById("chatbot-close");
+    const chatbotForm = document.getElementById("chatbot-form");
+    const chatbotInput = document.getElementById("chatbot-input");
+    const chatbotMessages = document.getElementById("chatbot-messages");
+  
+    // Show/hide chatbot window
+    chatbotButton.onclick = () => {
+      chatbotWindow.style.display = "flex";
+      chatbotButton.style.display = "none";
+    };
+    chatbotClose.onclick = () => {
+      chatbotWindow.style.display = "none";
+      chatbotButton.style.display = "flex";
+    };
+  
+    // Fetch books data when chat opens (only once)
+    chatbotButton.addEventListener("click", async () => {
+      console.log("ChatbotButton Clicked");
+      if (!booksData) {
+        try {
+          const res = await fetch("https://raw.githubusercontent.com/Ctoic/Lisbook/refs/heads/main/data/books.json");
+          booksData = await res.json();
+        } catch (e) {
+          booksData = null;
+          addChatbotMessage("assistant", "Sorry, I couldn't load the book data. Please try again later.");
+        }
       }
     });
-  }
-
-  // --- File Loading ---
-  // Load header and footer (dependent on external files)
-  loadHTML("./pages/header.html", "header-placeholder");
-  loadHTML("./pages/footer.html", "footer-placeholder");
-
-  // --- Load Contributors on About Page ---
-  // Check if the contributor container exists (only on about.html)
-  if (
-    document.querySelector(
-      ".row.row-cols-1.row-cols-md-3.row-cols-lg-5.g-4.mt-4.align-items-stretch"
-    )
-  ) {
-    loadContributors();
-  }
+  
+    // Add message to chat window
+    function addChatbotMessage(sender, text) {
+      const msgDiv = document.createElement("div");
+      msgDiv.className = sender;
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+      if (sender === "assistant") {
+        bubble.innerHTML = marked.parse(text);
+      } else {
+        bubble.textContent = text;
+      }
+      msgDiv.appendChild(bubble);
+      chatbotMessages.appendChild(msgDiv);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+  
+    // Handle chat form submit
+    chatbotForm.onsubmit = async (e) => {
+      e.preventDefault();
+      const userMsg = chatbotInput.value.trim();
+      if (!userMsg) return;
+      addChatbotMessage("user", userMsg);
+      chatbotInput.value = "";
+      addChatbotMessage("assistant", "Thinking...");
+  
+      // Prepare prompt for Gemini
+      let context = "You are Lisbook Assistant, a friendly and knowledgeable chatbot for the Lisbook audiobook web app. Use the following audiobook data to answer user questions:\n";
+      context += JSON.stringify(booksData, null, 2);
+      context += "\nUser: " + userMsg + "\nAssistant:";
+  
+      // Call Gemini API (replace YOUR_GEMINI_API_KEY with your actual key)
+      try {
+        const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyBD_Ah7sLgnHKgUZHFqoWjpwMEdFoAznoI", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: context }] }]
+          })
+        });
+        const data = await response.json();
+        // Remove "Thinking..." message
+        chatbotMessages.removeChild(chatbotMessages.lastChild);
+        if (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0].text) {
+          addChatbotMessage("assistant", data.candidates[0].content.parts[0].text);
+        } else {
+          addChatbotMessage("assistant", "Sorry, I couldn't get a response. Please try again.");
+        }
+      } catch (err) {
+        chatbotMessages.removeChild(chatbotMessages.lastChild);
+        addChatbotMessage("assistant", "Sorry, there was an error connecting to the assistant.");
+      }
+    };
+  
 });
 
 // Hide the loader when the page is fully loaded
