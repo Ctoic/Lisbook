@@ -38,6 +38,7 @@ function showErrorPopup(message) {
     `;
 
     document.body.appendChild(errorPopup);
+    
 
     // Attach event listener to the close button
     const closeButton = errorPopup.querySelector("button");
@@ -81,33 +82,53 @@ function startTyping(target, text) {
 }
 
 // Function to toggle between light and dark theme
-const toggleTheme = () => {
-    // Get the current theme from the <html> element's data-theme attribute
-    const currentTheme = document.documentElement.getAttribute("data-theme");
+// Theme toggle logic
+function toggleTheme() {
+    const body = document.body;
 
-    // Determine the new theme based on the current one
-    const newTheme = currentTheme === "light" ? "dark" : "light";
-
-    // Set the new theme on the <html> element
-    document.documentElement.setAttribute("data-theme", newTheme);
-
-    // Save the new theme to localStorage
-    localStorage.setItem("theme", newTheme);
-
-    // Update the images based on the new theme
-    const img1 = document.getElementById("image1");
-    const img2 = document.getElementById("image2");
-
-    if (newTheme === "light") {
-        // Use a placeholder URL for the light theme image
-        if (img1) img1.src = "https://placehold.co/800x600/f5f7fa/2c3e50?text=Lisbook+Story+Light";
-        if (img2) img2.src = "https://placehold.co/800x600/f5f7fa/2c3e50?text=Lisbook+Open+Source+Light";
+    if (body.classList.contains("dark-theme")) {
+        body.classList.remove("dark-theme");
+        body.classList.add("light-theme");
+        localStorage.setItem("theme", "light");
     } else {
-        // Use a placeholder URL for the dark theme image
-        if (img1) img1.src = "https://placehold.co/800x600/121212/a7e078?text=Lisbook+Story+Dark";
-        if (img2) img2.src = "https://placehold.co/800x600/121212/a7e078?text=Lisbook+Open+Source+Dark";
+        body.classList.remove("light-theme");
+        body.classList.add("dark-theme");
+        localStorage.setItem("theme", "dark");
     }
-};
+
+    updateThemeIcons();
+}
+
+// Update the visibility of theme icons
+function updateThemeIcons() {
+    const isDark = document.body.classList.contains("dark-theme");
+    document.getElementById("sun-icon").style.display = isDark ? "none" : "block";
+    document.getElementById("moon-icon").style.display = isDark ? "block" : "none";
+}
+
+// Initialize theme on page load
+function initializeTheme() {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-theme");
+        document.body.classList.remove("light-theme");
+    } else {
+        document.body.classList.add("light-theme");
+        document.body.classList.remove("dark-theme");
+    }
+
+    updateThemeIcons();
+}
+
+// Setup event listeners after DOM loads
+document.addEventListener("DOMContentLoaded", () => {
+    initializeTheme();
+
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    themeToggleBtn.addEventListener("click", toggleTheme);
+});
+
 
 // --- Contributor Auto Update Logic ---
 async function fetchContributors(repoOwner, repoName) {
@@ -672,20 +693,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // --- Theme Toggle ---
-    function initializeTheme() {
-        const currentTheme = localStorage.getItem("theme") || "dark";
-        document.documentElement.setAttribute("data-theme", currentTheme);
-        toggleTheme(); // Run once to set images and initial state
-    }
-
-    initializeTheme();
-
-    if (themeToggle) {
-        themeToggle.addEventListener("click", () => {
-            toggleTheme();
-        });
-    }
+   
 
     // --- Mobile Menu Toggle ---
     if (menuToggle && menu && menuClose) {

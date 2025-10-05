@@ -735,6 +735,23 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
   display: none; /* Hide sun icon in light theme */
 }
 
+html[data-theme="light"] {
+    --bg-color: #f5f7fa;
+    --text-color: #2c3e50;
+}
+
+html[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
 .profile-section {
   background-color: #1a1a1a;
   border-radius: 12px;
@@ -1939,3 +1956,5 @@ footer a:hover {
     text-align: center;
   }
 }
+
+
