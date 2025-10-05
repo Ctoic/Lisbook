@@ -350,6 +350,8 @@ body.light-theme .playlist-card {
 
 .playlist {
   max-height: 50vh;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
 }
 
 .icon-action-btn-container {
