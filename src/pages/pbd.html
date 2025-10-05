@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="../styles/style.css" />
         <!-- Favicon -->
-        <link rel="icon" href="../../assets/images/favicon.jpg" type="image/png" />
+        <link rel="icon" href="Images/favicon.jpg" type="image/png" />
         <script src="https://cdn.tailwindcss.com"></script>
         <link
             rel="stylesheet"
@@ -14,10 +14,10 @@
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
             rel="stylesheet"
-            xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
             crossorigin="anonymous"
         />
-        <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/1dae96c2c2031.js" data-cmp-host="a.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="16"></script>
+
         <title>My Favorite Books Music App</title>
     </head>
     <body
@@ -54,139 +54,145 @@
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
+        <!-- Navbar -->
         <!-- <div id="header-placeholder" class="sticky top-0 z-20"></div> -->
-        <div id="other-sections">
-            <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
-                <nav class="">
-                    <div
-                        class="container mx-auto flex justify-between items-center"
+        <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
+            <nav class="">
+                <div
+                    class="container mx-auto flex justify-between items-center"
+                >
+                    <!-- Logo -->
+                    <a
+                        class="logo-text h3 font-bold d-inline-flex"
+                        href="./index.html"
                     >
-                        
-                        <!-- Logo -->
-                        <a
-                            class="logo-text h3 font-bold d-inline-flex"
-                            href="../../index.html"
-                        >
-                            <img
-                                src="../../assets/images/lisbook-logo-1.png"
-                                alt="Logo"
-                                width="40"
-                                height="auto"
-                                class="align-text-center me-2"
-                            />
-                            Lisbook
-                        </a>
+                        <img
+                            src="./Images/lisbook-logo-1.png"
+                            alt="Logo"
+                            width="40"
+                            height="auto"
+                            class="align-text-center me-2"
+                        />
+                        Lisbook
+                    </a>
 
-                        
-                        <!-- Menu Links and Theme Toggle -->
+                    <!-- Menu Links and Theme Toggle -->
+                    <div
+                        id="menu"
+                        class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20"
+                    >
                         <div
-                            id="menu"
-                            class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20"
+                            id="menu-close"
+                            class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer"
                         >
-                            <div
-                                id="menu-close"
-                                class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer"
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
                             >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12"
-                                    />
-                                </svg>
-                            </div>
-                            <a
-                                href="../../index.html"
-                                class="text-gray-300 hover:text-green-500"
-                                id="home"
-                                >Home</a
-                            >
-                            <a
-                                href="./about.html"
-                                class="text-gray-300 hover:text-green-500"
-                                id="about"
-                                >About</a
-                            >
-
-                            <a
-                                href="./contact.html"
-                                class="text-gray-300 hover:text-green-500"
-                                >Contact</a
-                            >
-                            <a
-                                href="./faq.html"
-                                class="text-gray-300 hover:text-green-500"
-                                >FAQs</a
-                            >
-                            <button
-                                id="theme-toggle"
-                                class="text-gray-300 hover:text-green-500"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                                    />
-                                </svg>
-                            </button>
-                            
-                            
-                                <!-- Language-selector Toggle -->
-                                <div class="language-selector">
-                                    <select
-                                        id="language"
-                                        onchange="changeLanguageLocally()"
-                                    >
-                                        <option value="en">English</option>
-                                        <option value="fr">Français</option>
-                                        <option value="es">Español</option>
-                                        <option value="zh">简体中文</option>
-                                        <!-- Ajoutez d'autres langues ici -->
-                                    </select>
-                                </div>
-                            </div>
-                            
-
-                            <!-- Mobile Menu Toggle Button -->
-                            <div
-                                id="menu-toggle"
-                                title="Menu"
-                                class="text-gray-300 lg:hidden cursor-pointer"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M4 6h16M4 12h16m-7 6h7"
-                                    />
-                                </svg>
-                            </div>
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
                         </div>
-                </nav>
-            </header>
-        </div>
+                        <a
+                            href="./index.html"
+                            class="text-gray-300 hover:text-green-500"
+                            id="home"
+                            data-translate="nav-home"
+                            >Home</a
+                        >
+                        <a
+                            href="./explore.html"
+                            class="text-gray-300 hover:text-green-500"
+                            id="explore"
+                            data-translate="nav-explore"
+                            >Explore</a
+                        >
+                        <a
+                            href="./about.html"
+                            class="text-gray-300 hover:text-green-500"
+                            id="about"
+                            data-translate="nav-about"
+                            >About</a
+                        >
+
+                        <a
+                            href="./contact.html"
+                            class="text-gray-300 hover:text-green-500"
+                            data-translate="nav-contact"
+                            >Contact</a
+                        >
+                        <a
+                            href="./faq.html"
+                            class="text-gray-300 hover:text-green-500"
+                            data-translate="nav-faqs"
+                            >FAQs</a
+                        >
+                        <button
+                            id="theme-toggle"
+                            class="text-gray-300 hover:text-green-500"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                                />
+                            </svg>
+                        </button>
+                        
+                        <!-- Language-selector Toggle -->
+                        <div class="language-selector">
+                            <select
+                                id="language"
+                                onchange="changeLanguage()"
+                            >
+                                <option value="en">English</option>
+                                <option value="fr">Français</option>
+                                <option value="es">Español</option>
+                                <option value="zh">简体中文</option>
+                                <!-- Ajoutez d'autres langues ici -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Toggle Button -->
+                    <div
+                        id="menu-toggle"
+                        title="Menu"
+                        class="text-gray-300 lg:hidden cursor-pointer"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"
+                            />
+                        </svg>
+                    </div>
+                </div>
+            </nav>
+        </header>
 
         <!-- Social Share Modal -->
         <div
@@ -197,7 +203,7 @@
             tabindex="-1"
         >
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+                <div class="modal-content modal-background">
                     <div class="modal-header">
                         <h1
                             class="modal-title fs-5"
@@ -248,586 +254,437 @@
                         </div>
                     </div>
                     <!-- <div class="modal-footer">
-                <button
-                    class="btn btn-primary"
-                    data-bs-target="#exampleModalToggle2"
-                    data-bs-toggle="modal"
-                >
-                    Open second modal
-                </button>
-                </div> -->
+            <button
+              class="btn btn-primary"
+              data-bs-target="#exampleModalToggle2"
+              data-bs-toggle="modal"
+            >
+              Open second modal
+            </button>
+          </div> -->
                 </div>
             </div>
         </div>
         <!-- Social Share Modal end -->
 
         <main class="container my-5">
-            <div id="book-details">
             <!-- Book Card Display -->
-                <section class="row d-flex align-items-stretch rounded-5 p-5">
-                    <div class="col-12 col-lg-4 mb-5 mb-lg-0">
+            <section class="row d-flex align-items-stretch rounded-5 p-5">
+                <div class="col-12 col-lg-4 mb-5 mb-lg-0">
+                    <div
+                        class="features-card border rounded-5 p-4 text-center h-100"
+                    >
+                        <!-- Cover Image -->
                         <div
-                            class="features-card border rounded-5 p-4 text-center h-100"
+                            class="card-cover-container rounded-4 d-flex align-items-center border"
+                            style="height: 16rem"
                         >
-                            <!-- Cover Image -->
-                            <div
-                                class="card-cover-container rounded-4 d-flex align-items-center border"
-                                style="height: 16rem"
+                            <img
+                                id="img"
+                                src="./Images/cs.jpg"
+                                alt="Pale Blue Dot Cover"
+                                class="card-img-top img-fluid"
+                            />
+                        </div>
+                        <!-- Book Details -->
+                        <div class="mt-4" data-book="paleBlueDot">
+                            <h1 class="text-2xl font-bold text-green-500" data-translate="title">
+                                Pale Blue Dot
+                            </h1>
+                            <h3 class="text-lg mt-2" data-translate="author">By Carl Sagan</h3>
+                            <p class="text-sm mt-2" data-translate="description">
+                                Pale Blue Dot Sagan traces the spellbinding
+                                history of our launch into the cosmos and
+                                assesses the future that looms before us as we
+                                move out into our own solar system and on to
+                                distant galaxies beyond.
+                            </p>
+                        </div>
+
+                        <hr class="opacity-50 w-60 mt-4 mx-auto" />
+
+                        <!-- Favorite, share, comment Buttons -->
+                        <div
+                            class="mt-3 flex justify-center icon-action-btn-container"
+                        >
+                            <i
+                                class="bi bi-heart mx-4 icon-action-btn tooltip-parent tooltip-bottom"
+                                id="favourite-btn"
+                                ><span class="tooltip"
+                                    >Save to Favourites</span
+                                ></i
                             >
-                                <img
-                                    id="img"
-                                    src="../../assets/images/GD.jpeg"
-                                    alt="God Delusion Cover"
-                                    class="card-img-top img-fluid"
-                                />
-                            </div>
-                            <!-- Book Details -->
-                            <div class="mt-4" data-book="godDelusion">
-                                <h1 class="text-2xl font-bold text-green-500" data-translate="title">
-                                    God Delusion
-                                </h1>
-                                <h3 class="text-lg mt-2" data-translate="author">By Richard Dawkins</h3>
-                                <p class="text-sm mt-2" data-translate="description">
-                                    The God Delusion is a book by English biologist Richard Dawkins
-                                    that argues against the existence of a supernatural creator.
-                                </p>
-                            </div>
-
-                            <hr class="opacity-50 w-60 mt-4 mx-auto" />
-
-                            <!-- Favorite, share, comment Buttons -->
-                            <div
-                                class="mt-3 flex justify-center icon-action-btn-container"
+                            <i
+                                class="bi bi-share mx-4 icon-action-btn tooltip-parent tooltip-bottom"
+                                id="share-btn"
+                                data-bs-target="#exampleModalToggle"
+                                data-bs-toggle="modal"
+                                ><span class="tooltip">Share</span></i
                             >
-                                <i
-                                    class="bi bi-heart mx-4 icon-action-btn tooltip-parent tooltip-bottom"
-                                    id="favourite-btn"
-                                    ><span class="tooltip" id="favourite"
-                                        >Save to Favourites</span
-                                    ></i
-                                >
-                                <i
-                                    class="bi bi-share mx-4 icon-action-btn tooltip-parent tooltip-bottom"
-                                    id="share-btn"
-                                    data-bs-target="#exampleModalToggle"
-                                    data-bs-toggle="modal"
-                                    ><span class="tooltip" id="share"
-                                        >Share</span
-                                    ></i
-                                >
 
-                                <i
-                                    class="bi bi-chat mx-4 icon-action-btn tooltip-parent tooltip-bottom"
-                                    id="view-comments-btn"
-                                    ><span class="tooltip" id="view"
-                                        >View comments</span
-                                    ></i
-                                >
-                            </div>
+                            <i
+                                class="bi bi-chat mx-4 icon-action-btn tooltip-parent tooltip-bottom"
+                                id="view-comments-btn"
+                                ><span class="tooltip">View comments</span></i
+                            >
                         </div>
                     </div>
-                    <!-- playlist -->
-                    <div class="col-12 col-lg-8 ps-4" data-book="godDelusion">
-                        <div
-                            class="eatures-card border rounded-5 p-4 text-center h-100"
+                </div>
+                <!-- playlist -->
+                <div class="col-12 col-lg-8 ps-4" data-book="paleBlueDot">
+                    <div
+                        class="eatures-card border rounded-5 p-4 text-center h-100"
+                    >
+                        <ul
+                            id="playlist"
+                            class="playlist list-none text-left overflow-auto m-2 mb-4"
                         >
-                            <ul
-                                id="playlist"
-                                class="playlist list-none text-left overflow-auto m-2 mb-4"
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/PaleBlueDot/Introduction.mp3"
                             >
-                                <li
-                                    class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                    data-src="../../assets/audio/part1.mp3"
-                                >
-                                    <div class="d-flex justify-content-between">
-                                        <p data-translate="t0">Introduction: God Delusion</p>
-                                        <a href="../../assets/audio/part1.mp3" download
-                                            ><i
-                                                class="bi bi-cloud-arrow-down-fill"
-                                            ></i
-                                        ></a>
-                                    </div>
-                                    <div
-                                        class="bg-gray-700 flex-1 rounded-full ring-1"
-                                    >
-                                        <div
-                                            class="progress-bar bg-red bg-white rounded-full"
-                                        ></div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                    data-src="../../assets/audio/part2.mp3"
-                                >
-                                    <div class="d-flex justify-content-between">
-                                        <p data-translate="t1">Track 02</p>
-                                        <a href="../../assets/audio/part2.mp3" download
-                                            ><i
-                                                class="bi bi-cloud-arrow-down-fill"
-                                            ></i
-                                        ></a>
-                                    </div>
-                                    <div
-                                        class="bg-gray-700 flex-1 rounded-full ring-1"
-                                    >
-                                        <div
-                                            class="progress-bar bg-red bg-white rounded-full"
-                                        ></div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                    data-src="../../assets/audio/part3.mp3"
-                                >
-                                    <div class="d-flex justify-content-between">
-                                        <p data-translate="t2">Track 03</p>
-                                        <a href="../../assets/audio/part3.mp3" download
-                                            ><i
-                                                class="bi bi-cloud-arrow-down-fill"
-                                            ></i
-                                        ></a>
-                                    </div>
-                                    <div
-                                        class="bg-gray-700 flex-1 rounded-full ring-1"
-                                    >
-                                        <div
-                                            class="progress-bar bg-red bg-white rounded-full"
-                                        ></div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                    data-src="../../assets/audio/part4.mp3"
-                                >
-                                    <div class="d-flex justify-content-between">
-                                        <p data-translate="t3">Track 04</p>
-                                        <a href="../../assets/audio/part4.mp3" download
-                                            ><i
-                                                class="bi bi-cloud-arrow-down-fill"
-                                            ></i
-                                        ></a>
-                                    </div>
-                                    <div
-                                        class="bg-gray-700 flex-1 rounded-full ring-1"
-                                    >
-                                        <div
-                                            class="progress-bar bg-red bg-white rounded-full"
-                                        ></div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                    data-src="../../assets/audio/part5.mp3"
-                                >
-                                    <div class="d-flex justify-content-between">
-                                        <p data-translate="t4">Track 05</p>
-                                        <a href="../../assets/audio/part5.mp3" download
-                                            ><i
-                                                class="bi bi-cloud-arrow-down-fill"
-                                            ></i
-                                        ></a>
-                                    </div>
-                                    <div
-                                        class="bg-gray-700 flex-1 rounded-full ring-1"
-                                    >
-                                        <div
-                                            class="progress-bar bg-red bg-white rounded-full"
-                                        ></div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                    data-src="../../assets/audio/part6.mp3"
-                                >
-                                    <div class="d-flex justify-content-between">
-                                        <p data-translate="t5">Track 06</p>
-                                        <a href="../../assets/audio/part6.mp3" download
-                                            ><i
-                                                class="bi bi-cloud-arrow-down-fill"
-                                            ></i
-                                        ></a>
-                                    </div>
-                                    <div
-                                        class="bg-gray-700 flex-1 rounded-full ring-1"
-                                    >
-                                        <div
-                                            class="progress-bar bg-red bg-white rounded-full"
-                                        ></div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                    data-src="../../assets/audio/part7.mp3"
-                                >
-                                    <div class="d-flex justify-content-between">
-                                        <p data-translate="t6">Track 07</p>
-                                        <a href="../../assets/audio/part7.mp3" download
-                                            ><i
-                                                class="bi bi-cloud-arrow-down-fill"
-                                            ></i
-                                        ></a>
-                                    </div>
-                                    <div
-                                        class="bg-gray-700 flex-1 rounded-full ring-1"
-                                    >
-                                        <div
-                                            class="progress-bar bg-red bg-white rounded-full"
-                                        ></div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                    data-src="../../assets/audio/part8.mp3"
-                                >
-                                    <div class="d-flex justify-content-between">
-                                        <p data-translate="t7">Track 08</p>
-                                        <a href="../../assets/audio/part8.mp3" download
-                                            ><i
-                                                class="bi bi-cloud-arrow-down-fill"
-                                            ></i
-                                        ></a>
-                                    </div>
-                                    <div
-                                        class="bg-gray-700 flex-1 rounded-full ring-1"
-                                    >
-                                        <div
-                                            class="progress-bar bg-red bg-white rounded-full"
-                                        ></div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                    data-src="../../assets/audio/part9.mp3"
-                                >
-                                    <div class="d-flex justify-content-between">
-                                        <p data-translate="t8">Track 09</p>
-                                        <a href="../../assets/audio/part9.mp3" download
-                                            ><i
-                                                class="bi bi-cloud-arrow-down-fill"
-                                            ></i
-                                        ></a>
-                                    </div>
-                                    <div
-                                        class="bg-gray-700 flex-1 rounded-full ring-1"
-                                    >
-                                        <div
-                                            class="progress-bar bg-red bg-white rounded-full"
-                                        ></div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                    data-src="../../assets/audio/part10.mp3"
-                                >
-                                    <div class="d-flex justify-content-between">
-                                        <p data-translate="t9">Track 10</p>
-                                        <a href="../../assets/audio/part10.mp3" download
-                                            ><i
-                                                class="bi bi-cloud-arrow-down-fill"
-                                            ></i
-                                        ></a>
-                                    </div>
-                                    <div
-                                        class="bg-gray-700 flex-1 rounded-full ring-1"
-                                    >
-                                        <div
-                                            class="progress-bar bg-red bg-white rounded-full"
-                                        ></div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                    data-src="../../assets/audio/part11.mp3"
-                                >
-                                    <div class="d-flex justify-content-between">
-                                        <p data-translate="t10">Track 11</p>
-                                        <a href="../../assets/audio/part11.mp3" download
-                                            ><i
-                                                class="bi bi-cloud-arrow-down-fill"
-                                            ></i
-                                        ></a>
-                                    </div>
-                                    <div
-                                        class="bg-gray-700 flex-1 rounded-full ring-1"
-                                    >
-                                        <div
-                                            class="progress-bar bg-red bg-white rounded-full"
-                                        ></div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                    data-src="../../assets/audio/part12.mp3"
-                                >
-                                    <div class="d-flex justify-content-between">
-                                        <p data-translate="t11">Track 12</p>
-                                        <a href="../../assets/audio/part12.mp3" download
-                                            ><i
-                                                class="bi bi-cloud-arrow-down-fill"
-                                            ></i
-                                        ></a>
-                                    </div>
-                                    <div
-                                        class="bg-gray-700 flex-1 rounded-full ring-1"
-                                    >
-                                        <div
-                                            class="progress-bar bg-red bg-white rounded-full"
-                                        ></div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                    data-src="../../assets/audio/part13.mp3"
-                                >
-                                    <div class="d-flex justify-content-between">
-                                        <p data-translate="t12">Track 13</p>
-                                        <a href="../../assets/audio/part13.mp3" download
-                                            ><i
-                                                class="bi bi-cloud-arrow-down-fill"
-                                            ></i
-                                        ></a>
-                                    </div>
-                                    <div
-                                        class="bg-gray-700 flex-1 rounded-full ring-1"
-                                    >
-                                        <div
-                                            class="progress-bar bg-red bg-white rounded-full"
-                                        ></div>
-                                    </div>
-                                </li>
-                                <li
-                                    class="adiobk-sub-item d-flex justify-content-between flex-column"
-                                    data-src="../../assets/audio/part14.mp3"
-                                >
-                                    <div class="d-flex justify-content-between">
-                                        <p data-translate="t13">Track 14</p>
-                                        <a href="../../assets/audio/part14.mp3" download
-                                            ><i
-                                                class="bi bi-cloud-arrow-down-fill"
-                                            ></i
-                                        ></a>
-                                    </div>
-                                    <div
-                                        class="bg-gray-700 flex-1 rounded-full ring-1"
-                                    >
-                                        <div
-                                            class="progress-bar bg-red bg-white rounded-full"
-                                        ></div>
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <div class="player container rounded-5">
-                                <audio
-                                    id="audio-player"
-                                    class="mt-4 mx-auto"
-                                ></audio>
-                                <span id="currentTime">0:00</span>
-                                <input
-                                    type="range"
-                                    id="seekSlider"
-                                    min="0"
-                                    value="0"
-                                />
-                                <span id="duration">0:00</span>
-                                <!-- Speed control -->
-                                <div class="relative inline-block">
-                                    <span id="speedButton" class="cursor-pointer text-green-300 font-semibold  rounded-lg py-1 px-3  hover:text-green-200 transition">1x</span>
-                                    
-                                    <!-- Dropdown Menu -->
-                                    <ul id="speedDropdown" class="absolute hidden bg-gray-800 shadow-md rounded-xl mt-2 w-20">
-                                        <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="0.5">0.5x</li>
-                                        <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="1">1x</li>
-                                        <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="1.5">1.5x</li>
-                                        <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="2">2x</li>
-                                    </ul>
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t0">Introduction</p>
+                                    <a
+                                        href="audio/PaleBlueDot/Introduction.mp3"
+                                        download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
                                 </div>
-                            </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/PaleBlueDot/chap-1_you_are_here.mp3"
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t1">Chapter 01: You are here</p>
+                                    <a
+                                        href="audio/PaleBlueDot/chap-1_you_are_here.mp3"
+                                        download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
+                                </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/PaleBlueDot/Chap-2_aberrations of light.mp3"
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t2">Chapter 02: Aberrations of light</p>
+                                    <a
+                                        href="audio/PaleBlueDot/Chap-2_aberrations of light.mp3"
+                                        download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
+                                </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/PaleBlueDot/chap-3_the great demotions.mp3"
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t3">Chapter 03: The great demotions</p>
+                                    <a
+                                        href="audio/PaleBlueDot/chap-3_the great demotions.mp3"
+                                        download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
+                                </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/PaleBlueDot/chap-4_a universe not made for us.mp3"
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t4">Chapter 04: A universe not made for us</p>
+                                    <a
+                                        href="audio/PaleBlueDot/chap-4_a universe not made for us.mp3"
+                                        download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
+                                </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/PaleBlueDot/chap-5_is there intelligent life on earth.mp3"
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t5">Chapter 05: Is there intelligent life on earth?</p>
+                                    <a
+                                        href="audio/PaleBlueDot/chap-5_is there intelligent life on earth.mp3"
+                                        download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
+                                </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/PaleBlueDot/chap-6_the triumph of voyager.m4b"
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t6">Chapter 06: The triumph of Voyager</p>
+                                    <a
+                                        href="audio/PaleBlueDot/chap-6_the triumph of voyager.mp3"
+                                        download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
+                                </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/PaleBlueDot/chap-6_the triumph of voyager.mp3"
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t7">Chapter 07: Among the moons of Saturn</p>
+                                    <a
+                                        href="audio/PaleBlueDot/chap-7_among the moons of saturn.mp3"
+                                        download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
+                                </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/PaleBlueDot/chap-8_the first new planet.mp3"
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t8">Chpater 08: The first new planet</p>
+                                    <a
+                                        href="audio/PaleBlueDot/chap-8_the first new planet.mp3"
+                                        download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
+                                </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
+                        </ul>
 
-                            <!-- Audio Players Controls Buttons -->
+                        <div class="player container rounded-5">
+                            <audio
+                                id="audio-player"
+                                class="mt-4 mx-auto"
+                            ></audio>
+                            <span id="currentTime">0:00</span>
+                            <input
+                                type="range"
+                                id="seekSlider"
+                                min="0"
+                                value="0"
+                            />
+                            <span id="duration">0:00</span>
+                            <!-- Speed control -->
+                            <div class="relative inline-block">
+                                <span id="speedButton" class="cursor-pointer text-green-300 font-semibold  rounded-lg py-1 px-3  hover:text-green-200 transition">1x</span>
+                                
+                                <!-- Dropdown Menu -->
+                                <ul id="speedDropdown" class="absolute hidden bg-gray-800 shadow-md rounded-xl mt-2 w-20">
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="0.5">0.5x</li>
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="1">1x</li>
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="1.5">1.5x</li>
+                                    <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="2">2x</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Audio Players Controls Buttons -->
+                        <div
+                            class="ctrl-player mt-4 px-5 mx-auto"
+                            id="ctrl-player"
+                        >
                             <div
-                                class="ctrl-player mt-4 px-5 mx-auto"
-                                id="ctrl-player"
+                                class="ctrl-buttons d-flex justify-content-evenly align-items-center"
                             >
                                 <div
-                                    class="ctrl-buttons d-flex justify-content-evenly align-items-center"
+                                    class="ctrl-button ctrl-button-small"
+                                    id="volume-down"
                                 >
-                                    <div
-                                        class="ctrl-button ctrl-button-small"
-                                        id="volume-down"
-                                    >
-                                        <i class="bi bi-volume-down-fill"></i>
-                                    </div>
-                                    <div
-                                        class="ctrl-button ctrl-button-medium"
-                                        id="fast-backward"
-                                    >
-                                        <span>-30</span>
-                                    </div>
-                                    <div
-                                        class="ctrl-button ctrl-button-large"
-                                        id="ctrl-play"
-                                    >
-                                        <i class="bi bi-play-fill"></i>
-                                    </div>
-                                    <div
-                                        class="ctrl-button ctrl-button-medium"
-                                        id="fast-forward"
-                                    >
-                                        <span>+30</span>
-                                    </div>
-                                    <div
-                                        class="ctrl-button ctrl-button-small"
-                                        id="volume-up"
-                                    >
-                                        <i class="bi bi-volume-up-fill"></i>
-                                    </div>
+                                    <i class="bi bi-volume-down-fill"></i>
+                                </div>
+                                <div
+                                    class="ctrl-button ctrl-button-medium"
+                                    id="fast-backward"
+                                >
+                                    <span>-30</span>
+                                </div>
+                                <div
+                                    class="ctrl-button ctrl-button-large"
+                                    id="ctrl-play"
+                                >
+                                    <i class="bi bi-play-fill"></i>
+                                </div>
+                                <div
+                                    class="ctrl-button ctrl-button-medium"
+                                    id="fast-forward"
+                                >
+                                    <span>+30</span>
+                                </div>
+                                <div
+                                    class="ctrl-button ctrl-button-small"
+                                    id="volume-up"
+                                >
+                                    <i class="bi bi-volume-up-fill"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
-            <!-- Book details playlist ends -->
+                </div>
+            </section>
 
-            <!-- Other content of gd.html -->
-            <div id="other-sections">
+            <!-- Book buttons navigations -->
+            <section
+                class="row d-flex align-items-stretch rounded-5 p-5 my-5 gx-5 text-center"
+            >
+                <div class="col-md-6">
+                    <a
+                        href="./index.html"
+                        class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5"
+                        >Previous Book</a
+                    >
+                </div>
+                <div class="col-md-6">
+                    <a
+                        href="./fs.html"
+                        class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5"
+                        >Next Book</a
+                    >
+                </div>
+            </section>
+            <!-- Book buttons navigations end -->
 
-                <!-- Book buttons navigations -->
-                <section
-                    class="row d-flex align-items-stretch rounded-5 p-5 my-5 gx-5 text-center"
-                >
-                    <div class="col-md-6">
-                        <a
-                            href="../../index.html"
-                            class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5"
-                            >Previous Book</a
-                        >
-                    </div>
-                    <div class="col-md-6">
-                        <a
-                            href="./rdpd.html"
-                            class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5"
-                            >Next Book</a
-                        >
-                    </div>
-                </section>
-                <!-- Book buttons navigations end -->
+            <!-- Comments Section -->
+            <section class="row rounded-5 p-5 mt-5">
+                <div class="container mx-auto p-6 rounded-lg">
+                    <h2 class="display-5 page-title fw-semibold mb-6">
+                        Share Your Comments
+                    </h2>
+                    <form id="comment-form" class="space-y-4 mt-5">
+                        <div>
+                            <label for="username" class="form-label"
+                                >Your Name:</label
+                            >
+                            <input
+                                type="text"
+                                id="username"
+                                class="form-control mt-2 rounded-5 bg-body-tertiary border"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="comment" class="form-label"
+                                >Your Comment:</label
+                            >
+                            <textarea
+                                id="comment"
+                                class="form-control mt-2 rounded-5 bg-body-tertiary border"
+                                rows="6"
+                                required
+                            ></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button
+                                type="submit"
+                                class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600"
+                            >
+                                Share comment
+                            </button>
+                        </div>
+                    </form>
 
-                <!-- Comments Section -->
-                <section class="row rounded-5 p-5 mt-5">
-                    <div class="container mx-auto p-6 rounded-lg">
-                        <h2
-                            class="display-5 page-title fw-semibold mb-6"
-                            id="share1"
-                        >
-                            Share Your Comments
-                        </h2>
-                        <form id="comment-form" class="space-y-4 mt-5">
-                            <div>
-                                <label
-                                    for="username"
-                                    class="form-label"
-                                    id="yourname"
-                                    >Your Name:</label
-                                >
-                                <input
-                                    type="text"
-                                    id="username"
-                                    class="form-control mt-2 rounded-5 bg-body-tertiary border"
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label
-                                    for="comment"
-                                    class="form-label"
-                                    id="yourcomment"
-                                    >Your Comment:</label
-                                >
-                                <textarea
-                                    id="comment"
-                                    class="form-control mt-2 rounded-5 bg-body-tertiary border"
-                                    rows="6"
-                                    required
-                                ></textarea>
-                            </div>
-                            <div class="text-center">
-                                <button
-                                    type="submit"
-                                    class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600"
-                                    id="share2"
-                                >
-                                    Share comment
-                                </button>
-                            </div>
-                        </form>
-
-                        <div id="comments-list" class="mt-10 space-y-4"></div>
-                    </div>
-                </section>
-            </div>
-            <!-- Other content of gd.html ends here-->
+                    <div id="comments-list" class="mt-10 space-y-4"></div>
+                </div>
+            </section>
         </main>
 
-        <!-- Other content of gd.html -->
-        <div id="other-sections">
-            <!-- Footer -->
-            <div id="footer-placeholder" class="mt-auto"></div>
-        </div>
-        <!-- Other content of gd.html ends here-->
+        <!-- Footer -->
+        <div id="footer-placeholder" class="mt-auto"></div>
 
         <!-- JavaScript -->
-        <script src="../scripts/script.js"></script>
-        <script src="../scripts/translation.js"></script>
+        <script src="./script.js"></script>
+        <script src="./translation.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"
         ></script>
-        
-        <!-- Show embed section in index.html -->
-        <style>
-            body.embedded #book-details {
-                display: block;
-            }
-            body.embedded #other-sections {
-                display: none;
-            }
-        </style>
-
-        <!-- Ensure language sync in iframe -->
-        <script>
-            function changeLanguageLocally() {
-                const language = document.getElementById('language').value;
-                console.log('Local language change in gd.html:', language);
-                applyTranslations(language);  // Directly apply translations within gd.html
-            }
-
-            function changeLanguage(language) {
-                applyTranslations(language); // Call the translation function from translation.js
-            }
-    
-            if (window.location !== window.parent.location) {
-                document.body.classList.add('embedded');
-            }
-            
-            // Listener for postMessage from index.html
-            window.addEventListener('message', (event) => {
-                if (event.data.type === 'changeLanguage') {
-                    const language = event.data.language;
-                    console.log('Message received in gd.html, applying translations for language:', language);
-                    applyTranslations(language);
-                }
-            });
-
-            document.addEventListener('DOMContentLoaded', function() {
-                const defaultLanguage = 'en';
-                applyTranslations(defaultLanguage);
-            });
-        </script>
-
     </body>
-    
 </html>
-
