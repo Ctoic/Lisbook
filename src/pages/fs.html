@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="../styles/../styles/style.css" />
         <!-- Favicon -->
         <link rel="icon" href="Images/favicon.jpg" type="image/png" />
+        <script src="https://cdn.tailwindcss.com"></script>
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -45,6 +45,8 @@
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
+
+    
         <div id="loader" class="spinner-container">
             <div
                 class="spinner-border"
@@ -131,7 +133,7 @@
                             href="./faq.html"
                             class="text-gray-300 hover:text-green-500"
                             data-translate="nav-faqs"
-                            >FAQs</a
+                            >FA</a
                         >
                         <button
                             id="theme-toggle"
@@ -280,22 +282,22 @@
                         >
                             <img
                                 id="img"
-                                src="./Images/Adventures_Sherlock_Holmes.jpg"
-                                alt="Adventures of Sherlock Holmes Cover"
+                                src="./Images/Frankestine.jpg"
+                                alt="Frankenstein Cover"
                                 class="card-img-top img-fluid"
                             />
                         </div>
                         <!-- Book Details -->
-                        <div class="mt-4" data-book="sherlock">
+                        <div class="mt-4" data-book="frankenstein">
                             <h1 class="text-2xl font-bold text-green-500" data-translate="title">
-                                Adventures of Sherlock Holmes
+                                Frankestine
                             </h1>
-                            <h3 class="text-lg mt-2"  data-translate="author">By Sir Arthur Conan Doyle</h3>
+                            <h3 class="text-lg mt-2" data-translate="author">By Mary Shelley</h3>
                             <p class="text-sm mt-2" data-translate="description">
-                                Adventures of Sherlock Holmes by Sir Arthur
-                                Conan Doyle is a collection of twelve detective
-                                mysteries featuring Sherlock Holmes and Dr.
-                                Watson.
+                                Frankenstein tells the story of Victor
+                                Frankenstein, a scientist who creates a
+                                monstrous creature, leading to tragic
+                                consequences.
                             </p>
                         </div>
 
@@ -308,7 +310,7 @@
                             <i
                                 class="bi bi-heart mx-4 icon-action-btn tooltip-parent tooltip-bottom"
                                 id="favourite-btn"
-                                ><span class="tooltip"
+                                ><span class="tooltip" id="favourite"
                                     >Save to Favourites</span
                                 ></i
                             >
@@ -317,19 +319,23 @@
                                 id="share-btn"
                                 data-bs-target="#exampleModalToggle"
                                 data-bs-toggle="modal"
-                                ><span class="tooltip">Share</span></i
+                                ><span class="tooltip" id="share"
+                                    >Share</span
+                                ></i
                             >
 
                             <i
                                 class="bi bi-chat mx-4 icon-action-btn tooltip-parent tooltip-bottom"
                                 id="view-comments-btn"
-                                ><span class="tooltip">View comments</span></i
+                                ><span class="tooltip" id="view"
+                                    >View comments</span
+                                ></i
                             >
                         </div>
                     </div>
                 </div>
                 <!-- playlist -->
-                <div class="col-12 col-lg-8 ps-4" data-book="sherlock">
+                <div class="col-12 col-lg-8 ps-4" data-book="frankenstein">
                     <div
                         class="eatures-card border rounded-5 p-4 text-center h-100"
                     >
@@ -343,9 +349,7 @@
                             >
                                 <div class="d-flex justify-content-between">
                                     <p data-translate="t0">Introduction</p>
-                                    <a
-                                        href="audio/PaleBlueDot/Introduction.mp3"
-                                        download
+                                    <a href="audio/FS/01.mp3" download
                                         ><i
                                             class="bi bi-cloud-arrow-down-fill"
                                         ></i
@@ -479,6 +483,146 @@
                                     ></div>
                                 </div>
                             </li>
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/part8.mp3"
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t7">Chapter 07</p>
+                                    <a href="audio/part8.mp3" download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
+                                </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/part9.mp3"
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t8">Chapter 08</p>
+                                    <a href="audio/part9.mp3" download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
+                                </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/part10.mp3"
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t9">Chapter 09</p>
+                                    <a href="audio/part10.mp3" download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
+                                </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/part11.mp3"
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t10">Chapter 10</p>
+                                    <a href="audio/part11.mp3" download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
+                                </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/part12.mp3"
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t11">Chapter 11</p>
+                                    <a href="audio/part12.mp3" download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
+                                </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/part13.mp3"
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t12">Chapter 12</p>
+                                    <a href="audio/part13.mp3" download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
+                                </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
+                            <li
+                                class="adiobk-sub-item d-flex justify-content-between flex-column"
+                                data-src="audio/part14.mp3"
+                            >
+                                <div class="d-flex justify-content-between">
+                                    <p data-translate="t13">Chapter 13</p>
+                                    <a href="audio/part14.mp3" download
+                                        ><i
+                                            class="bi bi-cloud-arrow-down-fill"
+                                        ></i
+                                    ></a>
+                                </div>
+                                <div
+                                    class="bg-gray-700 flex-1 rounded-full ring-1"
+                                >
+                                    <div
+                                        class="progress-bar bg-red bg-white rounded-full"
+                                    ></div>
+                                </div>
+                            </li>
                         </ul>
 
                         <div class="player container rounded-5">
@@ -558,14 +702,14 @@
             >
                 <div class="col-md-6">
                     <a
-                        href="./rdpd.html"
+                        href="./index.html"
                         class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5"
                         >Previous Book</a
                     >
                 </div>
                 <div class="col-md-6">
                     <a
-                        href="./index.html"
+                        href="./rdpd.html"
                         class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5"
                         >Next Book</a
                     >
@@ -576,12 +720,18 @@
             <!-- Comments Section -->
             <section class="row rounded-5 p-5 mt-5">
                 <div class="container mx-auto p-6 rounded-lg">
-                    <h2 class="display-5 page-title fw-semibold mb-6">
+                    <h2
+                        class="display-5 page-title fw-semibold mb-6"
+                        id="share1"
+                    >
                         Share Your Comments
                     </h2>
                     <form id="comment-form" class="space-y-4 mt-5">
                         <div>
-                            <label for="username" class="form-label"
+                            <label
+                                for="username"
+                                class="form-label"
+                                id="yourname"
                                 >Your Name:</label
                             >
                             <input
@@ -592,7 +742,10 @@
                             />
                         </div>
                         <div>
-                            <label for="comment" class="form-label"
+                            <label
+                                for="comment"
+                                class="form-label"
+                                id="yourcomment"
                                 >Your Comment:</label
                             >
                             <textarea
@@ -606,6 +759,7 @@
                             <button
                                 type="submit"
                                 class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600"
+                                id="share2"
                             >
                                 Share comment
                             </button>
@@ -621,9 +775,8 @@
         <div id="footer-placeholder" class="mt-auto"></div>
 
         <!-- JavaScript -->
-
-        <script src="./script.js"></script>
-        <script src="./translation.js"></script>
+        <script src="./../scripts/script.js"></script>
+        <script src="./../scripts/translation.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -631,3 +784,5 @@
         ></script>
     </body>
 </html>
+
+
