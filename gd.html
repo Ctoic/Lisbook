@@ -20,31 +20,29 @@
         <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/1dae96c2c2031.js" data-cmp-host="a.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="16"></script>
         <title>My Favorite Books Music App</title>
     </head>
-    <body
-        class="bg-gray-900 text-gray-300 dark-theme d-flex flex-column min-vh-100"
-    >
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
+    <body class="bg-gray-900 text-gray-300 d-flex flex-column min-vh-100">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
         <div id="loader" class="spinner-container">
             <div
                 class="spinner-border"
@@ -54,19 +52,25 @@
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-        <!-- <div id="header-placeholder" class="sticky top-0 z-20"></div> -->
+        <script>
+            (function() {
+                try {
+                    const saved = localStorage.getItem('theme');
+                    const theme = saved === 'light' ? 'light' : (saved === 'dark' ? 'dark' : null);
+                    if (theme) {
+                        document.documentElement.setAttribute('data-theme', theme);
+                        document.body.classList.remove('light-theme', 'dark-theme');
+                        document.body.classList.add(theme + '-theme');
+                    }
+                } catch (e) { console.warn('iframe theme init error', e); }
+            })();
+        </script>
         <div id="other-sections">
             <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
                 <nav class="">
-                    <div
-                        class="container mx-auto flex justify-between items-center"
-                    >
-                        
+                    <div class="container mx-auto flex justify-between items-center">
                         <!-- Logo -->
-                        <a
-                            class="logo-text h3 font-bold d-inline-flex"
-                            href="./index.html"
-                        >
+                        <a class="logo-text h3 font-bold d-inline-flex" href="./index.html">
                             <img
                                 src="./Images/lisbook-logo-1.png"
                                 alt="Logo"
@@ -76,8 +80,6 @@
                             />
                             Lisbook
                         </a>
-
-                        
                         <!-- Menu Links and Theme Toggle -->
                         <div
                             id="menu"
@@ -123,7 +125,6 @@
                                 data-translate="nav-about"
                                 >About</a
                             >
-
                             <a
                                 href="./contact.html"
                                 class="text-gray-300 hover:text-green-500"
@@ -155,24 +156,16 @@
                                     />
                                 </svg>
                             </button>
-                        
-                        
                             <!-- Language-selector Toggle -->
                             <div class="language-selector">
-                                <select
-                                    id="language"
-                                    onchange="changeLanguageLocally()"
-                                >
+                                <select id="language" onchange="changeLanguageLocally()">
                                     <option value="en">English</option>
                                     <option value="fr">Français</option>
                                     <option value="es">Español</option>
                                     <option value="zh">简体中文</option>
-                                    <!-- Ajoutez d'autres langues ici -->
                                 </select>
                             </div>
                         </div>
-                        
-
                         <!-- Mobile Menu Toggle Button -->
                         <div
                             id="menu-toggle"
@@ -198,7 +191,6 @@
                 </nav>
             </header>
         </div>
-
         <!-- Social Share Modal -->
         <div
             class="modal fade"
@@ -210,10 +202,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1
-                            class="modal-title fs-5"
-                            id="exampleModalToggleLabel"
-                        >
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
                             Share it on :
                         </h1>
                         <button
@@ -223,7 +212,6 @@
                             aria-label="Close"
                         ></button>
                     </div>
-                    <!-- Modale body -->
                     <div class="modal-body">
                         <div class="flex justify-center space-x-4 mt-4">
                             <a
@@ -258,33 +246,15 @@
                             </a>
                         </div>
                     </div>
-                    <!-- <div class="modal-footer">
-            <button
-              class="btn btn-primary"
-              data-bs-target="#exampleModalToggle2"
-              data-bs-toggle="modal"
-            >
-              Open second modal
-            </button>
-          </div> -->
                 </div>
             </div>
         </div>
-        <!-- Social Share Modal end -->
-
         <main class="container my-5">
             <div id="book-details">
-            <!-- Book Card Display -->
                 <section class="row d-flex align-items-stretch rounded-5 p-5">
                     <div class="col-12 col-lg-4 mb-5 mb-lg-0">
-                        <div
-                            class="features-card border rounded-5 p-4 text-center h-100"
-                        >
-                            <!-- Cover Image -->
-                            <div
-                                class="card-cover-container rounded-4 d-flex align-items-center border"
-                                style="height: 16rem"
-                            >
+                        <div class="features-card border rounded-5 p-4 text-center h-100">
+                            <div class="card-cover-container rounded-4 d-flex align-items-center border" style="height: 16rem">
                                 <img
                                     id="img"
                                     src="./Images/GD.jpeg"
@@ -292,22 +262,15 @@
                                     class="card-img-top img-fluid"
                                 />
                             </div>
-                            <!-- Book Details -->
                             <div class="mt-4" data-book="godDelusion">
-							<!-- Font size buttons -->
-
-<div class="text-center my-3">
-    <button id="font-increase" class="bg-green-500 text-white px-4 py-2 rounded mr-2 
-        hover:bg-green-600 active:scale-95 transition-transform duration-150">
-        +
-    </button>
-    <button id="font-decrease" class="bg-red-500 text-white px-4 py-2 rounded
-        hover:bg-red-600 active:scale-95 transition-transform duration-150">
-        -
-    </button>
-</div>
-
-
+                                <div class="text-center my-3">
+                                    <button id="font-increase" class="bg-green-500 text-white px-4 py-2 rounded mr-2 hover:bg-green-600 active:scale-95 transition-transform duration-150">
+                                        +
+                                    </button>
+                                    <button id="font-decrease" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 active:scale-95 transition-transform duration-150">
+                                        -
+                                    </button>
+                                </div>
                                 <h1 class="text-2xl font-bold text-green-500" data-translate="title">
                                     God Delusion
                                 </h1>
@@ -317,293 +280,243 @@
                                     that argues against the existence of a supernatural creator.
                                 </p>
                             </div>
-
                             <hr class="opacity-50 w-60 mt-4 mx-auto" />
-
-                            <!-- Favorite, share, comment Buttons -->
-                            <div
-                                class="mt-3 flex justify-center icon-action-btn-container"
-                            >
+                            <div class="mt-3 flex justify-center icon-action-btn-container">
                                 <i
                                     class="bi bi-heart mx-4 icon-action-btn tooltip-parent tooltip-bottom"
                                     id="favourite-btn"
-                                    ><span class="tooltip" id="favourite"
-                                        >Save to Favourites</span
-                                    ></i
-                                >
+                                    ><span class="tooltip" id="favourite">Save to Favourites</span></i>
                                 <i
                                     class="bi bi-share mx-4 icon-action-btn tooltip-parent tooltip-bottom"
                                     id="share-btn"
                                     data-bs-target="#exampleModalToggle"
                                     data-bs-toggle="modal"
-                                    ><span class="tooltip" id="share"
-                                        >Share</span
-                                    ></i
-                                >
-
+                                    ><span class="tooltip" id="share">Share</span></i>
                                 <i
                                     class="bi bi-chat mx-4 icon-action-btn tooltip-parent tooltip-bottom"
                                     id="view-comments-btn"
-                                    ><span class="tooltip" id="view"
-                                        >View comments</span
-                                    ></i
-                                >
+                                    ><span class="tooltip" id="view">View comments</span></i>
                             </div>
                         </div>
                     </div>
-                    <!-- playlist -->
-					
-<div class="col-12 col-lg-8 ps-4" data-book="godDelusion">
-    <div class="eatures-card border rounded-5 p-4 text-center h-100">
-
-        <!-- Show/Hide Chapters Button -->
-        <div class="text-center mb-3">
-            <button id="toggleChapters" class="btn px-5 py-2 rounded-5 flex items-center justify-center text-gray-800 bg-white hover:bg-green-500 hover:text-white transition">
-                Hide Chapters
-                <i id="toggleIcon" class="bi bi-chevron-up ms-2"></i>
-            </button>
-        </div>
-
-        <!-- List of chapters -->
-        <ul id="playlist" class="playlist list-none text-left overflow-auto m-2 mb-4">
-            <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part1.mp3">
-                <div class="d-flex justify-content-between">
-                    <p data-translate="t0">Introduction: God Delusion</p>
-                    <a href="audio/part1.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
-                </div>
-                <div class="bg-gray-700 flex-1 rounded-full ring-1">
-                    <div class="progress-bar bg-red bg-white rounded-full"></div>
-                </div>
-            </li>
-            <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part2.mp3">
-                <div class="d-flex justify-content-between">
-                    <p data-translate="t1">Track 02</p>
-                    <a href="audio/part2.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
-                </div>
-                <div class="bg-gray-700 flex-1 rounded-full ring-1">
-                    <div class="progress-bar bg-red bg-white rounded-full"></div>
-                </div>
-            </li>
-            <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part3.mp3">
-                <div class="d-flex justify-content-between">
-                    <p data-translate="t2">Track 03</p>
-                    <a href="audio/part3.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
-                </div>
-                <div class="bg-gray-700 flex-1 rounded-full ring-1">
-                    <div class="progress-bar bg-red bg-white rounded-full"></div>
-                </div>
-            </li>
-            <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part4.mp3">
-                <div class="d-flex justify-content-between">
-                    <p data-translate="t3">Track 04</p>
-                    <a href="audio/part4.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
-                </div>
-                <div class="bg-gray-700 flex-1 rounded-full ring-1">
-                    <div class="progress-bar bg-red bg-white rounded-full"></div>
-                </div>
-            </li>
-            <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part5.mp3">
-                <div class="d-flex justify-content-between">
-                    <p data-translate="t4">Track 05</p>
-                    <a href="audio/part5.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
-                </div>
-                <div class="bg-gray-700 flex-1 rounded-full ring-1">
-                    <div class="progress-bar bg-red bg-white rounded-full"></div>
-                </div>
-            </li>
-            <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part6.mp3">
-                <div class="d-flex justify-content-between">
-                    <p data-translate="t5">Track 06</p>
-                    <a href="audio/part6.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
-                </div>
-                <div class="bg-gray-700 flex-1 rounded-full ring-1">
-                    <div class="progress-bar bg-red bg-white rounded-full"></div>
-                </div>
-            </li>
-            <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part7.mp3">
-                <div class="d-flex justify-content-between">
-                    <p data-translate="t6">Track 07</p>
-                    <a href="audio/part7.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
-                </div>
-                <div class="bg-gray-700 flex-1 rounded-full ring-1">
-                    <div class="progress-bar bg-red bg-white rounded-full"></div>
-                </div>
-            </li>
-            <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part8.mp3">
-                <div class="d-flex justify-content-between">
-                    <p data-translate="t7">Track 08</p>
-                    <a href="audio/part8.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
-                </div>
-                <div class="bg-gray-700 flex-1 rounded-full ring-1">
-                    <div class="progress-bar bg-red bg-white rounded-full"></div>
-                </div>
-            </li>
-            <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part9.mp3">
-                <div class="d-flex justify-content-between">
-                    <p data-translate="t8">Track 09</p>
-                    <a href="audio/part9.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
-                </div>
-                <div class="bg-gray-700 flex-1 rounded-full ring-1">
-                    <div class="progress-bar bg-red bg-white rounded-full"></div>
-                </div>
-            </li>
-            <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part10.mp3">
-                <div class="d-flex justify-content-between">
-                    <p data-translate="t9">Track 10</p>
-                    <a href="audio/part10.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
-                </div>
-                <div class="bg-gray-700 flex-1 rounded-full ring-1">
-                    <div class="progress-bar bg-red bg-white rounded-full"></div>
-                </div>
-            </li>
-            <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part11.mp3">
-                <div class="d-flex justify-content-between">
-                    <p data-translate="t10">Track 11</p>
-                    <a href="audio/part11.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
-                </div>
-                <div class="bg-gray-700 flex-1 rounded-full ring-1">
-                    <div class="progress-bar bg-red bg-white rounded-full"></div>
-                </div>
-            </li>
-            <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part12.mp3">
-                <div class="d-flex justify-content-between">
-                    <p data-translate="t11">Track 12</p>
-                    <a href="audio/part12.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
-                </div>
-                <div class="bg-gray-700 flex-1 rounded-full ring-1">
-                    <div class="progress-bar bg-red bg-white rounded-full"></div>
-                </div>
-            </li>
-            <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part13.mp3">
-                <div class="d-flex justify-content-between">
-                    <p data-translate="t12">Track 13</p>
-                    <a href="audio/part13.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
-                </div>
-                <div class="bg-gray-700 flex-1 rounded-full ring-1">
-                    <div class="progress-bar bg-red bg-white rounded-full"></div>
-                </div>
-            </li>
-            <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part14.mp3">
-                <div class="d-flex justify-content-between">
-                    <p data-translate="t13">Track 14</p>
-                    <a href="audio/part14.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
-                </div>
-                <div class="bg-gray-700 flex-1 rounded-full ring-1">
-                    <div class="progress-bar bg-red bg-white rounded-full"></div>
-                </div>
-            </li>
-        </ul>
-
-        <div class="player container rounded-5">
-            <audio id="audio-player" class="mt-4 mx-auto"></audio>
-            <span id="currentTime">0:00</span>
-            <input type="range" id="seekSlider" min="0" value="0" />
-            <span id="duration">0:00</span>
-            <!-- Speed control -->
-            <div class="relative inline-block">
-                <span id="speedButton" class="cursor-pointer text-green-300 font-semibold rounded-lg py-1 px-3 hover:text-green-200 transition">1x</span>
-
-                <ul id="speedDropdown" class="absolute hidden bg-gray-800 shadow-md rounded-xl mt-2 w-20">
-                    <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="0.5">0.5x</li>
-                    <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="1">1x</li>
-                    <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="1.5">1.5x</li>
-                    <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="2">2x</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="ctrl-player mt-4 px-5 mx-auto" id="ctrl-player">
-            <div class="ctrl-buttons d-flex justify-content-evenly align-items-center">
-                <div class="ctrl-button ctrl-button-small" id="volume-down">
-                    <i class="bi bi-volume-down-fill"></i>
-                </div>
-                <div class="ctrl-button ctrl-button-medium" id="fast-backward">
-                    <span>-30</span>
-                </div>
-                <div class="ctrl-button ctrl-button-large" id="ctrl-play">
-                    <i class="bi bi-play-fill"></i>
-                </div>
-                <div class="ctrl-button ctrl-button-medium" id="fast-forward">
-                    <span>+30</span>
-                </div>
-                <div class="ctrl-button ctrl-button-small" id="volume-up">
-                    <i class="bi bi-volume-up-fill"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    const toggleBtn = document.getElementById('toggleChapters');
-    const toggleIcon = document.getElementById('toggleIcon');
-    const playlist = document.getElementById('playlist');
-
-    // Default display of the chapter list
-    playlist.style.display = 'block';
-
-    toggleBtn.addEventListener('click', () => {
-        if (playlist.style.display !== 'none') {
-            playlist.style.display = 'none';
-            toggleBtn.innerText = 'Show Chapters ';
-            toggleIcon.classList.remove('bi-chevron-up');
-            toggleIcon.classList.add('bi-chevron-down');
-            toggleBtn.appendChild(toggleIcon);
-        } else {
-            playlist.style.display = 'block';
-            toggleBtn.innerText = 'Hide Chapters ';
-            toggleIcon.classList.remove('bi-chevron-down');
-            toggleIcon.classList.add('bi-chevron-up');
-            toggleBtn.appendChild(toggleIcon);
-        }
-    });
-</script>
-
+                    <div class="col-12 col-lg-8 ps-4" data-book="godDelusion">
+                        <div class="features-card border rounded-5 p-4 text-center h-100">
+                            <div class="text-center mb-3">
+                                <button id="toggleChapters" class="btn px-5 py-2 rounded-5 flex items-center justify-center text-gray-800 bg-white hover:bg-green-500 hover:text-white transition">
+                                    Hide Chapters
+                                    <i id="toggleIcon" class="bi bi-chevron-up ms-2"></i>
+                                </button>
+                            </div>
+                            <ul id="playlist" class="playlist list-none text-left overflow-auto m-2 mb-4">
+                                <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part1.mp3">
+                                    <div class="d-flex justify-content-between">
+                                        <p data-translate="t0">Introduction: God Delusion</p>
+                                        <a href="audio/part1.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
+                                    </div>
+                                    <div class="bg-gray-700 flex-1 rounded-full ring-1">
+                                        <div class="progress-bar bg-red bg-white rounded-full"></div>
+                                    </div>
+                                </li>
+                                <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part2.mp3">
+                                    <div class="d-flex justify-content-between">
+                                        <p data-translate="t1">Track 02</p>
+                                        <a href="audio/part2.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
+                                    </div>
+                                    <div class="bg-gray-700 flex-1 rounded-full ring-1">
+                                        <div class="progress-bar bg-red bg-white rounded-full"></div>
+                                    </div>
+                                </li>
+                                <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part3.mp3">
+                                    <div class="d-flex justify-content-between">
+                                        <p data-translate="t2">Track 03</p>
+                                        <a href="audio/part3.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
+                                    </div>
+                                    <div class="bg-gray-700 flex-1 rounded-full ring-1">
+                                        <div class="progress-bar bg-red bg-white rounded-full"></div>
+                                    </div>
+                                </li>
+                                <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part4.mp3">
+                                    <div class="d-flex justify-content-between">
+                                        <p data-translate="t3">Track 04</p>
+                                        <a href="audio/part4.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
+                                    </div>
+                                    <div class="bg-gray-700 flex-1 rounded-full ring-1">
+                                        <div class="progress-bar bg-red bg-white rounded-full"></div>
+                                    </div>
+                                </li>
+                                <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part5.mp3">
+                                    <div class="d-flex justify-content-between">
+                                        <p data-translate="t4">Track 05</p>
+                                        <a href="audio/part5.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
+                                    </div>
+                                    <div class="bg-gray-700 flex-1 rounded-full ring-1">
+                                        <div class="progress-bar bg-red bg-white rounded-full"></div>
+                                    </div>
+                                </li>
+                                <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part6.mp3">
+                                    <div class="d-flex justify-content-between">
+                                        <p data-translate="t5">Track 06</p>
+                                        <a href="audio/part6.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
+                                    </div>
+                                    <div class="bg-gray-700 flex-1 rounded-full ring-1">
+                                        <div class="progress-bar bg-red bg-white rounded-full"></div>
+                                    </div>
+                                </li>
+                                <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part7.mp3">
+                                    <div class="d-flex justify-content-between">
+                                        <p data-translate="t6">Track 07</p>
+                                        <a href="audio/part7.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
+                                    </div>
+                                    <div class="bg-gray-700 flex-1 rounded-full ring-1">
+                                        <div class="progress-bar bg-red bg-white rounded-full"></div>
+                                    </div>
+                                </li>
+                                <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part8.mp3">
+                                    <div class="d-flex justify-content-between">
+                                        <p data-translate="t7">Track 08</p>
+                                        <a href="audio/part8.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
+                                    </div>
+                                    <div class="bg-gray-700 flex-1 rounded-full ring-1">
+                                        <div class="progress-bar bg-red bg-white rounded-full"></div>
+                                    </div>
+                                </li>
+                                <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part9.mp3">
+                                    <div class="d-flex justify-content-between">
+                                        <p data-translate="t8">Track 09</p>
+                                        <a href="audio/part9.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
+                                    </div>
+                                    <div class="bg-gray-700 flex-1 rounded-full ring-1">
+                                        <div class="progress-bar bg-red bg-white rounded-full"></div>
+                                    </div>
+                                </li>
+                                <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part10.mp3">
+                                    <div class="d-flex justify-content-between">
+                                        <p data-translate="t9">Track 10</p>
+                                        <a href="audio/part10.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
+                                    </div>
+                                    <div class="bg-gray-700 flex-1 rounded-full ring-1">
+                                        <div class="progress-bar bg-red bg-white rounded-full"></div>
+                                    </div>
+                                </li>
+                                <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part11.mp3">
+                                    <div class="d-flex justify-content-between">
+                                        <p data-translate="t10">Track 11</p>
+                                        <a href="audio/part11.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
+                                    </div>
+                                    <div class="bg-gray-700 flex-1 rounded-full ring-1">
+                                        <div class="progress-bar bg-red bg-white rounded-full"></div>
+                                    </div>
+                                </li>
+                                <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part12.mp3">
+                                    <div class="d-flex justify-content-between">
+                                        <p data-translate="t11">Track 12</p>
+                                        <a href="audio/part12.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
+                                    </div>
+                                    <div class="bg-gray-700 flex-1 rounded-full ring-1">
+                                        <div class="progress-bar bg-red bg-white rounded-full"></div>
+                                    </div>
+                                </li>
+                                <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part13.mp3">
+                                    <div class="d-flex justify-content-between">
+                                        <p data-translate="t12">Track 13</p>
+                                        <a href="audio/part13.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
+                                    </div>
+                                    <div class="bg-gray-700 flex-1 rounded-full ring-1">
+                                        <div class="progress-bar bg-red bg-white rounded-full"></div>
+                                    </div>
+                                </li>
+                                <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part14.mp3">
+                                    <div class="d-flex justify-content-between">
+                                        <p data-translate="t13">Track 14</p>
+                                        <a href="audio/part14.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
+                                    </div>
+                                    <div class="bg-gray-700 flex-1 rounded-full ring-1">
+                                        <div class="progress-bar bg-red bg-white rounded-full"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="player container rounded-5">
+                                <audio id="audio-player" class="mt-4 mx-auto"></audio>
+                                <span id="currentTime">0:00</span>
+                                <input type="range" id="seekSlider" min="0" value="0" />
+                                <span id="duration">0:00</span>
+                                <div class="relative inline-block">
+                                    <span id="speedButton" class="cursor-pointer text-green-300 font-semibold rounded-lg py-1 px-3 hover:text-green-200 transition">1x</span>
+                                    <ul id="speedDropdown" class="absolute hidden bg-gray-800 shadow-md rounded-xl mt-2 w-20">
+                                        <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="0.5">0.5x</li>
+                                        <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="1">1x</li>
+                                        <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="1.5">1.5x</li>
+                                        <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="2">2x</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ctrl-player mt-4 px-5 mx-auto" id="ctrl-player">
+                                <div class="ctrl-buttons d-flex justify-content-evenly align-items-center">
+                                    <div class="ctrl-button ctrl-button-small" id="volume-down">
+                                        <i class="bi bi-volume-down-fill"></i>
+                                    </div>
+                                    <div class="ctrl-button ctrl-button-medium" id="fast-backward">
+                                        <span>-30</span>
+                                    </div>
+                                    <div class="ctrl-button ctrl-button-large" id="ctrl-play">
+                                        <i class="bi bi-play-fill"></i>
+                                    </div>
+                                    <div class="ctrl-button ctrl-button-medium" id="fast-forward">
+                                        <span>+30</span>
+                                    </div>
+                                    <div class="ctrl-button ctrl-button-small" id="volume-up">
+                                        <i class="bi bi-volume-up-fill"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        const toggleBtn = document.getElementById('toggleChapters');
+                        const toggleIcon = document.getElementById('toggleIcon');
+                        const playlist = document.getElementById('playlist');
+                        playlist.style.display = 'block';
+                        toggleBtn.addEventListener('click', () => {
+                            if (playlist.style.display !== 'none') {
+                                playlist.style.display = 'none';
+                                toggleBtn.innerText = 'Show Chapters ';
+                                toggleIcon.classList.remove('bi-chevron-up');
+                                toggleIcon.classList.add('bi-chevron-down');
+                                toggleBtn.appendChild(toggleIcon);
+                            } else {
+                                playlist.style.display = 'block';
+                                toggleBtn.innerText = 'Hide Chapters ';
+                                toggleIcon.classList.remove('bi-chevron-down');
+                                toggleIcon.classList.add('bi-chevron-up');
+                                toggleBtn.appendChild(toggleIcon);
+                            }
+                        });
+                    </script>
                 </section>
             </div>
-            <!-- Book details playlist ends -->
-
-            <!-- Other content of gd.html -->
             <div id="other-sections">
-
-                <!-- Book buttons navigations -->
-                <section
-                    class="row d-flex align-items-stretch rounded-5 p-5 my-5 gx-5 text-center"
-                >
+                <section class="row d-flex align-items-stretch rounded-5 p-5 my-5 gx-5 text-center">
                     <div class="col-md-6">
                         <a
                             href="./index.html"
                             class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5"
-                            >Previous Book</a
-                        >
+                            >Previous Book</a>
                     </div>
                     <div class="col-md-6">
                         <a
                             href="./rdpd.html"
                             class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5"
-                            >Next Book</a
-                        >
+                            >Next Book</a>
                     </div>
                 </section>
-                <!-- Book buttons navigations end -->
-
-                <!-- Comments Section -->
                 <section class="row rounded-5 p-5 mt-5">
                     <div class="container mx-auto p-6 rounded-lg">
-                        <h2
-                            class="display-5 page-title fw-semibold mb-6"
-                            id="share1"
-                        >
+                        <h2 class="display-5 page-title fw-semibold mb-6" id="share1">
                             Share Your Comments
                         </h2>
                         <form id="comment-form" class="space-y-4 mt-5">
                             <div>
-                                <label
-                                    for="username"
-                                    class="form-label"
-                                    id="yourname"
-                                    >Your Name:</label
-                                >
+                                <label for="username" class="form-label" id="yourname">Your Name:</label>
                                 <input
                                     type="text"
                                     id="username"
@@ -612,12 +525,7 @@
                                 />
                             </div>
                             <div>
-                                <label
-                                    for="comment"
-                                    class="form-label"
-                                    id="yourcomment"
-                                    >Your Comment:</label
-                                >
+                                <label for="comment" class="form-label" id="yourcomment">Your Comment:</label>
                                 <textarea
                                     id="comment"
                                     class="form-control mt-2 rounded-5 bg-body-tertiary border"
@@ -635,78 +543,90 @@
                                 </button>
                             </div>
                         </form>
-
                         <div id="comments-list" class="mt-10 space-y-4"></div>
                     </div>
                 </section>
             </div>
-            <!-- Other content of gd.html ends here-->
-        </main>
-
-        <!-- Other content of gd.html -->
-        <div id="other-sections">
-            <!-- Footer -->
             <div id="footer-placeholder" class="mt-auto"></div>
-        </div>
-        <!-- Other content of gd.html ends here-->
-
-
-<!-- Font Size Controls: Increase/Decrease book title, author, and description -->
-<style>
-:root {
-    --font-title: 1.4rem;
-    --font-author: 1.2rem;
-    --font-description: 0.9rem;
-}
-
-[data-book="godDelusion"] h1[data-translate="title"] {
-    font-size: var(--font-title);
-}
-
-[data-book="godDelusion"] h3[data-translate="author"] {
-    font-size: var(--font-author);
-}
-
-[data-book="godDelusion"] p[data-translate="description"] {
-    font-size: var(--font-description);
-}
-
-/* Smooth transition */
-[data-book="godDelusion"] h1,
-[data-book="godDelusion"] h3,
-[data-book="godDelusion"] p {
-    transition: font-size 0.3s ease;
-}
-</style>
-<!-- Font size change script -->
-<script>
-const increaseBtn = document.getElementById('font-increase');
-const decreaseBtn = document.getElementById('font-decrease');
-
-increaseBtn.addEventListener('click', () => {
-    adjustFontSize(1.1); 
-});
-
-decreaseBtn.addEventListener('click', () => {
-    adjustFontSize(0.9); 
-});
-
-function adjustFontSize(factor) {
-    const root = document.documentElement;
-
-    let titleSize = parseFloat(getComputedStyle(root).getPropertyValue('--font-title'));
-    let authorSize = parseFloat(getComputedStyle(root).getPropertyValue('--font-author'));
-    let descSize = parseFloat(getComputedStyle(root).getPropertyValue('--font-description'));
-
-    root.style.setProperty('--font-title', (titleSize * factor) + 'rem');
-    root.style.setProperty('--font-author', (authorSize * factor) + 'rem');
-    root.style.setProperty('--font-description', (descSize * factor) + 'rem');
-}
-</script>
-
-
-
-        <!-- JavaScript -->
+        </main>
+        <style>
+            :root {
+                --font-title: 1.4rem;
+                --font-author: 1.2rem;
+                --font-description: 0.9rem;
+            }
+            [data-book="godDelusion"] h1[data-translate="title"] {
+                font-size: var(--font-title);
+            }
+            [data-book="godDelusion"] h3[data-translate="author"] {
+                font-size: var(--font-author);
+            }
+            [data-book="godDelusion"] p[data-translate="description"] {
+                font-size: var(--font-description);
+            }
+            [data-book="godDelusion"] h1,
+            [data-book="godDelusion"] h3,
+            [data-book="godDelusion"] p {
+                transition: font-size 0.3s ease;
+            }
+            body.embedded #book-details {
+                display: block;
+            }
+            body.embedded #other-sections {
+                display: none;
+            }
+        </style>
+        <script>
+            const increaseBtn = document.getElementById('font-increase');
+            const decreaseBtn = document.getElementById('font-decrease');
+            increaseBtn.addEventListener('click', () => {
+                adjustFontSize(1.1);
+            });
+            decreaseBtn.addEventListener('click', () => {
+                adjustFontSize(0.9);
+            });
+            function adjustFontSize(factor) {
+                const root = document.documentElement;
+                let titleSize = parseFloat(getComputedStyle(root).getPropertyValue('--font-title'));
+                let authorSize = parseFloat(getComputedStyle(root).getPropertyValue('--font-author'));
+                let descSize = parseFloat(getComputedStyle(root).getPropertyValue('--font-description'));
+                root.style.setProperty('--font-title', (titleSize * factor) + 'rem');
+                root.style.setProperty('--font-author', (authorSize * factor) + 'rem');
+                root.style.setProperty('--font-description', (descSize * factor) + 'rem');
+            }
+            function changeLanguageLocally() {
+                const language = document.getElementById('language').value;
+                console.log('Local language change in gd.html:', language);
+                applyTranslations(language);
+            }
+            function changeLanguage(language) {
+                applyTranslations(language);
+            }
+            if (window.location !== window.parent.location) {
+                document.body.classList.add('embedded');
+            }
+            window.addEventListener('message', (event) => {
+                try {
+                    const data = event.data || {};
+                    if (data.type === 'changeLanguage') {
+                        const language = data.language;
+                        console.log('Message received in gd.html, applying translations for language:', language);
+                        applyTranslations(language);
+                    }
+                    if (data.type === 'theme' && (data.theme === 'light' || data.theme === 'dark')) {
+                        document.documentElement.setAttribute('data-theme', data.theme);
+                        document.body.classList.remove('light-theme', 'dark-theme');
+                        document.body.classList.add(data.theme + '-theme');
+                    }
+                } catch (err) {
+                    console.warn('postMessage handler error', err);
+                }
+            });
+            document.addEventListener('DOMContentLoaded', function() {
+                const defaultLanguage = 'en';
+                applyTranslations(defaultLanguage);
+            });
+        </script>
         <script src="./script.js"></script>
         <script src="./translation.js"></script>
         <script
@@ -714,50 +634,5 @@ function adjustFontSize(factor) {
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"
         ></script>
-        
-        <!-- Show embed section in index.html -->
-        <style>
-            body.embedded #book-details {
-              display: block;
-            }
-            body.embedded #other-sections {
-              display: none;
-            }
-        </style>
-
-        <!-- Ensure language sync in iframe -->
-        <script>
-            function changeLanguageLocally() {
-                const language = document.getElementById('language').value;
-                console.log('Local language change in gd.html:', language);
-                applyTranslations(language);  // Directly apply translations within gd.html
-            }
-
-            function changeLanguage(language) {
-                applyTranslations(language); // Call the translation function from translation.js
-            }
-    
-            if (window.location !== window.parent.location) {
-              document.body.classList.add('embedded');
-            }
-            
-            // Listener for postMessage from index.html
-            window.addEventListener('message', (event) => {
-                if (event.data.type === 'changeLanguage') {
-                    const language = event.data.language;
-                    console.log('Message received in gd.html, applying translations for language:', language);
-                    applyTranslations(language);
-                }
-            });
-
-            document.addEventListener('DOMContentLoaded', function() {
-                const defaultLanguage = 'en';
-                applyTranslations(defaultLanguage);
-            });
-        </script>
-
     </body>
-    
 </html>
-
-
