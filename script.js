@@ -80,72 +80,52 @@ function startTyping(target, text) {
     });
 }
 
-// Update sun/moon icons based on active theme
-function updateThemeIcons(theme) {
-    const sunIcon = document.getElementById("sun-icon");
-    const moonIcon = document.getElementById("moon-icon");
-    if (sunIcon && moonIcon) {
-        if (theme === "dark") {
-            sunIcon.classList.remove("hidden");
-            sunIcon.style.display = "inline";
-            moonIcon.classList.add("hidden");
-            moonIcon.style.display = "none";
-        } else {
-            moonIcon.classList.remove("hidden");
-            moonIcon.style.display = "inline";
-            sunIcon.classList.add("hidden");
-            sunIcon.style.display = "none";
-        }
-    }
-}
+// Function to toggle between light and dark theme
+function toggleTheme() {
+    const body = document.body;
 
-function setTheme(newTheme) {
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-
-    if (document.body) {
-        if (newTheme === "light") {
-            document.body.classList.add("light-theme");
-            document.body.classList.remove("dark-theme");
-        } else {
-            document.body.classList.add("dark-theme");
-            document.body.classList.remove("light-theme");
-        }
-    }
-
-    // Update the images based on the new theme
-    const img1 = document.getElementById("image1");
-    const img2 = document.getElementById("image2");
-    if (newTheme === "light") {
-        if (img1) img1.src = "https://placehold.co/800x600/f5f7fa/2c3e50?text=Lisbook+Story+Light";
-        if (img2) img2.src = "https://placehold.co/800x600/f5f7fa/2c3e50?text=Lisbook+Open+Source+Light";
+    if (body.classList.contains("dark-theme")) {
+        body.classList.remove("dark-theme");
+        body.classList.add("light-theme");
+        localStorage.setItem("theme", "light");
     } else {
-        if (img1) img1.src = "https://placehold.co/800x600/121212/a7e078?text=Lisbook+Story+Dark";
-        if (img2) img2.src = "https://placehold.co/800x600/121212/a7e078?text=Lisbook+Open+Source+Dark";
+        body.classList.remove("light-theme");
+        body.classList.add("dark-theme");
+        localStorage.setItem("theme", "dark");
     }
 
-    updateThemeIcons(newTheme);
-
-    // Notify any embedded iframe (gd-iframe) about theme change so it can
-    // apply the same theme (useful for same-origin iframes)
-    try {
-        const iframe = document.getElementById('gd-iframe');
-        if (iframe && iframe.contentWindow) {
-            iframe.contentWindow.postMessage({ type: 'theme', theme: newTheme }, '*');
-        }
-    } catch (e) {
-        // ignore cross-origin or other errors
-        console.warn('Could not post theme to iframe', e);
-    }
+    updateThemeIcons();
 }
 
-// Toggle between light and dark themes
-const toggleTheme = () => {
-    const currentTheme = document.documentElement.getAttribute("data-theme");
-    const newTheme = currentTheme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-};
+// Update the visibility of theme icons
+function updateThemeIcons() {
+    const isDark = document.body.classList.contains("dark-theme");
+    document.getElementById("sun-icon").style.display = isDark ? "none" : "block";
+    document.getElementById("moon-icon").style.display = isDark ? "block" : "none";
+}
 
+// Initialize theme on page load
+function initializeTheme() {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-theme");
+        document.body.classList.remove("light-theme");
+    } else {
+        document.body.classList.add("light-theme");
+        document.body.classList.remove("dark-theme");
+    }
+
+    updateThemeIcons();
+}
+
+// Setup event listeners after DOM loads
+document.addEventListener("DOMContentLoaded", () => {
+    initializeTheme();
+
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    themeToggleBtn.addEventListener("click", toggleTheme);
+});
 // --- Contributor Auto Update Logic ---
 async function fetchContributors(repoOwner, repoName) {
     try {
@@ -718,19 +698,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // --- Theme Toggle ---
-    function initializeTheme() {
-        const storedTheme = localStorage.getItem("theme") || "dark";
-        setTheme(storedTheme); 
-    }
-
-    initializeTheme();
-
-    if (themeToggle) {
-        themeToggle.addEventListener("click", () => {
-            toggleTheme();
-        });
-    }
+    
+    
 
     // --- Mobile Menu Toggle ---
     if (menuToggle && menu && menuClose) {
