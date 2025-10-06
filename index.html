@@ -25,7 +25,25 @@
   <title>My Favorite Books Music App</title>
 </head>
 
-<body class="dark-theme bg-gray-900 text-gray-300 d-flex flex-column min-vh-100">
+<body class="bg-gray-900 text-gray-300 d-flex flex-column min-vh-100">
+  <script>
+    // Initialize theme from localStorage to avoid hard-coded dark mode and prevent
+    // a flash of wrong theme for users who prefer light mode.
+    (function() {
+      try {
+        const saved = localStorage.getItem('theme');
+        const theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        if (document.body) {
+          document.body.classList.remove('light-theme', 'dark-theme');
+          document.body.classList.add(theme + '-theme');
+        }
+      } catch (e) {
+        // ignore storage errors and keep existing classes
+        console.warn('Theme init error', e);
+      }
+    })();
+  </script>
   <div class="circle"></div>
   <div class="circle"></div>
   <div class="circle"></div>
