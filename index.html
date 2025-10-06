@@ -4,6 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- fontawesome icons -->
+   <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="Images/favicon.jpg" type="image/png" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -151,8 +157,13 @@
     </div>
   </section>
 
+
   <!-- Top Audio Books Section -->
   <main class="container my-5">
+
+  <main class="container">
+    <!-- Top audio book -->
+
     <section class="rounded-5 p-5 my-5">
       <h2 class="display-5 page-title fw-semibold" id="top-audio-books">Top Audio Books</h2>
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4 align-items-stretch">
@@ -160,12 +171,51 @@
       </div>
     </section>
 
+
     <!-- Responsive iframe -->
     <section class="row rounded-5 p-5 mt-5">
       <iframe id="gd-iframe" src="gd.html" class="w-full" height="850px" frameborder="0"></iframe>
     </section>
 
     <!-- Comments and Book Navigation remain unchanged -->
+
+    <!-- Embed gd.html -->
+    <section class=" w-screen">
+      <iframe id="gd-iframe" src="gd.html" class=" h-screen w-screen"   frameborder="0"></iframe>
+    </section>
+
+    <!-- Book buttons navigations -->
+    <section class="d-flex justify-content-evenly align-items-stretch rounded-5 p-4 my-5 gx-5 text-center">
+     
+        <a href="./index.html" ><i class="fa-solid fa-arrow-left text-green-500 text-5xl"></i></a>
+        <a href="./pbd.html" ><i class="fa-solid fa-arrow-right text-green-500  text-5xl"></i></a>
+      
+    </section>
+
+    <section class="rounded-5 p-5 mt-5 w-full max-w-3xl mx-auto shadow-md shadow-green-400">
+  <div class="container mx-auto p-4 sm:p-6 rounded-lg flex flex-col items-center justify-center w-full">
+    <h2 class="text-lg sm:text-xl md:text-2xl page-title fw-semibold mb-6 text-center" id="share">
+      Share Your Comments
+    </h2>
+    <form id="comment-form" class="space-y-4 w-full">
+      <div>
+        <input type="text" id="username" class="form-control w-full mt-2 rounded-md  text-green-300 p-2 text-sm sm:text-base" placeholder="UserName" />
+      </div>
+      <div>
+        <textarea id="comment" class="form-control w-full mt-2 rounded-md bg-body-tertiary border p-2 text-sm sm:text-base" placeholder="Comment What You felt" rows="3" required></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="bg-green-500 text-white py-2 px-4 sm:px-6 rounded-md hover:bg-green-600 text-sm sm:text-base" id="share2">
+          Share comment
+        </button>
+      </div>
+    </form>
+
+    <div id="comments-list" class="mt-10 space-y-4 w-full"></div>
+  </div>
+</section>
+
+
   </main>
 
   <!-- Scripts -->
@@ -178,6 +228,33 @@
   <script src="translation.js"></script>
   <script src="marked.min.js"></script>
   <script src="share.js"></script>
+
+
+  <!-- Hero Section Animations -->
+  <script>
+    // Typing effect for hero description
+    document.addEventListener('DOMContentLoaded', function() {
+      const typedTextElement = document.getElementById('typed-text');
+      const text = "Discover and enjoy amazing audio books from around the world. Immerse yourself in captivating stories and knowledge at your fingertips.";
+
+      let index = 0;
+      function typeWriter() {
+        if (index < text.length) {
+          typedTextElement.innerHTML += text.charAt(index);
+          index++;
+          setTimeout(typeWriter, 50);
+        }
+      }
+
+      // Start typing after a short delay
+      setTimeout(typeWriter, 1000);
+    });
+  </script>
+
+
+      <script src="scripts.js"></script>
+</body>
+
   <script src="scripts.js"></script>
 </body>
 
