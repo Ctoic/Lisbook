@@ -213,6 +213,15 @@ async function loadContributors() {
 // --- Main DOM Content Loaded Listener ---
 document.addEventListener("DOMContentLoaded", function () {
     console.log("✓ DOM fully loaded, starting application setup...");
+    try {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || localStorage.getItem('theme') || 'dark';
+        const iframe = document.getElementById('gd-iframe');
+        if (iframe && iframe.contentWindow) {
+            iframe.contentWindow.postMessage({ type: 'theme', theme: currentTheme }, '*');
+        }
+    } catch (e) {
+        console.warn('Could not post initial theme to iframe', e);
+    }
 
     const playlistItems = document.querySelectorAll("#playlist li");
     const progressBars = document.querySelectorAll(".progress-bar");
