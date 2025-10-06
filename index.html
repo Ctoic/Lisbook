@@ -257,6 +257,32 @@
 
     document.getElementById('language').addEventListener('change', changeLanguage);
   </script>
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder" class="mt-auto"></div>
+
+<!-- Chatbot Floating Button and Window -->
+  <div id="chatbot-button">
+    <i class="bi bi-chat-dots" style="font-size: 2rem; color: white;"></i>
+  </div>
+  <div id="chatbot-window">
+    <div id="chat-header">
+      <span style="font-weight: bold; font-size: 1.2rem;">Assistant <i class="bi bi-robot"
+          style="font-size: 1.2rem; color: white;"></i></span>
+      <button id="chatbot-close">&times;</button>
+    </div>
+    <div id="chatbot-messages"></div>
+    <form id="chatbot-form">
+      <input id="chatbot-input" type="text" placeholder="Ask about audiobooks..." autocomplete="off">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+  <script src="app.js"></script>
+  <script src="explore.js"></script>
+  <script src="translation.js"></script>
+  <script src="marked.min.js"></script>
+  <script src="share.js"></script>
+  <script src="header-footer.js"></script>
 
   <!-- Hero Section Typing Animation -->
   <script>
