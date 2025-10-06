@@ -150,6 +150,18 @@
           </select>
         </div>
 
+        <!-- Signup button -->
+        <div>
+          <button id="signupButton" class="w-24 text-white bg-transparent border-2 border-green-600 focus:border-green-700 rounded-full py-[14px] hover:-translate-y-0.5 transition-all duration-300">Sign up</button>
+        </div>
+
+        <!-- Signup button onClick function -->
+         <script>
+          document.getElementById("signupButton").addEventListener("click", function() {
+            window.location.href = "pages/signup.html";
+          })
+         </script>
+
         <!-- Ensure language sync in iframe-->
         <script>
           function changeLanguage() {
