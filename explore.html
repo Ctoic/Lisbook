@@ -16,7 +16,20 @@
     <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/1dae96c2c2031.js" data-cmp-host="a.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="16"></script>
 </head>
 
-<body class="dark-theme bg-gray-900 text-gray-300 d-flex flex-column min-vh-100">
+<body class="bg-gray-900 text-gray-300 d-flex flex-column min-vh-100">
+    <script>
+        (function() {
+            try {
+                const saved = localStorage.getItem('theme');
+                const theme = saved === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+                if (document.body) {
+                    document.body.classList.remove('light-theme', 'dark-theme');
+                    document.body.classList.add(theme + '-theme');
+                }
+            } catch (e) { console.warn('Theme init error', e); }
+        })();
+    </script>
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
@@ -123,7 +136,7 @@
     </header>
     
     <!-- Search and Filter Section -->
-    <section class="search-filter-section" style="background-color: #121212;">
+    <section class="search-filter-section">
         <div class="container mx-auto px-4 py-8">
             <!-- Search and Filter Container -->
             <div class="search-filter-wrapper max-w-7xl mx-auto">
