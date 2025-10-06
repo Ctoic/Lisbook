@@ -21,250 +21,12 @@
         <title>My Favorite Books Music App</title>
     </head>
     <body
-        class="bg-gray-900 text-gray-300 dark-theme d-flex flex-column min-vh-100"
+        class="bg-gray-900 text-gray-300 dark-theme d-flex flex-column min-h-screen"
     >
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-        <div id="loader" class="spinner-container">
-            <div
-                class="spinner-border"
-                role="status"
-                style="width: 4rem; height: 4rem; color: #1db954"
-            >
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
-        <!-- <div id="header-placeholder" class="sticky top-0 z-20"></div> -->
-        <div id="other-sections">
-            <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
-                <nav class="">
-                    <div
-                        class="container mx-auto flex justify-between items-center"
-                    >
-                        
-                        <!-- Logo -->
-                        <a
-                            class="logo-text h3 font-bold d-inline-flex"
-                            href="./index.html"
-                        >
-                            <img
-                                src="./Images/lisbook-logo-1.png"
-                                alt="Logo"
-                                width="40"
-                                height="auto"
-                                class="align-text-center me-2"
-                            />
-                            Lisbook
-                        </a>
-
-                        
-                        <!-- Menu Links and Theme Toggle -->
-                        <div
-                            id="menu"
-                            class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20"
-                        >
-                            <div
-                                id="menu-close"
-                                class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12"
-                                    />
-                                </svg>
-                            </div>
-                            <a
-                                href="./index.html"
-                                class="text-gray-300 hover:text-green-500"
-                                id="home"
-                                >Home</a
-                            >
-                            <a
-                                href="./about.html"
-                                class="text-gray-300 hover:text-green-500"
-                                id="about"
-                                >About</a
-                            >
-
-                            <a
-                                href="./contact.html"
-                                class="text-gray-300 hover:text-green-500"
-                                >Contact</a
-                            >
-                            <a
-                                href="./faq.html"
-                                class="text-gray-300 hover:text-green-500"
-                                >FAQs</a
-                            >
-                            <button
-                                id="theme-toggle"
-                                class="text-gray-300 hover:text-green-500"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                                    />
-                                </svg>
-                            </button>
-                        
-                        
-                            <!-- Language-selector Toggle -->
-                            <div class="language-selector">
-                                <select
-                                    id="language"
-                                    onchange="changeLanguageLocally()"
-                                >
-                                    <option value="en">English</option>
-                                    <option value="fr">Français</option>
-                                    <option value="es">Español</option>
-                                    <option value="zh">简体中文</option>
-                                    <!-- Ajoutez d'autres langues ici -->
-                                </select>
-                            </div>
-                        </div>
-                        
-
-                        <!-- Mobile Menu Toggle Button -->
-                        <div
-                            id="menu-toggle"
-                            title="Menu"
-                            class="text-gray-300 lg:hidden cursor-pointer"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-6 w-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M4 6h16M4 12h16m-7 6h7"
-                                />
-                            </svg>
-                        </div>
-                    </div>
-                </nav>
-            </header>
-        </div>
-
-        <!-- Social Share Modal -->
-        <div
-            class="modal fade"
-            id="exampleModalToggle"
-            aria-hidden="true"
-            aria-labelledby="exampleModalToggleLabel"
-            tabindex="-1"
-        >
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1
-                            class="modal-title fs-5"
-                            id="exampleModalToggleLabel"
-                        >
-                            Share it on :
-                        </h1>
-                        <button
-                            type="button"
-                            class="btn-close rounded-5"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                        ></button>
-                    </div>
-                    <!-- Modale body -->
-                    <div class="modal-body">
-                        <div class="flex justify-center space-x-4 mt-4">
-                            <a
-                                href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:5500/Lisbook/pbd.html&text=Lisbook+god Delusion"
-                                target="_blank"
-                            >
-                                <img
-                                    src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-                                    alt="Share on Facebook"
-                                    style="width: 24px; height: 24px"
-                                />
-                            </a>
-                            <a
-                                href="https://twitter.com/intent/tweet?url=http://127.0.0.1:5500/Lisbook/pbd.html&text=Lisbook+god Delusion"
-                                target="_blank"
-                            >
-                                <img
-                                    src="https://cdn4.iconfinder.com/data/icons/social-media-black-white-2/1227/X-512.png"
-                                    alt="Share on X"
-                                    style="width: 24px; height: 24px"
-                                />
-                            </a>
-                            <a
-                                href="https://api.whatsapp.com/send?text=http://127.0.0.1:5500/Lisbook/pbd.html"
-                                target="_blank"
-                            >
-                                <img
-                                    src="https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_whatsapp-512.png"
-                                    alt="Share on WhatsApp"
-                                    style="width: 24px; height: 24px"
-                                />
-                            </a>
-                        </div>
-                    </div>
-                    <!-- <div class="modal-footer">
-            <button
-              class="btn btn-primary"
-              data-bs-target="#exampleModalToggle2"
-              data-bs-toggle="modal"
-            >
-              Open second modal
-            </button>
-          </div> -->
-                </div>
-            </div>
-        </div>
-        <!-- Social Share Modal end -->
-
-        <main class="container my-5">
+        <main class="container flex-col  ">
             <div id="book-details">
             <!-- Book Card Display -->
-                <section class="row d-flex align-items-stretch rounded-5 p-5">
+                <section class="row flex-col md:flex-row align-items-stretch rounded-5 p-5">
                     <div class="col-12 col-lg-4 mb-5 mb-lg-0">
                         <div
                             class="features-card border rounded-5 p-4 text-center h-100"
@@ -293,7 +55,7 @@
                                 </p>
                             </div>
 
-                            <hr class="opacity-50 w-60 mt-4 mx-auto" />
+                            <hr class="opacity-50 w-auto mt-4 mx-auo" />
 
                             <!-- Favorite, share, comment Buttons -->
                             <div
@@ -333,7 +95,7 @@
                         >
                             <ul
                                 id="playlist"
-                                class="playlist list-none text-left overflow-auto m-2 mb-4"
+                                class="playlist list-none text-left overflow-auto  m-2 mb-4"
                             >
                                 <li
                                     class="adiobk-sub-item d-flex justify-content-between flex-column"
@@ -646,7 +408,7 @@
 
                             <!-- Audio Players Controls Buttons -->
                             <div
-                                class="ctrl-player mt-4 px-5 mx-auto"
+                                class="ctrl-player mt-4 "
                                 id="ctrl-player"
                             >
                                 <div
@@ -687,94 +449,7 @@
                         </div>
                     </div>
                 </section>
-            </div>
-            <!-- Book details playlist ends -->
-
-            <!-- Other content of gd.html -->
-            <div id="other-sections">
-
-                <!-- Book buttons navigations -->
-                <section
-                    class="row d-flex align-items-stretch rounded-5 p-5 my-5 gx-5 text-center"
-                >
-                    <div class="col-md-6">
-                        <a
-                            href="./index.html"
-                            class="text-gray-300 hover:text-green-500 border p-3 d-block rounded-start-5"
-                            >Previous Book</a
-                        >
-                    </div>
-                    <div class="col-md-6">
-                        <a
-                            href="./rdpd.html"
-                            class="text-gray-300 hover:text-green-500 p-3 border d-block rounded-end-5"
-                            >Next Book</a
-                        >
-                    </div>
-                </section>
-                <!-- Book buttons navigations end -->
-
-                <!-- Comments Section -->
-                <section class="row rounded-5 p-5 mt-5">
-                    <div class="container mx-auto p-6 rounded-lg">
-                        <h2
-                            class="display-5 page-title fw-semibold mb-6"
-                            id="share1"
-                        >
-                            Share Your Comments
-                        </h2>
-                        <form id="comment-form" class="space-y-4 mt-5">
-                            <div>
-                                <label
-                                    for="username"
-                                    class="form-label"
-                                    id="yourname"
-                                    >Your Name:</label
-                                >
-                                <input
-                                    type="text"
-                                    id="username"
-                                    class="form-control mt-2 rounded-5 bg-body-tertiary border"
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label
-                                    for="comment"
-                                    class="form-label"
-                                    id="yourcomment"
-                                    >Your Comment:</label
-                                >
-                                <textarea
-                                    id="comment"
-                                    class="form-control mt-2 rounded-5 bg-body-tertiary border"
-                                    rows="6"
-                                    required
-                                ></textarea>
-                            </div>
-                            <div class="text-center">
-                                <button
-                                    type="submit"
-                                    class="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600"
-                                    id="share2"
-                                >
-                                    Share comment
-                                </button>
-                            </div>
-                        </form>
-
-                        <div id="comments-list" class="mt-10 space-y-4"></div>
-                    </div>
-                </section>
-            </div>
-            <!-- Other content of gd.html ends here-->
-        </main>
-
-        <!-- Other content of gd.html -->
-        <div id="other-sections">
-            <!-- Footer -->
-            <div id="footer-placeholder" class="mt-auto"></div>
-        </div>
+    </div>
         <!-- Other content of gd.html ends here-->
 
         <!-- JavaScript -->

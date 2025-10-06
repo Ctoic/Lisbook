@@ -19,11 +19,226 @@
     />
     <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/1dae96c2c2031.js" data-cmp-host="a.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="16"></script>
     <title>My Favorite Books Music App</title>
+    <style>
+      /* Enhanced animations and styling */
+      .contact-hero {
+        background: linear-gradient(135deg, rgba(29, 185, 84, 0.1) 0%, rgba(17, 24, 39, 0.9) 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .floating-element {
+        position: absolute;
+        background: rgba(29, 185, 84, 0.1);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(180deg); }
+      }
+      
+      .contact-card {
+        backdrop-filter: blur(10px);
+        background: rgba(31, 41, 55, 0.7);
+        border: 1px solid rgba(29, 185, 84, 0.2);
+        transition: all 0.3s ease;
+      }
+      
+      .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(29, 185, 84, 0.15);
+        border-color: rgba(29, 185, 84, 0.4);
+      }
+      
+      .form-input {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(75, 85, 99, 0.5);
+      }
+      
+      .form-input:focus {
+        border-color: #1db954;
+        box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.2);
+      }
+      
+      .social-icon {
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgba(31, 41, 55, 0.7);
+      }
+      
+      .social-icon:hover {
+        transform: scale(1.1);
+        background: rgba(29, 185, 84, 0.2);
+      }
+      
+      .pulse-animation {
+        animation: pulse 2s infinite;
+      }
+      
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+      
+      .typing-demo {
+        width: 22ch;
+        animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid;
+        font-family: monospace;
+      }
+      
+      @keyframes typing {
+        from { width: 0 }
+      }
+      
+      @keyframes blink {
+        50% { border-color: transparent }
+      }
+      
+      .map-container {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+      
+      .contact-option {
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      
+      .contact-option:hover {
+        background: rgba(29, 185, 84, 0.1);
+        transform: translateX(5px);
+      }
+      
+      .success-animation {
+        animation: success 0.5s ease-in-out;
+      }
+      
+      @keyframes success {
+        0% { transform: scale(0.8); opacity: 0; }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); opacity: 1; }
+      }
+      
+      .chat-bubble {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background: #1db954;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(29, 185, 84, 0.4);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+      
+      .chat-bubble:hover {
+        transform: scale(1.1);
+      }
+      
+      .chat-window {
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        width: 350px;
+        height: 450px;
+        background: rgba(31, 41, 55, 0.95);
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(29, 185, 84, 0.2);
+      }
+      
+      .chat-header {
+        padding: 15px;
+        background: rgba(29, 185, 84, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .chat-messages {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+      }
+      
+      .message {
+        margin-bottom: 15px;
+        padding: 10px 15px;
+        border-radius: 18px;
+        max-width: 80%;
+      }
+      
+      .bot-message {
+        background: rgba(75, 85, 99, 0.5);
+        align-self: flex-start;
+        border-bottom-left-radius: 5px;
+      }
+      
+      .user-message {
+        background: rgba(29, 185, 84, 0.3);
+        align-self: flex-end;
+        margin-left: auto;
+        border-bottom-right-radius: 5px;
+      }
+      
+      .chat-input {
+        display: flex;
+        padding: 15px;
+        border-top: 1px solid rgba(75, 85, 99, 0.5);
+      }
+      
+      .chat-input input {
+        flex: 1;
+        padding: 10px 15px;
+        border-radius: 25px;
+        background: rgba(75, 85, 99, 0.3);
+        border: none;
+        color: white;
+        margin-right: 10px;
+      }
+      
+      .chat-input button {
+        background: #1db954;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .chat-input button:hover {
+        background: #1ed760;
+      }
+    </style>
   </head>
 
-  <body
-    class="dark-theme bg-gray-900 text-gray-300 d-flex flex-column min-vh-100"
-  >
+  <body class="dark-theme bg-gray-900 text-gray-300 d-flex flex-column min-vh-100">
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
@@ -47,436 +262,287 @@
     <div class="circle"></div>
     <div class="circle"></div>
 
-   <div id="loader">
-        <div class="pacman-container">
-          <div class="pacman">
-            <div class="pacman-top"></div>
-            <div class="pacman-bottom"></div>
-          </div>
-        </div>
-
-        <div class="dot dot-1"></div>
-        <div class="dot dot-2"></div>
-        <div class="dot dot-3"></div>
-        <div class="dot dot-4"></div>
-        <div class="dot dot-5"></div>
-        <div class="dot dot-6"></div>
+    <div id="loader" class="spinner-container">
+      <div
+        class="spinner-border"
+        role="status"
+        style="width: 4rem; height: 4rem; color: #1db954"
+      >
+        <span class="visually-hidden">Loading...</span>
       </div>
     </div>
 
-  </div>
- </div> 
- 
     <!-- Navbar -->
-    <!-- <div id="header-placeholder" class="sticky top-0 z-20"></div> -->
-    <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
-      <nav class="">
-        <div class="container mx-auto flex justify-between items-center">
-          <!-- Logo -->
-          <a class="logo-text h3 font-bold d-inline-flex" href="./index.html">
-            <img
-              src="./Images/lisbook-logo-1.png"
-              alt="Logo"
-              width="40"
-              height="auto"
-              class="align-text-center me-2"
-            />
-            Lisbook
-          </a>
+ <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
+    <nav class="">
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <a class="logo-text h3 font-bold d-inline-flex" href="./index.html">
+          <img src="./Images/lisbook-logo-1.png" alt="Logo" width="40" height="auto" class="align-text-center me-2" />
+          Lisbook
+        </a>
 
-          <!-- Menu Links and Theme Toggle -->
-          <div
-            id="menu"
-            class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20"
-          >
-            <div
-              id="menu-close"
-              class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </div>
-            <a
-              href="./index.html"
-              class="text-gray-300 hover:text-green-500"
-              id="home"
-              >Home</a
-            >
-            <a
-              href="./about.html"
-              class="text-gray-300 hover:text-green-500"
-              id="about"
-              >About</a
-            >
-
-            <a href="./contact.html" class="text-gray-300 hover:text-green-500"
-              >Contact</a
-            >
-            <a href="./faq.html" class="text-gray-300 hover:text-green-500"
-              >FAQs</a
-            >
-
-            <!-- Profile Icon and Theme Toggle -->
-            <button
-              id="theme-toggle"
-              class="text-gray-300 hover:text-green-500"
-            >
-              <!-- Sun Icon (for dark theme) -->
-              <svg
-                id="sun-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 hidden"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="5"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="12"
-                  y1="1"
-                  x2="12"
-                  y2="4"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="12"
-                  y1="20"
-                  x2="12"
-                  y2="23"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="4.22"
-                  y1="4.22"
-                  x2="6.34"
-                  y2="6.34"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="17.66"
-                  y1="17.66"
-                  x2="19.78"
-                  y2="19.78"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="1"
-                  y1="12"
-                  x2="4"
-                  y2="12"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="20"
-                  y1="12"
-                  x2="23"
-                  y2="12"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="4.22"
-                  y1="19.78"
-                  x2="6.34"
-                  y2="17.66"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <line
-                  x1="17.66"
-                  y1="6.34"
-                  x2="19.78"
-                  y2="4.22"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-              </svg>
-
-              <!-- Moon Icon (for light theme) -->
-              <svg
-                id="moon-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                />
-              </svg>
-            </button>
-
-            <a
-              href="./profile.html"
-              class="text-gray-300 hover:text-green-500 me-4"
-            >
-              <i class="bi bi-person-circle h-6 w-6"></i>
-            </a>
-          </div>
-
-          <!-- Mobile Menu Toggle Button -->
-          <div
-            id="menu-toggle"
-            title="Menu"
-            class="text-gray-300 lg:hidden cursor-pointer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
+        <!-- Menu Links and Theme Toggle -->
+        <div id="menu"
+          class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20">
+          <div id="menu-close" class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </div>
-        </div>
-      </nav>
-    </header>
+          <a href="./index.html" class="text-gray-300 hover:text-green-500" id="home" data-translate="nav-home">Home</a>
 
-    <!-- Main Content -->
-    <main class="flex-grow-1">
-      <div class="container-fluid py-5">
-        <!-- Header Section -->
-        <div class="text-center mb-5">
-          <h1 class="display-4 fw-bold text-green-500 mb-3">Get In Touch</h1>
-          <p class="lead text-gray-400 mx-auto" style="max-width: 600px;">
-            We'd love to hear from you! Send us a message and we'll respond as soon as possible.
-          </p>
+          <a href="./explore.html" class="text-gray-300 hover:text-green-500" id="explore" data-translate="nav-explore">Explore</a>
+          <a href="./about.html" class="text-gray-300 hover:text-green-500" id="about" data-translate="nav-about">About</a>
+
+          <a href="./contact.html" class="text-gray-300 hover:text-green-500" data-translate="nav-contact">Contact</a>
+          <a href="./faq.html" class="text-gray-300 hover:text-green-500" data-translate="nav-faqs">FAQs</a>
+
+          <!-- Profile Icon and Theme Toggle -->
+          <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
+            <!-- Sun Icon (for dark theme) -->
+            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
+              <line x1="12" y1="1" x2="12" y2="4" stroke="currentColor" stroke-width="2" />
+              <line x1="12" y1="20" x2="12" y2="23" stroke="currentColor" stroke-width="2" />
+              <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="currentColor" stroke-width="2" />
+              <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" />
+              <line x1="1" y1="12" x2="4" y2="12" stroke="currentColor" stroke-width="2" />
+              <line x1="20" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" />
+              <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" stroke="currentColor" stroke-width="2" />
+              <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" />
+            </svg>
+
+            <!-- Moon Icon (for light theme) -->
+            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <a href="./profile.html" class="text-gray-300 hover:text-green-500 me-4">
+            <i class="bi bi-person-circle h-6 w-6"></i>
+          </a>
         </div>
 
-        <!-- Main Contact Grid -->
-        <div class="row g-4 justify-content-center">
-          <!-- Contact Form Section -->
-          <div class="col-lg-8">
-            <div class="contact-form-card bg-gray-800 rounded-3 p-4 p-md-5 shadow-lg">
-              <h3 class="h4 fw-semibold mb-4 text-center text-green-500">
-                <i class="bi bi-envelope-fill me-2"></i>Send us a Message
-              </h3>
+        <!-- Language-selector Toggle -->
+        <div class="language-selector">
+          <select
+              id="language"
+              onchange="changeLanguage()"
+          >
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="es">Español</option>
+              <option value="zh">简体中文</option>
+              <!-- Ajoutez d'autres langues ici -->
+          </select>
+        </div>
+
+        <!-- Ensure language sync in iframe-->
+        <script>
+          function changeLanguage() {
+            const language = document.getElementById('language').value;
+            const iframe = document.getElementById('gd-iframe');
+            if (iframe && iframe.contentWindow) {
+              //set up postMessage to send the selected language to iframe
+              iframe.contentWindow.postMessage({ type: 'changeLanguage', language: language }, '*');
+            }
+          }
+
+          // Add event listener for dropdown change to trigger the function
+          document.getElementById('language').addEventListener('change', changeLanguage);
+        </script>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+    <!-- Enhanced Contact Section -->
+    <section class="contact-hero py-5">
+      <!-- Floating elements for visual interest -->
+      <div class="floating-element" style="width: 80px; height: 80px; top: 10%; left: 5%;"></div>
+      <div class="floating-element" style="width: 60px; height: 60px; top: 20%; right: 10%; animation-delay: 1s;"></div>
+      <div class="floating-element" style="width: 100px; height: 100px; bottom: 15%; left: 15%; animation-delay: 2s;"></div>
+      <div class="floating-element" style="width: 70px; height: 70px; bottom: 25%; right: 5%; animation-delay: 3s;"></div>
+      
+      <div class="container my-5">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <h2 class="display-5 fw-semibold mb-3">Get in <span class="text-green-500 typing-demo">Touch</span></h2>
+            <p class="lead mb-4">Our friendly team would love to hear from you! We're here to help with any questions about our app, features, or anything else.</p>
+            
+            <!-- Contact Options -->
+            <div class="contact-options mb-5">
+              <div class="contact-option p-3 rounded-lg mb-3">
+                <div class="d-flex align-items-center">
+                  <div class="me-3 text-green-500">
+                    <i class="bi bi-envelope-fill h-4 w-4"></i>
+                  </div>
+                  <div>
+                    <h5 class="mb-1">Email us</h5>
+                    <p class="mb-0 text-gray-400">contact-us@gmail.com</p>
+                  </div>
+                </div>
+              </div>
               
-              <form id="contact-form" class="contact-form">
-                <!-- Name Fields -->
-                <div class="row mb-4">
+              <div class="contact-option p-3 rounded-lg mb-3">
+                <div class="d-flex align-items-center">
+                  <div class="me-3 text-green-500">
+                    <i class="bi bi-telephone-fill h-4 w-4"></i>
+                  </div>
+                  <div>
+                    <h5 class="mb-1">Call us</h5>
+                    <p class="mb-0 text-gray-400">IN +91 000-000-0000</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="contact-option p-3 rounded-lg">
+                <div class="d-flex align-items-center">
+                  <div class="me-3 text-green-500">
+                    <i class="bi bi-geo-alt-fill h-4 w-4"></i>
+                  </div>
+                  <div>
+                    <h5 class="mb-1">Visit us</h5>
+                    <p class="mb-0 text-gray-400">Bangalore, Karnataka, India</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Social Media Icons -->
+            <div class="social-icons d-flex justify-content-start">
+              <a href="https://www.instagram.com/dev_with_ctoic" class="social-icon text-gray-300 hover:text-green-500 me-3" target="_blank">
+                <i class="bi bi-instagram h-5 w-5"></i>
+              </a>
+              <a href="https://x.com/Ct0ic" class="social-icon text-gray-300 hover:text-green-500 me-3" target="_blank">
+                <i class="bi bi-twitter-x h-5 w-5"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/ctoic/" class="social-icon text-gray-300 hover:text-green-500 me-3" target="_blank">
+                <i class="bi bi-linkedin h-5 w-5"></i>
+              </a>
+              <a href="https://github.com/Ctoic" class="social-icon text-gray-300 hover:text-green-500" target="_blank">
+                <i class="bi bi-github h-5 w-5"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <!-- Contact Form Card -->
+            <div class="contact-card p-4 p-md-5 rounded-xl">
+              <h3 class="mb-4 text-center">Send us a message</h3>
+              
+              <form id="contact-form" class="space-y-4">
+                <!-- First and Last Name in Two Columns -->
+                <div class="row mb-3">
                   <div class="col-md-6 mb-3 mb-md-0">
-                    <label for="first-name" class="form-label text-gray-300 fw-medium">
-                      <i class="bi bi-person me-1"></i>First Name
-                    </label>
-                    <input 
-                      type="text" 
-                      id="first-name" 
-                      name="first-name" 
-                      placeholder="John" 
-                      class="form-control contact-input bg-gray-700 border-gray-600 text-white" 
-                      required 
-                    />
+                    <label for="first-name" class="block text-sm font-medium mb-2">First name:</label>
+                    <input type="text" id="first-name" name="first-name" placeholder="John" class="form-input w-full p-3 rounded-lg bg-gray-700 text-white" required />
                   </div>
                   <div class="col-md-6">
-                    <label for="last-name" class="form-label text-gray-300 fw-medium">
-                      <i class="bi bi-person me-1"></i>Last Name
-                    </label>
-                    <input 
-                      type="text" 
-                      id="last-name" 
-                      name="last-name" 
-                      placeholder="Doe" 
-                      class="form-control contact-input bg-gray-700 border-gray-600 text-white" 
-                      required 
-                    />
+                    <label for="last-name" class="block text-sm font-medium mb-2">Last name:</label>
+                    <input type="text" id="last-name" name="last-name" placeholder="Doe" class="form-input w-full p-3 rounded-lg bg-gray-700 text-white" required />
                   </div>
                 </div>
 
                 <!-- Email -->
-                <div class="mb-4">
-                  <label for="email" class="form-label text-gray-300 fw-medium">
-                    <i class="bi bi-envelope me-1"></i>Email Address
-                  </label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    placeholder="john.doe@example.com" 
-                    class="form-control contact-input bg-gray-700 border-gray-600 text-white" 
-                    required 
-                  />
+                <div class="mb-3">
+                  <label for="email" class="block text-sm font-medium mb-2">Email:</label>
+                  <input type="email" id="email" name="email" placeholder="contact-us@gmail.com" class="form-input w-full p-3 rounded-lg bg-gray-700 text-white" required />
                 </div>
 
                 <!-- Phone -->
-                <div class="mb-4">
-                  <label for="phone" class="form-label text-gray-300 fw-medium">
-                    <i class="bi bi-telephone me-1"></i>Phone Number
-                  </label>
-                  <input 
-                    type="tel" 
-                    id="phone" 
-                    name="phone" 
-                    placeholder="+91 98765 43210" 
-                    class="form-control contact-input bg-gray-700 border-gray-600 text-white" 
-                    required 
-                  />
+                <div class="mb-3">
+                  <label for="phone" class="block text-sm font-medium mb-2">Phone number:</label>
+                  <input type="tel" id="phone" name="phone" placeholder="IN +91 000-000-0000" class="form-input w-full p-3 rounded-lg bg-gray-700 text-white" pattern="[0-9]{10}" required />
                 </div>
 
                 <!-- Message -->
                 <div class="mb-4">
-                  <label for="message" class="form-label text-gray-300 fw-medium">
-                    <i class="bi bi-chat-text me-1"></i>Message
-                  </label>
-                  <textarea 
-                    id="message" 
-                    name="message" 
-                    rows="5" 
-                    placeholder="Tell us how we can help you..."
-                    class="form-control contact-input bg-gray-700 border-gray-600 text-white" 
-                    required
-                  ></textarea>
+                  <label for="message" class="block text-sm font-medium mb-2">Message:</label>
+                  <textarea id="message" name="message" rows="4" class="form-input w-full p-3 rounded-lg bg-gray-700 text-white" placeholder="Tell us how we can help..." required></textarea>
                 </div>
 
                 <!-- Submit Button -->
-                <div class="text-center">
-                  <button type="submit" class="btn btn-success btn-lg px-5 py-3 rounded-pill shadow-sm contact-submit-btn">
-                    <i class="bi bi-send me-2"></i>Send Message
+                <div class="text-center mt-4">
+                  <button type="submit" class="bg-green-500 text-white py-3 px-8 rounded-full hover:bg-green-600 pulse-animation font-medium">
+                    Send Message
                   </button>
                 </div>
 
                 <!-- Success Message -->
-                <div id="success-msg" class="alert alert-success mt-4 d-none text-center">
-                  <i class="bi bi-check-circle me-2"></i>Message sent successfully! We'll get back to you soon.
+                <div id="success-msg" class="text-green-500 mt-4 text-center hidden success-animation">
+                  <i class="bi bi-check-circle-fill me-2"></i>
+                  Message sent successfully! We'll get back to you soon.
                 </div>
               </form>
             </div>
           </div>
-
-          <!-- Contact Information Sidebar -->
-          <div class="col-lg-4">
-            <div class="contact-info-card bg-gray-800 rounded-3 p-4 shadow-lg h-100">
-              <h3 class="h4 fw-semibold mb-4 text-center text-green-500">
-                <i class="bi bi-info-circle-fill me-2"></i>Contact Information
-              </h3>
-              
-              <!-- Contact Details -->
-              <div class="contact-info-list">
-                <div class="contact-info-item mb-4 p-3 bg-gray-700 rounded-2">
-                  <div class="d-flex align-items-center">
-                    <div class="contact-icon bg-green-500 text-white rounded-circle p-2 me-3">
-                      <i class="bi bi-geo-alt-fill"></i>
-                    </div>
-                    <div>
-                      <h6 class="fw-semibold text-white mb-1">Address</h6>
-                      <p class="text-gray-400 mb-0 small">Bangalore, Karnataka, India</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="contact-info-item mb-4 p-3 bg-gray-700 rounded-2">
-                  <div class="d-flex align-items-center">
-                    <div class="contact-icon bg-green-500 text-white rounded-circle p-2 me-3">
-                      <i class="bi bi-envelope-fill"></i>
-                    </div>
-                    <div>
-                      <h6 class="fw-semibold text-white mb-1">Email</h6>
-                      <a href="mailto:contact@lisbook.com" class="text-green-400 text-decoration-none small hover-green">
-                        contact@lisbook.com
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="contact-info-item mb-4 p-3 bg-gray-700 rounded-2">
-                  <div class="d-flex align-items-center">
-                    <div class="contact-icon bg-green-500 text-white rounded-circle p-2 me-3">
-                      <i class="bi bi-telephone-fill"></i>
-                    </div>
-                    <div>
-                      <h6 class="fw-semibold text-white mb-1">Phone</h6>
-                      <a href="tel:+919876543210" class="text-green-400 text-decoration-none small hover-green">
-                        +91 98765 43210
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Social Media -->
-              <div class="text-center mt-4 pt-4 border-top border-gray-600">
-                <h6 class="fw-semibold text-white mb-3">Follow Us</h6>
-                <div class="social-links d-flex justify-content-center gap-3">
-                  <a href="https://www.instagram.com/dev_with_ctoic" class="social-link" target="_blank" title="Instagram">
-                    <i class="bi bi-instagram"></i>
-                  </a>
-                  <a href="https://x.com/Ct0ic" class="social-link" target="_blank" title="Twitter">
-                    <i class="bi bi-twitter-x"></i>
-                  </a>
-                  <a href="https://www.linkedin.com/in/ctoic/" class="social-link" target="_blank" title="LinkedIn">
-                    <i class="bi bi-linkedin"></i>
-                  </a>
-                  <a href="https://github.com/Ctoic" class="social-link" target="_blank" title="GitHub">
-                    <i class="bi bi-github"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Map Section -->
-        <div class="row mt-5">
-          <div class="col-12">
-            <div class="map-container bg-gray-800 rounded-3 p-4 shadow-lg">
-              <h3 class="h4 fw-semibold mb-4 text-center text-green-500">
-                <i class="bi bi-map-fill me-2"></i>Find Us
-              </h3>
-              <div class="map-wrapper rounded-3 overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.491339599082!2d77.59456291440737!3d12.971598616057055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1687391781db%3A0x5ef3b46e7aa569b6!2sBangalore%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sin!4v1638827560011"
-                  width="100%"
-                  height="350"
-                  style="border: 0;"
-                  allowfullscreen=""
-                  loading="lazy"
-                  class="contact-map"
-                ></iframe>
-              </div>
-            </div>
+    <!-- Enhanced Map Section -->
+    <section class="container my-5">
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-center mb-4">Find Us Here</h3>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.491339599082!2d77.59456291440737!3d12.971598616057055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1687391781db%3A0x5ef3b46e7aa569b6!2sBangalore%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sin!4v1638827560011"
+              width="100%"
+              height="400"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
       </div>
-    </main>
-   <!-- Footer -->
+    </section>
+
+   
+
+    <!-- Live Chat Widget -->
+    <div class="chat-bubble" id="chat-bubble">
+      <i class="bi bi-chat-dots-fill text-white h-5 w-5"></i>
+    </div>
+    
+    <div class="chat-window" id="chat-window">
+      <div class="chat-header">
+        <h5 class="mb-0">Live Support</h5>
+        <button id="close-chat" class="text-gray-300 hover:text-white">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="chat-messages" id="chat-messages">
+        <div class="message bot-message">
+          Hi there! 👋 How can we help you today?
+        </div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="chat-input" placeholder="Type your message...">
+        <button id="send-message">
+          <i class="bi bi-send-fill text-white"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
     <div id="footer-placeholder" class="mt-auto"></div>
-    <!-- auto-type script  -->
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
     <!-- JavaScript -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="./script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -484,7 +550,126 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="scripts.js"></script>
-
+    <script>
+      // Enhanced contact form functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        // Typing animation for the heading
+        const typed = new Typed('.typing-demo', {
+          strings: ['Touch', 'Contact', 'Connected'],
+          typeSpeed: 100,
+          backSpeed: 60,
+          loop: true
+        });
+        
+        // Contact form submission
+        const contactForm = document.getElementById('contact-form');
+        const successMsg = document.getElementById('success-msg');
+        
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Simple validation
+          const firstName = document.getElementById('first-name').value;
+          const lastName = document.getElementById('last-name').value;
+          const email = document.getElementById('email').value;
+          const phone = document.getElementById('phone').value;
+          const message = document.getElementById('message').value;
+          
+          if (firstName && lastName && email && phone && message) {
+            // In a real application, you would send the form data to a server here
+            console.log('Form submitted:', { firstName, lastName, email, phone, message });
+            
+            // Show success message
+            successMsg.classList.remove('hidden');
+            successMsg.classList.add('success-animation');
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+              successMsg.classList.add('hidden');
+            }, 5000);
+          }
+        });
+        
+        // Live chat functionality
+        const chatBubble = document.getElementById('chat-bubble');
+        const chatWindow = document.getElementById('chat-window');
+        const closeChat = document.getElementById('close-chat');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendMessage = document.getElementById('send-message');
+        
+        chatBubble.addEventListener('click', function() {
+          chatWindow.style.display = 'flex';
+        });
+        
+        closeChat.addEventListener('click', function() {
+          chatWindow.style.display = 'none';
+        });
+        
+        function addMessage(text, isUser = false) {
+          const messageDiv = document.createElement('div');
+          messageDiv.classList.add('message');
+          messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+          messageDiv.textContent = text;
+          chatMessages.appendChild(messageDiv);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        sendMessage.addEventListener('click', function() {
+          const message = chatInput.value.trim();
+          if (message) {
+            addMessage(message, true);
+            chatInput.value = '';
+            
+            // Simulate bot response
+            setTimeout(() => {
+              const responses = [
+                "Thanks for your message! Our team will get back to you soon.",
+                "I understand. Let me connect you with a support specialist.",
+                "That's a great question! One of our team members will assist you shortly.",
+                "I've noted your concern. We'll be in touch via email soon."
+              ];
+              const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+              addMessage(randomResponse);
+            }, 1000);
+          }
+        });
+        
+        chatInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            sendMessage.click();
+          }
+        });
+        
+        // Add floating animation to contact options on scroll
+        const contactOptions = document.querySelectorAll('.contact-option');
+        
+        function checkScroll() {
+          contactOptions.forEach(option => {
+            const position = option.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (position < screenPosition) {
+              option.style.opacity = '1';
+              option.style.transform = 'translateX(0)';
+            }
+          });
+        }
+        
+        // Initialize opacity and position
+        contactOptions.forEach(option => {
+          option.style.opacity = '0';
+          option.style.transform = 'translateX(-20px)';
+          option.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        window.addEventListener('scroll', checkScroll);
+        // Check on page load
+        checkScroll();
+      });
+    </script>
   </body>
 </html>

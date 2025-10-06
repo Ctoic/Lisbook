@@ -3,6 +3,13 @@
 // Translation Script
 const translations = {
   en: {
+    navbar: {
+      home: "Home",
+      explore: "Explore",
+      about: "About",
+      contact: "Contact",
+      faqs: "FAQs"
+    },
     books: {
       paleBlueDot: {
         "title": "Pale Blue Dot",
@@ -93,6 +100,13 @@ const translations = {
     }
   },
   fr: {
+    navbar: {
+      home: "Accueil",
+      explore: "Explorer",
+      about: "À propos",
+      contact: "Contact",
+      faqs: "FAQ"
+    },
     books: {
       paleBlueDot: {
         "title": "Un point bleu pâle",
@@ -183,6 +197,13 @@ const translations = {
     }
   },
   es: {
+    navbar: {
+      home: "Inicio",
+      explore: "Explorar",
+      about: "Acerca de",
+      contact: "Contacto",
+      faqs: "Preguntas Frecuentes"
+    },
     books: {
       paleBlueDot: {
         "title": "Un punto azul pálido",
@@ -273,6 +294,13 @@ const translations = {
     }
   },
   zh: {
+    navbar: {
+      home: "首页",
+      explore: "探索",
+      about: "关于",
+      contact: "联系",
+      faqs: "常见问题"
+    },
     books: {
       paleBlueDot: {
         "title": "暗淡蓝点",
@@ -373,6 +401,20 @@ function changeLanguage() {
 }
 
 function applyTranslations(language) {
+  // Apply navbar translations
+  if (translations[language] && translations[language].navbar) {
+    const navbarTranslations = translations[language].navbar;
+    
+    // Translate navbar items
+    Object.keys(navbarTranslations).forEach(key => {
+      const navElement = document.querySelector(`[data-translate="nav-${key}"]`);
+      if (navElement) {
+        navElement.innerText = navbarTranslations[key];
+      }
+    });
+  }
+
+  // Apply book translations
   const bookElements = document.querySelectorAll('[data-book]');
   bookElements.forEach(bookElement => {
     const bookKey = bookElement.getAttribute('data-book');
