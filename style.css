@@ -758,6 +758,26 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
   margin: 0 auto; /* centers the container */
   padding: 0 1rem; /* optional padding */
 }
+
+/* Prevent accidental horizontal scroll across the site */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Responsive iframe wrapper used on index.html */
+.iframe-responsive {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.iframe-responsive iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  max-width: 100%;
+}
 .logo-text {
   margin-right: auto; /* push logo to the left */
 }
