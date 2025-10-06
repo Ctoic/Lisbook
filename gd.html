@@ -21,8 +21,21 @@
         <title>My Favorite Books Music App</title>
     </head>
     <body
-        class="bg-gray-900 text-gray-300 dark-theme d-flex flex-column min-h-screen"
+        class="bg-gray-900 text-gray-300 d-flex flex-column min-h-screen"
     >
+        <script>
+            (function() {
+                try {
+                    const saved = localStorage.getItem('theme');
+                    const theme = saved === 'light' ? 'light' : (saved === 'dark' ? 'dark' : null);
+                    if (theme) {
+                        document.documentElement.setAttribute('data-theme', theme);
+                        document.body.classList.remove('light-theme', 'dark-theme');
+                        document.body.classList.add(theme + '-theme');
+                    }
+                } catch (e) { console.warn('iframe theme init error', e); }
+            })();
+        </script>
         <main class="container flex-col  ">
             <div id="book-details">
             <!-- Book Card Display -->
@@ -489,10 +502,22 @@
             
             // Listener for postMessage from index.html
             window.addEventListener('message', (event) => {
-                if (event.data.type === 'changeLanguage') {
-                    const language = event.data.language;
-                    console.log('Message received in gd.html, applying translations for language:', language);
-                    applyTranslations(language);
+                try {
+                    const data = event.data || {};
+                    if (data.type === 'changeLanguage') {
+                        const language = data.language;
+                        console.log('Message received in gd.html, applying translations for language:', language);
+                        applyTranslations(language);
+                    }
+
+                    // Sync theme from parent
+                    if (data.type === 'theme' && (data.theme === 'light' || data.theme === 'dark')) {
+                        document.documentElement.setAttribute('data-theme', data.theme);
+                        document.body.classList.remove('light-theme', 'dark-theme');
+                        document.body.classList.add(data.theme + '-theme');
+                    }
+                } catch (err) {
+                    console.warn('postMessage handler error', err);
                 }
             });
 

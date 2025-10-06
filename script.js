@@ -80,33 +80,70 @@ function startTyping(target, text) {
     });
 }
 
-// Function to toggle between light and dark theme
-const toggleTheme = () => {
-    // Get the current theme from the <html> element's data-theme attribute
-    const currentTheme = document.documentElement.getAttribute("data-theme");
+// Update sun/moon icons based on active theme
+function updateThemeIcons(theme) {
+    const sunIcon = document.getElementById("sun-icon");
+    const moonIcon = document.getElementById("moon-icon");
+    if (sunIcon && moonIcon) {
+        if (theme === "dark") {
+            sunIcon.classList.remove("hidden");
+            sunIcon.style.display = "inline";
+            moonIcon.classList.add("hidden");
+            moonIcon.style.display = "none";
+        } else {
+            moonIcon.classList.remove("hidden");
+            moonIcon.style.display = "inline";
+            sunIcon.classList.add("hidden");
+            sunIcon.style.display = "none";
+        }
+    }
+}
 
-    // Determine the new theme based on the current one
-    const newTheme = currentTheme === "light" ? "dark" : "light";
-
-    // Set the new theme on the <html> element
+function setTheme(newTheme) {
     document.documentElement.setAttribute("data-theme", newTheme);
-
-    // Save the new theme to localStorage
     localStorage.setItem("theme", newTheme);
+
+    if (document.body) {
+        if (newTheme === "light") {
+            document.body.classList.add("light-theme");
+            document.body.classList.remove("dark-theme");
+        } else {
+            document.body.classList.add("dark-theme");
+            document.body.classList.remove("light-theme");
+        }
+    }
 
     // Update the images based on the new theme
     const img1 = document.getElementById("image1");
     const img2 = document.getElementById("image2");
-
     if (newTheme === "light") {
-        // Use a placeholder URL for the light theme image
         if (img1) img1.src = "https://placehold.co/800x600/f5f7fa/2c3e50?text=Lisbook+Story+Light";
         if (img2) img2.src = "https://placehold.co/800x600/f5f7fa/2c3e50?text=Lisbook+Open+Source+Light";
     } else {
-        // Use a placeholder URL for the dark theme image
         if (img1) img1.src = "https://placehold.co/800x600/121212/a7e078?text=Lisbook+Story+Dark";
         if (img2) img2.src = "https://placehold.co/800x600/121212/a7e078?text=Lisbook+Open+Source+Dark";
     }
+
+    updateThemeIcons(newTheme);
+
+    // Notify any embedded iframe (gd-iframe) about theme change so it can
+    // apply the same theme (useful for same-origin iframes)
+    try {
+        const iframe = document.getElementById('gd-iframe');
+        if (iframe && iframe.contentWindow) {
+            iframe.contentWindow.postMessage({ type: 'theme', theme: newTheme }, '*');
+        }
+    } catch (e) {
+        // ignore cross-origin or other errors
+        console.warn('Could not post theme to iframe', e);
+    }
+}
+
+// Toggle between light and dark themes
+const toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    setTheme(newTheme);
 };
 
 // --- Contributor Auto Update Logic ---
@@ -196,6 +233,15 @@ async function loadContributors() {
 // --- Main DOM Content Loaded Listener ---
 document.addEventListener("DOMContentLoaded", function () {
     console.log("✓ DOM fully loaded, starting application setup...");
+    try {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || localStorage.getItem('theme') || 'dark';
+        const iframe = document.getElementById('gd-iframe');
+        if (iframe && iframe.contentWindow) {
+            iframe.contentWindow.postMessage({ type: 'theme', theme: currentTheme }, '*');
+        }
+    } catch (e) {
+        console.warn('Could not post initial theme to iframe', e);
+    }
 
     const playlistItems = document.querySelectorAll("#playlist li");
     const progressBars = document.querySelectorAll(".progress-bar");
@@ -674,9 +720,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // --- Theme Toggle ---
     function initializeTheme() {
-        const currentTheme = localStorage.getItem("theme") || "dark";
-        document.documentElement.setAttribute("data-theme", currentTheme);
-        toggleTheme(); // Run once to set images and initial state
+        const storedTheme = localStorage.getItem("theme") || "dark";
+        setTheme(storedTheme); 
     }
 
     initializeTheme();

@@ -5,11 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- fontawesome icons -->
-   <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="Images/favicon.jpg" type="image/png" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -23,15 +19,52 @@
   <title>My Favorite Books Music App</title>
 </head>
 
-<body class="dark-theme bg-gray-900 text-gray-300 d-flex flex-column min-vh-100">
+<body class="bg-gray-900 text-gray-300 d-flex flex-column min-vh-100">
+  <script>
+    // Initialize theme with fallback (no localStorage dependency)
+    (function() {
+      try {
+        const saved = localStorage.getItem('theme');
+        const theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        if (document.body) {
+          document.body.classList.remove('light-theme', 'dark-theme');
+          document.body.classList.add(theme + '-theme');
+        }
+      } catch (e) {
+        // Fallback to dark theme if localStorage fails
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if (document.body) {
+          document.body.classList.add('dark-theme');
+        }
+        console.warn('Theme init error, using default dark theme', e);
+      }
+    })();
+  </script>
 
   <!-- Animated Circles -->
-  <div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div>
-  <div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div>
-  <div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div>
-  <div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div>
-  <div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div>
-  <div class="circle"></div><div class="circle"></div><div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
 
   <!-- Loader -->
   <div id="loader">
@@ -52,10 +85,10 @@
   <!-- Navbar -->
   <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
     <nav>
-      <div class="container mx-auto flex justify-between items-center">
-        <a class="logo-text h3 font-bold d-inline-flex" href="./index.html">
-          <img src="./Images/lisbook-logo-1.png" alt="Logo" width="40" class="align-text-center me-2" />
-          Lisbook
+      <div class="container mx-auto flex justify-between items-center gap-4">
+        <a class="logo-text font-bold d-flex align-items-center" href="./index.html" style="white-space: nowrap; text-decoration: none; gap: 12px; font-size: 1.5rem;">
+          <img src="./Images/lisbook-logo-1.png" alt="Logo" width="40" height="40" style="flex-shrink: 0; object-fit: contain; display: block;" />
+          <span style="display: block; margin-left: 8px;">Lisbook</span>
         </a>
 
         <div id="menu"
@@ -67,24 +100,15 @@
             </svg>
           </div>
           <a href="./index.html" class="text-gray-300 hover:text-green-500">Home</a>
-          <a href="./explore.html" class="text-gray-300 hover:text-green-500">Explore</a>
-          <a href="./about.html" class="text-gray-300 hover:text-green-500">About</a>
-          <a href="./contact.html" class="text-gray-300 hover:text-green-500">Contact</a>
-          <a href="./faq.html" class="text-gray-300 hover:text-green-500">FAQs</a>
-
-          <a href="./explore.html" class="text-gray-300 hover:text-green-500" id="explore"
-            data-translate="nav-explore">Explore</a>
+          <a href="./explore.html" class="text-gray-300 hover:text-green-500" id="explore" data-translate="nav-explore">Explore</a>
           <a href="./scan.html" class="text-gray-300 hover:text-green-500">
             <i class="bi bi-camera-fill"></i> Scan Book
           </a>
-          <a href="./about.html" class="text-gray-300 hover:text-green-500" id="about"
-            data-translate="nav-about">About</a>
-
+          <a href="./about.html" class="text-gray-300 hover:text-green-500" id="about" data-translate="nav-about">About</a>
           <a href="./contact.html" class="text-gray-300 hover:text-green-500" data-translate="nav-contact">Contact</a>
           <a href="./faq.html" class="text-gray-300 hover:text-green-500" data-translate="nav-faqs">FAQs</a>
 
           <!-- Profile Icon and Theme Toggle -->
-
           <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
             <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
@@ -110,8 +134,8 @@
           </a>
         </div>
 
-        <div class="language-selector">
-          <select id="language" onchange="changeLanguage()">
+        <div class="language-selector me-3">
+          <select id="language" onchange="changeLanguage()" class="bg-gray-700 text-gray-300 border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-green-500">
             <option value="en">English</option>
             <option value="fr">Français</option>
             <option value="es">Español</option>
@@ -120,31 +144,9 @@
         </div>
 
         <!-- Signup button -->
-        <div>
-          <button id="signupButton" class="w-24 text-white bg-transparent border-2 border-green-600 focus:border-green-700 rounded-full py-[14px] hover:-translate-y-0.5 transition-all duration-300">Sign up</button>
+        <div class="flex-shrink-0">
+          <button id="signupButton" class="w-24 text-white bg-transparent border-2 border-green-600 focus:border-green-700 rounded-full py-2 px-4 hover:-translate-y-0.5 transition-all duration-300 text-sm">Sign up</button>
         </div>
-
-        <!-- Signup button onClick function -->
-         <script>
-          document.getElementById("signupButton").addEventListener("click", function() {
-            window.location.href = "pages/signup.html";
-          })
-         </script>
-
-        <!-- Ensure language sync in iframe-->
-        <script>
-          function changeLanguage() {
-            const language = document.getElementById('language').value;
-            const iframe = document.getElementById('gd-iframe');
-            if (iframe && iframe.contentWindow) {
-              //set up postMessage to send the selected language to iframe
-              iframe.contentWindow.postMessage({ type: 'changeLanguage', language: language }, '*');
-            }
-          }
-
-          // Add event listener for dropdown change to trigger the function
-          document.getElementById('language').addEventListener('change', changeLanguage);
-        </script>
 
         <!-- Mobile Menu Toggle Button -->
         <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
@@ -185,82 +187,79 @@
     </div>
   </section>
 
-
-  <!-- Top Audio Books Section -->
+  <!-- Main Content -->
   <main class="container my-5">
-
-  <main class="container">
-    <!-- Top audio book -->
-
+    <!-- Top Audio Books Section -->
     <section class="rounded-5 p-5 my-5">
       <h2 class="display-5 page-title fw-semibold" id="top-audio-books">Top Audio Books</h2>
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4 align-items-stretch">
-        <!-- Book cards remain unchanged -->
+        <!-- Book cards will be populated here -->
       </div>
     </section>
 
-
-    <!-- Responsive iframe -->
+    <!-- Embed gd.html -->
     <section class="row rounded-5 p-5 mt-5">
       <iframe id="gd-iframe" src="gd.html" class="w-full" height="850px" frameborder="0"></iframe>
     </section>
 
-    <!-- Comments and Book Navigation remain unchanged -->
-
-    <!-- Embed gd.html -->
-    <section class=" w-screen">
-      <iframe id="gd-iframe" src="gd.html" class=" h-screen w-screen"   frameborder="0"></iframe>
-    </section>
-
-    <!-- Book buttons navigations -->
+    <!-- Book Navigation Buttons -->
     <section class="d-flex justify-content-evenly align-items-stretch rounded-5 p-4 my-5 gx-5 text-center">
-     
-        <a href="./index.html" ><i class="fa-solid fa-arrow-left text-green-500 text-5xl"></i></a>
-        <a href="./pbd.html" ><i class="fa-solid fa-arrow-right text-green-500  text-5xl"></i></a>
-      
+      <a href="./index.html"><i class="fa-solid fa-arrow-left text-green-500 text-5xl"></i></a>
+      <a href="./pbd.html"><i class="fa-solid fa-arrow-right text-green-500 text-5xl"></i></a>
     </section>
 
+    <!-- Comments Section -->
     <section class="rounded-5 p-5 mt-5 w-full max-w-3xl mx-auto shadow-md shadow-green-400">
-  <div class="container mx-auto p-4 sm:p-6 rounded-lg flex flex-col items-center justify-center w-full">
-    <h2 class="text-lg sm:text-xl md:text-2xl page-title fw-semibold mb-6 text-center" id="share">
-      Share Your Comments
-    </h2>
-    <form id="comment-form" class="space-y-4 w-full">
-      <div>
-        <input type="text" id="username" class="form-control w-full mt-2 rounded-md  text-green-300 p-2 text-sm sm:text-base" placeholder="UserName" />
-      </div>
-      <div>
-        <textarea id="comment" class="form-control w-full mt-2 rounded-md bg-body-tertiary border p-2 text-sm sm:text-base" placeholder="Comment What You felt" rows="3" required></textarea>
-      </div>
-      <div class="text-center">
-        <button type="submit" class="bg-green-500 text-white py-2 px-4 sm:px-6 rounded-md hover:bg-green-600 text-sm sm:text-base" id="share2">
-          Share comment
-        </button>
-      </div>
-    </form>
+      <div class="container mx-auto p-4 sm:p-6 rounded-lg flex flex-col items-center justify-center w-full">
+        <h2 class="text-lg sm:text-xl md:text-2xl page-title fw-semibold mb-6 text-center" id="share">
+          Share Your Comments
+        </h2>
+        <form id="comment-form" class="space-y-4 w-full">
+          <div>
+            <input type="text" id="username" class="form-control w-full mt-2 rounded-md text-green-300 p-2 text-sm sm:text-base" placeholder="UserName" />
+          </div>
+          <div>
+            <textarea id="comment" class="form-control w-full mt-2 rounded-md bg-body-tertiary border p-2 text-sm sm:text-base" placeholder="Comment What You felt" rows="3" required></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="bg-green-500 text-white py-2 px-4 sm:px-6 rounded-md hover:bg-green-600 text-sm sm:text-base" id="share2">
+              Share comment
+            </button>
+          </div>
+        </form>
 
-    <div id="comments-list" class="mt-10 space-y-4 w-full"></div>
-  </div>
-</section>
-
-
+        <div id="comments-list" class="mt-10 space-y-4 w-full"></div>
+      </div>
+    </section>
   </main>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  <script src="script.js"></script>
-  <script src="app.js"></script>
-  <script src="explore.js"></script>
-  <script src="translation.js"></script>
-  <script src="marked.min.js"></script>
-  <script src="share.js"></script>
-
-
-  <!-- Hero Section Animations -->
+  
+  <!-- Signup button onClick function -->
   <script>
-    // Typing effect for hero description
+    document.getElementById("signupButton").addEventListener("click", function() {
+      window.location.href = "pages/signup.html";
+    });
+  </script>
+
+  <!-- Language sync in iframe -->
+  <script>
+    function changeLanguage() {
+      const language = document.getElementById('language').value;
+      const iframe = document.getElementById('gd-iframe');
+      if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.postMessage({ type: 'changeLanguage', language: language }, '*');
+      }
+    }
+
+    document.getElementById('language').addEventListener('change', changeLanguage);
+  </script>
+
+  <!-- Hero Section Typing Animation -->
+  <script>
     document.addEventListener('DOMContentLoaded', function() {
       const typedTextElement = document.getElementById('typed-text');
       const text = "Discover and enjoy amazing audio books from around the world. Immerse yourself in captivating stories and knowledge at your fingertips.";
@@ -274,15 +273,16 @@
         }
       }
 
-      // Start typing after a short delay
       setTimeout(typeWriter, 1000);
     });
   </script>
 
-
-      <script src="scripts.js"></script>
-</body>
-
+  <script src="script.js"></script>
+  <script src="app.js"></script>
+  <script src="explore.js"></script>
+  <script src="translation.js"></script>
+  <script src="marked.min.js"></script>
+  <script src="share.js"></script>
   <script src="scripts.js"></script>
 </body>
 
