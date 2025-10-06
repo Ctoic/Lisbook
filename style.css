@@ -1538,6 +1538,62 @@ button:hover {
   justify-content: center;
 }
 
+body.light-theme .hero-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #eef6fb 50%, #f8fafc 100%) !important;
+  color: #0f172a !important; 
+}
+
+body.light-theme .hero-section h1,
+body.light-theme .hero-section .text-white {
+  color: #0f172a !important;
+}
+
+body.light-theme .hero-section .text-gray-300,
+body.light-theme .hero-section p,
+body.light-theme .hero-section .text-xl,
+body.light-theme .hero-section .text-2xl {
+  color: #334155 !important; 
+}
+
+body.light-theme .hero-bg-element {
+  opacity: 0.12 !important;
+  filter: none !important;
+}
+
+body.light-theme .hero-section svg {
+  color: #334155 !important;
+  stroke: currentColor;
+}
+
+body.light-theme .search-filter-section {
+  background-color: #f6f8fb; 
+  color: #0f172a;
+}
+
+body.light-theme .search-filter-section .search-input-container input,
+body.light-theme .search-filter-section select,
+body.light-theme .search-filter-section .filter-group button {
+  background-color: #fff !important;
+  color: #0f172a !important;
+  border-color: #d1d5db !important; 
+}
+
+body.light-theme .search-filter-section .search-icon-container i,
+body.light-theme .search-filter-section label,
+body.light-theme .search-filter-section .bi {
+  color: #334155 !important; 
+}
+
+body.light-theme .search-filter-section .search-input-container input::placeholder {
+  color: #94a3b8; 
+}
+
+body.light-theme .search-filter-section .filter-group button:hover {
+  background-color: #eef2ff !important; 
+  border-color: #94d769 !important;
+}
+
+
 /* Responsive adjustments for hero */
 @media (max-width: 768px) {
   .hero-bg-element {
@@ -1556,7 +1612,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000000;
+  /* background is controlled by theme classes below */
 }
 
 

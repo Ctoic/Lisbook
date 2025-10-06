@@ -398,8 +398,36 @@ body {
     background: rgba(55, 65, 81, 0.5); /* Match body background with slight transparency */
     border: 2px solid #374151;
     border-radius: 12px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+
+}
+
+/* Light theme overrides for explore page */
+body.light-theme .search-filter-section {
+    background: #f6f8fb;
+}
+
+body.light-theme .search-icon-container {
+    background: rgba(15, 23, 42, 0.03);
+    border: 1px solid #e2e8f0; /* gray-200 */
+}
+
+body.light-theme .search-wrapper,
+body.light-theme .search-filter-wrapper {
+    background: transparent;
+}
+
+body.light-theme .search-input-container input,
+body.light-theme .search-filter-section select,
+body.light-theme .filter-group button {
+    background: #ffffff;
+    color: #0f172a;
+    border: 1px solid #d1d5db;
+}
+
+body.light-theme .search-filter-section label,
+body.light-theme .search-filter-section .bi,
+body.light-theme .search-filter-section .search-icon-container i {
+    color: #475569;
 }
 
 .search-icon-container:hover {
