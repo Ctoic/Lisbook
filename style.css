@@ -839,6 +839,17 @@ html, body {
   /* cursor: pointer; Show pointer on hover */
 }
 
+body.light-theme #signupButton {
+  color: #0f172a !important; /* dark text */
+  background-color: transparent !important;
+  border-color: #16a34a !important; /* green-600 */
+}
+
+body.light-theme #signupButton:hover {
+  background-color: #ecfdf5 !important; /* very light green tint */
+  transform: translateY(-2px) !important;
+}
+
 /* Other existing styles */
 .text-gray-300 {
   color: #d1d1d1;
