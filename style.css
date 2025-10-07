@@ -350,6 +350,8 @@ body.light-theme .playlist-card {
 
 .playlist {
   max-height: 50vh;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
 }
 
 .icon-action-btn-container {
@@ -756,6 +758,26 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
   margin: 0 auto; /* centers the container */
   padding: 0 1rem; /* optional padding */
 }
+
+/* Prevent accidental horizontal scroll across the site */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Responsive iframe wrapper used on index.html */
+.iframe-responsive {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.iframe-responsive iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  max-width: 100%;
+}
 .logo-text {
   margin-right: auto; /* push logo to the left */
 }
@@ -815,6 +837,17 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
   background-color: transparent; /* Keep button background transparent */
   border: none; /* No border for the button */
   /* cursor: pointer; Show pointer on hover */
+}
+
+body.light-theme #signupButton {
+  color: #0f172a !important; /* dark text */
+  background-color: transparent !important;
+  border-color: #16a34a !important; /* green-600 */
+}
+
+body.light-theme #signupButton:hover {
+  background-color: #ecfdf5 !important; /* very light green tint */
+  transform: translateY(-2px) !important;
 }
 
 /* Other existing styles */
@@ -1139,6 +1172,59 @@ body.light-theme header {
 }
 .nav-item:hover {
   background-color: inherit;
+}
+
+/* Share Modal Styles */
+#shareModal {
+  transition: opacity 0.3s ease-in-out;
+}
+
+#shareModal:not(.hidden) {
+  display: flex !important;
+}
+
+#shareModal .bg-gray-800 {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#shareLink {
+  font-size: 0.875rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Toast Notification Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+#toast {
+  animation: slideUp 0.3s ease-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#toast.hidden {
+  display: none;
 }
 
 /* Footer size and position tweaks (compact and slightly lower) */
@@ -1483,6 +1569,62 @@ button:hover {
   justify-content: center;
 }
 
+body.light-theme .hero-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #eef6fb 50%, #f8fafc 100%) !important;
+  color: #0f172a !important; 
+}
+
+body.light-theme .hero-section h1,
+body.light-theme .hero-section .text-white {
+  color: #0f172a !important;
+}
+
+body.light-theme .hero-section .text-gray-300,
+body.light-theme .hero-section p,
+body.light-theme .hero-section .text-xl,
+body.light-theme .hero-section .text-2xl {
+  color: #334155 !important; 
+}
+
+body.light-theme .hero-bg-element {
+  opacity: 0.12 !important;
+  filter: none !important;
+}
+
+body.light-theme .hero-section svg {
+  color: #334155 !important;
+  stroke: currentColor;
+}
+
+body.light-theme .search-filter-section {
+  background-color: #f6f8fb; 
+  color: #0f172a;
+}
+
+body.light-theme .search-filter-section .search-input-container input,
+body.light-theme .search-filter-section select,
+body.light-theme .search-filter-section .filter-group button {
+  background-color: #fff !important;
+  color: #0f172a !important;
+  border-color: #d1d5db !important; 
+}
+
+body.light-theme .search-filter-section .search-icon-container i,
+body.light-theme .search-filter-section label,
+body.light-theme .search-filter-section .bi {
+  color: #334155 !important; 
+}
+
+body.light-theme .search-filter-section .search-input-container input::placeholder {
+  color: #94a3b8; 
+}
+
+body.light-theme .search-filter-section .filter-group button:hover {
+  background-color: #eef2ff !important; 
+  border-color: #94d769 !important;
+}
+
+
 /* Responsive adjustments for hero */
 @media (max-width: 768px) {
   .hero-bg-element {
@@ -1501,7 +1643,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000000;
+  /* background is controlled by theme classes below */
 }
 
 
@@ -1701,5 +1843,186 @@ body {
   .scroll-arrow {
     width: 20px;
     height: 20px;
+  }
+}
+
+/* Chatbot styles */
+#chatbot-button{
+  position: fixed; 
+  bottom: 30px; 
+  right: 30px; 
+  z-index: 9999; 
+  background: #7fd34a; 
+  border-radius: 50%; 
+  width: 60px; 
+  height: 60px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+  cursor: pointer;
+}
+#chatbot-button:hover {
+  background: #159943;
+  transition: background 0.2s;
+}
+#chatbot-window {
+  animation: chatbot-fade-in 0.2s;
+  display: none; 
+  position: fixed; 
+  bottom: 30px; 
+  right: 30px; 
+  width: 350px; 
+  max-width: 90vw; 
+  height: 450px; 
+  background: #222; 
+  color: #fff; 
+  border-radius: 16px; 
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3); 
+  z-index: 10000; 
+  flex-direction: column; 
+  overflow: hidden; 
+  cursor: pointer;
+}
+@keyframes chatbot-fade-in {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+#chatbot-messages {
+  font-size: 1rem;
+  flex: 1; 
+  padding: 16px; 
+  overflow-y: auto; 
+  background: #222;
+}
+#chatbot-messages .user {
+  text-align: right;
+  margin-bottom: 8px;
+}
+#chatbot-messages .assistant {
+  text-align: left;
+  margin-bottom: 8px;
+}
+#chatbot-messages .bubble {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 16px;
+  margin: 2px 0;
+  max-width: 80%;
+  word-break: break-word;
+}
+#chatbot-messages .user .bubble {
+  background: #1db954;
+  color: #fff;
+}
+#chatbot-messages .assistant .bubble {
+  background: #333;
+  color: #fff;
+}
+#chatbot-messages p {
+  font-size: 1rem;
+  color: inherit;
+  text-align: left;
+  font-style: normal;
+  margin-bottom: 0.5rem;
+  transition: none;
+}
+#chatbot-messages p:hover {
+  color: inherit;
+  background: none;
+}
+#chatbot-messages li:hover {
+  background: none;
+  color: inherit;
+}
+#chatbot-form{
+  display: flex;
+  border-top: 1px solid #333;
+}
+#chatbot-input{
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #222;
+  color: #fff;
+}
+#send{
+  background: #1db954; 
+  border: none; 
+  color: #fff; 
+  padding: 0 18px; 
+  font-size: 1.2rem; 
+  cursor: pointer;
+}
+#chat-header{
+  background: #1db954; 
+  padding: 12px 16px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+}
+#chatbot-close{
+  background: none; 
+  border: none; 
+  color: #fff; 
+  font-size: 1.5rem; 
+  cursor: pointer;
+}
+/*
+ Footer Styles */
+.footer-col-title {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.brand-tagline {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.5rem;
+}
+
+#newsletterForm .form-control {
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+#newsletterForm .btn {
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+footer a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--color-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  footer .row { 
+    text-align: center; 
+  }
+  footer .d-inline-flex { 
+    justify-content: center; 
+  }
+  .footer-brand {
+    flex-direction: column;
+    text-align: center;
   }
 }

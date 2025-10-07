@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="scan.css" />
+  <link rel="icon" href="Images/favicon.jpg" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <title>Scan Book Cover - Lisbook</title>
+</head>
+
+<body class="bg-gray-900 text-gray-300 d-flex flex-column min-vh-100">
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('theme');
+        const theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        if (document.body) {
+          document.body.classList.remove('light-theme', 'dark-theme');
+          document.body.classList.add(theme + '-theme');
+        }
+      } catch (e) { console.warn('Theme init error', e); }
+    })();
+  </script>
+  
+  <!-- Custom Cursor Circles -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  
+  <!-- Navbar -->
+  <header class="sticky top-0 z-20 bg-gray-800 p-4 shadow-sm">
+    <nav>
+      <div class="container mx-auto flex justify-between items-center">
+        <a class="logo-text h3 font-bold d-inline-flex" href="./index.html">
+          <img src="./Images/lisbook-logo-1.png" alt="Logo" width="40" height="auto" class="align-text-center me-2" />
+          Lisbook
+        </a>
+
+        <div id="menu" class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20">
+          <div id="menu-close" class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
+          <a href="./index.html" class="text-gray-300 hover:text-green-500">Home</a>
+          <a href="./explore.html" class="text-gray-300 hover:text-green-500">Explore</a>
+          <a href="./scan.html" class="text-green-400 font-bold">
+            <i class="bi bi-camera-fill"></i> Scan Book
+          </a>
+          <a href="./about.html" class="text-gray-300 hover:text-green-500">About</a>
+          <a href="./contact.html" class="text-gray-300 hover:text-green-500">Contact</a>
+          <a href="./faq.html" class="text-gray-300 hover:text-green-500">FAQs</a>
+          
+          <!-- Profile Icon and Theme Toggle -->
+          <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
+            <!-- Sun Icon (for dark theme) -->
+            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
+              <line x1="12" y1="1" x2="12" y2="4" stroke="currentColor" stroke-width="2" />
+              <line x1="12" y1="20" x2="12" y2="23" stroke="currentColor" stroke-width="2" />
+              <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="currentColor" stroke-width="2" />
+              <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" />
+              <line x1="1" y1="12" x2="4" y2="12" stroke="currentColor" stroke-width="2" />
+              <line x1="20" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" />
+              <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" stroke="currentColor" stroke-width="2" />
+              <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" />
+            </svg>
+
+            <!-- Moon Icon (for light theme) -->
+            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <a href="./profile.html" class="text-gray-300 hover:text-green-500 me-4">
+            <i class="bi bi-person-circle h-6 w-6"></i>
+          </a>
+        </div>
+
+        <!-- Language-selector Toggle -->
+        <div class="language-selector">
+          <select id="language" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="zh">简体中文</option>
+          </select>
+        </div>
+
+        <!-- Ensure language sync in iframe-->
+        <script>
+          function changeLanguage() {
+            const language = document.getElementById('language').value;
+            const iframe = document.getElementById('gd-iframe');
+            if (iframe && iframe.contentWindow) {
+              iframe.contentWindow.postMessage({ type: 'changeLanguage', language: language }, '*');
+            }
+          }
+
+          if (document.getElementById('language')) {
+            document.getElementById('language').addEventListener('change', changeLanguage);
+          }
+        </script>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div id="menu-toggle" title="Menu" class="text-gray-300 lg:hidden cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container my-5 flex-grow-1">
+    
+    <!-- Hero Section -->
+    <section class="text-center mb-5">
+      <h1 class="display-4 fw-bold mb-3">
+        <i class="bi bi-camera-fill text-green-400"></i> Scan Book Cover
+      </h1>
+      <p class="lead text-gray-400">Point your camera at any book cover to instantly find its audiobook</p>
+    </section>
+
+    <!-- Scanner Container -->
+    <div id="scanner-container" class="scanner-container">
+      
+      <!-- Initial State: Start Scanning -->
+      <div id="initial-state" class="scanner-state active">
+        <div class="scanner-card">
+          <div class="scanner-icon">
+            <i class="bi bi-camera" style="font-size: 4rem;"></i>
+          </div>
+          <h2 class="mt-4 mb-3">Ready to Scan</h2>
+          <p class="text-gray-400 mb-4">Click the button below to access your camera and scan a book cover</p>
+          <button id="start-scan-btn" class="btn btn-lg btn-success px-5 py-3">
+            <i class="bi bi-camera-fill me-2"></i> Start Scanning
+          </button>
+          <div class="mt-4">
+            <small class="text-gray-500">
+              <i class="bi bi-info-circle me-1"></i> Works on mobile and desktop
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Camera State: Live Preview -->
+      <div id="camera-state" class="scanner-state">
+        <div class="camera-preview-container">
+          <video id="camera-preview" autoplay playsinline></video>
+          <div class="camera-overlay">
+            <div class="scan-frame"></div>
+            <p class="scan-instruction">Position book cover within the frame</p>
+          </div>
+          <div class="camera-controls">
+            <button id="capture-btn" class="btn btn-success btn-lg">
+              <i class="bi bi-camera-fill"></i> Capture
+            </button>
+            <button id="cancel-scan-btn" class="btn btn-outline-light">
+              <i class="bi bi-x-circle"></i> Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Processing State -->
+      <div id="processing-state" class="scanner-state">
+        <div class="scanner-card">
+          <div class="spinner-border text-success mb-4" style="width: 4rem; height: 4rem;" role="status">
+            <span class="visually-hidden">Processing...</span>
+          </div>
+          <h2 class="mb-3">Analyzing Book Cover...</h2>
+          <p class="text-gray-400">Using AI to identify the book</p>
+          <div class="progress mt-4" style="height: 8px; width: 300px; margin: 0 auto;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 75%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result State: Match Found -->
+      <div id="result-state" class="scanner-state">
+        <div class="result-card">
+          <div class="result-header">
+            <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+            <h2 class="mt-3 mb-2">Match Found!</h2>
+            <p class="text-gray-400">We found this audiobook in our library</p>
+          </div>
+          
+          <div class="book-result">
+            <div class="row align-items-center">
+              <div class="col-md-4 text-center mb-3 mb-md-0">
+                <img id="result-cover" src="" alt="Book Cover" class="img-fluid rounded shadow-lg" style="max-width: 200px;">
+              </div>
+              <div class="col-md-8">
+                <h3 id="result-title" class="fw-bold mb-2">Book Title</h3>
+                <p id="result-author" class="text-gray-400 mb-3">By Author Name</p>
+                <p id="result-description" class="mb-4">Book description goes here...</p>
+                
+                <div class="d-flex gap-2 flex-wrap">
+                  <button id="play-preview-btn" class="btn btn-success">
+                    <i class="bi bi-play-fill"></i> Play Preview
+                  </button>
+                  <button id="view-book-btn" class="btn btn-outline-success">
+                    <i class="bi bi-book"></i> View Full Book
+                  </button>
+                  <button id="scan-again-btn" class="btn btn-outline-light">
+                    <i class="bi bi-arrow-clockwise"></i> Scan Another
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error State -->
+      <div id="error-state" class="scanner-state">
+        <div class="scanner-card">
+          <div class="scanner-icon text-danger">
+            <i class="bi bi-exclamation-triangle" style="font-size: 4rem;"></i>
+          </div>
+          <h2 class="mt-4 mb-3">Camera Access Denied</h2>
+          <p class="text-gray-400 mb-4">Please allow camera permissions to use the book scanner</p>
+          <button id="retry-camera-btn" class="btn btn-outline-success">
+            <i class="bi bi-arrow-clockwise"></i> Try Again
+          </button>
+          <button id="back-home-btn" class="btn btn-outline-light ms-2">
+            <i class="bi bi-house"></i> Back to Home
+          </button>
+          <div class="mt-4">
+            <small class="text-gray-500">
+              <i class="bi bi-info-circle me-1"></i> Check your browser settings to enable camera access
+            </small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- How It Works Section -->
+    <section class="mt-5 pt-5 border-top">
+      <h3 class="text-center mb-4">How It Works</h3>
+      <div class="row g-4">
+        <div class="col-md-4 text-center">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-camera-fill text-success" style="font-size: 2.5rem;"></i>
+          </div>
+          <h5>1. Scan</h5>
+          <p class="text-gray-400">Point your camera at any book cover</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-cpu text-success" style="font-size: 2.5rem;"></i>
+          </div>
+          <h5>2. Identify</h5>
+          <p class="text-gray-400">AI recognizes the book instantly</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-headphones text-success" style="font-size: 2.5rem;"></i>
+          </div>
+          <h5>3. Listen</h5>
+          <p class="text-gray-400">Start listening to the audiobook</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-placeholder" class="mt-auto"></div>
+
+  <!-- Audio Preview (Hidden) -->
+  <audio id="preview-audio" style="display: none;"></audio>
+
+  <!-- Scripts -->
+  <script src="./header-footer.js"></script>
+  <script src="./scan.js"></script>
+  <script src="./script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
