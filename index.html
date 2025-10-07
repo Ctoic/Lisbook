@@ -91,48 +91,48 @@
           <span style="display: block; margin-left: 8px;">Lisbook</span>
         </a>
 
-        <div id="menu"
-          class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20">
-          <div id="menu-close" class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+      <div id="menu"
+        class="fixed inset-0 bg-gray-900 backdrop-blur-md w-full h-full flex flex-col items-center justify-center space-y-4 transform scale-0 opacity-0 transition-all duration-300 ease-in-out lg:!fixed lg:!inset-auto lg:!relative lg:!bg-transparent lg:!backdrop-blur-0 lg:!scale-100 lg:!opacity-100 lg:!flex lg:!flex-row lg:!items-center lg:!justify-end lg:!space-y-0 lg:!space-x-4 z-50">
+    
+          <div id="menu-close" class="text-gray-300 lg:hidden absolute top-6 right-6 cursor-pointer bg-gray-700/80 hover:bg-gray-600/80 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
           </div>
-          <a href="./index.html" class="text-gray-300 hover:text-green-500">Home</a>
-          <a href="./explore.html" class="text-gray-300 hover:text-green-500" id="explore" data-translate="nav-explore">Explore</a>
-          <a href="./scan.html" class="text-gray-300 hover:text-green-500">
-            <i class="bi bi-camera-fill"></i> Scan Book
+    
+          <a href="./index.html" class="text-gray-300 hover:text-green-500 lg:!text-base lg:!py-1 lg:!px-3 text-xl font-medium py-3 px-6 rounded-lg hover:bg-green-500/10 transition-all duration-300 w-4/5 max-w-xs text-center lg:!w-auto">Home</a>
+          <a href="./explore.html" class="text-gray-300 hover:text-green-500 lg:!text-base lg:!py-1 lg:!px-3 text-xl font-medium py-3 px-6 rounded-lg hover:bg-green-500/10 transition-all duration-300 w-4/5 max-w-xs text-center lg:!w-auto" id="explore" data-translate="nav-explore">Explore</a>
+          <a href="./scan.html" class="text-gray-300 hover:text-green-500 lg:!text-base lg:!py-1 lg:!px-3 text-xl font-medium py-3 px-6 rounded-lg hover:bg-green-500/10 transition-all duration-300 w-4/5 max-w-xs text-center lg:!w-auto">
+          <i class="bi bi-camera-fill mr-2 lg:!mr-1"></i> 
+          <span class="">Scan Book</span>
           </a>
-          <a href="./about.html" class="text-gray-300 hover:text-green-500" id="about" data-translate="nav-about">About</a>
-          <a href="./contact.html" class="text-gray-300 hover:text-green-500" data-translate="nav-contact">Contact</a>
-          <a href="./faq.html" class="text-gray-300 hover:text-green-500" data-translate="nav-faqs">FAQs</a>
+          <a href="./about.html" class="text-gray-300 hover:text-green-500 lg:!text-base lg:!py-1 lg:!px-3 text-xl font-medium py-3 px-6 rounded-lg hover:bg-green-500/10 transition-all duration-300 w-4/5 max-w-xs text-center lg:!w-auto" id="about" data-translate="nav-about">About</a>
+          <a href="./contact.html" class="text-gray-300 hover:text-green-500 lg:!text-base lg:!py-1 lg:!px-3 text-xl font-medium py-3 px-6 rounded-lg hover:bg-green-500/10 transition-all duration-300 w-4/5 max-w-xs text-center lg:!w-auto" data-translate="nav-contact">Contact</a>
+          <a href="./faq.html" class="text-gray-300 hover:text-green-500 lg:!text-base lg:!py-1 lg:!px-3 text-xl font-medium py-3 px-6 rounded-lg hover:bg-green-500/10 transition-all duration-300 w-4/5 max-w-xs text-center lg:!w-auto" data-translate="nav-faqs">FAQs</a>
 
-          <!-- Profile Icon and Theme Toggle -->
-          <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
-            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
-              <line x1="12" y1="1" x2="12" y2="4" stroke="currentColor" stroke-width="2" />
-              <line x1="12" y1="20" x2="12" y2="23" stroke="currentColor" stroke-width="2" />
-              <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="currentColor" stroke-width="2" />
-              <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" />
-              <line x1="1" y1="12" x2="4" y2="12" stroke="currentColor" stroke-width="2" />
-              <line x1="20" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" />
-              <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" stroke="currentColor" stroke-width="2" />
-              <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" />
-            </svg>
-            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-            </svg>
-          </button>
+    <!-- Theme Toggle -->
+          <button id="theme-toggle" class="text-gray-300 hover:text-green-500 bg-gray-700/50 hover:bg-gray-600/70 rounded-full p-3 transition-all duration-300 lg:!mx-1 lg:!bg-transparent">
+          <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:!h-6 lg:!w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
+            <line x1="12" y1="1" x2="12" y2="4" stroke="currentColor" stroke-width="2" />
+            <line x1="12" y1="20" x2="12" y2="23" stroke="currentColor" stroke-width="2" />
+            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="currentColor" stroke-width="2" />
+            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" />
+            <line x1="1" y1="12" x2="4" y2="12" stroke="currentColor" stroke-width="2" />
+            <line x1="20" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" />
+            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" stroke="currentColor" stroke-width="2" />
+            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" />
+        </svg>
+        <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:!h-6 lg:!w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </button>
 
-          <a href="./profile.html" class="text-gray-300 hover:text-green-500 me-4">
-            <i class="bi bi-person-circle h-6 w-6"></i>
-          </a>
-        </div>
+    <a href="./profile.html" class="text-gray-300 hover:text-green-500 bg-green-500/10 border border-green-500/30 rounded-lg py-3 px-6 transition-all duration-300 w-4/5 max-w-xs text-center lg:!w-auto lg:!py-1 lg:!px-3 lg:!bg-transparent lg:!border-none">
+        <i class="bi bi-person-circle h-5 w-5 lg:!h-6 lg:!w-6"></i>
+        <span class="lg:!hidden ml-2">Profile</span>
+    </a>
+    </div>
 
         <div class="language-selector me-3">
           <select id="language" onchange="changeLanguage()" class="bg-gray-700 text-gray-300 border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-green-500">

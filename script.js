@@ -733,17 +733,31 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // --- Mobile Menu Toggle ---
-    if (menuToggle && menu && menuClose) {
-        menuToggle.addEventListener("click", () => {
-            menu.classList.remove("scale-0");
-            menu.classList.add("scale-100");
-        });
+    // --- Mobile Menu Toggle ---
+if (menuToggle && menu && menuClose) {
+    menuToggle.addEventListener("click", () => {
+        menu.classList.remove("scale-0", "opacity-0");
+        menu.classList.add("scale-100", "opacity-100");
+        document.body.style.overflow = "hidden"; // Prevent scrolling when menu is open
+    });
 
-        menuClose.addEventListener("click", () => {
-            menu.classList.add("scale-0");
-            menu.classList.remove("scale-100");
+    menuClose.addEventListener("click", () => {
+        menu.classList.add("scale-0", "opacity-0");
+        menu.classList.remove("scale-100", "opacity-100");
+        document.body.style.overflow = ""; // Restore scrolling
+    });
+
+    // Close menu when clicking on links (mobile only)
+    menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 1024) { // Only on mobile
+                menu.classList.add("scale-0", "opacity-0");
+                menu.classList.remove("scale-100", "opacity-100");
+                document.body.style.overflow = "";
+            }
         });
-    }
+    });
+}
 
     // --- Progress Bars (Local Storage) ---
     function initializeProgressBars() {
