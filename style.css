@@ -742,6 +742,142 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
   margin-bottom: 30px;
 }
 
+/* Improved Mobile Menu Styles */
+#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 24, 39, 0.95); /* bg-gray-900 with opacity */
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+#menu.scale-100 {
+    transform: scale(1);
+    opacity: 1;
+}
+
+#menu.scale-0 {
+    transform: scale(0);
+    opacity: 0;
+}
+
+/* Menu close button positioning */
+#menu-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 60;
+    color: #d1d5db;
+    cursor: pointer;
+    background: rgba(55, 65, 81, 0.8);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#menu-close:hover {
+    background: rgba(75, 85, 99, 0.8);
+    transform: scale(1.1);
+}
+
+/* Menu links styling */
+#menu a {
+    font-size: 1.25rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    width: 80%;
+    max-width: 200px;
+    text-align: center;
+}
+
+#menu a:hover {
+    background: rgba(34, 197, 94, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Theme toggle in mobile menu */
+#menu #theme-toggle {
+    margin: 1rem 0;
+    padding: 0.75rem;
+    background: rgba(55, 65, 81, 0.5);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+#menu #theme-toggle:hover {
+    background: rgba(75, 85, 99, 0.7);
+    transform: scale(1.1);
+}
+
+/* Profile icon in mobile menu */
+#menu a[href="./profile.html"] {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+#menu a[href="./profile.html"]:hover {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: rgba(34, 197, 94, 0.5);
+}
+/* Desktop Menu Styles - Force visibility */
+@media (min-width: 1024px) {
+    #menu {
+        position: relative !important;
+        transform: scale(1) !important;
+        opacity: 1 !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        width: auto !important;
+        height: auto !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+    }
+    
+    #menu-close {
+        display: none !important;
+    }
+    
+    #menu a {
+        font-size: 0.875rem !important;
+        padding: 0.5rem 0.75rem !important;
+        margin: 0 !important;
+        width: auto !important;
+        max-width: none !important;
+    }
+    
+    #menu a:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
+        transform: none !important;
+    }
+}
+
+@media (max-width: 1024px) {
+  #menu {
+    padding-top: 400px; /* Larger padding for mobile */
+  }
+}
+
 #bookmarked-list li {
   background-color: #121212;
   padding: 15px;
@@ -786,9 +922,6 @@ html, body {
   margin: 0 1rem; /* adjust horizontal space between links */
 }
 
-#menu {
-  margin-top: 1rem; /* if needed to create space above the menu */
-}
 @media (max-width: 1024px) {
   header {
     padding: 8px; /* Adjust padding for smaller screens */
@@ -799,18 +932,9 @@ html, body {
     height: auto; /* Allow height to be auto, but control the max height */
   }
 
-  /* Additional styles for the menu icon */
-  .menu-icon {
-    display: block; /* Show menu icon */
-    /* Add styles for menu icon */
-  }
-}
+} 
 
 @media (max-width: 768px) {
-}
-#menu {
-  display: flex;
-  align-items: center; /* vertically center items */
 }
 
 .text-gray-300 {
@@ -867,9 +991,6 @@ header {
   padding: 6px 0;
 }
 
-#menu {
-  background-color: inherit; /* Menu should inherit the header's background color */
-}
 /* Make sure the body doesn't hide underneath the fixed header */
 body {
   margin-top: 68px; /* Adjust this margin to match the height of the header */
@@ -907,10 +1028,7 @@ header .container {
   align-items: center; /* Center items vertically */
   height: 52px; /* Fixed height */
 }
-#menu {
-  background-color: inherit;
-  position: relative;
-}
+
 
 /* Elegant header spacing and hover states */
 header {
@@ -918,40 +1036,6 @@ header {
   -webkit-backdrop-filter: saturate(120%) blur(6px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Desktop menu layout: even spacing with gap */
-#menu {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem; /* 20px between items */
-}
-
-/* Subtle upward nudge for desktop alignment */
-@media (min-width: 1024px) {
-  #menu {
-    margin-top: -4px;
-  }
-}
-
-/* Remove legacy margins inside header menu to rely on gap spacing */
-#menu .text-gray-300 {
-  margin: 0;
-}
-
-/* Click targets and elegant hover */
-#menu a,
-#menu button {
-  padding: 8px 12px;
-  border-radius: 10px;
-  line-height: 1;
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
-
-#menu a:hover,
-#menu button:hover {
-  background-color: rgba(255, 255, 255, 0.06);
-  color: var(--accent-color);
 }
 
 /* Logo spacing so it breathes */
@@ -969,18 +1053,7 @@ body.light-theme header {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
-/* Mobile menu spacing: larger targets and vertical rhythm */
-@media (max-width: 1024px) {
-  #menu {
-    gap: 1.75rem;
-  }
 
-  #menu a,
-  #menu button {
-    padding: 10px 14px;
-    font-size: 1.05rem;
-  }
-}
 /* Adjusting the layout */
 .profile-and-friends {
   display: flex;
