@@ -348,6 +348,8 @@ body.light-theme .playlist-card {
 
 .playlist {
   max-height: 50vh;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
 }
 
 .icon-action-btn-container {
@@ -754,6 +756,26 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
   margin: 0 auto; /* centers the container */
   padding: 0 1rem; /* optional padding */
 }
+
+/* Prevent accidental horizontal scroll across the site */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Responsive iframe wrapper used on index.html */
+.iframe-responsive {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.iframe-responsive iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  max-width: 100%;
+}
 .logo-text {
   margin-right: auto; /* push logo to the left */
 }
@@ -813,6 +835,17 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
   background-color: transparent; /* Keep button background transparent */
   border: none; /* No border for the button */
   /* cursor: pointer; Show pointer on hover */
+}
+
+body.light-theme #signupButton {
+  color: #0f172a !important; /* dark text */
+  background-color: transparent !important;
+  border-color: #16a34a !important; /* green-600 */
+}
+
+body.light-theme #signupButton:hover {
+  background-color: #ecfdf5 !important; /* very light green tint */
+  transform: translateY(-2px) !important;
 }
 
 /* Other existing styles */
@@ -1532,6 +1565,62 @@ button:hover {
   justify-content: center;
 }
 
+body.light-theme .hero-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #eef6fb 50%, #f8fafc 100%) !important;
+  color: #0f172a !important; 
+}
+
+body.light-theme .hero-section h1,
+body.light-theme .hero-section .text-white {
+  color: #0f172a !important;
+}
+
+body.light-theme .hero-section .text-gray-300,
+body.light-theme .hero-section p,
+body.light-theme .hero-section .text-xl,
+body.light-theme .hero-section .text-2xl {
+  color: #334155 !important; 
+}
+
+body.light-theme .hero-bg-element {
+  opacity: 0.12 !important;
+  filter: none !important;
+}
+
+body.light-theme .hero-section svg {
+  color: #334155 !important;
+  stroke: currentColor;
+}
+
+body.light-theme .search-filter-section {
+  background-color: #f6f8fb; 
+  color: #0f172a;
+}
+
+body.light-theme .search-filter-section .search-input-container input,
+body.light-theme .search-filter-section select,
+body.light-theme .search-filter-section .filter-group button {
+  background-color: #fff !important;
+  color: #0f172a !important;
+  border-color: #d1d5db !important; 
+}
+
+body.light-theme .search-filter-section .search-icon-container i,
+body.light-theme .search-filter-section label,
+body.light-theme .search-filter-section .bi {
+  color: #334155 !important; 
+}
+
+body.light-theme .search-filter-section .search-input-container input::placeholder {
+  color: #94a3b8; 
+}
+
+body.light-theme .search-filter-section .filter-group button:hover {
+  background-color: #eef2ff !important; 
+  border-color: #94d769 !important;
+}
+
+
 /* Responsive adjustments for hero */
 @media (max-width: 768px) {
   .hero-bg-element {
@@ -1550,7 +1639,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000000;
+  /* background is controlled by theme classes below */
 }
 
 .pacman {

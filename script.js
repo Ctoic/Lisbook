@@ -86,45 +86,70 @@ function startTyping(target, text) {
   });
 }
 
-// Function to toggle between light and dark theme
-// Theme Toggle Functionality
-const toggleTheme = () => {
-  const body = document.body;
-  const sunIcon = document.getElementById("sun-icon");
-  const moonIcon = document.getElementById("moon-icon");
-
-  // Check current theme
-  const isDark = body.classList.contains("dark-theme");
-
-  // Toggle between themes
-  body.classList.toggle("dark-theme");
-  body.classList.toggle("light-theme");
-
-  const newTheme = isDark ? "light-theme" : "dark-theme";
-  localStorage.setItem("theme", newTheme);
-
-  if (sunIcon && moonIcon) {
-    if (isDark) {
-      sunIcon.classList.add("hidden", "opacity-0", "rotate-180", "scale-75");
-      sunIcon.classList.remove("opacity-100", "rotate-0", "scale-100");
-
-      moonIcon.classList.remove(
-        "hidden",
-        "opacity-0",
-        "rotate-180",
-        "scale-75"
-      );
-      moonIcon.classList.add("opacity-100", "rotate-0", "scale-100");
-    } else {
-      moonIcon.classList.add("hidden", "opacity-0", "rotate-180", "scale-75");
-      moonIcon.classList.remove("opacity-100", "rotate-0", "scale-100");
-
-      sunIcon.classList.remove("hidden", "opacity-0", "rotate-180", "scale-75");
-      sunIcon.classList.add("opacity-100", "rotate-0", "scale-100");
+// Update sun/moon icons based on active theme
+function updateThemeIcons(theme) {
+    const sunIcon = document.getElementById("sun-icon");
+    const moonIcon = document.getElementById("moon-icon");
+    if (sunIcon && moonIcon) {
+        if (theme === "dark") {
+            sunIcon.classList.remove("hidden");
+            sunIcon.style.display = "inline";
+            moonIcon.classList.add("hidden");
+            moonIcon.style.display = "none";
+        } else {
+            moonIcon.classList.remove("hidden");
+            moonIcon.style.display = "inline";
+            sunIcon.classList.add("hidden");
+            sunIcon.style.display = "none";
+        }
     }
-  }
+}
 
-  console.log("Theme changed to:", newTheme);
+function setTheme(newTheme) {
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+
+    if (document.body) {
+        if (newTheme === "light") {
+            document.body.classList.add("light-theme");
+            document.body.classList.remove("dark-theme");
+        } else {
+            document.body.classList.add("dark-theme");
+            document.body.classList.remove("light-theme");
+        }
+    }
+
+    // Update the images based on the new theme
+    const img1 = document.getElementById("image1");
+    const img2 = document.getElementById("image2");
+    if (newTheme === "light") {
+        if (img1) img1.src = "https://placehold.co/800x600/f5f7fa/2c3e50?text=Lisbook+Story+Light";
+        if (img2) img2.src = "https://placehold.co/800x600/f5f7fa/2c3e50?text=Lisbook+Open+Source+Light";
+    } else {
+        if (img1) img1.src = "https://placehold.co/800x600/121212/a7e078?text=Lisbook+Story+Dark";
+        if (img2) img2.src = "https://placehold.co/800x600/121212/a7e078?text=Lisbook+Open+Source+Dark";
+    }
+
+    updateThemeIcons(newTheme);
+
+    // Notify any embedded iframe (gd-iframe) about theme change so it can
+    // apply the same theme (useful for same-origin iframes)
+    try {
+        const iframe = document.getElementById('gd-iframe');
+        if (iframe && iframe.contentWindow) {
+            iframe.contentWindow.postMessage({ type: 'theme', theme: newTheme }, '*');
+        }
+    } catch (e) {
+        // ignore cross-origin or other errors
+        console.warn('Could not post theme to iframe', e);
+    }
+}
+
+// Toggle between light and dark themes
+const toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    setTheme(newTheme);
 };
 
 // --- Contributor Auto Update Logic ---
@@ -215,75 +240,50 @@ async function loadContributors() {
 
 // --- Main DOM Content Loaded Listener ---
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("✓ DOM fully loaded, starting application setup...");
-
-  const playlistItems = document.querySelectorAll("#playlist li");
-  const progressBars = document.querySelectorAll(".progress-bar");
-  const audioPlayer = document.getElementById("audio-player");
-  const themeToggle = document.getElementById("theme-toggle");
-  const menuToggle = document.getElementById("menu-toggle");
-  const menuClose = document.getElementById("menu-close");
-  const menu = document.getElementById("menu");
-  const favBooksList = document.getElementById("fav-audio-books-list");
-  const favouriteButton = document.getElementById("favourite-btn");
-  const commentForm = document.getElementById("comment-form");
-  const FAV_BOOKS_KEY = "fav_books";
-  const currentBookId = "7";
-  let allBooksList = []; // Assuming this will be populated elsewhere
-  let currentBook; // Assuming this will be populated elsewhere
-
-  // Audio Player Controls Buttons
-  const ctrlPlay = document.getElementById("ctrl-play");
-  const ctrlFastBackward = document.getElementById("fast-backward");
-  const ctrlFastForward = document.getElementById("fast-forward");
-  const volumeUp = document.getElementById("volume-up");
-  const volumeDown = document.getElementById("volume-down");
-
-  const seekSlider = document.getElementById("seekSlider");
-  const currentTimeLabel = document.getElementById("currentTime");
-  const durationLabel = document.getElementById("duration");
-
-  // Initialize theme on page load
-  // Initialize theme on page load
-  const savedTheme = localStorage.getItem("theme") || "dark-theme";
-  document.body.classList.add(savedTheme);
-
-  const sunIcon = document.getElementById("sun-icon");
-  const moonIcon = document.getElementById("moon-icon");
-
-  if (sunIcon && moonIcon) {
-    if (savedTheme === "dark-theme") {
-      sunIcon.classList.remove("hidden", "opacity-0", "rotate-180", "scale-75");
-      sunIcon.classList.add("opacity-100", "rotate-0", "scale-100");
-
-      moonIcon.classList.add("hidden", "opacity-0", "rotate-180", "scale-75");
-      moonIcon.classList.remove("opacity-100", "rotate-0", "scale-100");
-    } else {
-      sunIcon.classList.add("hidden", "opacity-0", "rotate-180", "scale-75");
-      sunIcon.classList.remove("opacity-100", "rotate-0", "scale-100");
-
-      moonIcon.classList.remove(
-        "hidden",
-        "opacity-0",
-        "rotate-180",
-        "scale-75"
-      );
-      moonIcon.classList.add("opacity-100", "rotate-0", "scale-100");
+    console.log("✓ DOM fully loaded, starting application setup...");
+    try {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || localStorage.getItem('theme') || 'dark';
+        const iframe = document.getElementById('gd-iframe');
+        if (iframe && iframe.contentWindow) {
+            iframe.contentWindow.postMessage({ type: 'theme', theme: currentTheme }, '*');
+        }
+    } catch (e) {
+        console.warn('Could not post initial theme to iframe', e);
     }
-  }
 
-  if (themeToggle) {
-    themeToggle.addEventListener("click", toggleTheme);
-    console.log("✓ Theme toggle attached");
-  }
+    const playlistItems = document.querySelectorAll("#playlist li");
+    const progressBars = document.querySelectorAll(".progress-bar");
+    const audioPlayer = document.getElementById("audio-player");
+    const themeToggle = document.getElementById("theme-toggle");
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuClose = document.getElementById("menu-close");
+    const menu = document.getElementById("menu");
+    const favBooksList = document.getElementById("fav-audio-books-list");
+    const favouriteButton = document.getElementById("favourite-btn");
+    const commentForm = document.getElementById("comment-form");
+    const FAV_BOOKS_KEY = "fav_books";
+    const currentBookId = "7";
+    let allBooksList = []; // Assuming this will be populated elsewhere
+    let currentBook; // Assuming this will be populated elsewhere
+    
+    // Audio Player Controls Buttons
+    const ctrlPlay = document.getElementById("ctrl-play");
+    const ctrlFastBackward = document.getElementById("fast-backward");
+    const ctrlFastForward = document.getElementById("fast-forward");
+    const volumeUp = document.getElementById("volume-up");
+    const volumeDown = document.getElementById("volume-down");
 
-  // --- Scroll to Top Button Setup ---
-  const scrollBtn = document.createElement("button");
-  scrollBtn.id = "scrollToTopBtn";
-  scrollBtn.className = "scroll-to-top-btn";
-  scrollBtn.setAttribute("aria-label", "Scroll to top");
-  scrollBtn.setAttribute("title", "Scroll to top");
-  scrollBtn.innerHTML = `
+    const seekSlider = document.getElementById("seekSlider");
+    const currentTimeLabel = document.getElementById("currentTime");
+    const durationLabel = document.getElementById("duration");
+
+    // --- Scroll to Top Button Setup ---
+    const scrollBtn = document.createElement("button");
+    scrollBtn.id = "scrollToTopBtn";
+    scrollBtn.className = "scroll-to-top-btn";
+    scrollBtn.setAttribute("aria-label", "Scroll to top");
+    scrollBtn.setAttribute("title", "Scroll to top");
+    scrollBtn.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" class="scroll-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
@@ -755,7 +755,64 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p>${comment}</p>
                 </div>`;
 
-        commentsList.insertAdjacentHTML("beforeend", commentHTML);
+                commentsList.insertAdjacentHTML("beforeend", commentHTML);
+
+                document.getElementById("comment-form")?.reset();
+            }
+        });
+    }
+
+    // --- Feedback Submission (EmailJS Dependency - unchanged) ---
+    const feedbackForm = document.getElementById("feedback-form");
+    if (feedbackForm) {
+        feedbackForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            // NOTE: This requires EmailJS setup ('your_service_id' and 'feedback_form' template ID)
+            // The EmailJS library script is expected to be loaded in the HTML.
+            if (typeof emailjs !== 'undefined' && emailjs.sendForm) {
+                emailjs.sendForm("your_service_id", "feedback_form", this).then(
+                    () => {
+                        console.log("SUCCESS! Feedback Sent.");
+                        feedbackForm.reset();
+                    },
+                    (error) => {
+                        console.log("FAILED to send feedback...", error);
+                    }
+                );
+            } else {
+                console.warn("EmailJS library not loaded. Feedback submission skipped.");
+                feedbackForm.reset();
+            }
+        });
+    }
+
+
+    // --- Theme Toggle ---
+    function initializeTheme() {
+        const storedTheme = localStorage.getItem("theme") || "dark";
+        setTheme(storedTheme); 
+    }
+
+    initializeTheme();
+
+    if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+            toggleTheme();
+        });
+    }
+
+    // --- Mobile Menu Toggle ---
+    if (menuToggle && menu && menuClose) {
+        menuToggle.addEventListener("click", () => {
+            menu.classList.remove("scale-0");
+            menu.classList.add("scale-100");
+        });
+
+        menuClose.addEventListener("click", () => {
+            menu.classList.add("scale-0");
+            menu.classList.remove("scale-100");
+        });
+    }
 
         document.getElementById("comment-form")?.reset();
       }
