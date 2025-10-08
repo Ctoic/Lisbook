@@ -361,6 +361,20 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+  //Keyboard Shortcuts buttons
+  document.addEventListener("keydown", function (e) {
+    switch (e.code) {
+      case "Space": 
+      e.preventDefault(); 
+      if (audioPlayer.paused) {
+        audioPlayer.play();
+        ctrlPlay.innerHTML = '<i class="bi bi-pause-fill"></i>';
+      } else {
+        audioPlayer.pause();
+        ctrlPlay.innerHTML = '<i class="bi bi-play-fill"></i>';
+      }
+      break;
+
 
     // --- Favourites Logic ---
     function toggleHeart(activate) {
