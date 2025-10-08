@@ -1,249 +1,637 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <!-- Favicon -->
-    <link rel="icon" href="Images/favicon.jpg" type="image/png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-        crossorigin="anonymous"
-    />
-    <title>My Favorite Books Music App</title>
-    <style>
-        body.embedded #book-details { display: block; }
-        body.embedded #other-sections { display: none; }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Favorite Books Music App — God Delusion</title>
+  <link rel="icon" href="Images/favicon.jpg" type="image/png" />
 
-        /* Chatbot Styles */
-        #chatbot { position: fixed; bottom: 20px; right: 20px; width: 320px; background-color: #1e293b; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); overflow: hidden; z-index: 1000; }
-        #chatbot-header { background-color: #16a34a; color: #fff; padding: 12px; cursor: pointer; font-weight: bold; }
-        #chatbot-body { display: none; padding: 12px; height: 320px; overflow-y: auto; flex-direction: column; }
-        #chatbot-messages { display: flex; flex-direction: column; gap: 6px; max-height: 220px; overflow-y: auto; }
-        #chatbot-messages div { padding: 6px 10px; border-radius: 10px; max-width: 80%; }
-        #chatbot-messages div.user { background-color: #2563eb; color: white; align-self: flex-end; }
-        #chatbot-messages div.bot { background-color: #334155; color: white; align-self: flex-start; }
-        #chatbot-input { width: 100%; padding: 8px; border-radius: 8px; border: none; outline: none; }
-        .chatbot-option { background-color: #374151; color: #86efac; padding: 4px 8px; border-radius: 8px; cursor: pointer; margin-right: 4px; margin-top: 4px; display: inline-block; }
-        .chatbot-option:hover { background-color: #4b5563; }
-    </style>
+  <!-- Tailwind + Bootstrap icons (you already used these) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- Minimal page styles (keeps your original look) -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- === Chatbot CSS (updated / professional) === -->
+  <style>
+    /* Floating button */
+    #chatbot-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      background: #7fd34a;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+      cursor: pointer;
+      transition: background 0.18s, transform 0.12s;
+      border: none;
+    }
+    #chatbot-button:hover { background: #159943; transform: translateY(-2px); }
+
+    /* Chatbot window */
+    #chatbot-window {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 360px;
+      max-width: 92vw;
+      height: 480px;
+      background: #0b1220; /* deep background */
+      color: #e6eef6;
+      border-radius: 14px;
+      box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      animation: chatbot-fade-in 0.28s ease-out;
+    }
+    @keyframes chatbot-fade-in {
+      from { opacity: 0; transform: translateY(12px) scale(.995); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* header */
+    #chat-header {
+      background: linear-gradient(90deg,#0ea5a0,#16a34a);
+      padding: 12px 14px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      justify-content: space-between;
+    }
+    #chat-title {
+      display:flex;
+      gap:10px;
+      align-items:center;
+      color:white;
+      font-weight:600;
+      font-size:0.95rem;
+    }
+    #chat-subtitle { font-size:0.78rem; opacity:0.95; color: rgba(255,255,255,0.9) }
+
+    #chat-actions { display:flex; gap:8px; align-items:center; }
+    #chatbot-close, #chatbot-minimize {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.05rem;
+      cursor: pointer;
+      padding:6px;
+      border-radius:8px;
+    }
+    #chatbot-close:hover, #chatbot-minimize:hover { background: rgba(255,255,255,0.06); }
+
+    /* messages area */
+    #chatbot-messages {
+      flex: 1;
+      padding: 14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      overflow-y: auto;
+      background: linear-gradient(180deg,#071022 0%, #071022 100%);
+    }
+
+    .msg-row { display:flex; gap:10px; align-items:flex-end; max-width:100%; }
+    .msg-row.assistant { justify-content:flex-start; }
+    .msg-row.user { justify-content:flex-end; }
+
+    .bubble {
+      padding: 10px 14px;
+      border-radius: 14px;
+      word-break: break-word;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      box-shadow: 0 2px 8px rgba(2,6,23,0.35);
+      max-width: 78%;
+    }
+
+    .bubble.assistant {
+      background: linear-gradient(180deg,#0f1724,#12202b);
+      color: #e6eef6;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .bubble.user {
+      background: linear-gradient(180deg,#16a34a,#10b981);
+      color: white;
+    }
+
+    .meta { display:flex; gap:8px; align-items:center; font-size:0.75rem; color: rgba(230,238,246,0.65); margin-top:6px; }
+
+    /* typing indicator */
+    .typing {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+    .typing .dot {
+      width:6px; height:6px; border-radius:50%; background:#92fdd6; opacity:0.95;
+      animation: typing 1s infinite;
+    }
+    .typing .dot:nth-child(2){ animation-delay: .12s }
+    .typing .dot:nth-child(3){ animation-delay: .24s }
+    @keyframes typing {
+      0% { transform: translateY(0); opacity: 0.25 }
+      50% { transform: translateY(-4px); opacity: 1 }
+      100% { transform: translateY(0); opacity: 0.25 }
+    }
+
+    /* quick replies */
+    #quick-replies { padding: 10px 14px; display:flex; gap:8px; flex-wrap:wrap; border-top: 1px solid rgba(255,255,255,0.03); background: transparent; }
+    .quick-reply {
+      background: rgba(255,255,255,0.04);
+      color: #bfeadf;
+      padding:7px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+    .quick-reply:hover { transform: translateY(-2px); background: rgba(255,255,255,0.06) }
+
+    /* form */
+    #chatbot-form { display:flex; gap:8px; padding:10px 12px; border-top:1px solid rgba(255,255,255,0.02); background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); }
+    #chatbot-input {
+      flex:1;
+      padding:10px 12px;
+      border-radius: 10px;
+      border:1px solid rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.02);
+      color: #e6eef6;
+      outline: none;
+      font-size: 0.95rem;
+    }
+    #chatbot-send {
+      padding: 8px 12px;
+      background: #0ea5a0;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor:pointer;
+      font-weight:600;
+      min-width:70px;
+    }
+    #chatbot-send:hover { background: #059e8e }
+
+    /* small screens */
+    @media (max-width: 520px) {
+      #chatbot-window { width: 95vw; right: 2.5vw; bottom: 18px; height: 76vh; }
+      #chatbot-button { right: 18px; bottom: 18px; }
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-gray-300 d-flex flex-column min-h-screen">
-<script>
-    (function() {
-        try {
-            const saved = localStorage.getItem('theme');
-            const theme = saved === 'light' ? 'light' : (saved === 'dark' ? 'dark' : null);
-            if (theme) {
-                document.documentElement.setAttribute('data-theme', theme);
-                document.body.classList.remove('light-theme', 'dark-theme');
-                document.body.classList.add(theme + '-theme');
-            }
-        } catch (e) { console.warn('iframe theme init error', e); }
-    })();
-</script>
 
-<main class="container flex-col">
+  <!-- === Your existing page content (trimmed here for clarity) === -->
+  <main class="container flex-col">
     <div id="book-details">
-        <!-- Book Card Display -->
-        <section class="row flex-col md:flex-row align-items-stretch rounded-5 p-5">
-            <div class="col-12 col-lg-4 mb-5 mb-lg-0">
-                <div class="features-card border rounded-5 p-4 text-center h-100">
-                    <!-- Cover Image -->
-                    <div class="card-cover-container rounded-4 d-flex align-items-center border" style="height: 16rem">
-                        <img id="img" src="./Images/GD.jpeg" alt="God Delusion Cover" class="card-img-top img-fluid" />
-                    </div>
-                    <!-- Book Details -->
-                    <div class="mt-4" data-book="godDelusion">
-                        <h1 class="text-2xl font-bold text-green-500" data-translate="title">
-                            God Delusion
-                        </h1>
-                        <h3 class="text-lg mt-2" data-translate="author">By Richard Dawkins</h3>
-                        <p class="text-sm mt-2" data-translate="description">
-                            The God Delusion is a book by English biologist Richard Dawkins that argues against the existence of a supernatural creator.
-                        </p>
-                    </div>
-
-                    <hr class="opacity-50 w-auto mt-4 mx-auto" />
-
-                    <!-- Favorite, share, comment Buttons -->
-                    <div class="mt-3 flex justify-center icon-action-btn-container">
-                        <i class="bi bi-heart mx-4 icon-action-btn tooltip-parent tooltip-bottom" id="favourite-btn">
-                            <span class="tooltip" id="favourite">Save to Favourites</span>
-                        </i>
-                        <i class="bi bi-share mx-4 icon-action-btn tooltip-parent tooltip-bottom" id="share-btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-                            <span class="tooltip" id="share">Share</span>
-                        </i>
-                        <i class="bi bi-chat mx-4 icon-action-btn tooltip-parent tooltip-bottom" id="view-comments-btn">
-                            <span class="tooltip" id="view">View comments</span>
-                        </i>
-                    </div>
-                </div>
+      <section class="row flex-col md:flex-row align-items-stretch rounded-5 p-5">
+        <div class="col-12 col-lg-4 mb-5 mb-lg-0">
+          <div class="features-card border rounded-5 p-4 text-center h-100">
+            <div class="card-cover-container rounded-4 d-flex align-items-center border" style="height: 16rem">
+              <img id="img" src="./Images/GD.jpeg" alt="God Delusion Cover" class="card-img-top img-fluid" />
             </div>
-            <!-- Playlist -->
-            <div class="col-12 col-lg-8 ps-4" data-book="godDelusion">
-                <div class="features-card border rounded-5 p-4 text-center h-100">
-                    <ul id="playlist" class="playlist list-none text-left overflow-auto m-2 mb-4">
-                        <!-- Tracks List -->
-                        <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part1.mp3">
-                            <div class="d-flex justify-content-between">
-                                <p data-translate="t0">Introduction: God Delusion</p>
-                                <a href="audio/part1.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a>
-                            </div>
-                            <div class="bg-gray-700 flex-1 rounded-full ring-1">
-                                <div class="progress-bar bg-red bg-white rounded-full"></div>
-                            </div>
-                        </li>
-                        <!-- Add remaining tracks here -->
-                    </ul>
-
-                    <!-- Audio Player -->
-                    <div class="player container rounded-5">
-                        <audio id="audio-player" class="mt-4 mx-auto"></audio>
-                        <span id="currentTime">0:00</span>
-                        <input type="range" id="seekSlider" min="0" value="0" />
-                        <span id="duration">0:00</span>
-                        <div class="relative inline-block">
-                            <span id="speedButton" class="cursor-pointer text-green-300 font-semibold rounded-lg py-1 px-3 hover:text-green-200 transition">1x</span>
-                            <ul id="speedDropdown" class="absolute hidden bg-gray-800 shadow-md rounded-xl mt-2 w-20">
-                                <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="0.5">0.5x</li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="1">1x</li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="1.5">1.5x</li>
-                                <li class="px-4 py-2 cursor-pointer hover:bg-gray-700 rounded-xl text-green-300" data-speed="2">2x</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Audio Player Controls -->
-                    <div class="ctrl-player mt-4" id="ctrl-player">
-                        <div class="ctrl-buttons d-flex justify-content-evenly align-items-center">
-                            <div class="ctrl-button ctrl-button-small" id="volume-down"><i class="bi bi-volume-down-fill"></i></div>
-                            <div class="ctrl-button ctrl-button-medium" id="fast-backward"><span>-30</span></div>
-                            <div class="ctrl-button ctrl-button-large" id="ctrl-play"><i class="bi bi-play-fill"></i></div>
-                            <div class="ctrl-button ctrl-button-medium" id="fast-forward"><span>+30</span></div>
-                            <div class="ctrl-button ctrl-button-small" id="volume-up"><i class="bi bi-volume-up-fill"></i></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="mt-4" data-book="godDelusion">
+              <h1 class="text-2xl font-bold text-green-500" data-translate="title">God Delusion</h1>
+              <h3 class="text-lg mt-2" data-translate="author">By Richard Dawkins</h3>
+              <p class="text-sm mt-2" data-translate="description">
+                The God Delusion is a book by English biologist Richard Dawkins that argues against the existence of a supernatural creator.
+              </p>
             </div>
-        </section>
-    </div>
-</main>
-
-<!-- Chatbot Widget -->
-<div id="chatbot">
-    <div id="chatbot-header">Chat with Assistant</div>
-    <div id="chatbot-body">
-        <div id="chatbot-messages"></div>
-        <div class="mt-2 flex gap-2">
-            <input type="text" id="chatbot-input" placeholder="Type your message..." />
-            <button id="chatbot-send">Send</button>
+            <hr class="opacity-50 w-auto mt-4 mx-auto" />
+            <div class="mt-3 flex justify-center icon-action-btn-container">
+              <i class="bi bi-heart mx-4 icon-action-btn tooltip-parent tooltip-bottom" id="favourite-btn"><span class="tooltip" id="favourite">Save to Favourites</span></i>
+              <i class="bi bi-share mx-4 icon-action-btn tooltip-parent tooltip-bottom" id="share-btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"><span class="tooltip" id="share">Share</span></i>
+              <i class="bi bi-chat mx-4 icon-action-btn tooltip-parent tooltip-bottom" id="view-comments-btn"><span class="tooltip" id="view">View comments</span></i>
+            </div>
+          </div>
         </div>
-        <div class="mt-2">
-            <span class="chatbot-option" data-msg="Show book summary">Book Summary</span>
-            <span class="chatbot-option" data-msg="Show playlist">Playlist</span>
-            <span class="chatbot-option" data-msg="Help me">Help</span>
+
+        <div class="col-12 col-lg-8 ps-4" data-book="godDelusion">
+          <div class="features-card border rounded-5 p-4 text-center h-100">
+            <ul id="playlist" class="playlist list-none text-left overflow-auto m-2 mb-4" aria-label="Playlist">
+              <!-- Example tracks: replicate your full list here -->
+              <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part1.mp3"><div class="d-flex justify-content-between"><p data-translate="t0">Introduction: God Delusion</p><a href="audio/part1.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a></div></li>
+              <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part2.mp3"><div class="d-flex justify-content-between"><p data-translate="t1">Track 02</p><a href="audio/part2.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a></div></li>
+              <li class="adiobk-sub-item d-flex justify-content-between flex-column" data-src="audio/part3.mp3"><div class="d-flex justify-content-between"><p data-translate="t2">Track 03</p><a href="audio/part3.mp3" download><i class="bi bi-cloud-arrow-down-fill"></i></a></div></li>
+              <!-- add the rest -->
+            </ul>
+
+            <div class="player container rounded-5">
+              <audio id="audio-player" preload="metadata"></audio>
+              <div class="mt-4 flex gap-4 items-center">
+                <span id="currentTime">0:00</span>
+                <input type="range" id="seekSlider" min="0" max="100" value="0" style="flex:1" />
+                <span id="duration">0:00</span>
+                <div class="relative inline-block">
+                  <span id="speedButton" class="cursor-pointer text-green-300 font-semibold rounded-lg py-1 px-3 hover:text-green-200 transition">1x</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ctrl-player mt-4" id="ctrl-player">
+              <div class="ctrl-buttons d-flex justify-content-evenly align-items-center">
+                <div class="ctrl-button ctrl-button-small" id="volume-down"><i class="bi bi-volume-down-fill"></i></div>
+                <div class="ctrl-button ctrl-button-medium" id="fast-backward"><span>-30</span></div>
+                <div class="ctrl-button ctrl-button-large" id="ctrl-play"><i class="bi bi-play-fill"></i></div>
+                <div class="ctrl-button ctrl-button-medium" id="fast-forward"><span>+30</span></div>
+                <div class="ctrl-button ctrl-button-small" id="volume-up"><i class="bi bi-volume-up-fill"></i></div>
+              </div>
+            </div>
+
+          </div>
         </div>
+      </section>
     </div>
-</div>
+  </main>
 
-<!-- Scripts -->
-<script src="./script.js"></script>
-<script src="./translation.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- === Chatbot UI === -->
+  <button id="chatbot-button" aria-label="Open chat" title="Chat with assistant">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="#06201a"/></svg>
+  </button>
 
-<script>
-    // Theme and translation sync
-    if (window.location !== window.parent.location) document.body.classList.add('embedded');
-    window.addEventListener('message', (event) => {
-        const data = event.data || {};
-        if(data.type==='changeLanguage') applyTranslations(data.language);
-        if(data.type==='theme' && (data.theme==='light'||data.theme==='dark')){
-            document.documentElement.setAttribute('data-theme', data.theme);
-            document.body.classList.remove('light-theme', 'dark-theme');
-            document.body.classList.add(data.theme+'-theme');
+  <div id="chatbot-window" role="dialog" aria-modal="false" aria-label="Assistant chat window">
+    <div id="chat-header" role="banner">
+      <div id="chat-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 8h10M7 12h6" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <div style="font-weight:700">Assistant</div>
+          <div id="chat-subtitle" style="font-size:0.78rem; opacity:0.95">Helpful controls & book info</div>
+        </div>
+      </div>
+
+      <div id="chat-actions">
+        <button id="chatbot-minimize" title="Minimize" aria-label="Minimize chat">—</button>
+        <button id="chatbot-close" title="Close chat" aria-label="Close chat">&times;</button>
+      </div>
+    </div>
+
+    <div id="chatbot-messages" aria-live="polite" aria-atomic="false"></div>
+
+    <div id="quick-replies" aria-hidden="false">
+      <button class="quick-reply" data-msg="Play Track 1">Play Track 1</button>
+      <button class="quick-reply" data-msg="Play Track 3">Play Track 3</button>
+      <button class="quick-reply" data-msg="Pause">Pause</button>
+      <button class="quick-reply" data-msg="Show book summary">Book Summary</button>
+      <button class="quick-reply" data-msg="Help">Help</button>
+    </div>
+
+    <form id="chatbot-form" onsubmit="return false;" aria-label="Chat input">
+      <input id="chatbot-input" autocomplete="off" placeholder="Try: 'Play Track 3', 'Pause', 'Speed 1.5x', or ask a question…" aria-label="Type a message to assistant" />
+      <button id="chatbot-send" aria-label="Send message" type="submit">Send</button>
+    </form>
+  </div>
+
+  <!-- Optional: Bootstrap JS if you need other components -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- === Chatbot JavaScript (professional logic) === -->
+  <script>
+    (function(){
+      // Elements
+      const btn = document.getElementById('chatbot-button');
+      const win = document.getElementById('chatbot-window');
+      const closeBtn = document.getElementById('chatbot-close');
+      const minimizeBtn = document.getElementById('chatbot-minimize');
+      const messagesEl = document.getElementById('chatbot-messages');
+      const input = document.getElementById('chatbot-input');
+      const sendBtn = document.getElementById('chatbot-send');
+      const quicks = document.querySelectorAll('.quick-reply');
+
+      // Audio controls
+      const audio = document.getElementById('audio-player');
+      const playlistItems = Array.from(document.querySelectorAll('#playlist .adiobk-sub-item'));
+      const seekSlider = document.getElementById('seekSlider');
+      const currentTimeEl = document.getElementById('currentTime');
+      const durationEl = document.getElementById('duration');
+      const playBtn = document.getElementById('ctrl-play');
+      let currentTrack = 0;
+
+      // Persist chat open state
+      const CHAT_STATE_KEY = 'gd_chat_open_v1';
+      const CHAT_HISTORY_KEY = 'gd_chat_history_v1';
+
+      // Utility: friendly timestamp
+      function timeNow() {
+        const d = new Date();
+        return d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+      }
+
+      // Append message
+      function appendMessage(text, who='assistant', options = {}) {
+        const row = document.createElement('div');
+        row.className = 'msg-row ' + (who === 'user' ? 'user' : 'assistant');
+
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble ' + (who === 'user' ? 'user' : 'assistant');
+        bubble.innerHTML = text;
+
+        row.appendChild(bubble);
+
+        // meta (timestamp)
+        if(options.showMeta !== false) {
+          const meta = document.createElement('div');
+          meta.className = 'meta';
+          meta.style.marginTop = '6px';
+          meta.innerHTML = (options.label ? `<strong style="margin-right:6px;color:#9be9d0">${options.label}</strong>` : '')
+                           + `<span>${timeNow()}</span>`;
+          row.appendChild(meta);
         }
-    });
-    document.addEventListener('DOMContentLoaded', function(){ applyTranslations('en'); });
 
-    // Chatbot Logic with Audio Controls
-    const chatbotHeader = document.getElementById('chatbot-header');
-    const chatbotBody = document.getElementById('chatbot-body');
-    const chatbotMessages = document.getElementById('chatbot-messages');
-    const chatbotInput = document.getElementById('chatbot-input');
-    const chatbotSend = document.getElementById('chatbot-send');
-    const chatbotOptions = document.querySelectorAll('.chatbot-option');
+        messagesEl.appendChild(row);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
 
-    const audioPlayer = document.getElementById('audio-player');
-    const playlistItems = document.querySelectorAll('#playlist .adiobk-sub-item');
-    let currentTrackIndex = 0;
+        // Save history
+        saveHistory();
+      }
 
-    function loadTrack(index){
-        if(index < 0 || index >= playlistItems.length) return;
-        currentTrackIndex = index;
-        const src = playlistItems[index].getAttribute('data-src');
-        audioPlayer.src = src;
-        audioPlayer.play();
-        addMessage(`Now playing: ${playlistItems[index].querySelector('p').textContent}`);
-    }
+      // Typing indicator
+      let typingTimeout;
+      function showTyping() {
+        clearTyping();
+        const row = document.createElement('div');
+        row.className = 'msg-row assistant typing-row';
+        row.id = 'typing-row';
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble assistant typing';
+        bubble.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+        row.appendChild(bubble);
+        messagesEl.appendChild(row);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+      }
+      function clearTyping(){
+        const el = document.getElementById('typing-row');
+        if(el) el.remove();
+      }
 
-    function addMessage(text, sender='bot') {
-        const msgDiv = document.createElement('div');
-        msgDiv.textContent = text;
-        msgDiv.classList.add(sender);
-        chatbotMessages.appendChild(msgDiv);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-    }
+      // Save/load chat history to localStorage (small)
+      function saveHistory() {
+        try {
+          const nodes = Array.from(messagesEl.querySelectorAll('.msg-row'));
+          const history = nodes.map(n => {
+            const who = n.classList.contains('user') ? 'user' : 'assistant';
+            const content = n.querySelector('.bubble')?.innerText || '';
+            return { who, content, time: n.querySelector('.meta')?.innerText || '' };
+          });
+          localStorage.setItem(CHAT_HISTORY_KEY, JSON.stringify(history.slice(-200))); // keep up to 200 msgs
+        } catch(e) { /* ignore */ }
+      }
+      function restoreHistory() {
+        try {
+          const raw = localStorage.getItem(CHAT_HISTORY_KEY);
+          if(!raw) return;
+          const history = JSON.parse(raw);
+          history.forEach(h => appendMessage(h.content, h.who, { showMeta: true }));
+        } catch(e) { /* ignore */ }
+      }
 
-    function botReply(message) {
-        message = message.toLowerCase();
-        
-        // Play Track Command
-        const playMatch = message.match(/play track (\d+)/);
-        if(playMatch){
-            const trackNum = parseInt(playMatch[1])-1;
-            if(trackNum >= 0 && trackNum < playlistItems.length){
-                loadTrack(trackNum);
-            } else { addMessage("Track number out of range."); }
+      // Open/close helpers
+      function openChat() {
+        win.style.display = 'flex';
+        btn.style.display = 'none';
+        localStorage.setItem(CHAT_STATE_KEY, 'open');
+      }
+      function minimizeChat() {
+        win.style.display = 'none';
+        btn.style.display = 'flex';
+        localStorage.setItem(CHAT_STATE_KEY, 'min');
+      }
+      function closeChat() {
+        win.style.display = 'none';
+        btn.style.display = 'flex';
+        localStorage.setItem(CHAT_STATE_KEY, 'closed');
+      }
+
+      // On load, restore state
+      (function initUI() {
+        const state = localStorage.getItem(CHAT_STATE_KEY) || 'min';
+        if(state === 'open') {
+          openChat();
+        } else {
+          minimizeChat();
+        }
+        restoreHistory();
+        // if empty history, friendly welcome
+        if(!messagesEl.querySelector('.msg-row')) {
+          appendMessage(`<strong>Welcome!</strong> I can control playback and answer questions about the book. Try: <em>Play Track 2</em>, <em>Pause</em>, <em>Speed 1.5x</em>`, 'assistant', { label: 'Assistant' });
+        }
+      })();
+
+      // Basic audio helpers
+      function loadTrack(index, autoplay=true) {
+        if(!playlistItems.length) return appendMessage('No tracks found in playlist.', 'assistant');
+        if(index < 0 || index >= playlistItems.length) {
+          appendMessage('Track number out of range.', 'assistant');
+          return;
+        }
+        const item = playlistItems[index];
+        const src = item.getAttribute('data-src');
+        if(!src) return appendMessage('Track source missing.', 'assistant');
+        audio.src = src;
+        currentTrack = index;
+        // Update UI small (optional)
+        appendMessage(`Now playing: ${item.querySelector('p')?.innerText || 'Track ' + (index+1)}`, 'assistant', { label: 'Player' });
+        if(autoplay) audio.play().catch(() => {});
+        saveHistory();
+      }
+
+      function nextTrack() { loadTrack(Math.min(currentTrack + 1, playlistItems.length - 1)); }
+      function prevTrack() { loadTrack(Math.max(currentTrack - 1, 0)); }
+
+      // Update seekbar/time displays
+      audio.addEventListener('loadedmetadata', () => {
+        const d = audio.duration || 0;
+        durationEl.textContent = formatTime(d);
+        seekSlider.max = Math.floor(d);
+      });
+      audio.addEventListener('timeupdate', () => {
+        seekSlider.value = Math.floor(audio.currentTime);
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+      });
+      audio.addEventListener('ended', () => { // auto-next
+        if(currentTrack < playlistItems.length - 1) nextTrack();
+        else appendMessage('Playback ended.', 'assistant', { label: 'Player' });
+      });
+      seekSlider.addEventListener('input', (e) => {
+        audio.currentTime = Number(e.target.value);
+      });
+
+      function formatTime(sec) {
+        if(!sec || isNaN(sec)) return '0:00';
+        const s = Math.floor(sec % 60).toString().padStart(2,'0');
+        const m = Math.floor(sec / 60);
+        return `${m}:${s}`;
+      }
+
+      // Play / pause btn (keeps compatibility)
+      playBtn && playBtn.addEventListener('click', () => {
+        if(audio.paused) audio.play().catch(()=>{});
+        else audio.pause();
+      });
+
+      // Command parsing and reply generation
+      function processCommand(raw) {
+        const message = raw.trim();
+        if(!message) return;
+        appendMessage(message, 'user', { label: 'You' });
+
+        // show typing indicator
+        showTyping();
+
+        // simulate processing delay
+        clearTimeout(typingTimeout);
+        typingTimeout = setTimeout(() => {
+          clearTyping();
+
+          // lower-cased normalization for tests but keep original for numbers
+          const m = message.toLowerCase();
+
+          // Play Track N (supports "play track 3" or "play 3" or "play track number 3")
+          const playMatch = message.match(/play(?:\s+track|\s+track\s+number|\s+)?\s*(\d{1,3})/i) || message.match(/^play\s+(\d{1,3})$/i);
+          if(playMatch) {
+            const idx = parseInt(playMatch[1], 10) - 1;
+            if(isNaN(idx)) { appendMessage('I could not parse the track number. Try: Play Track 3', 'assistant'); return; }
+            if(idx < 0 || idx >= playlistItems.length) { appendMessage('Track number out of range. Please choose a number between 1 and ' + playlistItems.length, 'assistant'); return; }
+            loadTrack(idx);
             return;
+          }
+
+          // Pause
+          if(/\bpaus(e|ed)?\b/i.test(m)) {
+            audio.pause();
+            appendMessage('Playback paused.', 'assistant', { label: 'Player' });
+            return;
+          }
+
+          // Resume / play (without a number)
+          if(/\b(resume|continue|play)\b/i.test(m) && !/\d/.test(m)) {
+            audio.play().catch(()=>{});
+            appendMessage('Playback resumed.', 'assistant', { label: 'Player' });
+            return;
+          }
+
+          // Next / skip
+          if(/\b(next|skip|forward)\b/i.test(m)) {
+            if(currentTrack >= playlistItems.length -1) { appendMessage('You are already on the last track.', 'assistant'); return; }
+            nextTrack();
+            return;
+          }
+
+          // Previous / back
+          if(/\b(previous|back|prev|rewind)\b/i.test(m)) {
+            if(currentTrack <= 0) { appendMessage('You are already on the first track.', 'assistant'); return; }
+            prevTrack();
+            return;
+          }
+
+          // Speed set like "speed 1.5x" or "set speed 1.5"
+          const speedMatch = message.match(/(?:speed|rate|playback)\s*(?:to|=|is|set)?\s*(\d*\.?\d+)\s*x?/i);
+          if(speedMatch) {
+            const val = parseFloat(speedMatch[1]);
+            if(!isFinite(val) || val <= 0) { appendMessage('Invalid speed value. Use numbers like 0.5, 1, 1.5, 2', 'assistant'); return; }
+            audio.playbackRate = val;
+            appendMessage(`Playback speed set to ${val}x`, 'assistant', { label: 'Player' });
+            return;
+          }
+
+          // Show current
+          if(/\b(current|now playing|what is playing|which track)\b/i.test(m)) {
+            const item = playlistItems[currentTrack];
+            appendMessage(`Now playing: ${item ? item.querySelector('p')?.innerText || ('Track ' + (currentTrack+1)) : 'No track loaded.'}`, 'assistant', { label: 'Player' });
+            return;
+          }
+
+          // Book summary or info
+          if(/\b(summary|about|what is this book|describe)\b/i.test(m)) {
+            appendMessage('<strong>God Delusion</strong> — by Richard Dawkins. Brief: a critique of the idea of a supernatural creator and a defense of atheism and scientific skepticism.', 'assistant', { label: 'Book' });
+            return;
+          }
+
+          // Playlist
+          if(/\b(playlist|tracks|list)\b/i.test(m)) {
+            const list = playlistItems.map((it, i) => `<li style="margin:6px 0;padding-left:8px;">${i+1}. ${it.querySelector('p')?.innerText || 'Track ' + (i+1)}</li>`).join('');
+            appendMessage(`<div>Playlist (${playlistItems.length}): <ul style="margin:8px 0 0 14px;padding:0;color:#c8f7e6">${list}</ul></div>`, 'assistant', { label: 'Playlist' });
+            return;
+          }
+
+          // Clear chat
+          if(/\b(clear|reset)\b/i.test(m) && /\b(chat|conversation|history)\b/i.test(m)) {
+            messagesEl.innerHTML = '';
+            localStorage.removeItem(CHAT_HISTORY_KEY);
+            appendMessage('Chat cleared. How can I help you next?', 'assistant', { label: 'Assistant' });
+            return;
+          }
+
+          // Help fallback
+          if(/\b(help|commands|what can you do)\b/i.test(m)) {
+            appendMessage(
+              `I can control playback and give quick info. Try commands: <ul style="margin:6px 0 0 12px;padding:0;color:#c8f7e6">
+               <li>Play Track N</li>
+               <li>Pause / Resume</li>
+               <li>Next / Previous</li>
+               <li>Speed 1.5x</li>
+               <li>Show book summary / playlist</li>
+               </ul>`, 'assistant', { label: 'Assistant' });
+            return;
+          }
+
+          // Fallback small-intent reply
+          appendMessage("I'm sorry — I didn't recognize that command. Try 'Help' to see supported commands, or 'Play Track 3'.", 'assistant', { label: 'Assistant' });
+
+        }, 550); // simulated delay (typing)
+      }
+
+      // Event listeners
+      btn.addEventListener('click', () => {
+        openChat();
+        input.focus();
+      });
+      minimizeBtn.addEventListener('click', () => { minimizeChat(); });
+      closeBtn.addEventListener('click', () => { closeChat(); });
+
+      sendBtn.addEventListener('click', () => {
+        const value = input.value.trim();
+        if(!value) return;
+        processCommand(value);
+        input.value = '';
+      });
+      input.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendBtn.click();
         }
+      });
 
-        if(message.includes('pause')) { audioPlayer.pause(); addMessage("Playback paused."); return; }
-        if(message.includes('resume') || message.includes('play')) { audioPlayer.play(); addMessage("Playback resumed."); return; }
-        if(message.includes('next')) { loadTrack(currentTrackIndex+1); return; }
-        if(message.includes('previous')) { loadTrack(currentTrackIndex-1); return; }
+      quicks.forEach(q => q.addEventListener('click', (ev) => {
+        const payload = ev.currentTarget.getAttribute('data-msg');
+        processCommand(payload);
+      }));
 
-        const speedMatch = message.match(/speed (\d*\.?\d+)x/);
-        if(speedMatch){ audioPlayer.playbackRate = parseFloat(speedMatch[1]); addMessage(`Playback speed set to ${speedMatch[1]}x`); return; }
+      // Save history periodically
+      setInterval(saveHistory, 3000);
 
-        if(message.includes('summary')) addMessage("God Delusion by Richard Dawkins is a book arguing against the existence of a supernatural creator.");
-        else if(message.includes('playlist')) addMessage("The playlist has multiple tracks. You can play or download each track from the list.");
-        else if(message.includes('help')) addMessage("You can type commands like 'Play Track 3', 'Pause', 'Next', 'Previous', 'Speed 1.5x', or ask 'Book Summary'/'Playlist'.");
-        else addMessage("Sorry, I didn't understand. Try commands like 'Play Track 3', 'Pause', or 'Book Summary'.");
-    }
+      // Expose for debugging (optional)
+      window._gdChat = {
+        openChat, minimizeChat, closeChat, loadTrack, appendMessage
+      };
 
-    // Event listeners
-    chatbotHeader.addEventListener('click', () => chatbotBody.style.display = chatbotBody.style.display==='flex'?'none':'flex');
-    chatbotSend.addEventListener('click', () => {
-        const msg = chatbotInput.value.trim();
-        if(!msg) return;
-        addMessage(msg, 'user');
-        chatbotInput.value='';
-        setTimeout(()=>botReply(msg),500);
-    });
-    chatbotInput.addEventListener('keydown',(e)=>{ if(e.key==='Enter') chatbotSend.click(); });
-    chatbotOptions.forEach(option => option.addEventListener('click', () => {
-        const msg = option.getAttribute('data-msg');
-        addMessage(msg,'user'); 
-        setTimeout(()=>botReply(msg),500);
-    }));
-</script>
+      // Accessibility: focus trap when opened (light)
+      win.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape') minimizeChat();
+      });
+
+    })();
+  </script>
+
 </body>
 </html>
