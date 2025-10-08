@@ -8,10 +8,45 @@
   --medium: 50px;
   --large: 65px;
   --bar-height: 10px;
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --surface-glass: rgba(255, 255, 255, 0.05);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --brand-500: #3b82f6;
+  --brand-600: #2563eb;
+  --brand-700: #1d4ed8;
+  --eggshell: #fefae0;
+  --burnt-sienna: #bc6c25;
+  --delft-blue: #283618;
+  --cambridge-blue: #606c38;
+  --sunset: #fefae0;
+  --shadow: 0 4px 6px rgba(40, 54, 24, 0.1);
+  --transition: all 0.3s ease;
+  --font-primary: 'Inter', sans-serif;
 }
 
 * {
   margin: 0;
+}
+
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--bg-primary);
+  color: #fff;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Loader Styles */
@@ -40,6 +75,21 @@
   justify-content: center;
   align-items: center;
   z-index: 9999; /* stays above everything */
+}
+
+.loader .spinner {
+  border: 4px solid var(--bg-secondary);
+  border-top: 4px solid var(--brand-500);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Prevent body from scrolling while loader is active */
@@ -84,6 +134,34 @@ li {
   display: none;
 }
 
+.faq {
+  background: var(--bg-secondary);
+  padding: 4rem 0;
+}
+
+.faq-item {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.faq-item h3 {
+  cursor: pointer;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+.faq-item p {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1rem;
+  transition: max-height 0.4s ease;
+}
+
+.faq-item.active p {
+  max-height: 500px;
+  padding: 1rem;
+}
+
 .faq-answer {
   display: block;
   font-size: 1rem;
@@ -101,6 +179,27 @@ li {
 .faq-question:hover {
   text-decoration: none;
 }
+
+@media (max-width: 480px) {
+  .faq-box {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .faq-question {
+    font-size: 1rem;
+  }
+
+  .faq-answer {
+    font-size: 0.85rem;
+  }
+
+  .faq-profile {
+    width: 45px;
+    height: 45px;
+  }
+}
+
 
 /* Trailing circles styles */
 .circle {
@@ -263,6 +362,22 @@ button:hover {
   background-color: var(--accent-background-color) !important;
 }
 
+.footer {
+  background: var(--bg-tertiary);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.footer .socials a {
+  margin: 0 0.5rem;
+  color: var(--brand-500);
+  transition: var(--transition);
+}
+
+.footer .socials a:hover {
+  color: var(--brand-700);
+}
+
 footer.light-theme {
   background-color: inherit;
   color: #181818;
@@ -278,6 +393,34 @@ footer a:hover {
 
 .footer-col-title {
   color: var(--accent-color) !important;
+}
+
+@media (max-width: 768px) {
+  footer.row {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  footer.row .footer-col-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  footer.row .nav a {
+    padding: 0.25rem 0;
+    display: block;
+  }
+
+  .footer-brand {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-brand .brand-tagline {
+    max-width: 100%;
+    text-align: center;
+  }
 }
 
 /* About page  */
@@ -568,6 +711,42 @@ audio {
   font-size: 2.5rem;
 }
 
+@media (max-width: 480px) {
+  .ctrl-player .ctrl-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .ctrl-player .ctrl-button-small {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .ctrl-player .ctrl-button-medium {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.8rem;
+  }
+
+  .ctrl-player .ctrl-button-large {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .ctrl-button-large .bi {
+    font-size: 1.5rem;
+  }
+
+  input[type="range"]#seekSlider {
+    max-width: 90%;
+  }
+}
+
+
 /* Base styles for the slider */
 input[type="range"]#seekSlider {
   width: 80%;
@@ -741,6 +920,33 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
   padding: 20px;
   margin-bottom: 30px;
 }
+@media (max-width: 768px) {
+  .profile-and-friends {
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .profile-section,
+  .friends-section {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+  }
+
+  .friend-card {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .friend-card .card-title {
+    font-size: 1rem;
+  }
+
+  .friend-card .card-text a {
+    font-size: 0.85rem;
+  }
+}
+
 
 #bookmarked-list li {
   background-color: #121212;
@@ -757,6 +963,7 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
   max-width: 1200px; /* or any width you prefer */
   margin: 0 auto; /* centers the container */
   padding: 0 1rem; /* optional padding */
+  box-sizing: border-box;
 }
 
 /* Prevent accidental horizontal scroll across the site */
@@ -789,6 +996,39 @@ html, body {
 #menu {
   margin-top: 1rem; /* if needed to create space above the menu */
 }
+/* Make header fully responsive */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+
+  #menu {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  #menu a,
+  #menu button {
+    padding: 12px 16px;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+  }
+
+  a.logo-text {
+    margin-bottom: 0.5rem;
+  }
+
+  #theme-toggle,
+  #profile-btn {
+    margin-left: 0;
+  }
+}
+
 @media (max-width: 1024px) {
   header {
     padding: 8px; /* Adjust padding for smaller screens */
@@ -1555,6 +1795,28 @@ button:hover {
   animation: bounce-subtle 2s infinite;
 }
 
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: var(--brand-500);
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #cbd5e1;
+  animation: fadeInUp 1.5s ease forwards;
+}
+
 .hero-bg-element {
   font-size: 3rem;
   user-select: none;
@@ -1568,6 +1830,26 @@ button:hover {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 60vh;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .hero-bg-element {
+    font-size: 1.5rem;
+  }
+
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+}
+
 
 body.light-theme .hero-section {
   background: linear-gradient(135deg, #f8fafc 0%, #eef6fb 50%, #f8fafc 100%) !important;
