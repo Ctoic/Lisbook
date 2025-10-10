@@ -295,10 +295,24 @@
           <p class="text-lg">
             Total Time Listened: <span id="total-time">20 hrs</span>
           </p>
-          <button id="upload-pic" class="btn btn-primary">
-            Change Picture
-          </button>
+         <button id="upload-pic" style="
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+">
+  Change Picture
+      </button>
+          <input type="file" id="profilePicInput" accept="image/*" style="display: none;" />
         </section>
+        <p id="update-msg" style="color: green; font-weight: bold; display: none; margin-top: 10px;">
+        Profile picture updated!
+      </p>
+
       </div>
 
       <!-- Friends Section -->
@@ -600,6 +614,30 @@
           `;
           document.getElementById("friends-list").appendChild(friendDiv);
       }
+            // Trigger file input when button is clicked
+      document.getElementById('upload-pic').addEventListener('click', function () {
+        document.getElementById('profilePicInput').click();
+      });
+
+      // Preview selected image
+      document.getElementById('profilePicInput').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            document.querySelector('.profile-section img').src = e.target.result;
+            // Show success message
+      const msg = document.getElementById("update-msg");
+      msg.style.display = "block";
+
+      // Hide the success msg  after 3 seconds
+      setTimeout(() => {
+        msg.style.display = "none";
+      }, 3000);
+    };
+          reader.readAsDataURL(file);
+        }
+      });
   </script>
 
   <!-- Bootstrap JS for responsiveness -->
