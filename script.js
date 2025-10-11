@@ -811,15 +811,7 @@ document.addEventListener("DOMContentLoaded", function () {
         type();
     }
 
-    // --- Profile/Friendship Features ---
-    const uploadPicBtn = document.getElementById("upload-pic");
-    if (uploadPicBtn) {
-        uploadPicBtn.addEventListener("click", () => {
-            showErrorPopup("Profile picture change feature is coming soon!");
-        });
-    }
-
-    const editNameBtn = document.getElementById("edit-name");
+ const editNameBtn = document.getElementById("edit-name");
     if (editNameBtn) {
         editNameBtn.addEventListener("click", () => {
             // Using prompt for simplicity, but a custom modal is recommended
