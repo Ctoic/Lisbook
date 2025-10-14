@@ -2026,3 +2026,45 @@ footer a:hover {
     text-align: center;
   }
 }
+
+/* Neon animated buttons */
+.navbar_buttons {
+  position: relative;
+  color: #0ff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+}
+
+/* Hover animation */
+.navbar_buttons:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #00ffff,
+               0 0 20px #00ffff,
+               0 0 40px #00ffff;
+  transform: scale(1.2) rotate(2deg);
+  background: linear-gradient(90deg, #00ffff, #ff00ff, #00ff88);
+  box-shadow: 0 0 20px #00ffff;
+}
+
+/* Underline animation */
+.navbar_buttons::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
+}
+
+.navbar_buttons:hover::after {
+  width: 80%;
+}
