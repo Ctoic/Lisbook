@@ -562,21 +562,21 @@ audio {
   cursor: pointer;
 }
 .ctrl-player .ctrl-buttons .ctrl-button-small {
-  width: var(--small);
-  height: var(--small);
-  line-height: var(--small);
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
 }
 .ctrl-player .ctrl-buttons .ctrl-button-medium {
-  width: var(--medium);
-  height: var(--medium);
-  line-height: var(--medium);
-  font-size: 1rem;
+  width: 56px;
+  height: 56px;
+  line-height: 56px;
+  font-size: 1.15rem;
 }
 .ctrl-player .ctrl-buttons .ctrl-button-large {
-  width: var(--large);
-  height: var(--large);
-  line-height: var(--large);
-  font-size: 35px;
+  width: 72px;
+  height: 72px;
+  line-height: 72px;
+  font-size: 2rem;
 }
 .ctrl-player .ctrl-buttons .ctrl-button-small:hover,
 .ctrl-player .ctrl-buttons .ctrl-button-medium:hover,
@@ -1379,36 +1379,36 @@ footer.row .col.mb-3:last-child #newsletterMessage {
   }
 
   .ctrl-player .ctrl-buttons .ctrl-button-small {
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    font-size: 0.75rem;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 0.95rem;
   }
 
   .ctrl-player .ctrl-buttons .ctrl-button-medium {
-    width: 45px;
-    height: 45px;
-    line-height: 45px;
-    font-size: 0.75rem;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    font-size: 1.15rem;
   }
 
   .ctrl-player .ctrl-buttons .ctrl-button-large {
-    width: 55px;
-    height: 55px;
-    line-height: 55px;
-    font-size: 1.8rem;
+    width: 72px;
+    height: 72px;
+    line-height: 72px;
+    font-size: 2rem;
   }
 
   .ctrl-button-large .bi {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 
   .ctrl-button-small .bi {
-    font-size: 1rem;
+    font-size: 1.15rem;
   }
 
   .ctrl-button-medium span {
-    font-size: 0.75rem;
+    font-size: 0.95rem;
   }
 }
 
@@ -1430,27 +1430,28 @@ footer.row .col.mb-3:last-child #newsletterMessage {
   }
 
   .ctrl-player .ctrl-buttons .ctrl-button-small {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 0.95rem;
   }
 
   .ctrl-player .ctrl-buttons .ctrl-button-medium {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    font-size: 0.9rem;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    font-size: 1.15rem;
   }
 
   .ctrl-player .ctrl-buttons .ctrl-button-large {
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
+    width: 72px;
+    height: 72px;
+    line-height: 72px;
     font-size: 2rem;
   }
 
   .ctrl-button-large .bi {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 
   /* Track list responsive */
@@ -1570,7 +1571,8 @@ footer.row .col.mb-3:last-child #newsletterMessage {
 
   /* Playlist container */
   #playlist,
-  ul {
+  #playlist ul,
+  .playlist {
     width: 100%;
     max-width: 100%;
   }
@@ -1668,7 +1670,8 @@ footer.row .col.mb-3:last-child #newsletterMessage {
 
   /* Ensure playlist list fits in container */
   #playlist,
-  ul {
+  #playlist ul,
+  .playlist {
     width: 100%;
     max-width: 100%;
     padding-left: 0;
