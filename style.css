@@ -356,10 +356,20 @@ body.light-theme .playlist-card {
 
 .icon-action-btn-container {
   margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .icon-action-btn {
   transition: color 0.3s;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon-action-btn.active {
@@ -483,6 +493,8 @@ body.light-theme .playlist-card {
   background-color: inherit;
   margin-bottom: 7px;
   transition: var(--transition-background);
+  width: 100%;
+  max-width: 100%;
 }
 
 .adiobk-sub-item:hover {
@@ -490,8 +502,23 @@ body.light-theme .playlist-card {
   color: #121212;
 }
 
+.adiobk-sub-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.adiobk-sub-item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .player {
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  padding: 1rem;
   /* background-color: white; */
 }
 
@@ -535,21 +562,21 @@ audio {
   cursor: pointer;
 }
 .ctrl-player .ctrl-buttons .ctrl-button-small {
-  width: var(--small);
-  height: var(--small);
-  line-height: var(--small);
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
 }
 .ctrl-player .ctrl-buttons .ctrl-button-medium {
-  width: var(--medium);
-  height: var(--medium);
-  line-height: var(--medium);
-  font-size: 1rem;
+  width: 56px;
+  height: 56px;
+  line-height: 56px;
+  font-size: 1.15rem;
 }
 .ctrl-player .ctrl-buttons .ctrl-button-large {
-  width: var(--large);
-  height: var(--large);
-  line-height: var(--large);
-  font-size: 35px;
+  width: 72px;
+  height: 72px;
+  line-height: 72px;
+  font-size: 2rem;
 }
 .ctrl-player .ctrl-buttons .ctrl-button-small:hover,
 .ctrl-player .ctrl-buttons .ctrl-button-medium:hover,
@@ -1332,36 +1359,406 @@ footer.row .col.mb-3:last-child #newsletterMessage {
 
 /* Responsive for extra small devices (max-width: 480px) */
 @media (max-width: 480px) {
+  .ctrl-player {
+    max-width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .ctrl-player .ctrl-buttons {
-    padding: 0px; 
+    padding: 10px 5px; 
+    gap: 5px;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
+
+  .ctrl-player .ctrl-buttons .ctrl-button {
+    margin: 2px;
   }
 
   .ctrl-player .ctrl-buttons .ctrl-button-small {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 0.95rem;
   }
 
   .ctrl-player .ctrl-buttons .ctrl-button-medium {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 0.8rem;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    font-size: 1.15rem;
   }
 
   .ctrl-player .ctrl-buttons .ctrl-button-large {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    font-size: 1.8rem;
+    width: 72px;
+    height: 72px;
+    line-height: 72px;
+    font-size: 2rem;
   }
 
   .ctrl-button-large .bi {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+  }
+
+  .ctrl-button-small .bi {
+    font-size: 1.15rem;
+  }
+
+  .ctrl-button-medium span {
+    font-size: 0.95rem;
   }
 }
 
+/* Responsive for small tablets and large phones (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .ctrl-player {
+    max-width: 100%;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
 
+  .ctrl-player .ctrl-buttons {
+    padding: 15px 10px;
+    gap: 8px;
+  }
+
+  .ctrl-player .ctrl-buttons .ctrl-button {
+    margin: 4px;
+  }
+
+  .ctrl-player .ctrl-buttons .ctrl-button-small {
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 0.95rem;
+  }
+
+  .ctrl-player .ctrl-buttons .ctrl-button-medium {
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    font-size: 1.15rem;
+  }
+
+  .ctrl-player .ctrl-buttons .ctrl-button-large {
+    width: 72px;
+    height: 72px;
+    line-height: 72px;
+    font-size: 2rem;
+  }
+
+  .ctrl-button-large .bi {
+    font-size: 1.7rem;
+  }
+
+  /* Track list responsive */
+  .adiobk-sub-item {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  .adiobk-sub-item p {
+    font-size: 0.875rem;
+  }
+
+  .player {
+    padding: 0.75rem;
+  }
+
+  /* Icon buttons for medium screens */
+  .icon-action-btn-container {
+    gap: 1.25rem;
+  }
+
+  .icon-action-btn {
+    font-size: 1.35rem;
+  }
+}
+
+/* Additional responsive styles for all screen sizes */
+
+/* Large screens (desktops) */
+@media (min-width: 1200px) {
+  .player {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .ctrl-player {
+    max-width: 100%;
+  }
+
+  .adiobk-sub-item {
+    padding: 12px 16px;
+  }
+
+  .icon-action-btn {
+    font-size: 1.6rem;
+  }
+
+  .icon-action-btn-container {
+    gap: 2rem;
+  }
+}
+
+/* Medium screens (tablets and small desktops) */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .player {
+    padding: 1.25rem;
+  }
+
+  .adiobk-sub-item {
+    padding: 10px 14px;
+  }
+
+  .icon-action-btn {
+    font-size: 1.5rem;
+  }
+
+  .icon-action-btn-container {
+    gap: 1.5rem;
+  }
+}
+
+/* Small screens (mobile landscape and small tablets) */
+@media (max-width: 768px) {
+  /* Ensure containers are full width on tablets */
+  .features-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.25rem;
+  }
+
+  .col-12.col-lg-4,
+  .col-12.col-lg-8 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .player {
+    padding: 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .adiobk-sub-item {
+    padding: 10px 14px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .adiobk-sub-item p {
+    font-size: 0.9rem;
+    flex: 1;
+  }
+
+  .adiobk-sub-item .bi {
+    font-size: 1.15rem;
+  }
+
+  .icon-action-btn {
+    font-size: 1.4rem;
+  }
+
+  .icon-action-btn-container {
+    gap: 1.25rem;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  /* Playlist container */
+  #playlist,
+  #playlist ul,
+  .playlist {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Section padding adjustments */
+  section.row.rounded-5 {
+    padding: 1rem !important;
+  }
+
+  section.row.rounded-5 > div {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+}
+
+/* Extra small screens (mobile portrait) */
+@media (max-width: 576px) {
+  /* Make containers wider on mobile */
+  .features-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1rem !important;
+    margin: 0 auto;
+  }
+
+  .col-12.col-lg-4,
+  .col-12.col-lg-8 {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    max-width: 100%;
+  }
+
+  .row.rounded-5 {
+    padding: 0.75rem !important;
+  }
+
+  .player {
+    padding: 0.75rem 0.5rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .adiobk-sub-item {
+    padding: 8px 12px;
+    font-size: 0.875rem;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .adiobk-sub-item p {
+    font-size: 0.875rem;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 8px;
+  }
+
+  .adiobk-sub-item .bi {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .adiobk-sub-item a {
+    flex-shrink: 0;
+  }
+
+  /* Make icons container fit properly */
+  .icon-action-btn {
+    font-size: 1.3rem;
+  }
+
+  .icon-action-btn-container {
+    gap: 1rem;
+    margin-top: 15px;
+    padding: 0 0.5rem;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  /* Book card specific */
+  .card-cover-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .card-cover-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Ensure playlist list fits in container */
+  #playlist,
+  #playlist ul,
+  .playlist {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Progress bars fit properly */
+  .bg-gray-700 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .progress-bar {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Main container adjustments */
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  main.container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  /* Section specific */
+  section.row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Remove extra padding on very small screens */
+  .p-5 {
+    padding: 0.75rem !important;
+  }
+
+  .p-4 {
+    padding: 0.75rem !important;
+  }
+
+  .ps-4 {
+    padding-left: 0.5rem !important;
+  }
+
+  /* Ensure rounded containers don't overflow */
+  .rounded-5 {
+    border-radius: 1rem !important;
+  }
+}
+
+/* Medium-small screens (portrait tablets and large phones) */
+@media (min-width: 577px) and (max-width: 767px) {
+  .features-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .col-12.col-lg-4,
+  .col-12.col-lg-8 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .adiobk-sub-item {
+    padding: 10px 14px;
+  }
+
+  .adiobk-sub-item p {
+    font-size: 0.95rem;
+  }
+
+  .icon-action-btn {
+    font-size: 1.45rem;
+  }
+
+  .icon-action-btn-container {
+    gap: 1.35rem;
+  }
+
+  section.row.rounded-5 {
+    padding: 1.25rem !important;
+  }
+}
 
 /* Contact Section */
 h2.display-5 {
