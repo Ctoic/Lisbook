@@ -2423,3 +2423,19 @@ footer a:hover {
     text-align: center;
   }
 }
+
+.blog-grid {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.blog-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #fdfdfd;
+}
+.blog-content {
+  margin-top: 1rem;
+}

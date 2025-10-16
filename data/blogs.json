@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Welcome to Our Blog",
+    "author": "Admin",
+    "date": "2025-10-15",
+    "excerpt": "We’ve launched a blog! Here's what to expect.",
+    "content": "## Welcome!\nThis blog will keep you updated with news and tutorials."
+  },
+  {
+    "id": 2,
+    "title": "October Product Updates",
+    "author": "Admin",
+    "date": "2025-10-01",
+    "excerpt": "Here’s everything new in our October release.",
+    "content": "### New Features\n- Blog section!\n- Improved layout\n\nStay tuned for more."
+  }
+]
