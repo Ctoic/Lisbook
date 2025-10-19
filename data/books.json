@@ -6,6 +6,7 @@
     "cover": "Images/To_kill_a_mockingbird.jpg",
     "genre": "Fiction",
     "description": "A novel that explores racial injustice in the Deep South through the eyes of young Scout Finch, as her father, Atticus, defends a black man wrongly accused of raping a white woman.",
+    "popularity": 10,
     "chapters": [
       {
         "id": "1",
@@ -28,6 +29,7 @@
     "cover": "Images/1984.jpg",
     "genre": "Dystopian",
     "description": "A harrowing vision of a totalitarian future, where surveillance and propaganda are omnipresent and individualism is crushed by the Party led by Big Brother.",
+    "popularity": 9,
     "chapters": [
       {
         "id": "1",
@@ -50,6 +52,7 @@
     "cover": "Images/great_gatsby.jpeg",
     "genre": "Tragedy",
     "description": "A story of wealth, obsession, and the American dream, set in the Jazz Age, centering on the mysterious millionaire Jay Gatsby and his love for Daisy Buchanan.",
+    "popularity": 8,
     "chapters": [
       {
         "id": "1",
@@ -72,6 +75,7 @@
     "cover": "Images/Pride-and-prejudice.jpg",
     "genre": "Romance",
     "description": "A classic romantic tale of the strong-willed Elizabeth Bennet and the wealthy but reserved Mr. Darcy, exploring themes of class, love, and misunderstandings.",
+    "popularity": 7,
     "chapters": [
       {
         "id": "1",
@@ -94,6 +98,7 @@
     "cover": "Images/TheCatcher.jpg",
     "genre": "Fiction",
     "description": "A deeply personal exploration of teenage rebellion and alienation, following Holden Caulfield as he roams the streets of New York City after being expelled from his prep school.",
+    "popularity": 6,
     "chapters": [
       {
         "id": "1",
@@ -116,6 +121,7 @@
     "cover": "Images/moby-dick.jpg",
     "genre": "Adventure",
     "description": "An epic tale of obsession and revenge, chronicling Captain Ahab’s relentless pursuit of the white whale Moby Dick, while exploring themes of fate, religion, and the human condition.",
+    "popularity": 5,
     "chapters": [
       {
         "id": "1",
@@ -138,6 +144,7 @@
     "cover": "Images/god_delusion.jpg",
     "description": "The God Delusion is a book by English biologist Richard Dawkins that argues against the existence of a supernatural creator.",
     "genre": "Adventure",
+    "popularity": 4,
     "chapters": [
       {
         "id": "1",
@@ -184,4 +191,3 @@
     ]
   }
 ]
-

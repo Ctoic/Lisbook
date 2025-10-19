@@ -269,7 +269,46 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentTimeLabel = document.getElementById("currentTime");
     const durationLabel = document.getElementById("duration");
 
+    // --- Top Audio Books ---
+    async function loadTopAudioBooks() {
+        try {
+            const response = await fetch('./data/books.json');
+            if (!response.ok) {
+                throw new Error('Failed to fetch book data');
+            }
+            const books = await response.json();
+            
+            // Sort books by popularity in descending order
+            const sortedBooks = books.sort((a, b) => b.popularity - a.popularity);
+
+            // Get the top 4 books
+            const topBooks = sortedBooks.slice(0, 4);
+
+            const topBooksContainer = document.querySelector('#top-audio-books + .row');
+            if (topBooksContainer) {
+                topBooksContainer.innerHTML = ''; // Clear existing content
+                topBooks.forEach(book => {
+                    const bookCard = `
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="${book.cover}" class="card-img-top" alt="${book.title}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${book.title}</h5>
+                                    <p class="card-text">${book.author}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    topBooksContainer.innerHTML += bookCard;
+                });
+            }
+        } catch (error) {
+            console.error('Error loading top audio books:', error);
+        }
+    }
+
     // --- Scroll to Top Button Setup ---
+    loadTopAudioBooks();
     const scrollBtn = document.createElement("button");
     scrollBtn.id = "scrollToTopBtn";
     scrollBtn.className = "scroll-to-top-btn";
