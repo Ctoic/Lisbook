@@ -78,7 +78,7 @@ body{
 a,
 button,
 li {
-  cursor: pointer;
+  cursor: none;
 }
 .hidden {
   display: none;
@@ -92,7 +92,7 @@ li {
 }
 
 .faq-question {
-  cursor: pointer;
+  cursor: none;
   color: var(--accent-color); /* Same color for consistency */
   font-weight: bold;
   font-size: 1.2rem;
@@ -160,7 +160,7 @@ li:hover {
   border: 2px solid #1db954;
   background-color: #1db954;
   color: #fff;
-  cursor: pointer;
+  cursor: none;
   transition: all 0.3s ease;
   appearance: none; /* Remove default arrow */
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>');
@@ -212,7 +212,7 @@ body.dark-theme .playlist-card {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: gray;
-  cursor: pointer;
+  cursor: none;
   border-radius: 8px;
 }
 
@@ -376,7 +376,7 @@ body.light-theme .playlist-card {
 .icon-action-btn {
   transition: color 0.3s;
   font-size: 1.5rem;
-  cursor: pointer;
+  cursor: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -569,7 +569,7 @@ audio {
   text-align: center;
   margin: 7px;
   color: var(--accent-color);
-  cursor: pointer;
+  cursor: none;
 }
 .ctrl-player .ctrl-buttons .ctrl-button-small {
   width: 44px;
@@ -646,7 +646,7 @@ input[type="range"]#seekSlider::-webkit-slider-thumb {
   background: white; /* Thumb color */
   border: 2px solid var(--accent-background-color); /* Border around the thumb */
   border-radius: 50%;
-  cursor: pointer;
+  cursor: none;
   margin-top: -5px; /* Center the thumb */
 }
 
@@ -656,7 +656,7 @@ input[type="range"]#seekSlider::-moz-range-thumb {
   background: white; /* Thumb color */
   border: 2px solid var(--accent-background-color); /* Border around the thumb */
   border-radius: 50%;
-  cursor: pointer;
+  cursor: none;
 }
 
 input[type="range"]#seekSlider::-ms-thumb {
@@ -665,7 +665,7 @@ input[type="range"]#seekSlider::-ms-thumb {
   background: white; /* Thumb color */
   border: 2px solid var(--accent-background-color); /* Border around the thumb */
   border-radius: 50%;
-  cursor: pointer;
+  cursor: none;
 }
 
 /* Active (hover or drag) state */
@@ -746,7 +746,7 @@ input[type="range"]#seekSlider:hover::-ms-thumb {
 #theme-toggle {
   background-color: transparent; /* Make the button background transparent */
   border: none; /* Remove any borders */
-  /* cursor: pointer; Show a pointer cursor on hover */
+  cursor: none; /* Hide default cursor */
 }
 
 /* Change the color of the icon on hover */
@@ -885,6 +885,17 @@ body.light-theme #signupButton {
 body.light-theme #signupButton:hover {
   background-color: #ecfdf5 !important; /* very light green tint */
   transform: translateY(-2px) !important;
+}
+
+/* Signup button cursor fix */
+#signupButton {
+  cursor: none !important;
+}
+
+/* Menu toggle and close button cursor fix */
+#menu-toggle,
+#menu-close {
+  cursor: none !important;
 }
 
 /* Other existing styles */
@@ -1833,7 +1844,7 @@ form textarea:focus {
 }
 
 button {
-  cursor: pointer;
+  cursor: none;
   transition: background-color 0.3s ease-in-out;
 }
 button:hover {
@@ -1860,7 +1871,7 @@ button:hover {
 
 /* Friend Card Styling */
 .friend-card {
-  cursor: pointer;
+  cursor: none;
   text-align: center;
   padding: 15px;
   border-radius: 8px;
@@ -2218,7 +2229,7 @@ body {
   background: linear-gradient(135deg, #10b981, #059669);
   border: 2px solid rgba(16, 185, 129, 0.3);
   color: white;
-  cursor: pointer;
+  cursor: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2291,7 +2302,7 @@ body {
   align-items: center; 
   justify-content: center; 
   box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
-  cursor: pointer;
+  cursor: none;
 }
 #chatbot-button:hover {
   background: #159943;
@@ -2313,7 +2324,7 @@ body {
   z-index: 10000; 
   flex-direction: column; 
   overflow: hidden; 
-  cursor: pointer;
+  cursor: none;
 }
 @keyframes chatbot-fade-in {
   from { opacity: 0; transform: translateY(30px);}
@@ -2383,7 +2394,7 @@ body {
   color: #fff; 
   padding: 0 18px; 
   font-size: 1.2rem; 
-  cursor: pointer;
+  cursor: none;
 }
 #chat-header{
   background: #1db954; 
@@ -2397,7 +2408,7 @@ body {
   border: none; 
   color: #fff; 
   font-size: 1.5rem; 
-  cursor: pointer;
+  cursor: none;
 }
 /*
  Footer Styles */
