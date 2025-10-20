@@ -102,7 +102,7 @@
         </a>
 
         <div id="menu"
-          class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-end lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20">
+          class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-center lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-4 z-20">
           <div id="menu-close" class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
@@ -115,30 +115,30 @@
           <a href="./about.html" class="text-gray-300 hover:text-green-500" id="about" data-translate="nav-about"><i class="fa-solid fa-address-card"></i> About</a>
           <a href="./contact.html" class="text-gray-300 hover:text-green-500" data-translate="nav-contact"><i class="fa-solid fa-phone"></i> Contact</a>
           <a href="./faq.html" class="text-gray-300 hover:text-green-500" data-translate="nav-faqs"><i class="fa-solid fa-circle-question"></i> FAQs</a> -->
-          <!-- added icons by dodithakur  -->
-          <a href="./index.html" class="text-gray-300 hover:text-green-500">
+          <!-- Navigation Links - Horizontal Layout -->
+          <a href="./index.html" class="text-gray-300 hover:text-green-500 flex items-center gap-2">
             <i class="fa-solid fa-house"></i> Home
           </a>
 
-<a href="./explore.html" class="text-gray-300 hover:text-green-500" id="explore" >
-   <i class="fa-solid fa-magnifying-glass"></i> Explore
-</a>
+          <a href="./explore.html" class="text-gray-300 hover:text-green-500 flex items-center gap-2" id="explore">
+            <i class="fa-solid fa-magnifying-glass"></i> Explore
+          </a>
 
-<a href="./scan.html" class="text-gray-300 hover:text-green-500">
-  <i class="fa-solid fa-book-open-reader"></i> Scan Book
-</a>
+          <a href="./scan.html" class="text-gray-300 hover:text-green-500 flex items-center gap-2">
+            <i class="fa-solid fa-book-open-reader"></i> Scan Book
+          </a>
 
-<a href="./about.html" class="text-gray-300 hover:text-green-500" id="about" >
-  <i class="fa-solid fa-address-card"></i> About
-</a>
+          <a href="./about.html" class="text-gray-300 hover:text-green-500 flex items-center gap-2" id="about">
+            <i class="fa-solid fa-address-card"></i> About
+          </a>
 
-<a href="./contact.html" class="text-gray-300 hover:text-green-500">
-  <i class="fa-solid fa-phone"></i> Contact
-</a>
+          <a href="./contact.html" class="text-gray-300 hover:text-green-500 flex items-center gap-2">
+            <i class="fa-solid fa-phone"></i> Contact
+          </a>
 
-<a href="./faq.html" class="text-gray-300 hover:text-green-500" >
-  <i class="fa-solid fa-circle-question"></i> FAQs
-</a>
+          <a href="./faq.html" class="text-gray-300 hover:text-green-500 flex items-center gap-2">
+            <i class="fa-solid fa-circle-question"></i> FAQs
+          </a>
 
           <!-- Profile Icon and Theme Toggle -->
           <button id="theme-toggle" class="text-gray-300 hover:text-green-500">
@@ -164,21 +164,22 @@
           <a href="./profile.html" class="text-gray-300 hover:text-green-500 me-4">
             <i class="bi bi-person-circle h-6 w-6"></i>
           </a>
-        </div>
 
-        <div class="language-selector me-3">
-               <i class="fa-solid fa-language"></i>
-          <select id="language" onchange="changeLanguage()" class="bg-gray-700 text-gray-300 border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-green-500"> 
-            <option value="en">English</option>
-            <option value="fr">Français</option>
-            <option value="es">Español</option>
-            <option value="zh">简体中文</option>
-          </select>
-        </div>
+          <!-- Language Selector -->
+          <div class="language-selector me-3">
+            <i class="fa-solid fa-language"></i>
+            <select id="language" onchange="changeLanguage()" class="bg-gray-700 text-gray-300 border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-green-500"> 
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="es">Español</option>
+              <option value="zh">简体中文</option>
+            </select>
+          </div>
 
-        <!-- Signup button -->
-        <div class="flex-shrink-0">
-          <button id="signupButton" class="w-24 text-white bg-transparent border-2 border-green-600 focus:border-green-700 rounded-full py-2 px-4 hover:-translate-y-0.5 transition-all duration-300 text-sm"><i class="fa-regular fa-circle-user"></i> Sign up</button>
+          <!-- Signup button -->
+          <div class="flex-shrink-0">
+            <button id="signupButton" class="text-white bg-transparent border-2 border-green-600 focus:border-green-700 rounded-full py-2 px-4 hover:-translate-y-0.5 transition-all duration-300 text-sm whitespace-nowrap"><i class="fa-regular fa-circle-user"></i> Sign up</button>
+          </div>
         </div>
 
         <!-- Mobile Menu Toggle Button -->

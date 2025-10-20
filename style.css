@@ -138,14 +138,24 @@ li:hover {
 }
 
 .language-selector {
-  margin: 20px;
+  margin: 0;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.language-selector i {
+  font-size: 16px;
+  color: #9ca3af;
 }
 
 .language-selector select {
-  padding: 12px 16px;
-  font-size: 16px;
-  border-radius: 25px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 20px;
   font-weight: 500;
   border: 2px solid #1db954;
   background-color: #1db954;
@@ -155,9 +165,9 @@ li:hover {
   appearance: none; /* Remove default arrow */
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>');
   background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 20px;
-  padding-right: 40px; /* Space for the icon */
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 32px; /* Space for the icon */
 }
 
 .language-selector select:hover {
@@ -954,10 +964,10 @@ header {
   gap: 1.25rem; /* 20px between items */
 }
 
-/* Subtle upward nudge for desktop alignment */
+/* Remove any margin adjustments that cause misalignment */
 @media (min-width: 1024px) {
   #menu {
-    margin-top: -4px;
+    margin-top: 0;
   }
 }
 
@@ -973,6 +983,30 @@ header {
   border-radius: 10px;
   line-height: 1;
   transition: color 0.2s ease, background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Ensure proper alignment for all menu elements */
+#menu .language-selector,
+#menu .flex-shrink-0,
+#menu #theme-toggle,
+#menu a[href="./profile.html"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure theme toggle and profile icon have consistent sizing */
+#menu #theme-toggle {
+  padding: 8px;
+  border-radius: 10px;
+}
+
+#menu a[href="./profile.html"] {
+  padding: 8px;
+  border-radius: 10px;
 }
 
 #menu a:hover,
