@@ -354,39 +354,57 @@ body {
     padding: 2rem 0;
 }
 
-/* Side-by-side search and filter layout */
+/* Force alignment - override any conflicting styles */
 .search-filter-wrapper {
-    display: flex;
-    align-items: flex-end;
-    gap: 2rem;
-    background: transparent; /* Match body background */
+    display: flex !important;
+    align-items: flex-end !important; /* Align all controls to bottom */
+    gap: 2rem !important;
+    background: transparent;
     padding: 0;
 }
 
 .search-container {
     flex: 1;
-    min-width: 0; /* Allow flex item to shrink */
-}
-
-.search-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: transparent; /* Match body background */
-    padding: 0;
+    min-width: 0;
+    display: flex !important;
+    flex-direction: column !important;
 }
 
 .filter-container {
     flex: 1;
-    min-width: 0; /* Allow flex item to shrink */
+    min-width: 0;
+    display: flex !important;
+    flex-direction: column !important;
 }
 
 .filter-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: flex-end;
-    justify-content: flex-end;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    align-items: flex-end !important; /* Force alignment to bottom */
+    justify-content: flex-end !important;
+}
+
+.filter-group {
+    min-width: 120px;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.search-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    background: transparent;
+    padding: 0;
+}
+
+/* Ensure all form controls have the same height */
+.search-container input,
+.filter-group select,
+.filter-group button {
+    height: 40px !important; /* Force same height for all controls */
+    box-sizing: border-box !important;
 }
 
 .search-icon-container {
@@ -408,7 +426,7 @@ body.light-theme .search-filter-section {
 
 body.light-theme .search-icon-container {
     background: rgba(15, 23, 42, 0.03);
-    border: 1px solid #e2e8f0; /* gray-200 */
+    border: 2px solid #e2e8f0; /* gray-200, match dark border width */
 }
 
 body.light-theme .search-wrapper,
@@ -419,9 +437,11 @@ body.light-theme .search-filter-wrapper {
 body.light-theme .search-input-container input,
 body.light-theme .search-filter-section select,
 body.light-theme .filter-group button {
-    background: #ffffff;
-    color: #0f172a;
-    border: 1px solid #d1d5db;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: 2px solid #d1d5db !important; /* Keep border width consistent with dark mode */
+    height: 40px !important; /* Force same height in light mode */
+    box-sizing: border-box !important;
 }
 
 body.light-theme .search-filter-section label,
@@ -454,6 +474,7 @@ body.light-theme .search-filter-section .search-icon-container i {
     font-size: 16px; /* Prevent zoom on mobile */
     background: rgba(55, 65, 81, 0.5); /* Match body background */
     border: 2px solid #374151;
+    box-sizing: border-box; /* Include border in total height */
 }
 
 .search-container input:focus {
@@ -467,12 +488,11 @@ body.light-theme .search-filter-section .search-icon-container i {
     opacity: 1;
 }
 
-.filter-container {
-    padding: 0;
-}
 
 .filter-group {
     min-width: 120px;
+    display: flex;
+    flex-direction: column;
 }
 
 .filter-group label {
@@ -481,6 +501,7 @@ body.light-theme .search-filter-section .search-icon-container i {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-size: 0.75rem;
+    margin-bottom: 8px; /* Consistent spacing between label and control */
 }
 
 .filter-group select {
@@ -492,6 +513,7 @@ body.light-theme .search-filter-section .search-icon-container i {
     background-repeat: no-repeat;
     background-size: 14px;
     padding-right: 32px;
+    box-sizing: border-box;
 }
 
 .filter-group select:focus {
@@ -502,6 +524,7 @@ body.light-theme .search-filter-section .search-icon-container i {
 .filter-group button {
     font-size: 14px;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .filter-group button:hover {
