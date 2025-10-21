@@ -34,9 +34,7 @@ They have the right and responsibility to remove, edit, or reject comments, comm
 ## 🛠️ Enforcement Policies
 
 ### Reporting Guidelines
-If you experience or witness unacceptable behavior, or have any other concerns, please report it by contacting the repository maintainers through:
-- 📧 **Email:** [INSERT CONTACT EMAIL HERE]  
-or by opening a confidential issue (if supported).
+If you experience or witness unacceptable behavior, or have any other concerns, please report it by contacting the repository maintainers
 
 All complaints will be reviewed and investigated promptly and fairly.
 
