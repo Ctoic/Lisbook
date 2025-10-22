@@ -283,10 +283,17 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(scrollBtn);
 
     window.addEventListener("scroll", () => {
+        const chatbotButton = document.getElementById("chatbot-button");
         if (window.scrollY > 100) {
             scrollBtn.classList.add("show");
+            if (chatbotButton) {
+                chatbotButton.classList.add("shifted-up");
+            }
         } else {
             scrollBtn.classList.remove("show");
+            if (chatbotButton) {
+                chatbotButton.classList.remove("shifted-up");
+            }
         }
     });
 
