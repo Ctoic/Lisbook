@@ -351,7 +351,7 @@ body {
 /* Search and Filter Styles */
 .search-filter-section {
     /* Remove background to match web app design */
-    padding: 2rem 0;
+    padding: 2rem 0 !important;
 }
 
 /* Force alignment - override any conflicting styles */
@@ -422,6 +422,9 @@ body {
 /* Light theme overrides for explore page */
 body.light-theme .search-filter-section {
     background: #f6f8fb;
+    padding: 2rem 20px !important; /* Add horizontal padding as well */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 body.light-theme .search-icon-container {
@@ -431,17 +434,26 @@ body.light-theme .search-icon-container {
 
 body.light-theme .search-wrapper,
 body.light-theme .search-filter-wrapper {
-    background: transparent;
+    display: flex !important;
+    align-items: flex-end !important;
+    gap: 2rem !important;
+    flex-wrap: wrap;
 }
 
-body.light-theme .search-input-container input,
-body.light-theme .search-filter-section select,
+body.light-theme .search-wrapper {
+    display: flex !important;
+    align-items: flex-end !important; /* Align bottom */
+    gap: 1rem !important;
+}
+
+body.light-theme .search-container input,
+body.light-theme .filter-group select,
 body.light-theme .filter-group button {
-    background: #ffffff !important;
-    color: #0f172a !important;
-    border: 2px solid #d1d5db !important; /* Keep border width consistent with dark mode */
-    height: 40px !important; /* Force same height in light mode */
+    height: 40px !important;
+    padding: 0 12px;
+    line-height: 1.5;
     box-sizing: border-box !important;
+    border: 1px solid #d1d5db !important;
 }
 
 body.light-theme .search-filter-section label,
