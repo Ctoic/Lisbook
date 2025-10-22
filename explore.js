@@ -384,12 +384,12 @@ document.addEventListener('DOMContentLoaded', () => {
             img.alt = alt;
             img.loading = 'lazy';
             
-            // Add loading placeholder
-            img.style.backgroundColor = '#555';
-            img.style.minHeight = '200px';
-            img.style.display = 'flex';
-            img.style.alignItems = 'center';
-            img.style.justifyContent = 'center';
+            // Set proper image styles
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'contain';
+            img.style.objectPosition = 'center';
+            img.style.display = 'block';
             
             // Handle image load error
             img.onerror = function() {
@@ -408,9 +408,8 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             
             img.onload = function() {
-                // Remove loading styles when image loads successfully
-                this.style.backgroundColor = '';
-                this.style.minHeight = '';
+                // Ensure image is properly displayed
+                this.style.display = 'block';
             };
             
             img.src = src;
@@ -434,7 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="book-description">
                         <h4>${book.title}</h4>
                         <p class="author-name">by ${book.author}</p>
-                        <p class="description-text">${book.description}</p>
+                        <p class="description-text">${book.description || 'No description available.'}</p>
                         <div class="book-meta">
                             ${book.duration ? `<span class="meta-item"><i class="bi bi-clock"></i> ${book.duration}h</span>` : ''}
                             ${book.rating ? `<span class="meta-item"><i class="bi bi-star-fill"></i> ${book.rating}</span>` : ''}
