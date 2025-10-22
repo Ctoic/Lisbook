@@ -2230,10 +2230,12 @@ body {
   box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
 }
 
+/* When back-to-top is visible, keep it at original position */
 .scroll-to-top-btn.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  bottom: 30px; /* Keep at original position */
 }
 
 .scroll-to-top-btn:hover {
@@ -2292,6 +2294,12 @@ body {
   justify-content: center; 
   box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* When back-to-top is visible, move chat button up */
+#chatbot-button.shifted-up {
+  bottom: 100px; /* Move up to make space for back-to-top button (30px + 60px + 10px gap) */
 }
 #chatbot-button:hover {
   background: #159943;
