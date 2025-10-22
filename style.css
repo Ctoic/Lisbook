@@ -2285,7 +2285,7 @@ body {
   bottom: 30px; 
   right: 30px; 
   z-index: 9999; 
-  background: #7fd34a; 
+  background: #159943;
   border-radius: 50%; 
   width: 60px; 
   height: 60px; 
@@ -2302,7 +2302,7 @@ body {
   bottom: 100px; /* Move up to make space for back-to-top button (30px + 60px + 10px gap) */
 }
 #chatbot-button:hover {
-  background: #159943;
+  background: #70c58e;
   transition: background 0.2s;
 }
 #chatbot-window {
