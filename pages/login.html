@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login | Lisbook</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+    }
+
+    input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px #1c1f2b inset !important;
+      -webkit-text-fill-color: #fff !important;
+      caret-color: #fff;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    /* Particle canvas sits behind everything */
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-[#0b0f17] to-[#1a2238] text-white h-screen flex flex-col">
+  <!-- Animated Background -->
+  <canvas id="particles"></canvas>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-20 bg-zinc-900 py-6 px-6 sm:px-16 shadow-sm flex items-center">
+    <a class="flex items-center gap-3 text-xl sm:text-2xl text-lime-500 font-bold" href="../index.html">
+      <img src="../Images/lisbook-logo-1.png" alt="Lisbook Logo" width="40" height="auto" />
+      Lisbook
+    </a>
+  </header>
+
+  <!-- Login Form Container -->
+  <div id="login-container" class="flex-grow flex items-center justify-center px-4 py-10">
+    <div class="w-full max-w-md bg-white/5 backdrop-blur-sm rounded-2xl shadow-xl p-8 sm:p-10">
+      <h2 id="typingText" class="text-center text-2xl sm:text-3xl font-semibold text-green-500 mb-8"></h2>
+
+      <form id="loginForm" class="space-y-6">
+        <!-- Email -->
+        <div>
+          <label for="email" class="block mb-1 text-sm text-gray-300">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="example@mail.com"
+            class="w-full px-4 py-3 rounded-lg bg-[#1c1f2b] border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+        </div>
+
+        <!-- Password -->
+        <div>
+          <label for="password" class="block mb-1 text-sm text-gray-300">Password</label>
+          <div class="relative">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              placeholder="••••••••"
+              class="w-full px-4 py-3 pr-10 rounded-lg bg-[#1c1f2b] border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+            <span id="togglePassword" class="absolute right-3 top-3.5 cursor-pointer text-gray-400">
+              <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M12 4.5C7 4.5 2.73 8.11 1 12c1.73 3.89 6 7.5 11 7.5s9.27-3.61 11-7.5c-1.73-3.89-6-7.5-11-7.5z" />
+                <circle cx="12" cy="12" r="2.5" fill="currentColor" />
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="w-full py-3 bg-green-500 hover:bg-green-600 rounded-lg font-bold text-white transition"
+        >
+          Login
+        </button>
+
+        <!-- Redirect -->
+        <p class="text-center text-sm text-gray-400 mt-4">
+          Don’t have an account?
+          <a href="signup.html" class="text-green-500 hover:underline font-semibold">Create one</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Typing animation
+    const text = "Welcome back to Lisbook 🚀";
+    let i = 0;
+    const el = document.getElementById("typingText");
+    function type() {
+      if (i < text.length) {
+        el.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 70);
+      }
+    }
+    type();
+
+    // Password visibility toggle
+    const toggleBtn = document.getElementById("togglePassword");
+    const passwordInput = document.getElementById("password");
+    const eyeIcon = document.getElementById("eyeIcon");
+    toggleBtn.addEventListener("click", () => {
+      const isPassword = passwordInput.type === "password";
+      passwordInput.type = isPassword ? "text" : "password";
+      eyeIcon.innerHTML = isPassword
+        ? `<path d="M12 6a9.77 9.77 0 0 1 8.94 6A9.77 9.77 0 0 1 12 18a9.77 9.77 0 0 1-8.94-6A9.77 9.77 0 0 1 12 6m0-2C6.5 4 1.73 7.61 0 12c1.73 4.39 6.5 8 12 8s10.27-3.61 12-8c-1.73-4.39-6.5-8-12-8zm0 5a3 3 0 0 0-3 3 3 3 0 0 0 6 0 3 3 0 0 0-3-3z"/>`
+        : `<path d="M12 4.5C7 4.5 2.73 8.11 1 12c1.73 3.89 6 7.5 11 7.5s9.27-3.61 11-7.5c-1.73-3.89-6-7.5-11-7.5z"/><circle cx="12" cy="12" r="2.5"/>`;
+    });
+
+    // Demo login
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("✅ Login successful (demo)");
+    });
+
+    // Particles animation
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+
+    function resize() {
+      canvas.width = innerWidth;
+      canvas.height = innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    for (let i = 0; i < 60; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        dx: (Math.random() - 0.5) * 0.6,
+        dy: (Math.random() - 0.5) * 0.6,
+        size: Math.random() * 2 + 1,
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "rgba(16, 255, 140, 0.6)";
+      particles.forEach((p) => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+</body>
+</html>
