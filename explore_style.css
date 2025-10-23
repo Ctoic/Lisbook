@@ -350,8 +350,15 @@ body {
 
 /* Search and Filter Styles */
 .search-filter-section {
-    /* Remove background to match web app design */
-    padding: 2rem 0;
+    padding: 1rem 1.5rem; /* Consistent padding */
+    background-color: #ffffff; /* Light mode background */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+    
+    /* Core Layout */
+    display: flex;         
+    align-items: center;   
+    gap: 1.5rem;           
+    flex-wrap: wrap; /* Allow wrapping ONLY on very small screens */
 }
 
 /* Side-by-side search and filter layout */
@@ -361,11 +368,15 @@ body {
     gap: 2rem;
     background: transparent; /* Match body background */
     padding: 0;
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .search-container {
-    flex: 1;
-    min-width: 0; /* Allow flex item to shrink */
+    flex: 1 1 auto; /* Allow grow and shrink, basis auto */
+    min-width: 250px;
 }
 
 .search-wrapper {
@@ -377,13 +388,12 @@ body {
 }
 
 .filter-container {
-    flex: 1;
-    min-width: 0; /* Allow flex item to shrink */
+    flex-shrink: 0;
 }
 
 .filter-wrapper {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 1rem;
     align-items: flex-end;
     justify-content: flex-end;
@@ -758,4 +768,39 @@ body.light-theme .search-filter-section .search-icon-container i {
     .recommendation-card p {
         font-size: 0.8rem;
     }
+}
+/* ADD THIS BLOCK AT THE BOTTOM OF YOUR CSS FILE */
+
+/* Force the inner containers within the search section to be full width */
+.search-filter-section .container,
+.search-filter-section .search-filter-wrapper {
+  max-width: none; /* Override any max-width utilities (like max-w-7xl) */
+  margin-left: 0;  /* Override centering (like mx-auto) */
+  margin-right: 0; /* Override centering (like mx-auto) */
+  width: 100%;     /* Ensure it takes full available width */
+}
+
+/* Optional: Remove extra padding added by the .container utility if needed */
+.search-filter-section .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Ensure the main section itself still has some padding */
+.search-filter-section {
+    /* Keep existing styles like background, border, display:flex etc. */
+    background-color: #ffffff;
+    padding: 1rem; /* Adjust overall padding if needed */
+    display: flex;         
+    align-items: center;   
+    gap: 1.5rem;           
+    flex-wrap: wrap; 
+    width: 100%; /* Ensure the section itself is full width */
+}
+
+.dark-theme .search-filter-section {
+}
+.dark-theme .search-filter-section .container,
+.dark-theme .search-filter-section .search-filter-wrapper {
+    /* No special dark mode layout needed if base styles are correct */
 }
