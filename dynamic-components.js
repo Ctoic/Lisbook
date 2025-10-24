@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Initialize signup button
     initializeSignupButton();
+
+    // Initialize login button
+    initializeLoginButton();
     
     // Initialize newsletter form
     initializeNewsletterForm();
@@ -110,6 +113,9 @@ function loadNavbar() {
         <!-- Signup button -->
         <button id="signupButton" class="text-white bg-green-600 hover:bg-green-700 border border-green-600 rounded-md py-2 px-4 transition-all duration-300 text-sm font-medium">
           Sign up
+        </button>
+        <button id="loginButton" class="text-white bg-green-600 hover:bg-green-700 border border-green-600 rounded-md py-2 px-4 transition-all duration-300 text-sm font-medium">
+          Login
         </button>
       </div>
 
@@ -292,6 +298,17 @@ function initializeSignupButton() {
     if (signupButton) {
         signupButton.addEventListener("click", function() {
             window.location.href = "pages/signup.html";
+        });
+    }
+}
+
+// Initialize login button functionality
+function initializeLoginButton() {
+    const signupButton = document.getElementById("loginButton");
+    
+    if (loginButton) {
+        loginButton.addEventListener("click", function() {
+            window.location.href = "pages/login.html";
         });
     }
 }
