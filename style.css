@@ -80,6 +80,23 @@ button,
 li {
   cursor: pointer;
 }
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+@media (min-width: 1025px) {
+  body.menu-open {
+    overflow: auto;
+  }
+}
+
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
 .hidden {
   display: none;
 }
@@ -815,48 +832,369 @@ html, body {
   border: 0;
   max-width: 100%;
 }
+/* ===========================================
+   HEADER & NAVIGATION STYLES - ULTRA COMPACT
+   =========================================== */
+
+/* Logo */
 .logo-text {
-  margin-right: auto; /* push logo to the left */
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  flex-shrink: 0;
 }
 
-.text-gray-300 {
-  margin: 0 1rem; /* adjust horizontal space between links */
+.logo-text:hover {
+  color: #1db954;
 }
 
+.logo-text img {
+  display: block;
+  width: 26px;
+  height: 26px;
+}
+
+.logo-text span {
+  white-space: nowrap;
+}
+
+/* Navigation Menu - Desktop */
 #menu {
-  margin-top: 1rem; /* if needed to create space above the menu */
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
 }
+
+/* Navigation Links */
+.nav-link {
+  color: #d1d5db;
+  text-decoration: none;
+  padding: 0.3rem 0.625rem;
+  border-radius: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.nav-link:hover {
+  color: #1db954;
+  background-color: rgba(29, 185, 84, 0.1);
+}
+
+/* Icon Buttons (Theme & Profile) */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 0.25rem;
+  background: transparent;
+  border: none;
+  color: #d1d5db;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.icon-btn:hover {
+  color: #1db954;
+  background-color: rgba(29, 185, 84, 0.1);
+}
+
+.icon-btn svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.icon-btn i {
+  font-size: 1rem;
+}
+
+/* Language Selector */
+.language-selector {
+  flex-shrink: 0;
+}
+
+.language-selector select {
+  background-color: rgba(55, 65, 81, 0.6);
+  color: #d1d5db;
+  border: 1px solid rgba(107, 114, 128, 0.4);
+  border-radius: 0.25rem;
+  padding: 0.3rem 1.5rem 0.3rem 0.5rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  line-height: 1.4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 12 12'%3E%3Cpath fill='%23d1d5db' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.375rem center;
+  background-size: 8px;
+}
+
+.language-selector select:hover,
+.language-selector select:focus {
+  border-color: #1db954;
+  outline: none;
+}
+
+/* Auth Buttons */
+.btn-auth {
+  background-color: #16a34a;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.3rem 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+.btn-auth:hover {
+  background-color: #15803d;
+  transform: translateY(-1px);
+}
+
+.btn-auth:active {
+  transform: translateY(0);
+}
+
+/* Mobile Menu Toggle & Close Buttons */
+.menu-toggle-btn,
+.menu-close-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  color: #d1d5db;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.menu-toggle-btn:hover,
+.menu-close-btn:hover {
+  color: #1db954;
+  background-color: rgba(29, 185, 84, 0.1);
+}
+
+.menu-toggle-btn svg,
+.menu-close-btn svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+/* Desktop Styles (1025px and above) */
+@media (min-width: 1025px) {
+  .menu-close-btn {
+    display: none !important;
+  }
+  
+  .menu-toggle-btn {
+    display: none !important;
+  }
+}
+
+/* Mobile & Tablet Styles (1024px and below) */
 @media (max-width: 1024px) {
+  /* Show mobile toggle button */
+  .menu-toggle-btn {
+    display: flex;
+  }
+
+  /* Header adjustments - ultra compact */
   header {
-    padding: 8px; /* Adjust padding for smaller screens */
-    max-height: 50px; /* Optional: reduce max height */
+    padding: 0.3rem 0;
   }
 
   header .container {
-    height: auto; /* Allow height to be auto, but control the max height */
+    padding: 0 0.625rem;
   }
 
-  /* Additional styles for the menu icon */
-  .menu-icon {
-    display: block; /* Show menu icon */
-    /* Add styles for menu icon */
+  /* Transform menu into mobile dropdown */
+  #menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    max-width: 85vw;
+    height: 100vh;
+    background: #1a1a1a;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 1rem 0.875rem;
+    overflow-y: auto;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.5);
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1001;
+  }
+
+  #menu.active {
+    right: 0;
+  }
+
+  /* Show close button in mobile menu */
+  .menu-close-btn {
+    display: flex;
+    margin-left: auto;
+    margin-bottom: 1rem;
+  }
+
+  /* Mobile menu links */
+  .nav-link {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.875rem;
+    border-radius: 0.375rem;
+    margin-bottom: 0.125rem;
+  }
+
+  /* Mobile icon buttons */
+  .icon-btn {
+    width: 100%;
+    height: 40px;
+    justify-content: flex-start;
+    padding-left: 0.875rem;
+    margin-bottom: 0.125rem;
+  }
+
+  .icon-btn svg,
+  .icon-btn i {
+    margin-right: 0.625rem;
+  }
+
+  /* Mobile language selector */
+  .language-selector {
+    margin-bottom: 0.125rem;
+  }
+
+  .language-selector select {
+    width: 100%;
+    padding: 0.75rem 2.25rem 0.75rem 0.875rem;
+    font-size: 0.875rem;
+    background-position: right 0.875rem center;
+  }
+
+  /* Mobile auth buttons */
+  .btn-auth {
+    width: 100%;
+    padding: 0.75rem 0.875rem;
+    font-size: 0.875rem;
+    margin-bottom: 0.375rem;
+  }
+
+  /* Body padding adjustment */
+  body {
+    margin-top: 44px;
+  }
+
+  /* Backdrop overlay */
+  body.menu-open::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Light theme mobile adjustments */
+  body.light-theme #menu {
+    background: #fff;
+    color: #1f2937;
+  }
+
+  body.light-theme .nav-link,
+  body.light-theme .icon-btn {
+    color: #374151;
+  }
+
+  body.light-theme .nav-link:hover,
+  body.light-theme .icon-btn:hover {
+    color: #16a34a;
+    background-color: rgba(22, 163, 74, 0.1);
+  }
+
+  body.light-theme .language-selector select {
+    background-color: #f3f4f6;
+    color: #1f2937;
+    border-color: rgba(0, 0, 0, 0.2);
   }
 }
 
+/* Small Mobile Styles */
 @media (max-width: 768px) {
-}
-#menu {
-  display: flex;
-  align-items: center; /* vertically center items */
+  header {
+    padding: 0.25rem 0;
+  }
+
+  header .container {
+    padding: 0 0.5rem;
+  }
+
+  .logo-text {
+    font-size: 0.8125rem;
+    gap: 0.3rem;
+  }
+
+  .logo-text img {
+    width: 24px;
+    height: 24px;
+  }
+
+  body {
+    margin-top: 40px;
+  }
 }
 
-.text-gray-300 {
-  margin-right: 1rem; /* space between menu items */
-}
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  header {
+    padding: 0.25rem 0;
+  }
 
-#theme-toggle,
-#profile-btn {
-  margin-left: 1rem; /* space between buttons and menu items */
+  .logo-text {
+    font-size: 0.75rem;
+  }
+
+  .logo-text img {
+    width: 22px;
+    height: 22px;
+  }
+
+  #menu {
+    width: 100%;
+    max-width: none;
+    padding: 0.875rem 0.75rem;
+  }
+
+  body {
+    margin-top: 38px;
+  }
 }
 
 /* Profile button icon */
@@ -876,15 +1214,49 @@ html, body {
   /* cursor: pointer; Show pointer on hover */
 }
 
-body.light-theme #signupButton {
-  color: #0f172a !important; /* dark text */
-  background-color: transparent !important;
-  border-color: #16a34a !important; /* green-600 */
+/* Light theme button overrides */
+body.light-theme .btn-auth {
+  background-color: #16a34a;
+  color: #fff;
 }
 
-body.light-theme #signupButton:hover {
-  background-color: #ecfdf5 !important; /* very light green tint */
-  transform: translateY(-2px) !important;
+body.light-theme .btn-auth:hover {
+  background-color: #15803d;
+}
+
+body.light-theme .nav-link {
+  color: #374151;
+}
+
+body.light-theme .nav-link:hover {
+  color: #16a34a;
+  background-color: rgba(22, 163, 74, 0.1);
+}
+
+body.light-theme .icon-btn {
+  color: #374151;
+}
+
+body.light-theme .icon-btn:hover {
+  color: #16a34a;
+  background-color: rgba(22, 163, 74, 0.1);
+}
+
+body.light-theme .language-selector select {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .menu-toggle-btn,
+body.light-theme .menu-close-btn {
+  color: #374151;
+}
+
+body.light-theme .menu-toggle-btn:hover,
+body.light-theme .menu-close-btn:hover {
+  color: #16a34a;
+  background-color: rgba(22, 163, 74, 0.1);
 }
 
 /* Other existing styles */
@@ -895,21 +1267,37 @@ body.light-theme #signupButton:hover {
 /* Default header background (dark theme) */
 header {
   position: fixed;
-  max-height: 120px; /* Set a maximum height */
-
   width: 100%;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
-  background-color: #1a1a1a; /* Ensures the header is fixed at the top */
-  padding: 6px 0;
+  background-color: #1a1a1a;
+  padding: 0.375rem 0;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #menu {
-  background-color: inherit; /* Menu should inherit the header's background color */
+  background-color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
 }
+
 /* Make sure the body doesn't hide underneath the fixed header */
 body {
-  margin-top: 68px; /* Adjust this margin to match the height of the header */
+  margin-top: 48px;
+  padding-top: 0;
 }
 
 /* Light theme adjustments */
@@ -2454,14 +2842,348 @@ footer a:hover {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  footer {
+    padding: 2rem 0 1rem;
+  }
+
   footer .row { 
-    text-align: center; 
+    text-align: center !important;
   }
+  
+  footer .col {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 2rem !important;
+  }
+  
   footer .d-inline-flex { 
-    justify-content: center; 
+    justify-content: center !important;
   }
+  
   .footer-brand {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: column !important;
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  footer .nav {
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  footer .nav-item {
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  footer .nav a {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  footer .mb-3 {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  footer form {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+  }
+
+  footer p {
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  footer .container {
+    text-align: center !important;
+  }
+
+  /* Remove any Bootstrap margins that prevent centering */
+  footer .ms-2,
+  footer .me-2 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 1.5rem 0.5rem 1rem;
+  }
+
+  footer .col {
+    padding: 0 0.5rem;
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+/* ===========================================
+   COMPREHENSIVE MOBILE RESPONSIVE STYLES
+   =========================================== */
+
+/* Base Mobile Optimization */
+@media (max-width: 768px) {
+  /* Typography scaling for mobile */
+  html {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 1.5rem !important;
+    line-height: 1.4;
+  }
+
+  h4 {
+    font-size: 1.25rem !important;
+  }
+
+  h5 {
+    font-size: 1.1rem !important;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Container adjustments */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 100%;
+  }
+
+  /* Hero section mobile optimization */
+  .hero-section {
+    padding: 3rem 1rem !important;
+    min-height: auto;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem !important;
+    margin-bottom: 1rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem !important;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Button optimization for mobile - larger touch targets */
+  .btn,
+  button {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    min-height: 48px;
+    width: auto;
+  }
+
+  /* Full width buttons on mobile */
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* Form inputs mobile optimization */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+    padding: 0.75rem;
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+
+  /* Prevent zoom on input focus iOS */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    font-size: 16px !important;
+  }
+
+  /* Cards and content blocks */
+  .card,
+  .features-card {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  /* Images responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Tables horizontal scroll */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Spacing adjustments */
+  section {
+    padding: 2rem 1rem;
+  }
+
+  /* Grid adjustments */
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .col,
+  [class*="col-"] {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  /* Navigation links spacing */
+  .nav-link {
+    padding: 0.75rem 0.5rem;
+  }
+
+  /* Modal adjustments for mobile */
+  .modal-dialog {
+    margin: 0.5rem;
+  }
+
+  .modal-content {
+    border-radius: 0.75rem;
+  }
+
+  /* Chatbot mobile optimization */
+  #chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    left: 10px;
+    width: auto !important;
+    max-width: 100%;
+  }
+
+  /* Scroll to top button */
+  .scroll-to-top-btn {
+    bottom: 80px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.75rem !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  h3 {
+    font-size: 1.25rem !important;
+  }
+
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .hero-section {
+    padding: 2rem 0.75rem !important;
+  }
+
+  .hero-section h1 {
+    font-size: 1.75rem !important;
+  }
+
+  section {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .btn,
+  button:not(.btn-auth):not(.menu-toggle-btn):not(.menu-close-btn):not(.icon-btn) {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+
+  /* Music player controls adjustment */
+  .ctrl-player {
+    padding: 1rem 0.5rem;
+  }
+
+  /* Player responsive */
+  .player {
+    padding: 1rem;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 896px) and (orientation: landscape) {
+  .hero-section {
+    padding: 2rem 1rem !important;
+    min-height: auto;
+  }
+
+  body {
+    margin-top: 55px;
+  }
+
+  header {
+    padding: 0.3rem 0;
+  }
+}
+
+/* Touch device optimization */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger tap targets for touch devices */
+  a,
+  button,
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Remove hover effects on touch devices */
+  a:hover,
+  button:hover {
+    transform: none;
+  }
+}
+
+/* High DPI screens optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Sharper borders and shadows */
+  .card,
+  .btn {
+    border-width: 0.5px;
   }
 }

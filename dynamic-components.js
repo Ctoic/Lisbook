@@ -32,101 +32,79 @@ function loadNavbar() {
         // Create navbar HTML directly to avoid CORS issues with file:// protocol
         const navbarHTML = `
 <!-- Navbar -->
-<header class="sticky top-0 z-20 bg-gray-800 shadow-lg border-b border-gray-700">
-  <nav class="container mx-auto px-4">
-    <div class="flex justify-between items-center h-16">
-      <a class="logo-text font-bold flex items-center gap-3 text-white hover:text-green-400 transition-colors duration-200" href="./index.html">
-        <img src="./Images/lisbook-logo-1.png" alt="Logo" width="40" height="40" class="flex-shrink-0" />
-        <span class="text-xl font-semibold">Lisbook</span>
-      </a>
+<header>
+  <div class="container">
+    <!-- Logo -->
+    <a href="./index.html" class="logo-text">
+      <img src="./Images/lisbook-logo-1.png" alt="Lisbook Logo" width="26" height="26" />
+      <span>Lisbook</span>
+    </a>
 
-      <div id="menu"
-        class="fixed inset-0 bg-gray-900 w-full h-full flex flex-col items-center justify-center space-y-8 transform scale-0 transition-transform duration-300 ease-in-out lg:relative lg:flex lg:items-center lg:justify-end lg:space-y-0 lg:bg-transparent lg:scale-100 lg:flex-row lg:space-x-2 z-20">
-        <div id="menu-close" class="text-gray-300 lg:hidden absolute top-5 right-5 cursor-pointer">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </div>
-        
-        <!-- Navigation Links - Clean Layout -->
-        <a href="./index.html" class="text-gray-300 hover:text-green-500 px-3 py-2 rounded-md transition-colors duration-200">
-          Home
-        </a>
-
-        <a href="./explore.html" class="text-gray-300 hover:text-green-500 px-3 py-2 rounded-md transition-colors duration-200" id="explore">
-          Explore
-        </a>
-
-        <a href="./scan.html" class="text-gray-300 hover:text-green-500 px-3 py-2 rounded-md transition-colors duration-200">
-          Scan Book
-        </a>
-
-        <a href="./about.html" class="text-gray-300 hover:text-green-500 px-3 py-2 rounded-md transition-colors duration-200" id="about">
-          About
-        </a>
-
-        <a href="./contact.html" class="text-gray-300 hover:text-green-500 px-3 py-2 rounded-md transition-colors duration-200">
-          Contact
-        </a>
-
-        <a href="./faq.html" class="text-gray-300 hover:text-green-500 px-3 py-2 rounded-md transition-colors duration-200">
-          FAQs
-        </a>
-
-        <!-- Theme Toggle -->
-        <button id="theme-toggle" class="text-gray-300 hover:text-green-500 p-2 rounded-md transition-colors duration-200">
-          <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
-            <line x1="12" y1="1" x2="12" y2="4" stroke="currentColor" stroke-width="2" />
-            <line x1="12" y1="20" x2="12" y2="23" stroke="currentColor" stroke-width="2" />
-            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="currentColor" stroke-width="2" />
-            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" />
-            <line x1="1" y1="12" x2="4" y2="12" stroke="currentColor" stroke-width="2" />
-            <line x1="20" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" />
-            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" stroke="currentColor" stroke-width="2" />
-            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" />
-          </svg>
-          <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-          </svg>
-        </button>
-
-        <!-- Profile Link -->
-        <a href="./profile.html" class="text-gray-300 hover:text-green-500 p-2 rounded-md transition-colors duration-200">
-          <i class="bi bi-person-circle h-5 w-5"></i>
-        </a>
-
-        <!-- Language Selector -->
-        <div class="language-selector">
-          <select id="language" onchange="changeLanguage()" class="bg-gray-700 text-gray-300 border border-gray-600 rounded-md px-3 py-2 text-sm focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"> 
-            <option value="en">English</option>
-            <option value="fr">Français</option>
-            <option value="es">Español</option>
-            <option value="zh">简体中文</option>
-          </select>
-        </div>
-
-        <!-- Signup button -->
-        <button id="signupButton" class="text-white bg-green-600 hover:bg-green-700 border border-green-600 rounded-md py-2 px-4 transition-all duration-300 text-sm font-medium">
-          Sign up
-        </button>
-        <button id="loginButton" class="text-white bg-green-600 hover:bg-green-700 border border-green-600 rounded-md py-2 px-4 transition-all duration-300 text-sm font-medium">
-          Login
-        </button>
-      </div>
-
-      <!-- Mobile Menu Toggle Button -->
-      <button id="menu-toggle" title="Menu" class="text-gray-300 hover:text-green-500 lg:hidden p-2 rounded-md transition-colors duration-200">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+    <!-- Navigation Menu -->
+    <nav id="menu">
+      <!-- Close button for mobile -->
+      <button id="menu-close" class="menu-close-btn" aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-    </div>
-  </nav>
+
+      <!-- Navigation Links -->
+      <a href="./index.html" class="nav-link">Home</a>
+      <a href="./explore.html" class="nav-link" id="explore">Explore</a>
+      <a href="./scan.html" class="nav-link">Scan Book</a>
+      <a href="./about.html" class="nav-link" id="about">About</a>
+      <a href="./contact.html" class="nav-link">Contact</a>
+      <a href="./faq.html" class="nav-link">FAQs</a>
+
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+        <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+      <!-- Profile Link -->
+      <a href="./profile.html" class="icon-btn" aria-label="Profile">
+        <i class="bi bi-person-circle"></i>
+      </a>
+
+      <!-- Language Selector -->
+      <div class="language-selector">
+        <select id="language" onchange="changeLanguage()" aria-label="Select language">
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="zh">简体中文</option>
+        </select>
+      </div>
+
+      <!-- Auth Buttons -->
+      <button id="signupButton" class="btn-auth">Sign up</button>
+      <button id="loginButton" class="btn-auth">Login</button>
+    </nav>
+
+    <!-- Mobile Menu Toggle -->
+    <button id="menu-toggle" class="menu-toggle-btn" aria-label="Menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
 </header>
         `;
 
@@ -269,24 +247,55 @@ function initializeMobileMenu() {
     const menu = document.getElementById('menu');
     const menuClose = document.getElementById('menu-close');
 
-    if (menuToggle && menu && menuClose) {
-        menuToggle.addEventListener('click', function() {
-            menu.classList.remove('scale-0');
-            menu.classList.add('scale-100');
+    if (menuToggle && menu) {
+        // Toggle menu on button click
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            menu.classList.add('active');
+            document.body.classList.add('menu-open');
         });
 
-        menuClose.addEventListener('click', function() {
-            menu.classList.remove('scale-100');
-            menu.classList.add('scale-0');
+        // Close menu function
+        function closeMenu() {
+            menu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+
+        // Close menu when clicking close button
+        if (menuClose) {
+            menuClose.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeMenu();
+            });
+        }
+
+        // Close menu when clicking backdrop
+        document.addEventListener('click', function(e) {
+            if (menu.classList.contains('active') && 
+                !menu.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                closeMenu();
+            }
         });
 
-        // Close menu when clicking on a link
-        const menuLinks = menu.querySelectorAll('a');
+        // Close menu when clicking on navigation links
+        const menuLinks = menu.querySelectorAll('.nav-link');
         menuLinks.forEach(link => {
             link.addEventListener('click', function() {
-                menu.classList.remove('scale-100');
-                menu.classList.add('scale-0');
+                closeMenu();
             });
+        });
+
+        // Prevent clicks inside menu from closing it
+        menu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Close menu with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && menu.classList.contains('active')) {
+                closeMenu();
+            }
         });
     }
 }
@@ -304,7 +313,7 @@ function initializeSignupButton() {
 
 // Initialize login button functionality
 function initializeLoginButton() {
-    const signupButton = document.getElementById("loginButton");
+    const loginButton = document.getElementById("loginButton");
     
     if (loginButton) {
         loginButton.addEventListener("click", function() {
