@@ -1005,7 +1005,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("ChatbotButton Clicked");
       if (!booksData) {
         try {
-          const res = await fetch("https://raw.githubusercontent.com/Ctoic/Lisbook/refs/heads/main/data/books.json");
+          const res = await fetch("data/books.json");
           booksData = await res.json();
         } catch (e) {
           booksData = null;
