@@ -296,18 +296,78 @@
           <img
             src="https://avatars.githubusercontent.com/u/90936436?v=4"
             alt="Profile Icon"
-            class="rounded-full w-24 h-24 mx-auto mb-4"
+            class="rounded-full w-24 h-24 mx-auto mb-4 border-[.2rem] border-solid border-[#bbb] object-cover "
             id="profile-pic"
           />
-          <p class="text-lg">
-            Name: Najam Ali Abbas <i class="bi bi-pencil" id="edit-name"></i>
-          </p>
-          <p class="text-lg">
-            Audiobooks Bookmarked: <span id="audiobook-count">5</span>
-          </p>
-          <p class="text-lg">
-            Total Time Listened: <span id="total-time">20 hrs</span>
-          </p>
+
+          <!-- Editable Profile Info --> 
+
+          <div class="text-start  space-y-3">
+            <!-- Name -->
+            <div class="flex items-center gap-1">
+              <label class="text-lg ">Name:</label>
+              <input
+                type="text"
+                id="profile-name"
+                value="Najam Ali Abbas"
+                class="bg-transparent border-0 border-b border-gray-600 text-gray-300 focus:border-green-500 focus:ring-0 w-40 text-lg"
+                disabled
+              />
+            </div>
+
+            <!-- Audiobooks Bookmarked -->
+            <div class="flex items-center gap-1">
+              <label class="text-lg min-w-[150px]">Audiobooks Bookmarked:</label>
+              <input
+                type="number"
+                id="audiobook-count"
+                value="5"
+                class="bg-transparent border-0 border-b border-gray-600 text-gray-300 focus:border-green-500 focus:ring-0 w-20 text-lg"
+                disabled
+              />
+            </div>
+
+            <!-- Total Time Listened -->
+            <div class="flex items-center gap-1">
+              <label class="text-lg min-w-[150px]">Total Time Listened:</label>
+              <input
+                type="text"
+                id="total-time"
+                value="20 hrs"
+                class="bg-transparent border-0 border-b border-gray-600 text-gray-300 focus:border-green-500 focus:ring-0 w-28 text-lg"
+                disabled
+              />
+            </div>
+
+            <!-- Favorite Genres -->
+            <div class="flex items-center gap-1">
+              <label class="text-lg min-w-[150px]">Favorite Genres:</label>
+              <input
+                type="text"
+                id="favorite-genres"
+                value="Rock, Hip-Hop"
+                class="bg-transparent border-0 border-b border-gray-600 text-gray-300 focus:border-green-500 focus:ring-0 w-52 text-lg"
+                disabled
+              />
+            </div>
+          </div>
+
+            <!-- Buttons -->
+          <div class="mt-3 w-full flex mb-2">
+            <button
+              id="edit-btn"
+              class="btn btn-outline-success py-1 px-3 w-full"
+            >
+              Edit
+            </button>
+            <button
+              id="save-btn"
+              class="btn btn-success py-1 px-3 hidden w-full"
+            >
+              Save
+            </button>
+          </div>
+
          <button id="upload-pic" style="
             background-color: #4CAF50;
             color: white;
@@ -627,10 +687,6 @@
           `;
           document.getElementById("friends-list").appendChild(friendDiv);
       }
-            // Trigger file input when button is clicked
-      document.getElementById('upload-pic').addEventListener('click', function () {
-        document.getElementById('profilePicInput').click();
-      });
 
       // Preview selected image
       document.getElementById('profilePicInput').addEventListener('change', function (event) {
@@ -651,7 +707,79 @@
           reader.readAsDataURL(file);
         }
       });
-  </script>
+
+      // Editable Profile Logic (using localStorage)
+      const editBtn = document.getElementById("edit-btn");
+      const saveBtn = document.getElementById("save-btn");
+      const inputs = {
+        name: document.getElementById("profile-name"),
+        audiobooks: document.getElementById("audiobook-count"),
+        totalTime: document.getElementById("total-time"),
+        genres: document.getElementById("favorite-genres")
+      };
+      const profilePicInput = document.getElementById('profilePicInput');
+      const profileImg = document.getElementById('profile-pic');
+
+      // Load saved profile from localStorage
+      window.addEventListener("DOMContentLoaded", () => {
+        const savedProfile = JSON.parse(localStorage.getItem("profile")) || {};
+        if (savedProfile.name) inputs.name.value = savedProfile.name;
+        if (savedProfile.audiobooks) inputs.audiobooks.value = savedProfile.audiobooks;
+        if (savedProfile.totalTime) inputs.totalTime.value = savedProfile.totalTime;
+        if (savedProfile.genres) inputs.genres.value = savedProfile.genres;
+        if (savedProfile.avatar) profileImg.src = savedProfile.avatar;
+      });
+
+      // Edit button click
+      editBtn.addEventListener("click", () => {
+        Object.values(inputs).forEach(input => input.disabled = false);
+        editBtn.classList.add("hidden");
+        saveBtn.classList.remove("hidden");
+        inputs.name.focus();
+      });
+
+      // Save button click
+      saveBtn.addEventListener("click", () => {
+        Object.values(inputs).forEach(input => input.disabled = true);
+        saveBtn.classList.add("hidden");
+        editBtn.classList.remove("hidden");
+        saveProfileToLocalStorage();
+      });
+
+      // Function to save profile data to localStorage
+      function saveProfileToLocalStorage() {
+        const profileData = {
+          name: inputs.name.value,
+          audiobooks: inputs.audiobooks.value,
+          totalTime: inputs.totalTime.value,
+          genres: inputs.genres.value,
+          avatar: profileImg.src // include current profile picture
+        };
+        localStorage.setItem("profile", JSON.stringify(profileData));
+      }
+
+      // Change profile picture
+      document.getElementById('upload-pic').addEventListener('click', () => {
+        profilePicInput.click();
+      });
+
+      profilePicInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            profileImg.src = e.target.result; // update image
+            saveProfileToLocalStorage(); // save immediately to localStorage
+
+            // Show success message
+            const msg = document.getElementById("update-msg");
+            msg.style.display = "block";
+            setTimeout(() => { msg.style.display = "none"; }, 3000);
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+ </script>
 
   <!-- Bootstrap JS for responsiveness -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
