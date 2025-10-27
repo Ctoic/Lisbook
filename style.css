@@ -3187,3 +3187,21 @@ footer a:hover {
     border-width: 0.5px;
   }
 }
+
+/* Alerts Message Animation */
+#alert-container .custom-alert {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.4s ease;
+  margin-bottom: 10px;
+}
+
+#alert-container .custom-alert.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#alert-container .custom-alert.hide {
+  opacity: 0;
+  transform: translateY(-10px);
+}
