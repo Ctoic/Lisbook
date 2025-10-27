@@ -25,6 +25,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css"
     >
+    
     <title>My Favorite Books Music App</title>
   </head>
 
@@ -288,6 +289,8 @@
         </div>
       </nav>
     </header>
+    <div id="alert-container" class="fixed top-4 right-4 z-50 w-auto max-w-md"></div>
+
     <div class="profile-and-friends row">
       <!-- Profile Section -->
       <div class="col-md-4">
@@ -305,7 +308,7 @@
           <div class="text-start  space-y-3">
             <!-- Name -->
             <div class="flex items-center gap-1">
-              <label class="text-lg ">Name:</label>
+              <label for="profile-name"  class="text-lg ">Name:</label>
               <input
                 type="text"
                 id="profile-name"
@@ -317,7 +320,7 @@
 
             <!-- Audiobooks Bookmarked -->
             <div class="flex items-center gap-1">
-              <label class="text-lg min-w-[150px]">Audiobooks Bookmarked:</label>
+              <label for="audiobook-count" class="text-lg min-w-[150px]">Audiobooks Bookmarked:</label>
               <input
                 type="number"
                 id="audiobook-count"
@@ -329,7 +332,7 @@
 
             <!-- Total Time Listened -->
             <div class="flex items-center gap-1">
-              <label class="text-lg min-w-[150px]">Total Time Listened:</label>
+              <label for="total-time" class="text-lg min-w-[150px]">Total Time Listened:</label>
               <input
                 type="text"
                 id="total-time"
@@ -341,7 +344,7 @@
 
             <!-- Favorite Genres -->
             <div class="flex items-center gap-1">
-              <label class="text-lg min-w-[150px]">Favorite Genres:</label>
+              <label for="favorite-genres" class="text-lg min-w-[150px]">Favorite Genres:</label>
               <input
                 type="text"
                 id="favorite-genres"
@@ -382,9 +385,9 @@
       </button>
           <input type="file" id="profilePicInput" accept="image/*" style="display: none;" />
         </section>
-        <p id="update-msg" style="color: green; font-weight: bold; display: none; margin-top: 10px;">
+        <!-- <p id="update-msg" style="color: green; font-weight: bold; display: none; margin-top: 10px;">
         Profile picture updated!
-      </p>
+      </p> -->
 
       </div>
 
@@ -688,23 +691,11 @@
           document.getElementById("friends-list").appendChild(friendDiv);
       }
 
-      // Preview selected image
-      document.getElementById('profilePicInput').addEventListener('change', function (event) {
-        const file = event.target.files[0];
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = function (e) {
-            document.querySelector('.profile-section img').src = e.target.result;
-            // Show success message
-      const msg = document.getElementById("update-msg");
-      msg.style.display = "block";
-
-      // Hide the success msg  after 3 seconds
-      setTimeout(() => {
-        msg.style.display = "none";
-      }, 3000);
-    };
-          reader.readAsDataURL(file);
+      // Load avatar blob from IndexedDB if available
+      getImageFromIndexedDB("avatar").then((blob) => {
+        if (blob) {
+          const url = URL.createObjectURL(blob);
+          document.getElementById("profile-pic").src = url;
         }
       });
 
@@ -746,6 +737,16 @@
         saveProfileToLocalStorage();
       });
 
+      document.getElementById("save-btn").addEventListener("click", () => {
+        try {
+          saveProfileToLocalStorage();
+          showAlert("success", "Profile saved successfully!");
+        } catch (err) {
+          console.error("Save failed:", err);
+          showAlert("error", "Failed to save profile. Please try again.");
+        }
+      });
+
       // Function to save profile data to localStorage
       function saveProfileToLocalStorage() {
         const profileData = {
@@ -753,9 +754,30 @@
           audiobooks: inputs.audiobooks.value,
           totalTime: inputs.totalTime.value,
           genres: inputs.genres.value,
-          avatar: profileImg.src // include current profile picture
+          avatar: profileImg.src, // base64 may be big, handled below
         };
-        localStorage.setItem("profile", JSON.stringify(profileData));
+
+        try {
+          localStorage.setItem("profile", JSON.stringify(profileData));
+        } catch (e) {
+          if (e.name === "QuotaExceededError" || e.code === 22) {
+            console.error("localStorage quota exceeded:", e);
+
+            showAlert(
+              "error","Profile storage limit reached! Try using a smaller or compressed image." 
+              );
+
+            // fallback — store everything except image
+            const liteProfile = { ...profileData, avatar: null };
+            try {
+              localStorage.setItem("profile", JSON.stringify(liteProfile));
+            } catch (err) {
+              console.error("Failed to save even lightweight profile:", err);
+            }
+          } else {
+            console.error("Unexpected storage error:", e);
+          }
+        }
       }
 
       // Change profile picture
@@ -763,22 +785,163 @@
         profilePicInput.click();
       });
 
-      profilePicInput.addEventListener('change', (event) => {
+      profilePicInput.addEventListener("change", (event) => {
         const file = event.target.files[0];
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = function(e) {
-            profileImg.src = e.target.result; // update image
-            saveProfileToLocalStorage(); // save immediately to localStorage
+        if (!file) return;
 
-            // Show success message
-            const msg = document.getElementById("update-msg");
-            msg.style.display = "block";
-            setTimeout(() => { msg.style.display = "none"; }, 3000);
+        // Try to compress + save to IndexedDB
+        compressAndStoreImage(file).catch((err) => {
+          console.error("Compression/Save error:", err);
+          showAlert("error", "Could not save image, but preview will still show.");
+        });
+
+        // Always show preview immediately
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          profileImg.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+            // --- IndexedDB helper ---
+      const DB_NAME = "ProfileDB";
+      const STORE_NAME = "avatars";
+
+      function openDB() {
+        return new Promise((resolve, reject) => {
+          const request = indexedDB.open(DB_NAME, 1);
+          request.onupgradeneeded = (event) => {
+            const db = event.target.result;
+            if (!db.objectStoreNames.contains(STORE_NAME)) {
+              db.createObjectStore(STORE_NAME);
+            }
           };
-          reader.readAsDataURL(file);
+          request.onsuccess = () => resolve(request.result);
+          request.onerror = () => reject(request.error);
+        });
+      }
+
+      async function saveImageToIndexedDB(blob) {
+        const db = await openDB();
+        return new Promise((resolve, reject) => {
+          const tx = db.transaction(STORE_NAME, "readwrite");
+          const store = tx.objectStore(STORE_NAME);
+          const id = "avatar"; // only one profile image
+          const request = store.put(blob, id);
+          request.onsuccess = () => resolve(id);
+          request.onerror = () => reject(request.error);
+        });
+      }
+
+      async function getImageFromIndexedDB(id = "avatar") {
+        const db = await openDB();
+        return new Promise((resolve, reject) => {
+          const tx = db.transaction(STORE_NAME, "readonly");
+          const store = tx.objectStore(STORE_NAME);
+          const request = store.get(id);
+          request.onsuccess = () => resolve(request.result);
+          request.onerror = () => reject(request.error);
+        });
+      }
+
+      // --- Image Compression + Save Logic ---
+      function compressAndStoreImage(file) {
+        const profileImg = document.getElementById("profile-pic");
+
+        if (file.size > 5 * 1024 * 1024) {
+          showAlert("error", "Image must be smaller than 5MB!");
+          return;
+        }
+
+        const img = new Image();
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          img.src = e.target.result;
+        };
+
+        img.onload = async () => {
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
+
+          const MAX_WIDTH = 300;
+          const scale = MAX_WIDTH / img.width;
+          canvas.width = MAX_WIDTH;
+          canvas.height = img.height * scale;
+
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+          // Compress and convert to blob
+          canvas.toBlob(
+            async (blob) => {
+              try {
+                // save blob to IndexedDB
+                const id = await saveImageToIndexedDB(blob);
+                localStorage.setItem("avatarRef", id);
+
+                // only update profile pic now
+                profileImg.src = URL.createObjectURL(blob);
+                showAlert("success", "Profile picture saved successfully!");
+              } catch (err) {
+                console.error("Image save failed:", err);
+                showAlert("error", "Failed to save profile image. Try smaller one.");
+              }
+            },
+            "image/jpeg",
+            0.8
+          );
+        };
+
+        reader.readAsDataURL(file);
+      }
+
+
+      document.getElementById("profilePicInput").addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) compressAndStoreImage(file);
+      });
+
+      // Wrap the code that accesses DOM elements inside a DOMContentLoaded listener
+      document.addEventListener("DOMContentLoaded", async () => {
+        const ref = localStorage.getItem("avatarRef");
+        if (ref) {
+          const blob = await getImageFromIndexedDB(ref);
+          if (blob) {
+            document.getElementById("profile-pic").src = URL.createObjectURL(blob);
+          }
         }
       });
+
+      function showAlert(type, message) {
+        const container = document.getElementById("alert-container");
+        const alertDiv = document.createElement("div");
+
+        // Determine alert color
+        const bgClass = type === "error"
+          ? "bg-red-600"
+          : type === "success"
+          ? "bg-green-600"
+          : "bg-gray-600";
+
+        alertDiv.className = `custom-alert text-white px-4 py-3 rounded-lg shadow-lg ${bgClass}`;
+        alertDiv.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span>${message}</span>
+            <button class="ml-4 text-white hover:opacity-70" onclick="this.parentElement.parentElement.remove()">×</button>
+          </div>
+        `;
+
+        container.appendChild(alertDiv);
+
+        // trigger fade-in
+        setTimeout(() => alertDiv.classList.add("show"), 50);
+
+        // fade out and remove after 3s
+        setTimeout(() => {
+          alertDiv.classList.remove("show");
+          alertDiv.classList.add("hide");
+          setTimeout(() => alertDiv.remove(), 400);
+        }, 3000);
+      }
  </script>
 
   <!-- Bootstrap JS for responsiveness -->
