@@ -553,6 +553,46 @@
           }
       }
 
+      function buildFriendCard(friendData) {
+          const friendDiv = document.createElement("div");
+          friendDiv.className = "col-sm-4 mb-4";
+
+          const card = document.createElement("div");
+          card.className = "friend-card collapsed";
+
+          const avatar = document.createElement("img");
+          avatar.src = friendData.avatar_url || "";
+          avatar.alt = friendData.login || "GitHub user";
+          avatar.className = "card-img-top rounded-circle mx-auto";
+          avatar.style.width = "60px";
+          avatar.style.height = "60px";
+
+          const nameHeading = document.createElement("h5");
+          nameHeading.className = "card-title mt-3";
+          nameHeading.textContent = friendData.name || friendData.login || "GitHub User";
+
+          card.appendChild(avatar);
+          card.appendChild(nameHeading);
+          card.addEventListener("click", () => toggleFriendContent(card));
+
+          const friendContent = document.createElement("div");
+          friendContent.className = "friend-content";
+
+          const profileLink = document.createElement("a");
+          profileLink.href = friendData.html_url || "#";
+          profileLink.target = "_blank";
+          profileLink.rel = "noopener noreferrer";
+          profileLink.className = "btn btn-bd-primary btn-sm rounded-4 mt-2";
+          profileLink.textContent = "GitHub Profile";
+
+          friendContent.appendChild(profileLink);
+
+          friendDiv.appendChild(card);
+          friendDiv.appendChild(friendContent);
+
+          return friendDiv;
+      }
+
       // Add friend to the friend list
       async function addFriend() {
           const username = document.getElementById("search-github").value.trim();
@@ -562,29 +602,14 @@
                   if (response.ok) {
                       const data = await response.json();
 
-                      // Create a friend card
-                      const friendDiv = document.createElement("div");
-                      friendDiv.className = "col-sm-4 mb-4";
-                      friendDiv.innerHTML = `
-                          <div class="friend-card collapsed" onclick="toggleFriendContent(this)">
-                              <img src="${data.avatar_url}" class="card-img-top rounded-circle mx-auto" style="width: 60px; height: 60px" alt="${data.login}">
-                              <h5 class="card-title mt-3">${data.name || data.login}</h5>
-                          </div>
-                          <div class="friend-content">
-                              <a href="${data.html_url}" target="_blank" class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
-                          </div>
-                      `;
-                      
-                      // Append to the friend list
+                      const friendDiv = buildFriendCard(data);
                       document.getElementById("friends-list").appendChild(friendDiv);
 
-                      // Clear the search bar and hide it
                       document.getElementById("search-github").value = "";
                       const searchBarContainer = document.getElementById("search-bar-container");
                       searchBarContainer.classList.remove("expanded");
-                      setTimeout(() => searchBarContainer.style.display = "none", 300);
+                      setTimeout(() => (searchBarContainer.style.display = "none"), 300);
 
-                      // Save friend data in localStorage
                       const storedFriends = JSON.parse(localStorage.getItem("friends")) || [];
                       storedFriends.push(data);
                       localStorage.setItem("friends", JSON.stringify(storedFriends));
@@ -614,17 +639,7 @@
 
       // Function to render a friend's card
       function renderFriendCard(friendData) {
-          const friendDiv = document.createElement("div");
-          friendDiv.className = "col-sm-4 mb-4";
-          friendDiv.innerHTML = `
-              <div class="friend-card collapsed" onclick="toggleFriendContent(this)">
-                  <img src="${friendData.avatar_url}" class="card-img-top rounded-circle mx-auto" style="width: 60px; height: 60px" alt="${friendData.login}">
-                  <h5 class="card-title mt-3">${friendData.name || friendData.login}</h5>
-              </div>
-              <div class="friend-content">
-                  <a href="${friendData.html_url}" target="_blank" class="btn btn-bd-primary btn-sm rounded-4 mt-2">GitHub Profile</a>
-              </div>
-          `;
+          const friendDiv = buildFriendCard(friendData);
           document.getElementById("friends-list").appendChild(friendDiv);
       }
             // Trigger file input when button is clicked

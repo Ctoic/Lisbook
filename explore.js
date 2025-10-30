@@ -281,25 +281,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             });
-            
-            // Re-apply error handling to dynamically created images
-            const images = bookContainer.querySelectorAll('img');
-            images.forEach(img => {
-                if (!img.complete) {
-                    img.addEventListener('error', function() {
-                        console.warn(`Failed to load image: ${this.src}`);
-                        const placeholder = document.createElement('div');
-                        placeholder.className = 'image-placeholder';
-                        placeholder.innerHTML = `
-                            <div class="placeholder-content">
-                                <i class="bi bi-book" style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;"></i>
-                                <p style="font-size: 0.9rem; text-align: center; margin: 0;">${this.alt}</p>
-                            </div>
-                        `;
-                        this.parentNode.replaceChild(placeholder, this);
-                    });
-                }
-            });
         }
         
         // Update results count
@@ -374,87 +355,226 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const createPlaceholderElement = (text, { iconSize = '3rem', textSize = '0.9rem', iconMargin = '1rem' } = {}) => {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'image-placeholder';
+
+        const placeholderContent = document.createElement('div');
+        placeholderContent.className = 'placeholder-content';
+
+        const icon = document.createElement('i');
+        icon.className = 'bi bi-book';
+        icon.style.fontSize = iconSize;
+        icon.style.color = '#10b981';
+        icon.style.marginBottom = iconMargin;
+
+        const label = document.createElement('p');
+        label.style.fontSize = textSize;
+        label.style.textAlign = 'center';
+        label.style.margin = '0';
+        label.textContent = text || 'Audiobook';
+
+        placeholderContent.appendChild(icon);
+        placeholderContent.appendChild(label);
+        placeholder.appendChild(placeholderContent);
+
+        return placeholder;
+    };
+
+    const createImageWithFallback = (src, alt, placeholderOptions) => {
+        const img = document.createElement('img');
+        img.alt = alt || 'Audiobook cover';
+        img.loading = 'lazy';
+
+        img.style.width = '100%';
+        img.style.height = '100%';
+        img.style.objectFit = 'contain';
+        img.style.objectPosition = 'center';
+        img.style.display = 'block';
+
+        img.onerror = function () {
+            console.warn(`Failed to load image: ${src}`);
+            if (this.parentNode) {
+                const placeholder = createPlaceholderElement(alt, placeholderOptions);
+                this.parentNode.replaceChild(placeholder, this);
+            }
+        };
+
+        img.onload = function () {
+            this.style.display = 'block';
+        };
+
+        if (src) {
+            img.src = src;
+        } else {
+            // Trigger fallback immediately when no source provided
+            const placeholder = createPlaceholderElement(alt, placeholderOptions);
+            return placeholder;
+        }
+
+        return img;
+    };
+
     const createBookCard = (book) => {
         const card = document.createElement('div');
         card.className = 'card';
-        
-        // Create image element with error handling
-        const createImageWithFallback = (src, alt) => {
-            const img = document.createElement('img');
-            img.alt = alt;
-            img.loading = 'lazy';
-            
-            // Set proper image styles
-            img.style.width = '100%';
-            img.style.height = '100%';
-            img.style.objectFit = 'contain';
-            img.style.objectPosition = 'center';
-            img.style.display = 'block';
-            
-            // Handle image load error
-            img.onerror = function() {
-                console.warn(`Failed to load image: ${src}`);
-                // Create a placeholder with book title
-                this.style.display = 'none';
-                const placeholder = document.createElement('div');
-                placeholder.className = 'image-placeholder';
-                placeholder.innerHTML = `
-                    <div class="placeholder-content">
-                        <i class="bi bi-book" style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;"></i>
-                        <p style="font-size: 0.9rem; text-align: center; margin: 0;">${alt}</p>
-                    </div>
-                `;
-                this.parentNode.insertBefore(placeholder, this);
-            };
-            
-            img.onload = function() {
-                // Ensure image is properly displayed
-                this.style.display = 'block';
-            };
-            
-            img.src = src;
-            return img;
+
+        const cardInner = document.createElement('div');
+        cardInner.className = 'card-inner';
+        if (book.id) {
+            cardInner.dataset.bookId = book.id;
+        }
+
+        const cardFront = document.createElement('div');
+        cardFront.className = 'card-front';
+
+        const imageContainer = document.createElement('div');
+        imageContainer.className = 'image-container';
+        const coverElement = createImageWithFallback(book.cover, book.title);
+        imageContainer.appendChild(coverElement);
+
+        const bookInfo = document.createElement('div');
+        bookInfo.className = 'book-info';
+
+        const titleElement = document.createElement('h3');
+        titleElement.className = 'book-title';
+        titleElement.textContent = book.title || 'Untitled audiobook';
+
+        const authorElement = document.createElement('p');
+        authorElement.className = 'book-author';
+        authorElement.textContent = book.author ? `by ${book.author}` : 'Author unknown';
+
+        const genreElement = document.createElement('span');
+        genreElement.className = 'book-genre';
+        genreElement.textContent = book.genre || 'Unknown';
+
+        bookInfo.appendChild(titleElement);
+        bookInfo.appendChild(authorElement);
+        bookInfo.appendChild(genreElement);
+
+        if (book.duration) {
+            const durationElement = document.createElement('div');
+            durationElement.className = 'book-duration';
+
+            const durationIcon = document.createElement('i');
+            durationIcon.className = 'bi bi-clock';
+
+            durationElement.appendChild(durationIcon);
+            durationElement.appendChild(document.createTextNode(` ${book.duration}h`));
+            bookInfo.appendChild(durationElement);
+        }
+
+        cardFront.appendChild(imageContainer);
+        cardFront.appendChild(bookInfo);
+
+        const cardBack = document.createElement('div');
+        cardBack.className = 'card-back';
+
+        const descriptionContainer = document.createElement('div');
+        descriptionContainer.className = 'book-description';
+
+        const backTitle = document.createElement('h4');
+        backTitle.textContent = book.title || 'Untitled audiobook';
+
+        const authorName = document.createElement('p');
+        authorName.className = 'author-name';
+        authorName.textContent = book.author ? `by ${book.author}` : 'Author unknown';
+
+        const descriptionText = document.createElement('p');
+        descriptionText.className = 'description-text';
+        descriptionText.textContent = book.description || 'No description available.';
+
+        const metaContainer = document.createElement('div');
+        metaContainer.className = 'book-meta';
+
+        if (book.duration) {
+            const durationMeta = document.createElement('span');
+            durationMeta.className = 'meta-item';
+
+            const durationMetaIcon = document.createElement('i');
+            durationMetaIcon.className = 'bi bi-clock';
+
+            durationMeta.appendChild(durationMetaIcon);
+            durationMeta.appendChild(document.createTextNode(` ${book.duration}h`));
+            metaContainer.appendChild(durationMeta);
+        }
+
+        if (book.rating) {
+            const ratingMeta = document.createElement('span');
+            ratingMeta.className = 'meta-item';
+
+            const ratingIcon = document.createElement('i');
+            ratingIcon.className = 'bi bi-star-fill';
+
+            ratingMeta.appendChild(ratingIcon);
+            ratingMeta.appendChild(document.createTextNode(` ${book.rating}`));
+            metaContainer.appendChild(ratingMeta);
+        }
+
+        if (book.narrator) {
+            const narratorMeta = document.createElement('span');
+            narratorMeta.className = 'meta-item';
+
+            const narratorIcon = document.createElement('i');
+            narratorIcon.className = 'bi bi-mic';
+
+            narratorMeta.appendChild(narratorIcon);
+            narratorMeta.appendChild(document.createTextNode(` ${book.narrator}`));
+            metaContainer.appendChild(narratorMeta);
+        }
+
+        const actionsContainer = document.createElement('div');
+        actionsContainer.className = 'book-actions';
+
+        const createActionButton = (className, iconClass, text, handler) => {
+            const button = document.createElement('button');
+            button.className = className;
+            button.type = 'button';
+            if (typeof handler === 'function') {
+                button.addEventListener('click', handler);
+            }
+
+            const icon = document.createElement('i');
+            icon.className = iconClass;
+
+            button.appendChild(icon);
+            button.appendChild(document.createTextNode(` ${text}`));
+            return button;
         };
-        
-        card.innerHTML = `
-            <div class="card-inner" data-book-id="${book.id}">
-                <div class="card-front">
-                    <div class="image-container">
-                        ${createImageWithFallback(book.cover, book.title).outerHTML}
-                    </div>
-                    <div class="book-info">
-                        <h3 class="book-title">${book.title}</h3>
-                        <p class="book-author">by ${book.author}</p>
-                        <span class="book-genre">${book.genre || 'Unknown'}</span>
-                        ${book.duration ? `<div class="book-duration"><i class="bi bi-clock"></i> ${book.duration}h</div>` : ''}
-                    </div>
-                </div>
-                <div class="card-back">
-                    <div class="book-description">
-                        <h4>${book.title}</h4>
-                        <p class="author-name">by ${book.author}</p>
-                        <p class="description-text">${book.description || 'No description available.'}</p>
-                        <div class="book-meta">
-                            ${book.duration ? `<span class="meta-item"><i class="bi bi-clock"></i> ${book.duration}h</span>` : ''}
-                            ${book.rating ? `<span class="meta-item"><i class="bi bi-star-fill"></i> ${book.rating}</span>` : ''}
-                            ${book.narrator ? `<span class="meta-item"><i class="bi bi-mic"></i> ${book.narrator}</span>` : ''}
-                        </div>
-                        <div class="book-actions">
-                            <button class="btn-read" onclick="readBook('${book.id}')">
-                                <i class="bi bi-book-open"></i> Read
-                            </button>
-                            <button class="btn-listen" onclick="listenBook('${book.id}')">
-                                <i class="bi bi-headphones"></i> Listen
-                            </button>
-                            <button class="btn-share" data-book-id="${book.id}">
-                                <i class="bi bi-share"></i> Share
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-        
+
+        const readButton = createActionButton(
+            'btn-read',
+            'bi bi-book-open',
+            'Read',
+            book.id ? () => readBook(book.id) : undefined
+        );
+        const listenButton = createActionButton(
+            'btn-listen',
+            'bi bi-headphones',
+            'Listen',
+            book.id ? () => listenBook(book.id) : undefined
+        );
+        const shareButton = createActionButton('btn-share', 'bi bi-share', 'Share');
+        if (book.id) {
+            shareButton.dataset.bookId = book.id;
+        }
+
+        actionsContainer.appendChild(readButton);
+        actionsContainer.appendChild(listenButton);
+        actionsContainer.appendChild(shareButton);
+
+        descriptionContainer.appendChild(backTitle);
+        descriptionContainer.appendChild(authorName);
+        descriptionContainer.appendChild(descriptionText);
+        descriptionContainer.appendChild(metaContainer);
+        descriptionContainer.appendChild(actionsContainer);
+
+        cardBack.appendChild(descriptionContainer);
+
+        cardInner.appendChild(cardFront);
+        cardInner.appendChild(cardBack);
+        card.appendChild(cardInner);
+
         return card;
     };
 
@@ -512,25 +632,32 @@ document.addEventListener('DOMContentLoaded', () => {
         recommendations.forEach(book => {
             const recCard = document.createElement('div');
             recCard.className = 'recommendation-card';
-            recCard.innerHTML = `
-                <img src="${book.cover}" alt="${book.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="image-placeholder" style="display: none;">
-                    <div class="placeholder-content">
-                        <i class="bi bi-book" style="font-size: 2rem; color: #10b981; margin-bottom: 0.5rem;"></i>
-                        <p style="font-size: 0.7rem; text-align: center; margin: 0;">${book.title}</p>
-                    </div>
-                </div>
-                <h4>${book.title}</h4>
-                <p>by ${book.author}</p>
-            `;
+
+            const imageWrapper = document.createElement('div');
+            imageWrapper.className = 'recommendation-image';
+
+            const recommendationImage = createImageWithFallback(
+                book.cover,
+                book.title,
+                { iconSize: '2rem', textSize: '0.7rem', iconMargin: '0.5rem' }
+            );
+
+            imageWrapper.appendChild(recommendationImage);
+            recCard.appendChild(imageWrapper);
+
+            const titleElement = document.createElement('h4');
+            titleElement.textContent = book.title || 'Untitled audiobook';
+
+            const authorElement = document.createElement('p');
+            authorElement.textContent = book.author ? `by ${book.author}` : 'Author unknown';
+
+            recCard.appendChild(titleElement);
+            recCard.appendChild(authorElement);
             
-            // Add click handler to navigate to book details
             recCard.addEventListener('click', () => {
-                // Scroll to the book in the main grid
                 const bookElement = document.querySelector(`[data-book-id="${book.id}"]`);
                 if (bookElement) {
                     bookElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    // Add a highlight effect
                     bookElement.style.animation = 'pulse 2s ease-in-out';
                     setTimeout(() => {
                         bookElement.style.animation = '';
