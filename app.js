@@ -71,30 +71,50 @@ document.addEventListener("DOMContentLoaded", function () {
   const commentForm = document.getElementById("comment-form");
   const commentsList = document.getElementById("comments-list");
 
-  commentForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+  if (commentForm && commentsList) {
+    commentForm.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    const username = document.getElementById("username").value;
-    const commentText = document.getElementById("comment").value;
+      const usernameInput = document.getElementById("username");
+      const commentInput = document.getElementById("comment");
 
-    if (username && commentText) {
-      const commentElement = document.createElement("div");
-      commentElement.classList.add("comment");
-      commentElement.innerHTML = `<strong>${username}:</strong><p>${commentText}</p>`;
-      commentsList.appendChild(commentElement);
+      if (!usernameInput || !commentInput) return;
 
-      // Clear the form
-      commentForm.reset();
-    }
-  });
+      const username = usernameInput.value.trim();
+      const commentText = commentInput.value.trim();
+
+      if (username && commentText) {
+        const commentElement = document.createElement("div");
+        commentElement.classList.add("comment");
+
+        const usernameElement = document.createElement("strong");
+        usernameElement.textContent = `${username}:`;
+
+        const textElement = document.createElement("p");
+        textElement.textContent = commentText;
+
+        commentElement.appendChild(usernameElement);
+        commentElement.appendChild(textElement);
+
+        commentsList.appendChild(commentElement);
+
+        // Clear the form
+        commentForm.reset();
+      }
+    });
+  }
 
   // Page navigation buttons functionality
   const prevBtn = document.getElementById("prev-btn");
   const nextBtn = document.getElementById("next-btn");
 
   // Define the pages for navigation
-  const pages = ["index.html", "genres.html", "about.html"];
-  let currentPageIndex = pages.indexOf(window.location.pathname);
+  const pages = ["index.html", "explore.html", "about.html"];
+  const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  let currentPageIndex = pages.indexOf(currentPath);
+  if (currentPageIndex === -1) {
+    currentPageIndex = 0;
+  }
 
   // Function to navigate to the next page
   function nextPage() {
