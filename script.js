@@ -484,10 +484,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // --- Cursor Smooth Animation ---
-    const circles = document.querySelectorAll(".circle");
-    const logo = document.querySelector(".logo");
-    const coords = { x: 0, y: 0 };
-    
+    // If .circle elements exist (legacy), keep them working. Otherwise, render with a single canvas for perf.
+    const circles = document.querySelectorAll('.circle');
+    const useLegacyDomCursor = circles && circles.length > 0;
+    const logo = document.querySelector('.logo');
+    const coords = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+
     if (logo) {
         const logoRect = logo.getBoundingClientRect();
         coords.x = logoRect.left + logoRect.width / 2;
@@ -495,48 +497,122 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const colors = [
-        "#a7e078", "#9dd36c", "#94c760", "#8abc55", "#80b14b", "#76a640", 
-        "#6cbf58", "#62a24d", "#579643", "#4e8a3b", "#458132", "#3b752a", 
-        "#336824", "#2c9137", "#23802c", "#1f7628", "#1b6c25", "#121212", 
-        "#0f0f0f", "#2b2b2b", "#1e1e1e", "#1a1a1a",
+        '#a7e078', '#9dd36c', '#94c760', '#8abc55', '#80b14b', '#76a640',
+        '#6cbf58', '#62a24d', '#579643', '#4e8a3b', '#458132', '#3b752a',
+        '#336824', '#2c9137', '#23802c', '#1f7628', '#1b6c25', '#121212',
+        '#0f0f0f', '#2b2b2b', '#1e1e1e', '#1a1a1a',
     ];
 
-    circles.forEach((circle, index) => {
-        circle.style.backgroundColor = colors[index % colors.length];
-        circle.x = 0;
-        circle.y = 0;
-    });
-
-    document.addEventListener("mousemove", function (e) {
+    document.addEventListener('mousemove', (e) => {
         coords.x = e.clientX;
         coords.y = e.clientY;
     });
+    document.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches[0]) {
+            coords.x = e.touches[0].clientX;
+            coords.y = e.touches[0].clientY;
+        }
+    }, { passive: true });
 
-    function animateCircles() {
-        let x = coords.x;
-        let y = coords.y;
-
+    if (useLegacyDomCursor) {
         circles.forEach((circle, index) => {
-            circle.style.left = `${x - 12}px`;
-            circle.style.top = `${y - 12}px`;
-
-            circle.style.transform = `scale(${
-                (circles.length - index) / circles.length
-            })`;
-
-            const nextCircle = circles[index + 1] || circles[0];
-            x += (nextCircle.x - x) * 0.2;
-            y += (nextCircle.y - y) * 0.2;
-
-            circle.x = x;
-            circle.y = y;
+            circle.style.backgroundColor = colors[index % colors.length];
+            circle.x = 0;
+            circle.y = 0;
         });
 
-        requestAnimationFrame(animateCircles);
-    }
+        function animateCircles() {
+            let x = coords.x;
+            let y = coords.y;
 
-    if (circles.length > 0) {
+            circles.forEach((circle, index) => {
+                circle.style.left = `${x - 12}px`;
+                circle.style.top = `${y - 12}px`;
+
+                circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+
+                const nextCircle = circles[index + 1] || circles[0];
+                x += (nextCircle.x - x) * 0.2;
+                y += (nextCircle.y - y) * 0.2;
+
+                circle.x = x;
+                circle.y = y;
+            });
+
+            requestAnimationFrame(animateCircles);
+        }
+
         animateCircles();
+    } else {
+        // Canvas-based cursor trail with 1 element for perf
+        const canvas = document.createElement('canvas');
+        canvas.id = 'cursor-canvas';
+        Object.assign(canvas.style, {
+            position: 'fixed',
+            left: '0',
+            top: '0',
+            width: '100vw',
+            height: '100vh',
+            pointerEvents: 'none',
+            zIndex: '9999',
+        });
+        document.body.appendChild(canvas);
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            const dpr = window.devicePixelRatio || 1;
+            const rect = { w: window.innerWidth, h: window.innerHeight };
+            canvas.width = Math.floor(rect.w * dpr);
+            canvas.height = Math.floor(rect.h * dpr);
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // trail points (simulate 22 circles positions for similar look, computed not DOM)
+        const trailCount = 22;
+        const points = Array.from({ length: trailCount }, () => ({ x: coords.x, y: coords.y }));
+
+        // hover expand/shrink effect on links and buttons
+        let hoverScale = 1;
+        let targetScale = 1;
+        document.addEventListener('mousemove', (e) => {
+            const el = e.target instanceof Element ? e.target : null;
+            const hoverEl = el ? el.closest('a, button') : null;
+            targetScale = hoverEl ? 1.8 : 1; // expand on hover
+        });
+
+        function step() {
+            // ease head toward cursor for a slight, natural delay
+            points[0].x += (coords.x - points[0].x) * 0.1;
+            points[0].y += (coords.y - points[0].y) * 0.1;
+            // followers ease toward the previous point
+            for (let i = 1; i < points.length; i++) {
+                points[i].x += (points[i - 1].x - points[i].x) * 0.7;
+                points[i].y += (points[i - 1].y - points[i].y) * 0.7;
+            }
+
+            // tween hover scale
+            hoverScale += (targetScale - hoverScale) * 0.15;
+
+            // draw
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < points.length; i++) {
+                const t = (points.length - i) / points.length; // 1..small
+                const size = 12 * t * hoverScale; // base radius similar to CSS 24px/2
+                ctx.beginPath();
+                ctx.arc(points[i].x, points[i].y, size, 0, Math.PI * 2);
+                ctx.fillStyle = colors[i % colors.length];
+                ctx.globalAlpha = 0.5;
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1;
+
+            requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+
+        // Respect body cursor none rule; canvas handles visibility
     }
     // --- End Cursor Smooth Animation ---
 
