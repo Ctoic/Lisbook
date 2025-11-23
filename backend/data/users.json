@@ -1,0 +1,9 @@
+[
+    {
+        "id": "1",
+        "username": "admin",
+        "password": "adminpassword",
+        "role": "admin",
+        "email": "admin@lisbook.com"
+    }
+]

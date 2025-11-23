@@ -1,56 +1,136 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from typing import List, Optional
-import json
-import os
 from pydantic import BaseModel
+from sqlalchemy.orm import Session
+from backend.core.database import get_db
+from backend.models.models import Book as BookModel, Chapter as ChapterModel
 
-router = APIRouter()
-
-# Define Pydantic models for response
-class Chapter(BaseModel):
-    id: str
+# Define Pydantic models
+class ChapterBase(BaseModel):
     index: int
     title: str
     audio_file: str
 
-class Book(BaseModel):
+class ChapterCreate(ChapterBase):
     id: str
+
+class Chapter(ChapterBase):
+    id: str
+    book_id: str
+
+    class Config:
+        orm_mode = True
+
+class BookBase(BaseModel):
     title: str
     author: str
     cover: str
     genre: str
     description: str
+
+class BookCreate(BookBase):
+    chapters: List[ChapterCreate] = []
+
+class BookUpdate(BaseModel):
+    title: Optional[str] = None
+    author: Optional[str] = None
+    cover: Optional[str] = None
+    genre: Optional[str] = None
+    description: Optional[str] = None
+    chapters: Optional[List[ChapterCreate]] = None
+
+class Book(BookBase):
+    id: str
     chapters: List[Chapter]
 
-# Helper to load books
-def load_books():
-    file_path = os.path.join(os.path.dirname(__file__), "../../data/books.json")
-    with open(file_path, "r") as f:
-        return json.load(f)
+    class Config:
+        orm_mode = True
 
-@router.get("/", response_model=List[Book])
-def get_books():
+router = APIRouter()
+
+@router.get("", response_model=List[Book])
+def get_books(db: Session = Depends(get_db)):
     """
     Retrieve all books.
     """
-    try:
-        books = load_books()
-        return books
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    return db.query(BookModel).all()
 
 @router.get("/{book_id}", response_model=Book)
-def get_book(book_id: str):
+async def get_book(book_id: str, db: Session = Depends(get_db)):
     """
     Retrieve a specific book by ID.
     """
-    try:
-        books = load_books()
-        book = next((b for b in books if b["id"] == book_id), None)
-        if book:
-            return book
+    book = db.query(BookModel).filter(BookModel.id == book_id).first()
+    if book:
+        return book
+    raise HTTPException(status_code=404, detail="Book not found")
+
+@router.post("", response_model=Book)
+async def create_book(book: BookCreate, db: Session = Depends(get_db)):
+    """
+    Create a new book.
+    """
+    # Simple ID generation (in real app use UUID or auto-increment)
+    import uuid
+    new_book_id = str(uuid.uuid4())
+    
+    db_book = BookModel(
+        id=new_book_id,
+        title=book.title,
+        author=book.author,
+        cover=book.cover,
+        genre=book.genre,
+        description=book.description
+    )
+    db.add(db_book)
+    
+    for chapter_data in book.chapters:
+        db_chapter = ChapterModel(
+            id=chapter_data.id,
+            book_id=new_book_id,
+            index=chapter_data.index,
+            title=chapter_data.title,
+            audio_file=chapter_data.audio_file
+        )
+        db.add(db_chapter)
+        
+    db.commit()
+    db.refresh(db_book)
+    return db_book
+
+@router.put("/{book_id}", response_model=Book)
+async def update_book(book_id: str, book_update: BookUpdate, db: Session = Depends(get_db)):
+    """
+    Update an existing book by ID.
+    """
+    db_book = db.query(BookModel).filter(BookModel.id == book_id).first()
+    if not db_book:
         raise HTTPException(status_code=404, detail="Book not found")
-    except HTTPException as he:
-        raise he
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    
+    update_data = book_update.dict(exclude_unset=True)
+    
+    # Handle chapters separately if needed, for now just update basic fields
+    if "chapters" in update_data:
+        # Logic to update chapters would go here (complex due to relationships)
+        # For simplicity, we'll skip chapter updates in this basic implementation
+        del update_data["chapters"]
+        
+    for key, value in update_data.items():
+        setattr(db_book, key, value)
+        
+    db.commit()
+    db.refresh(db_book)
+    return db_book
+
+@router.delete("/{book_id}")
+async def delete_book(book_id: str, db: Session = Depends(get_db)):
+    """
+    Delete a book by ID.
+    """
+    db_book = db.query(BookModel).filter(BookModel.id == book_id).first()
+    if not db_book:
+        raise HTTPException(status_code=404, detail="Book not found")
+        
+    db.delete(db_book)
+    db.commit()
+    return {"message": "Book deleted successfully"}
