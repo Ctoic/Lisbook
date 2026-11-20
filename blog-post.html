@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- fontawesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="Images/favicon.jpg" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <script type="text/javascript" data-cmp-ab="1"
+    src="https://cdn.consentmanager.net/delivery/autoblocking/1dae96c2c2031.js"
+    data-cmp-host="a.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="16">
+  </script>
+  <title>Blog Post - Lisbook</title>
+</head>
+
+<body class="bg-gray-900 text-gray-300 d-flex flex-column min-vh-100">
+  <script>
+    // Initialize theme with fallback (no localStorage dependency)
+    (function() {
+      try {
+        const saved = localStorage.getItem('theme');
+        const theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        if (document.body) {
+          document.body.classList.remove('light-theme', 'dark-theme');
+          document.body.classList.add(theme + '-theme');
+        }
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if (document.body) {
+          document.body.classList.add('dark-theme');
+        }
+      }
+    })();
+  </script>
+
+  <!-- Dynamic Navbar Placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Main Content -->
+  <main class="container my-5 max-w-3xl">
+    <a href="blog.html" class="text-green-500 hover:text-green-400">&larr; Back to Blog</a>
+
+    <article id="post" class="mt-4">
+      <p id="post-missing" class="hidden">Sorry, that post could not be found.</p>
+      <h1 id="post-title" class="text-3xl font-bold text-white mb-2"></h1>
+      <p id="post-meta" class="text-sm text-gray-400 mb-6"></p>
+      <div id="post-body" class="leading-relaxed"></div>
+    </article>
+  </main>
+
+  <!-- Dynamic Footer Placeholder -->
+  <div id="footer-placeholder" class="mt-auto"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="marked.min.js"></script>
+  <script src="data/blog-posts.js"></script>
+  <script src="dynamic-components.js"></script>
+  <script>
+    // Shows the post whose id matches ?id= in the URL.
+    (function () {
+      const id = new URLSearchParams(window.location.search).get("id");
+      const post = (window.BLOG_POSTS || []).find(function (p) { return p.id === id; });
+
+      if (!post) {
+        document.getElementById("post-missing").classList.remove("hidden");
+        return;
+      }
+
+      document.title = post.title + " - Lisbook";
+      document.getElementById("post-title").textContent = post.title;
+      document.getElementById("post-meta").textContent = post.date + " · " + post.author;
+      // Post content comes from data/blog-posts.js, which is maintained in this repo.
+      document.getElementById("post-body").innerHTML = marked.parse(post.content);
+    })();
+  </script>
+</body>
+</html>
