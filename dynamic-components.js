@@ -56,6 +56,7 @@ function loadNavbar() {
       <a href="./scan.html" class="nav-link">Scan Book</a>
       <a href="./about.html" class="nav-link" id="about">About</a>
       <a href="./contact.html" class="nav-link">Contact</a>
+      <a href="./blog.html" class="nav-link">Blog</a>
       <a href="./faq.html" class="nav-link">FAQs</a>
 
       <!-- Theme Toggle -->
